@@ -19,7 +19,8 @@
   --glass:rgba(255,255,255,.55);
   --glass-edge:rgba(255,255,255,.75);
 
-  /* type — one family, weight does the talking */
+  /* type — neo-grotesk display/body + mono for technical micro-labels */
+  --sans:"Switzer","Inter","Helvetica Neue",system-ui,sans-serif;
   --mono:"Geist Mono",ui-monospace,"SF Mono","Cascadia Mono",monospace;
 
   /* grid */
@@ -38,11 +39,31 @@
 html{scroll-behavior:auto}
 html,body{
   background:var(--bg);color:var(--txt);
-  font-family:var(--mono);font-weight:400;
+  font-family:var(--sans);font-weight:400;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
 }
 body{min-height:100vh;overflow-x:clip}
+
+/* keep Geist Mono only on technical micro-labels (the "instrument" accent) */
+.eyebrow,.hero-eyebrow,.hero-lockup,
+.wordmark,.wordmark .tag,.index-link,
+.readout,.hint,.chaprail,
+.pre-word,.pre-count,
+.menu .m-head,.menu .m-label,.menu .n,.menu .sub,.menu .m-foot,
+.page-meta,
+.mq-head,
+.disc-row .n,.disc-row .meta,.disc-row .go,.disc-row .t .sub,
+.pkg-n,.pkg .period,.pkg .deliv,.pkg .price,
+.steps .step-n,
+.case-head .c-n,.case-head .c-disc,.case-head .c-status,.case-acts .act h4,.case-specs,
+.plate-body .tag,.plate-visual .pv-cap,.plate-visual .pv-status,
+.btn,.xlink,
+.field label,.submit-row .note,.form-status code,
+.sf-h,.sf-base,.outro-meta,.outro-btn,
+.works-foot{
+  font-family:var(--mono);
+}
 ::selection{background:var(--blue);color:#fff}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
