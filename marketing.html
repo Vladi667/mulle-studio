@@ -82,26 +82,27 @@
 <section class="section engine" aria-label="How it works">
   <div class="eyebrow" data-reveal><span class="hr" aria-hidden="true"></span><span>How it works</span></div>
   <h2 data-reveal>Two ads a month won't move an <em>algorithm.</em></h2>
-  <div class="eng-wrap" data-reveal>
-    <svg class="eng-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle class="eng-ring" cx="200" cy="200" r="110"/>
-      <g class="eng-node"><circle class="eng-dot" cx="200" cy="90" r="6"/><text class="eng-label" x="200" y="58" text-anchor="middle">Generate</text></g>
-      <g class="eng-node"><circle class="eng-dot" cx="310" cy="200" r="6"/><text class="eng-label" x="322" y="205" text-anchor="start">Test</text></g>
-      <g class="eng-node"><circle class="eng-dot" cx="200" cy="310" r="6"/><text class="eng-label" x="200" y="352" text-anchor="middle">Learn</text></g>
-      <g class="eng-node"><circle class="eng-dot" cx="90" cy="200" r="6"/><text class="eng-label" x="78" y="205" text-anchor="end">Compound</text></g>
-      <g class="eng-sweep">
-        <circle class="eng-halo" cx="200" cy="90" r="16" opacity="0.16"/>
-        <circle class="eng-comet" cx="200" cy="90" r="9"/>
-        <circle class="eng-comet" cx="175" cy="93" r="6" opacity="0.5"/>
-        <circle class="eng-comet" cx="152" cy="101" r="4" opacity="0.28"/>
-        <circle class="eng-comet" cx="129" cy="116" r="3" opacity="0.15"/>
-      </g>
+  <div class="eng-loop" data-reveal>
+    <div class="eng-steps">
+      <span class="eng-label">Generate</span>
+      <span class="eng-label">Test</span>
+      <span class="eng-label">Learn</span>
+      <span class="eng-label">Compound</span>
+    </div>
+    <svg class="eng-svg" viewBox="0 0 1000 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path class="eng-base"      d="M125,30 H875 C935,30 935,130 875,130 H125 C65,130 65,30 125,30 Z"/>
+      <path class="eng-flow-soft" d="M125,30 H875 C935,30 935,130 875,130 H125 C65,130 65,30 125,30 Z"/>
+      <path class="eng-flow"      d="M125,30 H875 C935,30 935,130 875,130 H125 C65,130 65,30 125,30 Z"/>
+      <circle class="eng-dot" cx="125" cy="30" r="6"/>
+      <circle class="eng-dot" cx="375" cy="30" r="6"/>
+      <circle class="eng-dot" cx="625" cy="30" r="6"/>
+      <circle class="eng-dot" cx="875" cy="30" r="6"/>
     </svg>
-    <div class="eng-center">
-      <div class="eng-step"><b>Generate</b><span>So we generate <em>dozens</em> — on brand, on demand.</span></div>
-      <div class="eng-step"><b>Test</b><span>Test every one across Meta and Google. <em>Live.</em></span></div>
-      <div class="eng-step"><b>Learn</b><span>The data keeps the <em>winners.</em></span></div>
-      <div class="eng-step"><b>Compound</b><span>Feed the next batch. <em>Repeat.</em></span></div>
+    <div class="eng-caps">
+      <p class="eng-cap">So we generate <em>dozens</em> — on brand, on demand.</p>
+      <p class="eng-cap">Test every one across Meta and Google. <em>Live.</em></p>
+      <p class="eng-cap">The data keeps the <em>winners.</em></p>
+      <p class="eng-cap">Feed the next batch. <em>Repeat.</em></p>
     </div>
   </div>
 </section>

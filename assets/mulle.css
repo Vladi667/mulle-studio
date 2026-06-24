@@ -528,7 +528,7 @@ section{position:relative}
 .pricing-foot b{color:var(--txt);font-weight:500}
 
 /* MARKETING — cinematic hero aura (drifting mercury) */
-.hero-cine{overflow:hidden}
+.hero-cine{overflow:hidden;padding-top:clamp(100px,15vh,170px);padding-bottom:clamp(40px,7vh,70px)}
 .hero-cine > *:not(.hero-aura){position:relative;z-index:1}
 .hero-aura{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero-aura b{position:absolute;display:block;border-radius:50%;filter:blur(64px);opacity:.45;mix-blend-mode:multiply;will-change:transform}
@@ -539,19 +539,19 @@ section{position:relative}
 @keyframes auraB{to{transform:translate(-6vw,4vw) scale(1.12)}}
 @keyframes auraC{to{transform:translate(5vw,-6vw) scale(1.2)}}
 
-/* MARKETING — self-playing engine */
-.engine{text-align:center}
-.eng-wrap{position:relative;margin:clamp(30px,6vh,64px) auto 0;width:min(74vmin,480px)}
+/* MARKETING — self-playing engine (horizontal flowing loop) */
+.engine{text-align:center;padding-top:clamp(40px,6.5vh,80px);padding-bottom:clamp(40px,6.5vh,80px)}
+.eng-loop{margin:clamp(24px,4vh,42px) auto 0;width:min(92vw,760px)}
+.eng-steps{display:flex;margin-bottom:14px}
+.eng-steps .eng-label{flex:1;text-align:center;font-family:var(--mono);font-size:clamp(11px,1.1vw,14px);letter-spacing:.12em;text-transform:uppercase;color:var(--txt-40);opacity:.4}
 .eng-svg{width:100%;height:auto;overflow:visible;display:block}
-.eng-ring{fill:none;stroke:var(--hairline-2);stroke-width:1.5}
+.eng-base{fill:none;stroke:var(--hairline-2);stroke-width:1.5}
+.eng-flow-soft{fill:none;stroke:var(--blue);stroke-width:8;stroke-linecap:round;opacity:.22;filter:blur(4px)}
+.eng-flow{fill:none;stroke:var(--blue);stroke-width:3;stroke-linecap:round}
 .eng-dot{fill:var(--chrome-2)}
-.eng-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;fill:var(--txt-40);text-transform:uppercase}
-.eng-comet,.eng-halo{fill:var(--blue)}
-.eng-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
-.eng-step{position:absolute;max-width:46%;text-align:center;opacity:0}
-.eng-step b{display:block;font-size:clamp(20px,2.6vw,30px);font-weight:300;letter-spacing:-.02em;color:var(--txt)}
-.eng-step span{display:block;margin-top:7px;font-size:11.5px;line-height:1.5;color:var(--txt-55)}
-.eng-step span em{font-style:normal;color:var(--blue)}
+.eng-caps{position:relative;height:3.4em;margin-top:clamp(12px,2vh,20px)}
+.eng-cap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(15px,1.5vw,20px);font-weight:300;letter-spacing:-.01em;color:var(--txt);opacity:0}
+.eng-cap em{font-style:normal;color:var(--blue)}
 @media (prefers-reduced-motion:reduce){ .hero-aura b{animation:none} }
 
 /* STEPS */
