@@ -327,36 +327,40 @@ if(mlines.length){
   });
 }
 
-/* ── marketing: kinetic keynote — big words rise in, advance through all steps ── */
+/* ── marketing: kinetic keynote — hook intro, then steps rise through in turn ── */
 (function(){
   var kn = document.querySelector('.keynote');
   if(!kn || typeof gsap === 'undefined') return;
   var slides = gsap.utils.toArray(kn.querySelectorAll('.kn-slide'));
   var ticks  = gsap.utils.toArray(kn.querySelectorAll('.kn-tick'));
   if(!slides.length) return;
+  var SEL = '.kn-num,.kn-word,.kn-line,.kn-hook';
   var DIM = 'rgba(29,29,31,.18)', ON = '#0071E3';
-  slides.forEach(function(s){ gsap.set(s.querySelectorAll('.kn-num,.kn-word,.kn-line'), { yPercent:110 }); });
-  gsap.set(ticks, { backgroundColor:DIM });
   if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    gsap.set(slides[0].querySelectorAll('.kn-num,.kn-word,.kn-line'), { yPercent:0 });
-    if(ticks[0]){ gsap.set(ticks[0], { backgroundColor:ON }); }
+    gsap.set(kn.querySelectorAll(SEL), { yPercent:0 });
+    slides.forEach(function(s){ s.style.position='relative'; s.style.marginBottom='26px'; });
+    var st = kn.querySelector('.kn-stage'); if(st){ st.style.height='auto'; }
+    gsap.set(ticks, { backgroundColor:ON });
     return;
   }
-  var SL = 3.6;
+  slides.forEach(function(s){ gsap.set(s.querySelectorAll(SEL), { yPercent:110 }); });
+  gsap.set(ticks, { backgroundColor:DIM });
+  var SL = 4.2;
   var tl = gsap.timeline({ repeat:-1, paused:true });
   slides.forEach(function(s, i){
-    var parts = s.querySelectorAll('.kn-num,.kn-word,.kn-line');
+    var parts = s.querySelectorAll(SEL);
     var t = i * SL;
-    tl.fromTo(parts, { yPercent:110 }, { yPercent:0, duration:.78, ease:'power3.out', stagger:.07 }, t);
-    tl.to(parts, { yPercent:-110, duration:.6, ease:'power3.in', stagger:.05 }, t + SL - 0.65);
-    if(ticks[i]){
-      tl.to(ticks[i], { backgroundColor:ON, duration:.3 }, t)
-        .to(ticks[i], { backgroundColor:DIM, duration:.35 }, t + SL - 0.35);
+    tl.fromTo(parts, { yPercent:110 }, { yPercent:0, duration:.82, ease:'power3.out', stagger:.07 }, t);
+    tl.to(parts, { yPercent:-110, duration:.62, ease:'power3.in', stagger:.05 }, t + SL - 0.7);
+    var ti = i - 1; /* intro lights no tick; steps map to ticks 0..3 */
+    if(ti >= 0 && ticks[ti]){
+      tl.to(ticks[ti], { backgroundColor:ON, duration:.3 }, t)
+        .to(ticks[ti], { backgroundColor:DIM, duration:.35 }, t + SL - 0.35);
     }
   });
   var started = false;
   function startPlay(){
-    if(!started){ started = true; gsap.delayedCall(0.7, function(){ tl.play(); }); }
+    if(!started){ started = true; gsap.delayedCall(0.5, function(){ tl.play(); }); }
     else { tl.play(); }
   }
   if(typeof ScrollTrigger !== 'undefined'){
