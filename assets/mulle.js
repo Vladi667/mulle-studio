@@ -305,27 +305,42 @@ if(document.querySelector('.hero')){
   });
 }
 
-/* ── manifesto: pinned, lines sharpen out of blur ── */
-var mlines = gsap.utils.toArray('.mline');
-if(mlines.length){
+/* ── manifesto: auto-playing, lines sharpen out of blur, loops ── */
+(function(){
+  var man = document.querySelector('.manifesto');
+  if(!man || typeof gsap === 'undefined') return;
+  var mlines = gsap.utils.toArray(man.querySelectorAll('.mline'));
+  if(!mlines.length) return;
+  var prog = man.querySelector('.m-prog');
+  var ticks = prog ? gsap.utils.toArray(prog.querySelectorAll('span')) : [];
+  var DIM = 'rgba(29,29,31,.16)', ON = '#0071E3';
   gsap.set(mlines, { opacity:0, filter:'blur(16px)', yPercent:10, scale:.97 });
-  var mtl = gsap.timeline({
-    scrollTrigger:{
-      trigger:'.manifesto', start:'top top',
-      end:'+=' + (mlines.length * 60) + '%',
-      pin:true, scrub:.7, anticipatePin:1
-    }
-  });
-  /* one line at a time, always dead-centre — each fades in, then out as the next arrives */
+  gsap.set(ticks, { backgroundColor:DIM });
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    gsap.set(mlines[0], { opacity:1, filter:'blur(0px)', yPercent:0, scale:1 });
+    if(ticks[0]){ gsap.set(ticks[0], { backgroundColor:ON }); }
+    return;
+  }
+  var SL = 3.4;
+  var tl = gsap.timeline({ repeat:-1, paused:true });
   mlines.forEach(function(l, i){
-    mtl.fromTo(l,
-      { opacity:0, filter:'blur(16px)', yPercent:10, scale:.97 },
-      { opacity:1, filter:'blur(0px)', yPercent:0, scale:1, duration:1, ease:'power2.out' }, i);
-    if(i < mlines.length - 1){
-      mtl.to(l, { opacity:0, filter:'blur(12px)', yPercent:-10, scale:1.03, duration:1, ease:'power2.in' }, i + 1);
+    var t = i * SL;
+    tl.fromTo(l, { opacity:0, filter:'blur(16px)', yPercent:10, scale:.97 },
+                 { opacity:1, filter:'blur(0px)', yPercent:0, scale:1, duration:.9, ease:'power2.out' }, t);
+    tl.to(l, { opacity:0, filter:'blur(12px)', yPercent:-10, scale:1.03, duration:.7, ease:'power2.in' }, t + SL - 0.7);
+    if(ticks[i]){
+      tl.to(ticks[i], { backgroundColor:ON, duration:.3 }, t)
+        .to(ticks[i], { backgroundColor:DIM, duration:.35 }, t + SL - 0.35);
     }
   });
-}
+  var started = false;
+  function play(){ if(!started){ started = true; gsap.delayedCall(0.4, function(){ tl.play(); }); } else { tl.play(); } }
+  if(typeof ScrollTrigger !== 'undefined'){
+    ScrollTrigger.create({ trigger:man, start:'top 75%', end:'bottom 25%',
+      onEnter:play, onEnterBack:play, onLeave:function(){ tl.pause(); }, onLeaveBack:function(){ tl.pause(); } });
+    if(man.getBoundingClientRect().top < window.innerHeight * 0.85){ play(); }
+  } else { play(); }
+})();
 
 /* ── marketing: kinetic keynote — hook intro, then steps rise through in turn ── */
 (function(){
