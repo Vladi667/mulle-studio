@@ -382,6 +382,31 @@ gsap.utils.toArray('.wk-tile, .wk-open').forEach(function(t){
     scrollTrigger:{ trigger:t, start:'top 90%' } });
 });
 
+/* ── work: inject real media only when the asset exists (no broken icons) ── */
+document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
+  var src = c.getAttribute('data-img'); if(!src) return;
+  var im = new Image();
+  im.onload = function(){
+    im.className = 'wk-img'; im.alt = c.getAttribute('data-alt') || ''; im.loading = 'lazy';
+    c.appendChild(im);
+  };
+  im.src = src;
+});
+document.querySelectorAll('.wk-canvas[data-video]').forEach(function(c){
+  var src = c.getAttribute('data-video'); if(!src || !window.fetch) return;
+  fetch(src, { method:'HEAD' }).then(function(r){
+    if(!r.ok) return;
+    var v = document.createElement('video');
+    v.className = 'wk-vid'; v.muted = true; v.loop = true; v.autoplay = true;
+    v.playsInline = true; v.setAttribute('playsinline',''); v.preload = 'metadata';
+    var p = c.getAttribute('data-poster'); if(p){ v.poster = p; }
+    v.src = src;
+    v.addEventListener('playing', function(){ c.classList.add('is-playing'); });
+    c.appendChild(v);
+    var pr = v.play(); if(pr && pr.catch){ pr.catch(function(){}); }
+  }).catch(function(){});
+});
+
 /* ── disciplines: rows rise in, floating preview follows cursor ── */
 gsap.utils.toArray('.disc-row').forEach(function(row, i){
   gsap.from(row, {
