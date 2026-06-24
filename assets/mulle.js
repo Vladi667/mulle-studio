@@ -376,10 +376,10 @@ if(mlines.length){
   } else { startPlay(); }
 })();
 
-/* ── work: gallery tiles rise in on scroll ── */
-gsap.utils.toArray('.wk-tile, .wk-open').forEach(function(t){
+/* ── work: rows rise in on scroll ── */
+gsap.utils.toArray('.wk-row, .wk-open').forEach(function(t){
   gsap.from(t, { y:42, opacity:0, duration:.9, ease:'power3.out',
-    scrollTrigger:{ trigger:t, start:'top 90%' } });
+    scrollTrigger:{ trigger:t, start:'top 88%' } });
 });
 
 /* ── work: inject real media only when the asset exists (no broken icons) ── */

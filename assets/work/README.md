@@ -4,30 +4,27 @@ The Work page (`our-work.html`) tiles look for real media in this folder.
 Until a file exists, the tile gracefully falls back to its mercury placeholder
 (no broken images), so the site is always safe to deploy.
 
-## Wired templates (live now)
+## Wired projects (drop these in)
 
-### 1. Website tile — "Café, Plainpalais"
-Drop a screenshot named exactly:
+All four rows are wired. Each falls back to its mercury placeholder until the
+file exists, so the site is always safe to deploy.
 
-```
-assets/work/cafe-plainpalais.jpg
-```
-
-- Aspect ratio **16:10** (e.g. 1600 × 1000 or 2000 × 1250).
-- A clean full-page screenshot or hero shot of the site.
-- JPG or PNG (JPG preferred for weight). Keep under ~400 KB.
-
-### 2. Video tile — "Featured campaign"
-Drop a short muted loop named exactly:
+Images — **16:10** (e.g. 1600 × 1000), JPG preferred, < ~400 KB:
 
 ```
-assets/work/campaign.mp4          (the video — 16:9, H.264/MP4)
-assets/work/campaign-poster.jpg   (a poster frame — 16:9, shown before it plays)
+assets/work/cafe-plainpalais.jpg       (N° I  — Website)
+assets/work/atelier-identity.jpg       (N° II — Brand Identity)
+assets/work/eaux-vives-dashboard.jpg   (N° III — Growth dashboard)
 ```
 
-- **16:9**, short (5–15 s), **muted**, loops seamlessly.
-- Export ~1080p, low bitrate (web). Keep under ~3–5 MB if possible.
-- It autoplays muted on loop; the play glyph hides automatically once it plays.
+Video — **16:9**, short (5–20 s), **muted**, loops, ~1080p low-bitrate, < ~5 MB:
+
+```
+assets/work/maker-campaign.mp4         (N° IV — Marketing video)
+assets/work/maker-campaign-poster.jpg  (poster frame, 16:9)
+```
+
+The video autoplays muted on loop; the play glyph hides automatically once it plays.
 
 ## How it works
 
