@@ -354,11 +354,16 @@ if(mlines.length){
         .to(ticks[i], { backgroundColor:DIM, duration:.35 }, t + SL - 0.35);
     }
   });
+  var started = false;
+  function startPlay(){
+    if(!started){ started = true; gsap.delayedCall(0.7, function(){ tl.play(); }); }
+    else { tl.play(); }
+  }
   if(typeof ScrollTrigger !== 'undefined'){
     ScrollTrigger.create({ trigger:kn, start:'top 82%', end:'bottom 18%',
-      onEnter:function(){ tl.play(); },     onEnterBack:function(){ tl.play(); },
-      onLeave:function(){ tl.pause(); },     onLeaveBack:function(){ tl.pause(); } });
-  } else { tl.play(); }
+      onEnter:startPlay,  onEnterBack:startPlay,
+      onLeave:function(){ tl.pause(); }, onLeaveBack:function(){ tl.pause(); } });
+  } else { startPlay(); }
 })();
 
 /* ── disciplines: rows rise in, floating preview follows cursor ── */
