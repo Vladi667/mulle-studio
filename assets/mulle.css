@@ -539,15 +539,18 @@ section{position:relative}
 @keyframes auraB{to{transform:translate(-6vw,4vw) scale(1.12)}}
 @keyframes auraC{to{transform:translate(5vw,-6vw) scale(1.2)}}
 
-/* MARKETING — engine flywheel */
-.flywheel{text-align:center}
-.fly-wrap{margin:clamp(30px,6vh,64px) auto 0;width:min(72vmin,460px)}
-.fly{width:100%;height:auto;overflow:visible;display:block}
-.fly-ring{fill:none;stroke:var(--hairline-2);stroke-width:1.5}
-.fly-dot{fill:var(--chrome-2)}
-.fly-label{font-family:var(--mono);font-size:13px;letter-spacing:.08em;fill:var(--txt-40);text-transform:uppercase}
-.fly-pointer circle{fill:var(--blue)}
-.fly-center{font-family:var(--mono);font-size:11px;letter-spacing:.3em;fill:var(--txt-55)}
+/* MARKETING — self-playing engine */
+.engine{text-align:center}
+.eng-wrap{position:relative;margin:clamp(30px,6vh,64px) auto 0;width:min(74vmin,480px)}
+.eng-svg{width:100%;height:auto;overflow:visible;display:block}
+.eng-ring{fill:none;stroke:var(--hairline-2);stroke-width:1.5}
+.eng-dot{fill:var(--chrome-2)}
+.eng-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;fill:var(--txt-40);text-transform:uppercase}
+.eng-comet,.eng-halo{fill:var(--blue)}
+.eng-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.eng-step{position:absolute;max-width:46%;text-align:center;opacity:0}
+.eng-step b{display:block;font-size:clamp(20px,2.6vw,30px);font-weight:300;letter-spacing:-.02em;color:var(--txt)}
+.eng-step span{display:block;margin-top:7px;font-size:11.5px;line-height:1.5;color:var(--txt-55)}
 @media (prefers-reduced-motion:reduce){ .hero-aura b{animation:none} }
 
 /* STEPS */
