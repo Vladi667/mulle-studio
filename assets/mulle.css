@@ -594,11 +594,11 @@ section{position:relative}
 /* WORK — cinematic Method (ghost-numeral readings) */
 .mth{text-align:center;padding:clamp(48px,8vh,104px) var(--margin)}
 .mth .eyebrow{justify-content:center}
-.mth-stage{position:relative;height:clamp(230px,36vh,360px);max-width:820px;margin:clamp(24px,4.5vh,48px) auto 0;overflow:hidden}
+.mth-stage{position:relative;height:clamp(300px,46vh,440px);max-width:820px;margin:clamp(24px,4.5vh,48px) auto 0;overflow:hidden}
 .mth-slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .mth-hook{font-size:clamp(28px,4.6vw,62px);font-weight:300;letter-spacing:-.035em;line-height:1.08;max-width:17ch;color:var(--txt)}
 .mth-hook em{font-style:normal;color:var(--blue)}
-.mth-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:300;font-size:clamp(160px,32vw,420px);line-height:1;letter-spacing:-.05em;color:rgba(29,29,31,.05);font-variant-numeric:tabular-nums;z-index:0;pointer-events:none}
+.mth-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:300;font-size:clamp(150px,32vh,340px);line-height:1;letter-spacing:-.05em;color:rgba(29,29,31,.06);font-variant-numeric:tabular-nums;z-index:0;pointer-events:none}
 .mth-fg{position:relative;z-index:1}
 .mth-word{font-size:clamp(32px,5.4vw,76px);font-weight:300;letter-spacing:-.04em;line-height:1;color:var(--txt)}
 .mth-line{margin:16px auto 0;font-size:clamp(14px,1.4vw,18px);line-height:1.6;color:var(--txt-55);max-width:34ch}
