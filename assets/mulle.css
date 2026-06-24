@@ -527,6 +527,29 @@ section{position:relative}
 .pricing-foot{margin-top:clamp(26px,4vh,44px);text-align:center;font-size:12px;letter-spacing:.01em;line-height:1.7;color:var(--txt-55)}
 .pricing-foot b{color:var(--txt);font-weight:500}
 
+/* MARKETING — cinematic hero aura (drifting mercury) */
+.hero-cine{overflow:hidden}
+.hero-cine > *:not(.hero-aura){position:relative;z-index:1}
+.hero-aura{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-aura b{position:absolute;display:block;border-radius:50%;filter:blur(64px);opacity:.45;mix-blend-mode:multiply;will-change:transform}
+.hero-aura .a1{width:46vw;height:46vw;left:-8vw;top:-8vw;background:radial-gradient(circle,#D9D4E8,transparent 70%);animation:auraA 19s ease-in-out infinite alternate}
+.hero-aura .a2{width:40vw;height:40vw;right:-6vw;top:8vw;background:radial-gradient(circle,rgba(0,113,227,.45),transparent 70%);animation:auraB 23s ease-in-out infinite alternate}
+.hero-aura .a3{width:38vw;height:38vw;left:32vw;bottom:-14vw;background:radial-gradient(circle,#C7CCD6,transparent 70%);animation:auraC 27s ease-in-out infinite alternate}
+@keyframes auraA{to{transform:translate(7vw,5vw) scale(1.15)}}
+@keyframes auraB{to{transform:translate(-6vw,4vw) scale(1.12)}}
+@keyframes auraC{to{transform:translate(5vw,-6vw) scale(1.2)}}
+
+/* MARKETING — engine flywheel */
+.flywheel{text-align:center}
+.fly-wrap{margin:clamp(30px,6vh,64px) auto 0;width:min(72vmin,460px)}
+.fly{width:100%;height:auto;overflow:visible;display:block}
+.fly-ring{fill:none;stroke:var(--hairline-2);stroke-width:1.5}
+.fly-dot{fill:var(--chrome-2)}
+.fly-label{font-family:var(--mono);font-size:13px;letter-spacing:.08em;fill:var(--txt-40);text-transform:uppercase}
+.fly-pointer circle{fill:var(--blue)}
+.fly-center{font-family:var(--mono);font-size:11px;letter-spacing:.3em;fill:var(--txt-55)}
+@media (prefers-reduced-motion:reduce){ .hero-aura b{animation:none} }
+
 /* STEPS */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter);margin-top:clamp(34px,5.5vh,64px)}
 .step{display:flex;flex-direction:column;gap:12px;padding-top:22px;border-top:1px solid var(--hairline-2)}

@@ -327,6 +327,30 @@ if(mlines.length){
   });
 }
 
+/* ── marketing: engine flywheel — pointer orbits, nodes light in sequence ── */
+(function(){
+  var fly = document.querySelector('.flywheel');
+  if(!fly || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  var pointer = fly.querySelector('.fly-pointer');
+  var dots = gsap.utils.toArray(fly.querySelectorAll('.fly-dot'));
+  var labels = gsap.utils.toArray(fly.querySelectorAll('.fly-label'));
+  if(!dots.length) return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    gsap.set(dots, { attr:{ r:9 }, fill:'#0071E3' });
+    gsap.set(labels, { opacity:1 });
+    if(pointer){ gsap.set(pointer, { opacity:0 }); }
+    return;
+  }
+  gsap.set(dots, { attr:{ r:5 }, fill:'#8E96A3' });
+  gsap.set(labels, { opacity:.4 });
+  var tl = gsap.timeline({ scrollTrigger:{ trigger:fly, start:'top 78%', end:'bottom 52%', scrub:.6 } });
+  if(pointer){ tl.fromTo(pointer, { rotation:0, svgOrigin:'200 200' }, { rotation:360, svgOrigin:'200 200', ease:'none', duration:4 }, 0); }
+  dots.forEach(function(d, i){
+    tl.to(d, { attr:{ r:9 }, fill:'#0071E3', duration:.35, ease:'power1.out' }, i);
+    if(labels[i]){ tl.to(labels[i], { opacity:1, duration:.35 }, i); }
+  });
+})();
+
 /* ── disciplines: rows rise in, floating preview follows cursor ── */
 gsap.utils.toArray('.disc-row').forEach(function(row, i){
   gsap.from(row, {
