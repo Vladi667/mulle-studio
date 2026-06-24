@@ -31,7 +31,7 @@ if(hasGSAP){
 /* ── smooth scroll ── */
 var lenis = null;
 if(!reduced && hasGSAP && typeof Lenis !== 'undefined'){
-  lenis = new Lenis({ duration:1.15, smoothWheel:true });
+  lenis = new Lenis({ duration:0.9, smoothWheel:true });
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(function(t){ lenis.raf(t*1000); });
   gsap.ticker.lagSmoothing(0);
