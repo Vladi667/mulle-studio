@@ -551,6 +551,7 @@ section{position:relative}
 .eng-step{position:absolute;max-width:46%;text-align:center;opacity:0}
 .eng-step b{display:block;font-size:clamp(20px,2.6vw,30px);font-weight:300;letter-spacing:-.02em;color:var(--txt)}
 .eng-step span{display:block;margin-top:7px;font-size:11.5px;line-height:1.5;color:var(--txt-55)}
+.eng-step span em{font-style:normal;color:var(--blue)}
 @media (prefers-reduced-motion:reduce){ .hero-aura b{animation:none} }
 
 /* STEPS */
