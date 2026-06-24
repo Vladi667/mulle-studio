@@ -345,6 +345,8 @@ if(mlines.length){
   }
   slides.forEach(function(s){ gsap.set(s.querySelectorAll(SEL), { yPercent:110 }); });
   gsap.set(ticks, { backgroundColor:DIM });
+  var prog = kn.querySelector('.kn-progress');
+  if(prog){ gsap.set(prog, { opacity:0 }); }
   var SL = 4.2;
   var tl = gsap.timeline({ repeat:-1, paused:true });
   slides.forEach(function(s, i){
@@ -358,6 +360,10 @@ if(mlines.length){
         .to(ticks[ti], { backgroundColor:DIM, duration:.35 }, t + SL - 0.35);
     }
   });
+  if(prog){
+    tl.to(prog, { opacity:1, duration:.5, ease:'power2.out' }, SL - 0.3);
+    tl.to(prog, { opacity:0, duration:.4, ease:'power2.in' }, slides.length * SL - 0.6);
+  }
   var started = false;
   function startPlay(){
     if(!started){ started = true; gsap.delayedCall(0.5, function(){ tl.play(); }); }
