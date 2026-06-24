@@ -376,19 +376,10 @@ if(mlines.length){
   } else { startPlay(); }
 })();
 
-/* ── work: cinematic case studies — parallax media + title rise ── */
-gsap.utils.toArray('.cwork').forEach(function(c){
-  var media = c.querySelector('.cw-media');
-  var stage = c.querySelector('.cw-stage');
-  if(media){
-    gsap.fromTo(media, { yPercent:-6 }, { yPercent:6, ease:'none',
-      scrollTrigger:{ trigger:c, start:'top bottom', end:'bottom top', scrub:true } });
-  }
-  var title = c.querySelector('.cw-title');
-  if(title && stage){
-    gsap.from(title, { y:46, opacity:0, duration:1.1, ease:'power3.out',
-      scrollTrigger:{ trigger:stage, start:'top 78%' } });
-  }
+/* ── work: gallery tiles rise in on scroll ── */
+gsap.utils.toArray('.wk-tile, .wk-open').forEach(function(t){
+  gsap.from(t, { y:42, opacity:0, duration:.9, ease:'power3.out',
+    scrollTrigger:{ trigger:t, start:'top 90%' } });
 });
 
 /* ── disciplines: rows rise in, floating preview follows cursor ── */
