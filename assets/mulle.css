@@ -330,24 +330,25 @@ section{position:relative}
    MANIFESTO — pinned, lines sharpen out of blur
    ────────────────────────────────────────────────────────────────── */
 .manifesto{
-  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
   padding:0 var(--margin);
-  /* left-weighted wash only — keeps the right side clear for the 3D mercury */
-  background-image:radial-gradient(50% 50% at 22% 55%, rgba(245,245,247,.7), transparent 72%);
+  /* left-weighted wash — holds the type, keeps the right clear for the 3D mercury */
+  background-image:radial-gradient(58% 58% at 26% 52%, rgba(245,245,247,.85), transparent 74%);
 }
 .manifesto .eyebrow{position:absolute;top:clamp(88px,14vh,140px);left:var(--margin)}
 /* let the 3D mercury read through the sections that host a scene */
 .manifesto .m-lines{position:relative;z-index:1;text-shadow:0 1px 30px rgba(245,245,247,.9)}
-.m-lines{position:relative;max-width:1100px;margin:0 auto;min-height:clamp(130px,26vh,240px)}
+.m-lines{position:relative;width:min(66%,880px);margin:0;min-height:clamp(180px,32vh,320px)}
 .mline{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
-  font-size:clamp(26px,4.4vw,68px);
-  font-weight:300;letter-spacing:-.03em;line-height:1.12;
+  position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:flex-start;text-align:left;
+  font-size:clamp(28px,5vw,78px);
+  font-weight:300;letter-spacing:-.04em;line-height:1.06;
   will-change:filter,opacity,transform;
 }
 .mline em{font-style:normal;color:var(--blue)}
-.m-prog{position:relative;z-index:1;display:flex;gap:10px;justify-content:center;margin-top:clamp(28px,5vh,56px)}
-.m-prog span{width:30px;height:2px;border-radius:2px;background:var(--hairline-2)}
+.m-prog{position:relative;z-index:1;display:flex;gap:10px;justify-content:flex-start;margin-top:clamp(26px,5vh,52px)}
+.m-prog span{width:34px;height:2px;border-radius:2px;background:var(--hairline-2)}
+@media(max-width:900px){ .m-lines{width:100%} }
 
 /* ──────────────────────────────────────────────────────────────────
    DISCIPLINES — oversized index rows + floating preview

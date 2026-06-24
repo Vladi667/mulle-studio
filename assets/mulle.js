@@ -314,7 +314,7 @@ if(document.querySelector('.hero')){
   var prog = man.querySelector('.m-prog');
   var ticks = prog ? gsap.utils.toArray(prog.querySelectorAll('span')) : [];
   var DIM = 'rgba(29,29,31,.16)', ON = '#0071E3';
-  gsap.set(mlines, { opacity:0, filter:'blur(16px)', yPercent:10, scale:.97 });
+  gsap.set(mlines, { opacity:0, filter:'blur(18px)', yPercent:16, scale:.965 });
   gsap.set(ticks, { backgroundColor:DIM });
   if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
     gsap.set(mlines[0], { opacity:1, filter:'blur(0px)', yPercent:0, scale:1 });
@@ -325,9 +325,9 @@ if(document.querySelector('.hero')){
   var tl = gsap.timeline({ repeat:-1, paused:true });
   mlines.forEach(function(l, i){
     var t = i * SL;
-    tl.fromTo(l, { opacity:0, filter:'blur(16px)', yPercent:10, scale:.97 },
-                 { opacity:1, filter:'blur(0px)', yPercent:0, scale:1, duration:.9, ease:'power2.out' }, t);
-    tl.to(l, { opacity:0, filter:'blur(12px)', yPercent:-10, scale:1.03, duration:.7, ease:'power2.in' }, t + SL - 0.7);
+    tl.fromTo(l, { opacity:0, filter:'blur(18px)', yPercent:16, scale:.965 },
+                 { opacity:1, filter:'blur(0px)', yPercent:0, scale:1, duration:.95, ease:'power3.out' }, t);
+    tl.to(l, { opacity:0, filter:'blur(12px)', yPercent:-12, scale:1.025, duration:.7, ease:'power2.in' }, t + SL - 0.7);
     if(ticks[i]){
       tl.to(ticks[i], { backgroundColor:ON, duration:.3 }, t)
         .to(ticks[i], { backgroundColor:DIM, duration:.35 }, t + SL - 0.35);
