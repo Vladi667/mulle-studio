@@ -377,7 +377,7 @@ if(mlines.length){
 })();
 
 /* ── work: rows rise in on scroll ── */
-gsap.utils.toArray('.wk-row, .wk-open').forEach(function(t){
+gsap.utils.toArray('.wk-row').forEach(function(t){
   gsap.from(t, { y:42, opacity:0, duration:.9, ease:'power3.out',
     scrollTrigger:{ trigger:t, start:'top 88%' } });
 });
