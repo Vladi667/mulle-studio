@@ -1,5 +1,5 @@
 /* ──────────────────────────────────────────────────────────────────
-   MULLE® — choreography
+   FRITZ — choreography
    Lenis smooth scroll + GSAP ScrollTrigger / SplitText
    ────────────────────────────────────────────────────────────────── */
 (function(){
@@ -11,7 +11,7 @@ var hasGSAP = typeof gsap !== 'undefined';
 
 /* console note for the curious (judges open dev tools to inspect the fluid) */
 try{
-  console.log('%cMULLE®','font:600 28px monospace;color:#1D1D1F;');
+  console.log('%cFRITZ','font:600 28px monospace;color:#1D1D1F;');
   console.log('%cCurious is good. The surface is real WebGL.\nWork with us → contact.html','font:12px monospace;color:#0071E3;');
 }catch(e){}
 
@@ -19,7 +19,7 @@ try{
 (function(){
   var real = document.title;
   document.addEventListener('visibilitychange', function(){
-    document.title = document.hidden ? 'The ink settles — Mulle®' : real;
+    document.title = document.hidden ? 'The ink settles — Fritz' : real;
   });
 })();
 

@@ -1,5 +1,5 @@
 /* ──────────────────────────────────────────────────────────────────
-   MULLE® — Three.js liquid-mercury layer (homepage)
+   FRITZ — Three.js liquid-mercury layer (homepage)
    One fixed canvas behind content. Matcap-shaded liquid metal:
    procedural studio matcap, displacement with in-shader normal
    recompute, cursor bulge + click pulse, scroll turbulence.

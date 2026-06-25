@@ -1,5 +1,5 @@
 /* ──────────────────────────────────────────────────────────────────
-   MULLE® — liquid mercury reveal
+   FRITZ — liquid mercury reveal
    Navier-Stokes fluid sim (stable fluids, ping-pong FBOs).
    The dye field is a mercury film covering a chrome light field;
    cursor velocity erases the film, the film slowly flows back.
