@@ -472,6 +472,25 @@ document.querySelectorAll('.wk-canvas[data-video]').forEach(function(c){
   } else { play(); }
 })();
 
+/* ── hide the fixed bottom chrome over the footer (no overlap) ── */
+(function(){
+  var foot = document.querySelector('.site-foot');
+  if(!foot || typeof ScrollTrigger === 'undefined') return;
+  var chrome = gsap.utils.toArray('.readout, .chaprail, .hint');
+  if(!chrome.length) return;
+  ScrollTrigger.create({
+    trigger: foot, start: 'top 92%',
+    onEnter: function(){
+      gsap.to(chrome, { opacity:0, duration:.35, ease:'power2.out', overwrite:true });
+      chrome.forEach(function(el){ el.style.pointerEvents = 'none'; });
+    },
+    onLeaveBack: function(){
+      chrome.forEach(function(el){ el.style.pointerEvents = ''; });
+      gsap.to(chrome, { opacity:1, duration:.35, ease:'power2.out', overwrite:true });
+    }
+  });
+})();
+
 /* ── disciplines: rows rise in, floating preview follows cursor ── */
 gsap.utils.toArray('.disc-row').forEach(function(row, i){
   gsap.from(row, {
