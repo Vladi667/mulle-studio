@@ -305,6 +305,9 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
   transition:color var(--dur-short) var(--ease-out);
 }
 .mq-item:hover{color:var(--blue)}
+.mq-item.has-logo{display:inline-flex;align-items:center;padding:0 clamp(16px,2vw,32px)}
+.mq-logo{height:clamp(20px,2.2vw,34px);width:auto;display:block;filter:brightness(0);opacity:.55;transition:opacity .35s var(--ease-out)}
+.mq-item:hover .mq-logo{opacity:.9}
 .mq-sep{
   flex:0 0 auto;width:5px;height:5px;transform:rotate(45deg);
   background:var(--chrome-2);opacity:.65;

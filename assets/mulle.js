@@ -45,6 +45,35 @@ if(clockEl){
   tick(); setInterval(tick, 1000);
 }
 
+/* ── carousel: swap brand names for real logos when present (monochrome, text fallback) ── */
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('.mq-item'));
+  if(!items.length) return;
+  function slug(s){
+    return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()
+            .replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+  }
+  items.forEach(function(it){
+    var name = it.textContent.trim();
+    var base = 'assets/logos/' + slug(name);
+    var exts = ['svg','png','webp'], i = 0;
+    (function tryNext(){
+      if(i >= exts.length) return;                 // none found → keep the text name
+      var url = base + '.' + exts[i++];
+      var probe = new Image();
+      probe.onload = function(){
+        it.textContent = '';
+        var logo = new Image();
+        logo.className = 'mq-logo'; logo.src = url; logo.alt = name; logo.loading = 'lazy';
+        it.appendChild(logo);
+        it.classList.add('has-logo');
+      };
+      probe.onerror = tryNext;
+      probe.src = url;
+    })();
+  });
+})();
+
 /* ── menu ── */
 var menuBtn = document.querySelector('.index-link');
 var menu = document.getElementById('menu');
