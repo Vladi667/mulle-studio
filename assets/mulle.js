@@ -456,31 +456,45 @@ document.querySelectorAll('.wk-canvas[data-video]').forEach(function(c){
   }).catch(function(){});
 });
 
-/* ── work: live "scroll preview" — hovering a .wk-scroll tile pans the full landing page ── */
-gsap.utils.toArray('.wk-scroll').forEach(function(wrap){
-  var shot = wrap.querySelector('.wk-shot');
-  if(!shot) return;
+/* ── work: live preview — hovering a .wk-live tile embeds the REAL site and pans down it ── */
+gsap.utils.toArray('.wk-live').forEach(function(wrap){
+  var url = wrap.getAttribute('data-site'); if(!url) return;
   var canHover = false; try{ canHover = matchMedia('(hover:hover)').matches; }catch(e){}
-  if(!canHover){ shot.remove(); return; }            /* touch devices: poster only, skip the heavy image */
-  function panDist(){
-    if(!shot.naturalWidth) return 0;
-    var scaledH = wrap.clientWidth * (shot.naturalHeight / shot.naturalWidth);
-    return Math.max(0, scaledH - wrap.clientHeight);
+  if(!canHover) return;                       /* touch: static poster only, no embed */
+  var IFW = 1440, IFH = 10400;                /* render the site at desktop width; tall enough for the whole page */
+  var scaleWrap, iframe, ready = false, hovering = false;
+  function scaleOf(){ return wrap.clientWidth / IFW; }
+  function panDist(){ return Math.max(0, IFH * scaleOf() - wrap.clientHeight); }
+  function build(){
+    if(scaleWrap) return;
+    scaleWrap = document.createElement('div'); scaleWrap.className = 'wk-live-scale';
+    iframe = document.createElement('iframe');
+    iframe.src = url; iframe.title = (wrap.getAttribute('data-alt') || 'Live site');
+    iframe.setAttribute('scrolling','no'); iframe.setAttribute('tabindex','-1'); iframe.setAttribute('aria-hidden','true');
+    iframe.setAttribute('loading','lazy'); iframe.referrerPolicy = 'no-referrer';
+    iframe.style.width = IFW + 'px'; iframe.style.height = IFH + 'px';
+    scaleWrap.appendChild(iframe); wrap.appendChild(scaleWrap);
+    gsap.set(scaleWrap, { scale: scaleOf(), transformOrigin:'top left' });
+    iframe.addEventListener('load', function(){
+      setTimeout(function(){ ready = true; if(hovering) play(); }, 1800);   /* let the intro settle */
+    });
   }
-  function start(){
-    var d = panDist(); if(!d){ return; }
-    gsap.killTweensOf(shot);
-    gsap.to(shot, { opacity:1, duration:.45, ease:'power2.out' });
-    gsap.fromTo(shot, { y:0 }, { y:-d, duration: Math.min(13, Math.max(5, d/560)), ease:'none' });
+  function play(){
+    if(!scaleWrap) return;
+    gsap.killTweensOf(scaleWrap);
+    gsap.to(scaleWrap, { autoAlpha:1, duration:.5, ease:'power2.out' });
+    gsap.fromTo(scaleWrap, { y:0 }, { y:-panDist(), duration: Math.min(18, Math.max(7, panDist()/480)), ease:'none' });
   }
-  wrap.addEventListener('pointerenter', function(){
-    if(shot.naturalWidth){ start(); }
-    else { shot.loading = 'eager'; shot.addEventListener('load', start, { once:true }); }
-  });
+  if('IntersectionObserver' in window){     /* quietly preload the embed as the row approaches */
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ build(); io.disconnect(); } }); }, { rootMargin:'700px' });
+    io.observe(wrap);
+  } else { build(); }
+  wrap.addEventListener('pointerenter', function(){ hovering = true; build(); if(ready) play(); });
   wrap.addEventListener('pointerleave', function(){
-    gsap.killTweensOf(shot);
-    gsap.to(shot, { y:0, duration:.8, ease:'power3.out' });
-    gsap.to(shot, { opacity:0, duration:.5, ease:'power2.out' });
+    hovering = false; if(!scaleWrap) return;
+    gsap.killTweensOf(scaleWrap);
+    gsap.to(scaleWrap, { y:0, duration:.8, ease:'power3.out' });
+    gsap.to(scaleWrap, { autoAlpha:0, duration:.5, ease:'power2.out' });
   });
 });
 
