@@ -65,8 +65,10 @@ if(clockEl){
         it.textContent = '';
         var logo = new Image();
         logo.className = 'mq-logo'; logo.src = url; logo.alt = name; logo.loading = 'lazy';
-        it.appendChild(logo);
+        var nm = document.createElement('span'); nm.className = 'mq-name'; nm.textContent = name;
+        it.appendChild(logo); it.appendChild(nm);
         it.classList.add('has-logo');
+        try{ window.dispatchEvent(new Event('resize')); }catch(e){}
       };
       probe.onerror = tryNext;
       probe.src = url;
@@ -295,7 +297,7 @@ gsap.to('.progress i', {
   window.addEventListener('load', measure);
   setTimeout(measure, 1200);                 /* re-measure after webfont reflow */
   window.addEventListener('resize', measure);
-  var x = 0, base = 72, speed = base, skew = 0, hover = false, handed = false, last = performance.now();
+  var x = 0, base = 40, speed = base, skew = 0, hover = false, handed = false, last = performance.now();
   section.addEventListener('pointerenter', function(){ hover = true; });
   section.addEventListener('pointerleave', function(){ hover = false; });
   function loop(now){
@@ -306,7 +308,7 @@ gsap.to('.progress i', {
     var dt = Math.min((now - last)/1000, .05); last = now;
     var signed = lenis ? (lenis.velocity || 0) : 0;
     var v = Math.abs(signed);
-    var target = (hover ? 14 : base) + v * 9;
+    var target = (hover ? 8 : base) + v * 9;
     speed += (target - speed) * Math.min(dt * 6, 1);
     x -= speed * dt;
     if(half > 0 && x <= -half){ x += half; }
