@@ -588,28 +588,50 @@ if(document.querySelector('.outro')){
       if(!flareEl) return;
       gsap.killTweensOf(flareEl);
       gsap.fromTo(flareEl, { opacity:0, scale:.42 },
-        { opacity:1, scale:1.2, duration:.42, delay:at||0, ease:'power3.out',
-          onComplete:function(){ gsap.to(flareEl, { opacity:0, scale:1.6, duration:1.0, ease:'power2.in' }); } });
+        { opacity:1, scale:1.2, duration:.55, delay:at||0, ease:'power3.out',
+          onComplete:function(){ gsap.to(flareEl, { opacity:0, scale:1.6, duration:1.2, ease:'power2.in' }); } });
     }
 
-    // the words materialise OUT OF heavy static and crystallise into a clean signal
+    // the words materialise OUT OF heavy static and crystallise into a clean signal — slow + cinematic
     function crystallise(){
-      if(!canTurb){ flare(0.8); window.__outroReady = true; return; }
+      if(!canTurb){ flare(1.2); window.__outroReady = true; return; }
       cta.style.filter = 'url(#noiseResolve)';
       gsap.killTweensOf([disp, turb]);
       gsap.fromTo(turb, { attr:{ baseFrequency:0.6 } },
-        { attr:{ baseFrequency:0.012 }, duration:1.5, ease:'power2.out' });    // static → liquid
-      gsap.fromTo(disp, { attr:{ scale:60 } },
-        { attr:{ scale:0 }, duration:1.85, ease:'power3.out',
+        { attr:{ baseFrequency:0.012 }, duration:2.6, ease:'power2.out' });    // static → liquid
+      gsap.fromTo(disp, { attr:{ scale:64 } },
+        { attr:{ scale:0 }, duration:3.1, ease:'power2.out',
           onComplete:function(){ cta.style.filter=''; window.__outroReady = true; } });
-      flare(0.95);   // light locks in as the signal resolves
+      flare(1.7);   // light locks in as the signal resolves
     }
 
     gsap.set(lns, { opacity:0, yPercent:18 });
     ScrollTrigger.create({ trigger:cta, start:'top 82%', once:true, onEnter:function(){
-      gsap.to(lns, { opacity:1, yPercent:0, duration:1.3, ease:'power3.out', stagger:.1 });
+      gsap.to(lns, { opacity:1, yPercent:0, duration:1.6, ease:'power3.out', stagger:.13 });
       gsap.delayedCall(0.1, crystallise);
     }});
+
+    // ── effect when you go ON the sentence: it stirs into living noise, then resolves on leave ──
+    if(hasHover && canTurb){
+      var churn;
+      cta.addEventListener('pointerenter', function(){
+        if(!window.__outroReady) return;
+        if(churn) churn.kill();
+        gsap.killTweensOf(disp);
+        cta.style.filter = 'url(#noiseResolve)';
+        churn = gsap.timeline();
+        churn.fromTo(disp, { attr:{ scale:0 } }, { attr:{ scale:16 }, duration:.55, ease:'power2.out' })   // stir up
+             .to(disp, { attr:{ scale:5 }, duration:.6, ease:'sine.inOut' })                               // settle
+             .to(disp, { attr:{ scale:8 }, duration:1.3, ease:'sine.inOut', repeat:-1, yoyo:true });       // living churn
+        flare(.2);
+      });
+      cta.addEventListener('pointerleave', function(){
+        if(churn) churn.kill();
+        gsap.killTweensOf(disp);
+        gsap.to(disp, { attr:{ scale:0 }, duration:.9, ease:'power3.out',
+          onComplete:function(){ cta.style.filter=''; } });
+      });
+    }
   })();
 }
 
@@ -817,59 +839,21 @@ if(window.MulleFluid && window.MulleFluid.ok && window.MulleFluid.coverage){
 (function(){
   var outro = document.querySelector('.outro');
   var bloom = document.querySelector('.outro .bloom');
-  var cta   = document.querySelector('.outro-cta');
-  var disp  = document.querySelector('#noiseResolve feDisplacementMap');
-  if(!outro || !hasHover) return;
-  var reduce=false; try{ reduce=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-
-  /* the blue light breathes toward the cursor */
-  var bX, bY, bScale;
-  if(bloom){
-    gsap.set(bloom, { xPercent:-50, x:0, y:0 });
-    bX = gsap.quickTo(bloom, 'x', { duration:.6, ease:'power3.out' });
-    bY = gsap.quickTo(bloom, 'y', { duration:.6, ease:'power3.out' });
-    bScale = gsap.quickTo(bloom, 'scale', { duration:.5, ease:'power2.out' });
-  }
-
-  /* the headline is living mercury — the cursor stirs it into noise, it settles back to clarity */
-  var canStir = !reduce && !!disp && !!cta;
-  var st = { cur:0, target:0 }, ticking=false;
-  function tick(){
-    st.cur += (st.target - st.cur) * 0.14;
-    if(st.cur < 0.05 && st.target === 0){
-      st.cur = 0; disp.setAttribute('scale','0'); cta.style.filter='';
-      gsap.ticker.remove(tick); ticking=false; return;
-    }
-    disp.setAttribute('scale', st.cur.toFixed(2));
-  }
-  function stir(v){
-    st.target = v;
-    if(v > 0.01){ cta.style.filter = 'url(#noiseResolve)'; }
-    if(!ticking){ ticking = true; gsap.ticker.add(tick); }
-  }
-
+  if(!outro || !bloom || !hasHover) return;
+  gsap.set(bloom, { xPercent:-50, x:0, y:0 });
+  var bX = gsap.quickTo(bloom, 'x', { duration:.6, ease:'power3.out' });
+  var bY = gsap.quickTo(bloom, 'y', { duration:.6, ease:'power3.out' });
+  var bScale = gsap.quickTo(bloom, 'scale', { duration:.5, ease:'power2.out' });
   outro.addEventListener('pointermove', function(e){
     var r = outro.getBoundingClientRect();
     var nx = (e.clientX - (r.left + r.width/2)) / (r.width/2);
     var ny = (e.clientY - (r.top + r.height/2)) / (r.height/2);
     var dist = Math.min(Math.sqrt(nx*nx + ny*ny), 1);   /* 0 centre · 1 edge */
-    if(bScale){
-      bScale(0.85 + (1 - dist) * 0.9);                   /* edge 0.85 → centre 1.75 */
-      bX(nx * r.width * 0.11);                           /* the light drifts toward the cursor */
-      bY(ny * r.height * 0.11);
-    }
-    if(canStir && window.__outroReady){
-      var rc = cta.getBoundingClientRect();
-      var dx = (e.clientX - (rc.left + rc.width/2)) / (rc.width/2);
-      var dy = (e.clientY - (rc.top + rc.height/2)) / (rc.height*0.9);
-      var prox = Math.max(0, 1 - Math.sqrt(dx*dx + dy*dy));   /* 1 over the words → 0 away */
-      stir(prox * prox * 7);                                  /* gentle liquid stir, max ~7 */
-    }
+    bScale(0.85 + (1 - dist) * 0.9);                     /* edge 0.85 → centre 1.75 */
+    bX(nx * r.width * 0.11);                             /* the light drifts toward the cursor */
+    bY(ny * r.height * 0.11);
   }, { passive:true });
-  outro.addEventListener('pointerleave', function(){
-    if(bScale){ bScale(1.0); bX(0); bY(0); }
-    if(canStir) stir(0);
-  }, { passive:true });
+  outro.addEventListener('pointerleave', function(){ bScale(1.0); bX(0); bY(0); }, { passive:true });
 })();
 
 /* mobile: scroll velocity disturbs the mercury so the first swipe reveals it */
