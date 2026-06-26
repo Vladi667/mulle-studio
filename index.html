@@ -272,6 +272,12 @@
 <section class="outro" id="contact-cta" aria-labelledby="outroTitle" data-chapter="Contact">
   <div class="bloom" aria-hidden="true"></div>
   <div class="o-flare" aria-hidden="true"></div>
+  <svg class="o-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="noiseResolve" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="11" stitchTiles="stitch" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
 
   <div class="eyebrow"><span class="hr" aria-hidden="true"></span><span>05 — Contact</span><span class="hr" aria-hidden="true"></span></div>
 

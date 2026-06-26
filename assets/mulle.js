@@ -577,29 +577,50 @@ if(document.querySelector('.outro')){
   (function(){
     var cta = document.querySelector('.outro-cta');
     var lns = gsap.utils.toArray('.outro-cta .ln');
-    var noiseEl = document.querySelector('.o-noise');
     var flareEl = document.querySelector('.o-flare');
+    var disp = document.querySelector('#noiseResolve feDisplacementMap');
+    var turb = document.querySelector('#noiseResolve feTurbulence');
     if(!cta || !lns.length) return;
+    var reduce = false; try{ reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+    var canTurb = !reduce && !!disp && !!turb;
+
     function flare(at){
       if(!flareEl) return;
       gsap.killTweensOf(flareEl);
-      gsap.fromTo(flareEl, { opacity:0, scale:.5 },
-        { opacity:.92, scale:1.1, duration:.34, delay:at||0, ease:'power3.out',
-          onComplete:function(){ gsap.to(flareEl, { opacity:0, scale:1.45, duration:.85, ease:'power2.in' }); } });
+      gsap.fromTo(flareEl, { opacity:0, scale:.42 },
+        { opacity:1, scale:1.18, duration:.4, delay:at||0, ease:'power3.out',
+          onComplete:function(){ gsap.to(flareEl, { opacity:0, scale:1.55, duration:.95, ease:'power2.in' }); } });
     }
-    function resolveNoise(dur){
-      if(!noiseEl) return;
-      if(typeof decode === 'function'){ decode(noiseEl, dur); }
-      gsap.fromTo(noiseEl, { filter:'blur(12px)', scale:1.14, opacity:.55 },
-        { filter:'blur(0px)', scale:1, opacity:1, duration:(dur/1000)+0.22, ease:'back.out(1.7)', transformOrigin:'50% 60%' });
-      flare((dur/1000) * 0.45);   // light bursts as the word snaps clear
+
+    // the words materialise OUT OF turbulent noise and crystallise into clarity
+    function crystallise(scale0, bf0, dur){
+      if(!canTurb){ flare(dur*0.42); return; }
+      cta.style.filter = 'url(#noiseResolve)';
+      gsap.killTweensOf([disp, turb]);
+      gsap.fromTo(turb, { attr:{ baseFrequency:bf0 } },
+        { attr:{ baseFrequency:0.012 }, duration:dur*0.85, ease:'power2.out' });
+      gsap.fromTo(disp, { attr:{ scale:scale0 } },
+        { attr:{ scale:0 }, duration:dur, ease:'power3.out',
+          onComplete:function(){ cta.style.filter=''; } });   // drop filter at clarity → crisp + cheap
+      flare(dur*0.5);   // light locks in as the noise resolves
     }
-    gsap.set(lns, { yPercent:120, opacity:0, filter:'blur(4px)' });
-    ScrollTrigger.create({ trigger:cta, start:'top 80%', once:true, onEnter:function(){
-      gsap.to(lns, { yPercent:0, opacity:1, filter:'blur(0px)', duration:1.0, ease:'back.out(1.5)', stagger:.12 });
-      gsap.delayedCall(0.78, function(){ resolveNoise(820); });
+
+    gsap.set(lns, { opacity:0, yPercent:16 });
+    ScrollTrigger.create({ trigger:cta, start:'top 82%', once:true, onEnter:function(){
+      gsap.to(lns, { opacity:1, yPercent:0, duration:1.2, ease:'power3.out', stagger:.1 });
+      gsap.delayedCall(0.12, function(){ crystallise(44, 0.22, 1.7); });
     }});
-    if(hasHover){ cta.addEventListener('pointerenter', function(){ resolveNoise(540); }); }
+
+    if(hasHover && canTurb){
+      cta.addEventListener('pointerenter', function(){
+        gsap.killTweensOf(disp);
+        cta.style.filter = 'url(#noiseResolve)';
+        gsap.fromTo(disp, { attr:{ scale:11 } },
+          { attr:{ scale:0 }, duration:.75, ease:'power3.out',
+            onComplete:function(){ cta.style.filter=''; } });
+        flare(.16);
+      });
+    }
   })();
 }
 
