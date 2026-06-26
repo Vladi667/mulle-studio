@@ -578,6 +578,7 @@ section{position:relative}
 .wk-list{max-width:1200px;margin:clamp(26px,5vh,56px) auto 0;padding:0 var(--margin)}
 .wk-row{display:grid;grid-template-columns:1.22fr 1fr;gap:clamp(28px,4.6vw,76px);align-items:center;margin-bottom:clamp(54px,10vh,124px)}
 .wk-row:nth-child(even) .wk-row-media{order:2}
+@media(min-width:900px){ .wk-row.wk-lead{grid-template-columns:1.6fr .9fr} }
 .wk-row-n{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--txt-40)}
 .wk-row-name{font-size:clamp(26px,3.4vw,46px);font-weight:300;letter-spacing:-.03em;line-height:1.04;margin-top:14px}
 .wk-row-name em{font-style:normal;color:var(--txt-40)}
