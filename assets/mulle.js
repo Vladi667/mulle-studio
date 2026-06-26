@@ -578,19 +578,28 @@ if(document.querySelector('.outro')){
     var cta = document.querySelector('.outro-cta');
     var lns = gsap.utils.toArray('.outro-cta .ln');
     var noiseEl = document.querySelector('.o-noise');
+    var flareEl = document.querySelector('.o-flare');
     if(!cta || !lns.length) return;
+    function flare(at){
+      if(!flareEl) return;
+      gsap.killTweensOf(flareEl);
+      gsap.fromTo(flareEl, { opacity:0, scale:.5 },
+        { opacity:.92, scale:1.1, duration:.34, delay:at||0, ease:'power3.out',
+          onComplete:function(){ gsap.to(flareEl, { opacity:0, scale:1.45, duration:.85, ease:'power2.in' }); } });
+    }
     function resolveNoise(dur){
       if(!noiseEl) return;
       if(typeof decode === 'function'){ decode(noiseEl, dur); }
-      gsap.fromTo(noiseEl, { filter:'blur(7px)', scale:1.06 },
-        { filter:'blur(0px)', scale:1, duration:(dur/1000)+0.15, ease:'power2.out', transformOrigin:'center' });
+      gsap.fromTo(noiseEl, { filter:'blur(12px)', scale:1.14, opacity:.55 },
+        { filter:'blur(0px)', scale:1, opacity:1, duration:(dur/1000)+0.22, ease:'back.out(1.7)', transformOrigin:'50% 60%' });
+      flare((dur/1000) * 0.45);   // light bursts as the word snaps clear
     }
-    gsap.set(lns, { yPercent:60, opacity:0 });
-    ScrollTrigger.create({ trigger:cta, start:'top 78%', once:true, onEnter:function(){
-      gsap.to(lns, { yPercent:0, opacity:1, duration:1.05, ease:'power4.out', stagger:.14 });
-      gsap.delayedCall(0.8, function(){ resolveNoise(760); });
+    gsap.set(lns, { yPercent:120, opacity:0, filter:'blur(4px)' });
+    ScrollTrigger.create({ trigger:cta, start:'top 80%', once:true, onEnter:function(){
+      gsap.to(lns, { yPercent:0, opacity:1, filter:'blur(0px)', duration:1.0, ease:'back.out(1.5)', stagger:.12 });
+      gsap.delayedCall(0.78, function(){ resolveNoise(820); });
     }});
-    if(hasHover){ cta.addEventListener('pointerenter', function(){ resolveNoise(520); }); }
+    if(hasHover){ cta.addEventListener('pointerenter', function(){ resolveNoise(540); }); }
   })();
 }
 
