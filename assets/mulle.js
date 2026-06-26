@@ -611,26 +611,44 @@ if(document.querySelector('.outro')){
       gsap.delayedCall(0.1, crystallise);
     }});
 
-    // ── effect when you go ON the sentence: it stirs into living noise, then resolves on leave ──
+    // ── play with the sentence: cursor SPEED stirs it into noise (fast = grainier),
+    //    it calms toward clarity when you slow/hold still, and resolves when you leave ──
     if(hasHover && canTurb){
-      var churn;
-      cta.addEventListener('pointerenter', function(){
+      var hovering=false, running=false, drive=0;
+      var curS=0, curBF=0.012, lastX=0, lastY=0, lastT=0;
+      var MAXS=24, MAXBF=0.2;
+      function loop(){
+        drive *= 0.90;                                   // stir energy fades as you slow/stop
+        var idle = hovering ? 1.6 : 0;                   // a faint life while resting on it
+        var tS  = Math.min(idle + drive, MAXS);
+        var tBF = 0.012 + Math.min(drive / MAXS, 1) * (MAXBF - 0.012);   // faster → grainier
+        curS  += (tS  - curS ) * 0.18;
+        curBF += (tBF - curBF) * 0.18;
+        disp.setAttribute('scale', curS.toFixed(2));
+        turb.setAttribute('baseFrequency', curBF.toFixed(4));
+        if(!hovering && curS < 0.04 && drive < 0.04){    // fully resolved → release the filter
+          disp.setAttribute('scale','0'); turb.setAttribute('baseFrequency','0.012');
+          cta.style.filter=''; gsap.ticker.remove(loop); running=false;
+        }
+      }
+      function run(){ if(!running){ running=true; gsap.ticker.add(loop); } }
+      cta.addEventListener('pointerenter', function(e){
         if(!window.__outroReady) return;
-        if(churn) churn.kill();
-        gsap.killTweensOf(disp);
-        cta.style.filter = 'url(#noiseResolve)';
-        churn = gsap.timeline();
-        churn.fromTo(disp, { attr:{ scale:0 } }, { attr:{ scale:16 }, duration:.55, ease:'power2.out' })   // stir up
-             .to(disp, { attr:{ scale:5 }, duration:.6, ease:'sine.inOut' })                               // settle
-             .to(disp, { attr:{ scale:8 }, duration:1.3, ease:'sine.inOut', repeat:-1, yoyo:true });       // living churn
-        flare(.2);
+        gsap.killTweensOf([disp, turb]);
+        hovering=true; cta.style.filter='url(#noiseResolve)';
+        lastX=e.clientX; lastY=e.clientY; lastT=performance.now();
+        drive = Math.max(drive, 15);                     // a pulse on entry
+        flare(.15); run();
       });
-      cta.addEventListener('pointerleave', function(){
-        if(churn) churn.kill();
-        gsap.killTweensOf(disp);
-        gsap.to(disp, { attr:{ scale:0 }, duration:.9, ease:'power3.out',
-          onComplete:function(){ cta.style.filter=''; } });
-      });
+      cta.addEventListener('pointermove', function(e){
+        if(!hovering) return;
+        var now=performance.now(), dt=Math.max(now-lastT, 8);
+        var dx=e.clientX-lastX, dy=e.clientY-lastY;
+        var speed=Math.sqrt(dx*dx+dy*dy)/dt;             // px per ms
+        drive = Math.min(drive + speed*11, MAXS);        // accumulate stir energy
+        lastX=e.clientX; lastY=e.clientY; lastT=now; run();
+      }, { passive:true });
+      cta.addEventListener('pointerleave', function(){ hovering=false; run(); });
     }
   })();
 }
