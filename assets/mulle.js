@@ -456,6 +456,34 @@ document.querySelectorAll('.wk-canvas[data-video]').forEach(function(c){
   }).catch(function(){});
 });
 
+/* ── work: live "scroll preview" — hovering a .wk-scroll tile pans the full landing page ── */
+gsap.utils.toArray('.wk-scroll').forEach(function(wrap){
+  var shot = wrap.querySelector('.wk-shot');
+  if(!shot) return;
+  var canHover = false; try{ canHover = matchMedia('(hover:hover)').matches; }catch(e){}
+  if(!canHover){ shot.remove(); return; }            /* touch devices: poster only, skip the heavy image */
+  function panDist(){
+    if(!shot.naturalWidth) return 0;
+    var scaledH = wrap.clientWidth * (shot.naturalHeight / shot.naturalWidth);
+    return Math.max(0, scaledH - wrap.clientHeight);
+  }
+  function start(){
+    var d = panDist(); if(!d){ return; }
+    gsap.killTweensOf(shot);
+    gsap.to(shot, { opacity:1, duration:.45, ease:'power2.out' });
+    gsap.fromTo(shot, { y:0 }, { y:-d, duration: Math.min(13, Math.max(5, d/560)), ease:'none' });
+  }
+  wrap.addEventListener('pointerenter', function(){
+    if(shot.naturalWidth){ start(); }
+    else { shot.loading = 'eager'; shot.addEventListener('load', start, { once:true }); }
+  });
+  wrap.addEventListener('pointerleave', function(){
+    gsap.killTweensOf(shot);
+    gsap.to(shot, { y:0, duration:.8, ease:'power3.out' });
+    gsap.to(shot, { opacity:0, duration:.5, ease:'power2.out' });
+  });
+});
+
 /* ── work: cinematic Method — ghost numerals cross-fade, auto-plays ── */
 (function(){
   var mth = document.querySelector('.mth');
