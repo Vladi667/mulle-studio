@@ -564,16 +564,31 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   }
 });
 
-/* ── outro: bloom swells ── */
+/* ── outro: bloom swells; headline builds and "noise" resolves out of noise ── */
 if(document.querySelector('.outro')){
   gsap.fromTo('.outro .bloom',
     { opacity:.3 },
     { opacity:.8, ease:'none',
       scrollTrigger:{ trigger:'.outro', start:'top 80%', end:'bottom bottom', scrub:.5 } });
-  gsap.from(['.outro .eyebrow', '.outro-cta', '.outro-btn', '.outro-meta'], {
-    y:44, opacity:0, duration:1, stagger:.1, ease:'power3.out',
-    scrollTrigger:{ trigger:'.outro', start:'top 65%' }
+  gsap.from(['.outro .eyebrow', '.outro-btn', '.outro-meta'], {
+    y:44, opacity:0, duration:1, stagger:.12, ease:'power3.out',
+    scrollTrigger:{ trigger:'.outro', start:'top 62%' }
   });
+  (function(){
+    var cta = document.querySelector('.outro-cta');
+    var lns = gsap.utils.toArray('.outro-cta .ln');
+    var noiseEl = document.querySelector('.o-noise');
+    if(!cta || !lns.length) return;
+    gsap.set(lns, { yPercent:60, opacity:0 });
+    ScrollTrigger.create({ trigger:cta, start:'top 78%', once:true, onEnter:function(){
+      gsap.to(lns, { yPercent:0, opacity:1, duration:1.05, ease:'power4.out', stagger:.14 });
+      gsap.delayedCall(0.95, function(){ cta.classList.add('revealed'); });
+      if(noiseEl && typeof decode === 'function'){ gsap.delayedCall(0.85, function(){ decode(noiseEl, 720); }); }
+    }});
+    if(noiseEl && typeof decode === 'function' && hasHover){
+      cta.addEventListener('pointerenter', function(){ decode(noiseEl, 520); });
+    }
+  })();
 }
 
 

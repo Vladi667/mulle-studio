@@ -452,7 +452,8 @@ section{position:relative}
   position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--txt);
   transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease-inout);
 }
-.outro-cta:hover .ul{transform:scaleX(1)}
+.outro-cta:hover .ul,.outro-cta.revealed .ul{transform:scaleX(1)}
+.o-noise{font-style:normal}
 .outro-cta:hover{color:var(--blue)}
 .outro-cta{transition:color var(--dur-std) var(--ease-out)}
 .outro-btn{margin-top:clamp(26px,4.5vh,48px);position:relative;z-index:1}
