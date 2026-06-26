@@ -579,15 +579,18 @@ if(document.querySelector('.outro')){
     var lns = gsap.utils.toArray('.outro-cta .ln');
     var noiseEl = document.querySelector('.o-noise');
     if(!cta || !lns.length) return;
+    function resolveNoise(dur){
+      if(!noiseEl) return;
+      if(typeof decode === 'function'){ decode(noiseEl, dur); }
+      gsap.fromTo(noiseEl, { filter:'blur(7px)', scale:1.06 },
+        { filter:'blur(0px)', scale:1, duration:(dur/1000)+0.15, ease:'power2.out', transformOrigin:'center' });
+    }
     gsap.set(lns, { yPercent:60, opacity:0 });
     ScrollTrigger.create({ trigger:cta, start:'top 78%', once:true, onEnter:function(){
       gsap.to(lns, { yPercent:0, opacity:1, duration:1.05, ease:'power4.out', stagger:.14 });
-      gsap.delayedCall(0.95, function(){ cta.classList.add('revealed'); });
-      if(noiseEl && typeof decode === 'function'){ gsap.delayedCall(0.85, function(){ decode(noiseEl, 720); }); }
+      gsap.delayedCall(0.8, function(){ resolveNoise(760); });
     }});
-    if(noiseEl && typeof decode === 'function' && hasHover){
-      cta.addEventListener('pointerenter', function(){ decode(noiseEl, 520); });
-    }
+    if(hasHover){ cta.addEventListener('pointerenter', function(){ resolveNoise(520); }); }
   })();
 }
 
