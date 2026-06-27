@@ -339,17 +339,14 @@ section{position:relative}
   /* centred wash holds the type over the 3D mercury */
   background-image:radial-gradient(64% 64% at 50% 50%, rgba(245,245,247,.84), transparent 74%);
 }
-.mfilm{width:clamp(240px,40vh,460px);aspect-ratio:1/1;margin:clamp(4px,1vh,16px) auto clamp(2px,1vh,14px);position:relative;z-index:1;pointer-events:none;
+.mfilm{width:clamp(170px,24vh,300px);aspect-ratio:1/1;margin:clamp(4px,1vh,14px) auto clamp(14px,2.4vh,30px);position:relative;z-index:1;pointer-events:none;
   -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 55%, transparent 80%);
           mask-image:radial-gradient(circle at 50% 50%, #000 55%, transparent 80%)}
 .mfilm-v{width:100%;height:100%;object-fit:cover;display:block}
 .manifesto .eyebrow{position:absolute;top:clamp(88px,14vh,140px);left:var(--margin)}
 /* let the 3D mercury read through the sections that host a scene */
 .manifesto .m-lines{position:relative;z-index:1;text-shadow:0 1px 30px rgba(245,245,247,.9)}
-.m-lines{position:relative;width:min(90%,860px);margin:0 auto;text-align:center}
-.m-head{font-size:clamp(26px,4.2vw,58px);font-weight:300;letter-spacing:-.03em;line-height:1.06;color:var(--txt)}
-.m-head em{font-style:normal;color:var(--blue)}
-.m-sub{margin-top:clamp(12px,1.8vh,22px);font-size:clamp(14px,1.5vw,18px);font-weight:400;letter-spacing:.005em;color:var(--txt-55)}
+.m-lines{position:relative;width:min(88%,820px);margin:0 auto;min-height:clamp(92px,15vh,150px)}
 .mline{
   position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   font-size:clamp(19px,2.6vw,38px);
