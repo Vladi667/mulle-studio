@@ -336,6 +336,17 @@ if(document.querySelector('.hero')){
   });
 }
 
+/* ── method film: liquid-mercury coalesce loop — plays only in view, respects reduced motion ── */
+(function(){
+  var v = document.querySelector('.mfilm-v'); if(!v) return;
+  var reduce = false; try{ reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  if(reduce) return;                                  /* leave paused → poster shows */
+  function go(on){ if(on){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } else { v.pause(); } }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ go(e.isIntersecting); }); }, { threshold:0.2 }).observe(v);
+  } else { go(true); }
+})();
+
 /* ── manifesto: auto-playing kinetic word-build (masked), loops ── */
 (function(){
   var man = document.querySelector('.manifesto');

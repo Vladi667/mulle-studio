@@ -339,6 +339,10 @@ section{position:relative}
   /* centred wash holds the type over the 3D mercury */
   background-image:radial-gradient(64% 64% at 50% 50%, rgba(245,245,247,.84), transparent 74%);
 }
+.mfilm{width:clamp(220px,32vh,400px);aspect-ratio:1/1;margin:clamp(8px,2vh,26px) auto clamp(16px,3vh,36px);position:relative;z-index:1;pointer-events:none;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 55%, transparent 80%);
+          mask-image:radial-gradient(circle at 50% 50%, #000 55%, transparent 80%)}
+.mfilm-v{width:100%;height:100%;object-fit:cover;display:block}
 .manifesto .eyebrow{position:absolute;top:clamp(88px,14vh,140px);left:var(--margin)}
 /* let the 3D mercury read through the sections that host a scene */
 .manifesto .m-lines{position:relative;z-index:1;text-shadow:0 1px 30px rgba(245,245,247,.9)}
