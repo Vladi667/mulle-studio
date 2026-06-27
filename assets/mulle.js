@@ -336,15 +336,23 @@ if(document.querySelector('.hero')){
   });
 }
 
-/* ── method film: liquid-mercury coalesce loop — plays only in view, respects reduced motion ── */
+/* ── method film: liquid-mercury Coalesce — materialises on entry, plays only in view ── */
 (function(){
-  var v = document.querySelector('.mfilm-v'); if(!v) return;
+  var film = document.querySelector('.mfilm');
+  var v = film && film.querySelector('.mfilm-v'); if(!v) return;
   var reduce = false; try{ reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  if(reduce) return;                                  /* leave paused → poster shows */
-  function go(on){ if(on){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } else { v.pause(); } }
+  var revealed = false;
+  function reveal(){
+    if(revealed) return; revealed = true;
+    if(!reduce && typeof gsap !== 'undefined'){
+      gsap.fromTo(film, { autoAlpha:0, scale:.94, filter:'blur(8px)' },
+        { autoAlpha:1, scale:1, filter:'blur(0px)', duration:1.5, ease:'power2.out' });
+    }
+  }
+  function go(on){ if(reduce) return; if(on){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } else { v.pause(); } }
   if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ es.forEach(function(e){ go(e.isIntersecting); }); }, { threshold:0.2 }).observe(v);
-  } else { go(true); }
+    new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) reveal(); go(e.isIntersecting); }); }, { threshold:0.1 }).observe(film);
+  } else { reveal(); go(true); }
 })();
 
 /* ── manifesto: auto-playing kinetic word-build (masked), loops ── */

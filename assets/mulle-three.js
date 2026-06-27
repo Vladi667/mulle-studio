@@ -12,7 +12,7 @@ if(typeof THREE === 'undefined') return;
 if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
 
 var anchors = {
-  blob:  document.querySelector('.manifesto'),
+  blob:  null,   /* Method now carries the liquid-mercury Coalesce film — no competing 3D blob */
   drops: document.querySelector('.disciplines'),
   finale:document.querySelector('.outro')
 };
