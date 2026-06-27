@@ -376,7 +376,7 @@ if(document.querySelector('.hero')){
       gsap.set(groups[0], { yPercent:0 });
       return;
     }
-    var SL = 3.6;
+    var SL = 4.8;
     var tl = gsap.timeline({ repeat:-1, paused:true });
     mlines.forEach(function(l, i){
       var t = i * SL, w = groups[i];
