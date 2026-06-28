@@ -855,8 +855,8 @@ section{position:relative}
 .step .step-n b{transition:color var(--dur-std) var(--ease-out)}
 .step.lit .step-n b,.step.active .step-n b{color:var(--blue)}
 /* self-playing process timeline (gsap drives the motion; CSS holds the highlight) */
-.steps .step{transition:border-color .45s var(--ease-out),box-shadow .45s var(--ease-out);will-change:transform,opacity;transform-origin:center bottom}
-.step.active{border-top-color:var(--blue);box-shadow:0 18px 52px rgba(0,113,227,.16)}
+.steps .step{transition:border-color .6s var(--ease-out),box-shadow .6s var(--ease-out);will-change:transform,opacity;transform-origin:center bottom}
+.step.active{border-top-color:var(--blue);box-shadow:0 10px 30px rgba(29,29,31,.05)}
 
 /* chapter rail — wayfinding (JS-injected) */
 .chaprail{
