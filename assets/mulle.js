@@ -807,6 +807,26 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(init); } else { init(); }
 })();
 
+/* ── kinetic headings: word-by-word masked build (opt-in via .kine-head) ── */
+(function(){
+  if(typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
+  var reduce=false; try{ reduce = matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
+  function init(){
+    gsap.utils.toArray('.kine-head').forEach(function(h){
+      var words;
+      try{ words = new SplitText(h, { type:'lines,words', mask:'lines' }).words; }catch(e){ return; }
+      if(reduce) return;
+      gsap.set(words, { yPercent:120 });
+      var done=false;
+      function go(){ if(done) return; done=true; gsap.to(words, { yPercent:0, duration:.95, ease:'power4.out', stagger:.07 }); }
+      if(typeof ScrollTrigger !== 'undefined'){ ScrollTrigger.create({ trigger:h, start:'top 84%', once:true, onEnter:go }); }
+      if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) go(); }); }, { threshold:0.35 }).observe(h); }
+      setTimeout(go, 2500);   /* safety: never leave the heading hidden */
+    });
+  }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(init); } else { init(); }
+})();
+
 /* ── contact: form + aside cascade in (fields come alive on focus via CSS) ── */
 (function(){
   if(typeof gsap === 'undefined') return;
