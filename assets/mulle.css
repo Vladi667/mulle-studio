@@ -854,10 +854,9 @@ section{position:relative}
 .steps-rail i{display:block;height:100%;background:var(--blue);transform-origin:left center;transform:scaleX(0)}
 .step .step-n b{transition:color var(--dur-std) var(--ease-out)}
 .step.lit .step-n b,.step.active .step-n b{color:var(--blue)}
-/* self-playing process timeline: focus advances, others recede */
-.steps .step{transition:opacity .55s var(--ease-out),transform .55s var(--ease-out),border-color .55s var(--ease-out)}
-.steps.playing .step{opacity:.4}
-.steps.playing .step.active{opacity:1;transform:translateY(-6px) scale(1.025);border-top-color:var(--blue)}
+/* self-playing process timeline (gsap drives the motion; CSS holds the highlight) */
+.steps .step{transition:border-color .45s var(--ease-out),box-shadow .45s var(--ease-out);will-change:transform,opacity;transform-origin:center bottom}
+.step.active{border-top-color:var(--blue);box-shadow:0 18px 52px rgba(0,113,227,.16)}
 
 /* chapter rail — wayfinding (JS-injected) */
 .chaprail{

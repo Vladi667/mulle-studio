@@ -750,13 +750,19 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
   var rail = document.createElement('div'); rail.className = 'steps-rail';
   var fill = document.createElement('i'); rail.appendChild(fill); steps.prepend(rail);
   var reduce=false; try{ reduce = matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
-  if(reduce){ els.forEach(function(s){ s.classList.add('active'); }); gsap.set(fill,{scaleX:1}); return; }
-  var n = els.length, HOLD = 2600, idx = 0, timer = null, playing = false;
+  if(reduce){ gsap.set(fill,{scaleX:1}); return; }
+  var n = els.length, HOLD = 2300, idx = 0, timer = null, playing = false;
   function activate(i){
-    steps.classList.add('playing');
-    els.forEach(function(s,j){ s.classList.toggle('active', j===i); });
-    gsap.to(fill, { scaleX:(i+1)/n, duration:.7, ease:'power2.inOut' });
-    var b = els[i].querySelector('.step-n b'); if(b && window.MulleDecode) window.MulleDecode(b, 520);
+    els.forEach(function(s2,j){ s2.classList.toggle('active', j===i); });
+    var s = els[i], others = els.filter(function(e){ return e !== s; });
+    gsap.to(others, { opacity:.28, scale:.96, y:0, duration:.45, ease:'power2.out', overwrite:'auto' });
+    gsap.fromTo(s, { scale:.9, y:24, opacity:.35 }, { opacity:1, scale:1.06, y:-8, duration:.62, ease:'back.out(2.2)', overwrite:'auto' });
+    var b = s.querySelector('.step-n b');
+    if(b){ gsap.fromTo(b, { scale:1.75, filter:'blur(5px)' }, { scale:1, filter:'blur(0px)', duration:.66, ease:'back.out(3)' }); if(window.MulleDecode) window.MulleDecode(b, 440); }
+    var h3 = s.querySelector('h3'); if(h3) gsap.fromTo(h3, { yPercent:95, opacity:0 }, { yPercent:0, opacity:1, duration:.55, ease:'power4.out', delay:.05 });
+    var p = s.querySelector('p'); if(p) gsap.fromTo(p, { y:18, opacity:0 }, { y:0, opacity:1, duration:.55, ease:'power2.out', delay:.13 });
+    gsap.to(fill, { scaleX:(i+1)/n, duration:.55, ease:'power3.out' });
+    gsap.fromTo(fill, { filter:'brightness(2.4)' }, { filter:'brightness(1)', duration:.6, ease:'power2.out' });
   }
   function tick(){ activate(idx); idx = (idx+1) % n; }
   function start(){ if(playing) return; playing = true; tick(); timer = setInterval(tick, HOLD); }
