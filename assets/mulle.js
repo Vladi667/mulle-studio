@@ -65,8 +65,7 @@ if(clockEl){
         it.textContent = '';
         var logo = new Image();
         logo.className = 'mq-logo'; logo.src = url; logo.alt = name; logo.loading = 'lazy';
-        var nm = document.createElement('span'); nm.className = 'mq-name'; nm.textContent = name;
-        it.appendChild(logo); it.appendChild(nm);
+        it.appendChild(logo);
         it.classList.add('has-logo');
         try{ window.dispatchEvent(new Event('resize')); }catch(e){}
       };
