@@ -721,11 +721,13 @@ section{position:relative}
 .field input,.field select,.field textarea{
   font-family:var(--mono);font-size:14px;color:var(--txt);width:100%;
   background:rgba(255,255,255,.5);border:1px solid var(--hairline-2);border-radius:12px;
-  padding:14px 16px;transition:border-color var(--dur-short) var(--ease-out),background var(--dur-short) var(--ease-out);
+  padding:14px 16px;transition:border-color var(--dur-short) var(--ease-out),background var(--dur-short) var(--ease-out),box-shadow var(--dur-short) var(--ease-out);
 }
 .field textarea{resize:vertical;min-height:120px;line-height:1.6}
 .field input::placeholder,.field textarea::placeholder{color:var(--txt-40)}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:rgba(255,255,255,.8)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:rgba(255,255,255,.88);box-shadow:0 0 0 3px rgba(0,113,227,.12),0 8px 26px rgba(0,113,227,.10)}
+.field label{transition:color var(--dur-short) var(--ease-out)}
+.field:focus-within label{color:var(--blue)}
 .submit-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:6px}
 .submit-row .note{font-size:11px;line-height:1.6;color:var(--txt-40);max-width:360px}
 .submit-row .note b{color:var(--txt-55);font-weight:500}

@@ -807,6 +807,22 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(init); } else { init(); }
 })();
 
+/* ── contact: form + aside cascade in (fields come alive on focus via CSS) ── */
+(function(){
+  if(typeof gsap === 'undefined') return;
+  var wrap = document.querySelector('.contact-wrap');
+  if(!wrap) return;
+  var reduce=false; try{ reduce = matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
+  var blocks = gsap.utils.toArray(wrap.querySelectorAll('.contact-form > .form-row, .contact-form > .field, .contact-form > .submit-row, .contact-aside .block'));
+  if(!blocks.length || reduce) return;
+  gsap.set(blocks, { opacity:0, y:34 });
+  var done=false;
+  function go(){ if(done) return; done=true; gsap.to(blocks, { opacity:1, y:0, duration:.9, ease:'power3.out', stagger:.08 }); }
+  if(typeof ScrollTrigger !== 'undefined'){ ScrollTrigger.create({ trigger:wrap, start:'top 85%', once:true, onEnter:go }); }
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) go(); }); }, { threshold:0.08 }).observe(wrap); }
+  setTimeout(go, 2000);   /* safety: never leave the form hidden */
+})();
+
 /* footer assembles: columns rise, base draws last */
 if(document.querySelector('.site-foot')){
   gsap.from('.site-foot .sf-brand, .site-foot .sf-col', {
