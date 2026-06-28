@@ -308,10 +308,7 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 .mq-item.has-logo{display:inline-flex;align-items:center}
 .mq-logo{height:1.15em;width:auto;max-height:100%;display:block;object-fit:contain;opacity:.66;transition:opacity .35s var(--ease-out)}
 .mq-item:hover .mq-logo{opacity:.95}
-.mq-sep{
-  flex:0 0 auto;width:5px;height:5px;transform:rotate(45deg);
-  background:var(--chrome-2);opacity:.65;
-}
+.mq-sep{display:none}
 @media (max-width:767px){
   .mq-item{font-size:13px;padding:0 22px}
   .mq-sep{width:4px;height:4px}
