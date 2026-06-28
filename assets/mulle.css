@@ -853,7 +853,11 @@ section{position:relative}
 .steps-rail{position:absolute;top:-1px;left:0;right:0;height:2px;overflow:hidden;pointer-events:none;z-index:1}
 .steps-rail i{display:block;height:100%;background:var(--blue);transform-origin:left center;transform:scaleX(0)}
 .step .step-n b{transition:color var(--dur-std) var(--ease-out)}
-.step.lit .step-n b{color:var(--blue)}
+.step.lit .step-n b,.step.active .step-n b{color:var(--blue)}
+/* self-playing process timeline: focus advances, others recede */
+.steps .step{transition:opacity .55s var(--ease-out),transform .55s var(--ease-out),border-color .55s var(--ease-out)}
+.steps.playing .step{opacity:.4}
+.steps.playing .step.active{opacity:1;transform:translateY(-6px) scale(1.025);border-top-color:var(--blue)}
 
 /* chapter rail — wayfinding (JS-injected) */
 .chaprail{
