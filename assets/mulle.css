@@ -850,7 +850,7 @@ section{position:relative}
 
 /* steps progress rail (about · process) */
 .steps{position:relative}
-.steps-dots{display:flex;justify-content:center;gap:15px;margin:0 0 clamp(28px,5vh,52px)}
+.steps-dots{grid-column:1 / -1;display:flex;justify-content:center;gap:15px;margin:0 0 clamp(20px,3.5vh,40px)}
 .sdot{position:relative;width:10px;height:10px;border-radius:50%;background:var(--hairline-2);overflow:hidden;transition:transform .5s var(--ease-out)}
 .sdot.on{transform:scale(1.2)}
 .sdot i{position:absolute;inset:0;border-radius:50%;background:var(--blue);transform:scale(0);transform-origin:center}
