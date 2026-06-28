@@ -408,7 +408,8 @@ section{position:relative}
 .plate-visual .pp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-out)}
 .plate-photo:hover .pp-img{transform:scale(1.04)}
 .pf-visual{background:#0c0c0e}
-.pf-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;background:#0c0c0e;transition:transform .7s var(--ease-out)}
+.pf-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#0c0c0e;transition:transform .7s var(--ease-out)}
+.works-grid .plate-visual{aspect-ratio:16/9}
 .plate-film .pv-status{color:#fff;background:rgba(0,0,0,.4);border-color:rgba(255,255,255,.18)}
 .plate-film:hover .pf-vid{transform:scale(1.03)}
 .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);align-items:start}
