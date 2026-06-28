@@ -747,17 +747,22 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
   if(!steps || typeof gsap === 'undefined') return;
   var els = gsap.utils.toArray('.steps .step');
   if(!els.length) return;
-  var rail = document.createElement('div'); rail.className = 'steps-rail';
-  var fill = document.createElement('i'); rail.appendChild(fill); steps.prepend(rail);
+  var n = els.length;
+  var dotsWrap = document.createElement('div'); dotsWrap.className = 'steps-dots'; dotsWrap.setAttribute('aria-hidden','true');
+  var dots = [], inners = [];
+  for(var k=0;k<n;k++){ var d=document.createElement('span'); d.className='sdot'; var fi=document.createElement('i'); d.appendChild(fi); dotsWrap.appendChild(d); dots.push(d); inners.push(fi); }
+  steps.prepend(dotsWrap);
   var reduce=false; try{ reduce = matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
-  if(reduce){ gsap.set(fill,{scaleX:1}); return; }
-  var n = els.length, HOLD = 3200, idx = 0, timer = null, playing = false;
+  if(reduce){ inners.forEach(function(fi){ gsap.set(fi,{scale:1}); }); return; }
+  var HOLD = 3200, idx = 0, timer = null, playing = false;
   function activate(i){
     els.forEach(function(s2,j){ s2.classList.toggle('active', j===i); });
+    dots.forEach(function(d,j){ d.classList.toggle('on', j===i); });
     var s = els[i], others = els.filter(function(e){ return e !== s; });
     gsap.to(others, { opacity:.25, y:0, duration:.9, ease:'power2.out', overwrite:'auto' });
     gsap.to(s, { opacity:1, y:-4, duration:1.0, ease:'power3.out', overwrite:'auto' });
-    gsap.to(fill, { scaleX:(i+1)/n, duration:1.0, ease:'power2.inOut' });
+    gsap.set(inners, { scale:0 });
+    gsap.fromTo(inners[i], { scale:0 }, { scale:1, duration:HOLD/1000, ease:'none' });   /* dot fills over the hold = the loader */
   }
   function tick(){ activate(idx); idx = (idx+1) % n; }
   function start(){ if(playing) return; playing = true; tick(); timer = setInterval(tick, HOLD); }
