@@ -255,7 +255,10 @@ document.addEventListener('click', function(e){
 /* counter preloader on first visit only; quick drain on every navigation after */
 var seen = false;
 try{ seen = sessionStorage.getItem('mulle_seen') === '1'; }catch(_){}
-if(pre && !seen){
+/* always play the counting preloader on the landing/home page; inner pages
+   keep the quick drain after the first visit so navigation stays snappy */
+var isHome = location.pathname === '/' || /index\.html?$/.test(location.pathname);
+if(pre && (!seen || isHome)){
   try{ sessionStorage.setItem('mulle_seen', '1'); }catch(_){}
   var preTl = gsap.timeline();
   preTl.to(counter, {

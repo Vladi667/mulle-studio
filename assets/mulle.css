@@ -807,9 +807,10 @@ section{position:relative}
   .form-row{grid-template-columns:1fr}
   .case-specs{grid-template-columns:1fr 1fr}
   .page-meta{gap:20px 32px}
-  /* phones: Method is content-height (no tall svh void below the lines) */
-  .manifesto{min-height:auto;padding:clamp(118px,20vh,168px) var(--margin) clamp(26px,5vh,46px)}
-  .outro{padding-top:clamp(40px,7vh,78px)}
+  /* phones: Method AND Contact are content-height — no tall svh voids,
+     so the gap below the Method lines is just intentional padding */
+  .manifesto{min-height:auto;padding:clamp(108px,19vh,156px) var(--margin) clamp(16px,3vh,30px)}
+  .outro{min-height:auto;padding:clamp(40px,7vh,72px) var(--margin) clamp(48px,8vh,80px)}
 }
 
 /* ══════════════════════════════════════════════════════════════════
