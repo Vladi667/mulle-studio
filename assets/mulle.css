@@ -330,7 +330,7 @@ section{position:relative}
    MANIFESTO — pinned, lines sharpen out of blur
    ────────────────────────────────────────────────────────────────── */
 .manifesto{
-  min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  min-height:clamp(460px,76svh,820px);display:flex;flex-direction:column;justify-content:center;align-items:center;
   padding:0 var(--margin);
   /* centred wash holds the type over the 3D mercury */
   background-image:radial-gradient(64% 64% at 50% 50%, rgba(245,245,247,.84), transparent 74%);
@@ -440,7 +440,7 @@ section{position:relative}
    ────────────────────────────────────────────────────────────────── */
 .outro{
   min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:clamp(90px,14vh,160px) var(--margin) 86px;overflow:clip;text-align:center;
+  padding:clamp(52px,9vh,112px) var(--margin) 86px;overflow:clip;text-align:center;
 }
 .outro .bloom{
   position:absolute;left:50%;bottom:-30%;width:120vmin;height:120vmin;
