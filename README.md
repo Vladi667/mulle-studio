@@ -16,4 +16,4 @@ Any static server, e.g. `npx http-server -p 4178 -c-1 .`
 ## Deploy
 Static deploy on Vercel — no serverless functions, no env vars.
 
-The contact form composes an email to `contact@theomuller.com` (no backend required).
+The contact form composes an email to `contact@agencefritz.com` (no backend required).
