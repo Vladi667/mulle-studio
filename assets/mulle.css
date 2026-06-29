@@ -807,6 +807,9 @@ section{position:relative}
   .form-row{grid-template-columns:1fr}
   .case-specs{grid-template-columns:1fr 1fr}
   .page-meta{gap:20px 32px}
+  /* phones: Method is content-height (no tall svh void below the lines) */
+  .manifesto{min-height:auto;padding:clamp(118px,20vh,168px) var(--margin) clamp(26px,5vh,46px)}
+  .outro{padding-top:clamp(40px,7vh,78px)}
 }
 
 /* ══════════════════════════════════════════════════════════════════
