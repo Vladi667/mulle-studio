@@ -1,0 +1,5 @@
+# Agence Fritz — agencefritz.com
+User-agent: *
+Allow: /
+
+Sitemap: https://agencefritz.com/sitemap.xml
