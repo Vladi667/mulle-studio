@@ -59,33 +59,33 @@
 
   /* about */
   FR[`A small studio, working <em>above the lake.</em>`] = `Un petit studio, <em>au-dessus du lac.</em>`;
-  FR[`Built on the idea that <em>subtraction</em> is the only loudness left.`] = `Fondé sur l'idée que <em>la soustraction</em> est le seul éclat qui reste.`;
+  FR[`Built on the idea that <em>subtraction</em> is the only loudness left.`] = `Fondé sur l'idée que <em>la soustraction</em> est la seule manière de se faire entendre.`;
   FR[`Four steps. <em>Nothing left to chance.</em>`] = `Quatre étapes. <em>Rien laissé au hasard.</em>`;
-  FR[`Three things <em>we believe.</em>`] = `Trois choses <em>que nous croyons.</em>`;
+  FR[`Three things <em>we believe.</em>`] = `Nos trois <em>convictions.</em>`;
   FR[`We'd rather <em>show you.</em>`] = `Nous préférons <em>vous montrer.</em>`;
   FR[`Conversation`] = `Conversation`;
   FR[`Proposal`] = `Proposition`;
   FR[`Craft`] = `Réalisation`;
   FR[`Hand-off`] = `Remise`;
   FR[`Quiet <em>over loud.</em>`] = `Le calme <em>plutôt que le bruit.</em>`;
-  FR[`Fixed <em>over flexible.</em>`] = `Le fixe <em>plutôt que le flexible.</em>`;
+  FR[`Fixed <em>over flexible.</em>`] = `La constance <em>plutôt que le flou.</em>`;
   FR[`Restraint <em>over reach.</em>`] = `La retenue <em>plutôt que l'excès.</em>`;
   FR[`04 — About`] = `04 — À propos`;
   FR[`01 — Origin`] = `01 — Origine`;
   FR[`02 — Process`] = `02 — Processus`;
   FR[`03 — Values`] = `03 — Valeurs`;
-  FR[`A quiet practice in Geneva — brand, web and growth systems for clients who would rather be felt than seen.`] = `Un studio discret à Genève — marque, web et systèmes de croissance pour des clients qui préfèrent être ressentis que vus.`;
-  FR[`A surface should hold weight, then disappear — built for the second look.`] = `Une surface doit avoir du poids, puis disparaître — pensée pour le second regard.`;
+  FR[`A quiet practice in Geneva — brand, web and growth systems for clients who would rather be felt than seen.`] = `Un studio discret à Genève — marque, web et systèmes de croissance, pour des clients qui préfèrent marquer les esprits plutôt que se faire voir.`;
+  FR[`A surface should hold weight, then disappear — built for the second look.`] = `Une surface doit peser, puis s'effacer — pensée pour le deuxième regard.`;
   FR[`Price, scope and timeline, all decided before we start.`] = `Prix, périmètre et délais, tout est décidé avant de commencer.`;
   FR[`If it can be removed, we remove it.`] = `Si cela peut être retiré, nous le retirons.`;
-  FR[`A free 30-minute call. We listen for the problem, not just the brief.`] = `Un appel gratuit de 30 minutes. Nous écoutons le problème, pas seulement le brief.`;
+  FR[`A free 30-minute call. We listen for the problem, not just the brief.`] = `Un appel gratuit de 30 minutes. On cherche le vrai problème, pas seulement le brief.`;
   FR[`One document — scope, price, timeline — within 24 hours.`] = `Un document — périmètre, prix, délais — sous 24 heures.`;
-  FR[`We make. You give honest feedback. Bounded revisions, unbounded care.`] = `Nous créons. Vous donnez un retour honnête. Révisions encadrées, soin sans limite.`;
+  FR[`We make. You give honest feedback. Bounded revisions, unbounded care.`] = `On crée, vous nous faites un retour honnête. Révisions encadrées, attention sans limite.`;
   FR[`Files, full licence, post-launch support. We stay reachable.`] = `Fichiers, licence complète, suivi après lancement. Nous restons joignables.`;
   FR[`Step`] = `Étape`;
 
   /* brand-web */
-  FR[`One brand. One site. <em>One piece.</em>`] = `Une marque. Un site. <em>Une seule pièce.</em>`;
+  FR[`One brand. One site. <em>One piece.</em>`] = `Une marque. Un site. <em>D'un seul tenant.</em>`;
   FR[`Brand Identity`] = `Identité de marque`;
   FR[`Business Website`] = `Site vitrine`;
   FR[`Commerce Suite`] = `Suite e-commerce`;
@@ -144,7 +144,7 @@
   FR[`Hours`] = `Horaires`;
   FR[`What to expect`] = `À quoi s'attendre`;
   FR[`Or`] = `Ou`;
-  FR[`Bring us the idea — the half-formed one is fine. We answer within 24 hours, talk it through on a free call, and send a fixed-price proposal the next day.`] = `Apportez-nous l'idée — même à moitié formée. Nous répondons sous 24 heures, en discutons lors d'un appel gratuit, et envoyons une proposition à prix fixe le lendemain.`;
+  FR[`Bring us the idea — the half-formed one is fine. We answer within 24 hours, talk it through on a free call, and send a fixed-price proposal the next day.`] = `Apportez-nous votre idée — même à moitié aboutie, c'est parfait. On répond sous 24 heures, on en discute lors d'un appel gratuit, et vous recevez une proposition à prix fixe le lendemain.`;
   FR[`Channel`] = `Canal`;
   FR[`Response`] = `Réponse`;
   FR[`Consultation`] = `Consultation`;
@@ -186,7 +186,7 @@
   FR[`Enterprise`] = `Enterprise`;
   FR[`How it works`] = `Comment ça marche`;
   FR[`Choose your plan`] = `Choisissez votre plan`;
-  FR[`Growth Ops is the quiet machine beneath the brand — a single source of truth, a workforce that runs itself, and a clear next move every week. Built on AI, measured end to end.`] = `Growth Ops, c'est la machine discrète sous la marque — une source unique de vérité, des équipes qui tournent seules, et un cap clair chaque semaine. Bâtie sur l'IA, mesurée de bout en bout.`;
+  FR[`Growth Ops is the quiet machine beneath the brand — a single source of truth, a workforce that runs itself, and a clear next move every week. Built on AI, measured end to end.`] = `Growth Ops, c'est la machine discrète sous la marque — une source unique de vérité, des opérations qui tournent toutes seules, et un cap clair chaque semaine. Bâtie sur l'IA, mesurée de bout en bout.`;
   FR[`The visibility layer. Your single source of truth — dashboards, tracking and a clean data foundation, built and run for you. Not another tool to operate yourself.`] = `La couche de visibilité. Votre source unique de vérité — tableaux de bord, tracking et une base de données propre, construits et pilotés pour vous. Pas un outil de plus à gérer soi-même.`;
   FR[`Visibility plus autonomy. The agents that carry the mechanical work — so the system keeps improving without a hand on the wheel.`] = `La visibilité et l'autonomie. Les agents qui prennent en charge le travail mécanique — pour que le système s'améliore sans main sur le volant.`;
   FR[`The full machine, shaped to your operation. Bespoke agents, integrations and weekly counsel for teams running serious volume.`] = `La machine complète, taillée pour votre organisation. Agents sur mesure, intégrations et conseil hebdomadaire pour les équipes à fort volume.`;
@@ -218,10 +218,10 @@
   FR[`Custom integrations &amp; internal tooling`] = `Intégrations sur mesure &amp; outils internes`;
   FR[`Weekly strategy call`] = `Appel stratégique hebdomadaire`;
   FR[`SLA &amp; priority response`] = `SLA &amp; réponse prioritaire`;
-  FR[`Most companies still scale on <em>instinct.</em>`] = `La plupart des entreprises se développent encore à <em>l'instinct.</em>`;
-  FR[`We map your data — and where value <em>leaks.</em>`] = `Nous cartographions vos données — et où la valeur <em>fuit.</em>`;
+  FR[`Most companies still scale on <em>instinct.</em>`] = `La plupart des entreprises se développent encore <em>à l'instinct.</em>`;
+  FR[`We map your data — and where value <em>leaks.</em>`] = `On cartographie vos données — et là où la valeur <em>fuit.</em>`;
   FR[`One dashboard. Every number <em>agrees.</em>`] = `Un seul tableau de bord. Tous les chiffres <em>concordent.</em>`;
-  FR[`Agents take the <em>mechanical work.</em>`] = `Les agents prennent le <em>travail mécanique.</em>`;
+  FR[`Agents take the <em>mechanical work.</em>`] = `Les agents s'occupent du <em>travail mécanique.</em>`;
   FR[`One experiment a week. Advantage that <em>accrues.</em>`] = `Une expérimentation par semaine. Un avantage qui <em>s'accumule.</em>`;
   FR[`Format`] = `Format`;
   FR[`Stack`] = `Stack`;
@@ -230,7 +230,7 @@
 
   /* index */
   FR[`Three disciplines. <em>One subtraction.</em>`] = `Trois disciplines. <em>Une seule soustraction.</em>`;
-  FR[`A small body of work, <em>shipped slowly.</em>`] = `Un petit corpus de travaux, <em>livré lentement.</em>`;
+  FR[`A small body of work, <em>shipped slowly.</em>`] = `Peu de projets, <em>livrés sans hâte.</em>`;
   FR[`Method`] = `Méthode`;
   FR[`SoYou Cosmetics, Geneva.`] = `SoYou Cosmetics, Genève.`;
   FR[`Sneaker, in motion.`] = `Sneaker, en mouvement.`;
@@ -245,7 +245,7 @@
   FR[`A brand is what <em>survives deletion.</em>`] = `Une marque, c'est ce qui <em>survit à la suppression.</em>`;
   FR[`Precision, <em>not decoration.</em>`] = `La précision, <em>pas la décoration.</em>`;
   FR[`Great work <em>explains itself.</em>`] = `Le bon travail <em>parle de lui-même.</em>`;
-  FR[`Noise spends. <em>Clarity compounds.</em>`] = `Le bruit coûte. <em>La clarté compose.</em>`;
+  FR[`Noise spends. <em>Clarity compounds.</em>`] = `Le bruit se dépense. <em>La clarté se capitalise.</em>`;
 
   /* marketing */
   FR[`Marketing built on <em>position,</em> not noise.`] = `Un marketing fondé sur <em>la position,</em> pas le bruit.`;
@@ -253,10 +253,10 @@
   FR[`Test`] = `Tester`;
   FR[`Learn`] = `Apprendre`;
   FR[`01 — Marketing`] = `01 — Marketing`;
-  FR[`Most agencies ship two ads a month and hope. We run an engine — studio-grade creative generated at volume, tested across Meta and Google by AI, and sharpened every cycle by what actually converts.`] = `La plupart des agences sortent deux pubs par mois et espèrent. Nous, nous faisons tourner un moteur — des créations de qualité studio produites en volume, testées sur Meta et Google par l'IA, et affinées à chaque cycle par ce qui convertit vraiment.`;
+  FR[`Most agencies ship two ads a month and hope. We run an engine — studio-grade creative generated at volume, tested across Meta and Google by AI, and sharpened every cycle by what actually converts.`] = `La plupart des agences sortent deux pubs par mois et croisent les doigts. Nous, on fait tourner un moteur — des créations de qualité studio produites en volume, testées sur Meta et Google par l'IA, et affinées à chaque cycle par ce qui convertit vraiment.`;
   FR[`The engine, scaled down. On-brand ad creative at a lighter monthly volume — art-directed, studio-made, ready to test. A low-commitment way in.`] = `Le moteur, en version réduite. Des créations publicitaires fidèles à votre marque, en volume mensuel allégé — dirigées artistiquement, faites en studio, prêtes à tester. Une porte d'entrée sans engagement.`;
   FR[`The creative factory. On-brand ad creative at volume — art-directed, studio-made, ready to test. No shoots, no waiting.`] = `La fabrique créative. Des créations publicitaires fidèles à votre marque, en volume — dirigées artistiquement, faites en studio, prêtes à tester. Sans tournage, sans attente.`;
-  FR[`The full flywheel. Creative, Meta and Google, all instrumented — generate, test, and put budget behind what converts.`] = `Le volant d'inertie complet. Création, Meta et Google, le tout instrumenté — générer, tester et investir derrière ce qui convertit.`;
+  FR[`The full flywheel. Creative, Meta and Google, all instrumented — generate, test, and put budget behind what converts.`] = `Le cercle vertueux au complet. Création, Meta et Google, tout est mesuré — générer, tester, puis investir derrière ce qui convertit.`;
   FR[`per month · no minimum`] = `par mois · sans minimum`;
   FR[`<b>Cadence</b> monthly drop`] = `<b>Cadence</b> livraison mensuelle`;
   FR[`<b>Cadence</b> weekly drops`] = `<b>Cadence</b> livraisons hebdomadaires`;
@@ -282,7 +282,7 @@
   FR[`Two ads a month won't move an <em>algorithm.</em>`] = `Deux pubs par mois ne feront pas bouger un <em>algorithme.</em>`;
   FR[`So we generate <em>dozens</em> — on brand, on demand.`] = `Alors nous en générons <em>des dizaines</em> — fidèles à la marque, à la demande.`;
   FR[`Every one, across Meta and Google. <em>Live.</em>`] = `Chacune, sur Meta et Google. <em>En direct.</em>`;
-  FR[`The data keeps the <em>winners.</em>`] = `Les données gardent les <em>gagnantes.</em>`;
+  FR[`The data keeps the <em>winners.</em>`] = `Les données ne gardent que les <em>gagnantes.</em>`;
   FR[`Feed the next batch. <em>Repeat.</em>`] = `On alimente le lot suivant. <em>On recommence.</em>`;
   FR[`Channels`] = `Canaux`;
   FR[`Monthly retainers`] = `Forfaits mensuels`;
@@ -299,7 +299,7 @@
   FR[`Sneaker, <em>in motion.</em>`] = `Sneaker, <em>en mouvement.</em>`;
   FR[`Timepiece, <em>in motion.</em>`] = `Garde-temps, <em>en mouvement.</em>`;
   FR[`05 — Work`] = `05 — Travaux`;
-  FR[`A small body of work, shipped slowly — websites, video ads, identities, and the systems behind them. One project at a time, in full.`] = `Un petit corpus de travaux, livré lentement — sites web, pubs vidéo, identités et les systèmes qui les portent. Un projet à la fois, en entier.`;
+  FR[`A small body of work, shipped slowly — websites, video ads, identities, and the systems behind them. One project at a time, in full.`] = `Peu de projets, livrés sans hâte — sites web, pubs vidéo, identités et les systèmes qui les portent. Un projet à la fois, en entier.`;
   FR[`We show work the way we <em>make</em> it.`] = `Nous montrons le travail comme nous le <em>faisons.</em>`;
   FR[`Where the business stood — and the single problem worth solving first.`] = `Où en était l'entreprise — et le seul problème qui méritait d'être résolu en premier.`;
   FR[`The directions explored, the one chosen, and everything removed to get there.`] = `Les pistes explorées, celle retenue, et tout ce qui a été retiré pour y parvenir.`;
@@ -336,8 +336,8 @@
   FR[`the <i class="o-noise">noise</i>.`] = `le <i class="o-noise">bruit</i>.`;
   FR[`Free consultation`] = `Consultation gratuite`;
   FR[`Geneva · CH`] = `Genève · CH`;
-  FR[`Move — reveal`] = `Bouger — révéler`;
-  FR[`Scroll — begin`] = `Défiler — commencer`;
+  FR[`Move — reveal`] = `Bougez — révélez`;
+  FR[`Scroll — begin`] = `Défilez — commencez`;
   FR[`Visit site ↗`] = `Voir le site ↗`;
   FR[`Fritz — About`] = `Fritz — À propos`;
   FR[`Fritz — Brand &amp; Website`] = `Fritz — Marque &amp; Site web`;
