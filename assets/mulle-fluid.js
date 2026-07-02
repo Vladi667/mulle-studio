@@ -437,6 +437,15 @@ hero.addEventListener('pointermove', function(e){
   px = x; py = y;
 }, { passive:true });
 hero.addEventListener('pointerleave', function(){ hasPointer = false; }, { passive:true });
+/* touch delight: a tap/press drops a splat even without a drag */
+hero.addEventListener('pointerdown', function(e){
+  var r = canvas.getBoundingClientRect();
+  if(r.width < 2 || r.height < 2){ return; }
+  var x = (e.clientX - r.left) / r.width;
+  var y = 1.0 - (e.clientY - r.top) / r.height;
+  px = x; py = y; hasPointer = true;
+  queueSplat(x, y, (Math.random()-0.5)*0.35, (Math.random()-0.5)*0.35, 0.5);
+}, { passive:true });
 
 /* idle drift — keeps the surface alive without a cursor (touch, idle) */
 var driftT = Math.random()*100, lastDrift = 0;

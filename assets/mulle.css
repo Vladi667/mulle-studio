@@ -896,6 +896,13 @@ section{position:relative}
   .disc-row .go{grid-column:2}
   .menu .lbl{font-size:24px}
   .imprint{justify-content:center;text-align:center}
+  .field input,.field select,.field textarea{font-size:16px}   /* stop iOS focus-zoom */
+  .disc-row .meta{display:block;grid-column:2;font-size:10px;line-height:1.7;letter-spacing:.03em;color:var(--txt-55);margin-top:-2px}
+}
+
+/* touch devices: reveal affordances that are hover-only on desktop */
+@media (hover:none){
+  .wk-visit{opacity:1;transform:none}
 }
 
 /* ──────────────────────────────────────────────────────────────────
@@ -912,4 +919,4 @@ section{position:relative}
 .langtog button{appearance:none;-webkit-appearance:none;background:none;border:0;margin:0;cursor:pointer;color:var(--txt-40);font:inherit;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 8px;border-radius:999px;transition:color .3s var(--ease-out),background .3s var(--ease-out)}
 .langtog button.on{color:var(--txt);background:rgba(29,29,31,.06)}
 .langtog button:hover{color:var(--txt)}
-@media (max-width:767px){ .langtog{right:calc(var(--margin) + 102px);top:18px} .langtog button{padding:5px 6px} }
+@media (max-width:767px){ .langtog{right:calc(var(--margin) + 100px);top:16px} .langtog button{padding:11px 11px;font-size:11px} }
