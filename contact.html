@@ -202,35 +202,42 @@
           status.innerHTML = html;
         }
 
-        form.addEventListener('submit', (e) => {
+        var fr = (function(){ try{ var s = localStorage.getItem('fritz_lang'); if(s) return s === 'fr'; }catch(e){} return (navigator.language||'').toLowerCase().indexOf('fr') === 0; })();
+        var T = {
+          sending: fr ? 'Envoi de votre message…' : 'Sending your note…',
+          sent:    fr ? '<b>Message envoyé.</b> Merci — nous vous répondons sous 24 heures.' : "<b>Message sent.</b> Thanks — we'll reply within 24 hours.",
+          missing: fr ? "Merci d'indiquer votre nom, votre e-mail et un petit mot." : 'Please fill in your name, email, and a short note.',
+          error:   fr ? "Une erreur est survenue à l'envoi. Écrivez-nous directement à <a href=\"mailto:contact@agencefritz.com\">contact@agencefritz.com</a>." : 'Something went wrong sending your note. Please email us directly at <a href="mailto:contact@agencefritz.com">contact@agencefritz.com</a>.',
+          btnSending: fr ? 'Envoi…' : 'Sending…'
+        };
+
+        form.addEventListener('submit', function(e){
           e.preventDefault();
+          var p = Object.fromEntries(new FormData(form).entries());
+          if (p.website) { setStatus('ok', T.sent); return; }                          // honeypot: silently drop bots
+          if (!p.name || !p.email || !p.message) { setStatus('err', T.missing); return; }
 
-          const fd = new FormData(form);
-          const p = Object.fromEntries(fd.entries());
+          var label = btn.querySelector('span'); var orig = label.textContent;
+          btn.disabled = true; label.textContent = T.btnSending; setStatus('', T.sending);
 
-          if (!p.name || !p.email || !p.message) {
-            setStatus('err', 'Please fill in your name, email, and a short note.');
-            return;
-          }
-
-          const subject = pkgInp.value ? ('Project — ' + pkgInp.value) : 'New enquiry — Fritz';
-          const body = [
-            p.message, '',
-            '— ' + p.name + (p.company ? ', ' + p.company : ''),
-            p.email,
-            p.discipline ? ('Discipline: ' + p.discipline) : '',
-            p.budget ? ('Budget: ' + p.budget) : '',
-            p.timeline ? ('Timeline: ' + p.timeline) : ''
-          ].filter(Boolean).join('\n');
-
-          window.location.href = 'mailto:contact@agencefritz.com'
-            + '?subject=' + encodeURIComponent(subject)
-            + '&body=' + encodeURIComponent(body);
-
-          setStatus('ok',
-            '<b>Opening your mail app…</b> Your note is ready to send. ' +
-            'If nothing opens, write us at <a href="mailto:contact@agencefritz.com">contact@agencefritz.com</a>.');
-          btn.querySelector('span').textContent = 'Sent';
+          fetch('https://formsubmit.co/ajax/contact@agencefritz.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              name: p.name, email: p.email, company: p.company || '',
+              discipline: p.discipline || '', budget: p.budget || '', timeline: p.timeline || '',
+              package: p.package || '', message: p.message,
+              _subject: p.package ? ('Project — ' + p.package) : 'New enquiry — Agence Fritz',
+              _template: 'table', _captcha: 'false'
+            })
+          })
+          .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return { ok: r.ok, d: d }; }); })
+          .then(function(res){
+            if (res.ok && (res.d.success === 'true' || res.d.success === true)) {
+              form.reset(); setStatus('ok', T.sent); label.textContent = fr ? 'Envoyé' : 'Sent';
+            } else { throw new Error('send failed'); }
+          })
+          .catch(function(){ btn.disabled = false; label.textContent = orig; setStatus('err', T.error); });
         });
       })();
       </script>
