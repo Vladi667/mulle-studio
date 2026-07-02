@@ -10,6 +10,8 @@
 
 if(typeof THREE === 'undefined') return;
 if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+/* phones: skip the background WebGL scenes entirely — barely visible there and a real GPU/battery tax; the fluid hero (mulle-fluid.js) stays */
+if(window.matchMedia('(max-width:767px)').matches) return;
 
 var anchors = {
   blob:  null,   /* Method now carries the liquid-mercury Coalesce film — no competing 3D blob */

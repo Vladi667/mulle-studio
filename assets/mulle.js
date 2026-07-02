@@ -462,21 +462,42 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
   };
   im.src = src;
 });
-document.querySelectorAll('.wk-canvas[data-video]').forEach(function(c){
-  var src = c.getAttribute('data-video'); if(!src || !window.fetch) return;
-  fetch(src, { method:'HEAD' }).then(function(r){
-    if(!r.ok) return;
-    var v = document.createElement('video');
-    v.className = 'wk-vid'; v.muted = true; v.loop = true; v.autoplay = true;
-    v.playsInline = true; v.setAttribute('playsinline',''); v.preload = 'metadata';
-    var p = c.getAttribute('data-poster'); if(p){ v.poster = p; }
-    v.src = src;
-    v.addEventListener('playing', function(){ c.classList.add('is-playing'); });
-    c.appendChild(v);
-    var pr = v.play(); if(pr && pr.catch){ pr.catch(function(){}); }
-  }).catch(function(){});
-});
+(function(){
+  var small = window.matchMedia('(max-width:767px)').matches;
+  document.querySelectorAll('.wk-canvas[data-video]').forEach(function(c){
+    var base = c.getAttribute('data-video'); if(!base || !window.fetch) return;
+    var pick = small ? base.replace(/\.mp4$/, '-mobile.mp4') : base;
+    /* confirm the chosen file exists; fall back to the desktop file if a mobile one is missing */
+    fetch(pick, { method:'HEAD' }).then(function(r){ return r.ok ? pick : base; }, function(){ return base; })
+    .then(function(finalSrc){
+      var v = document.createElement('video');
+      v.className = 'wk-vid'; v.muted = true; v.loop = true;
+      v.playsInline = true; v.setAttribute('playsinline',''); v.preload = 'none';
+      var p = c.getAttribute('data-poster'); if(p){ v.poster = p; }
+      v.addEventListener('playing', function(){ c.classList.add('is-playing'); });
+      c.appendChild(v);
+      var loaded = false;
+      function show(){ if(!loaded){ loaded = true; v.src = finalSrc; } var pr = v.play(); if(pr && pr.catch){ pr.catch(function(){}); } }
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? show() : v.pause(); }); }, { threshold:0.25, rootMargin:'200px 0px' }).observe(c);
+      } else { show(); }
+    }).catch(function(){});
+  });
+})();
 
+
+/* ── home 'Selected' film plate — lazy load, mobile rendition, play only in view ── */
+(function(){
+  var v = document.querySelector('.pf-vid'); if(!v) return;
+  if(window.matchMedia('(max-width:767px)').matches){
+    var s = v.querySelector('source');
+    if(s && s.src){ s.src = s.src.replace(/\.mp4(\?.*)?$/, '-mobile.mp4'); v.load(); }
+  }
+  function play(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? play() : v.pause(); }); }, { threshold:0.25, rootMargin:'200px 0px' }).observe(v);
+  } else { play(); }
+})();
 
 /* ── work: cinematic Method — ghost numerals cross-fade, auto-plays ── */
 (function(){
