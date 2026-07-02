@@ -299,7 +299,7 @@
   FR[`Sneaker, <em>in motion.</em>`] = `Sneaker, <em>en mouvement.</em>`;
   FR[`Timepiece, <em>in motion.</em>`] = `Garde-temps, <em>en mouvement.</em>`;
   FR[`05 — Work`] = `05 — Travaux`;
-  FR[`A small body of work, shipped slowly — websites, video ads, identities, and the systems behind them. One project at a time, in full.`] = `Peu de projets, livrés sans hâte — sites web, pubs vidéo, identités et les systèmes qui les portent. Un projet à la fois, en entier.`;
+  FR[`A small body of work, shipped slowly — client sites and identities, plus self-initiated films. One project at a time, in full.`] = `Peu de projets, livrés sans hâte — sites et identités pour nos clients, et des films autoproduits. Un projet à la fois, en entier.`;
   FR[`We show work the way we <em>make</em> it.`] = `Nous montrons le travail comme nous le <em>faisons.</em>`;
   FR[`Where the business stood — and the single problem worth solving first.`] = `Où en était l'entreprise — et le seul problème qui méritait d'être résolu en premier.`;
   FR[`The directions explored, the one chosen, and everything removed to get there.`] = `Les pistes explorées, celle retenue, et tout ce qui a été retiré pour y parvenir.`;
@@ -362,8 +362,28 @@
   FR[`View`] = `Voir`;
   FR[`Agency — Geneva — Est. MMXXI`] = `Agence — Genève — Depuis MMXXI`;
   FR[`Trusted by`] = `Ils nous font confiance`;
-  FR[`Selected · 30+ brands`] = `Sélection · 30+ marques`;
+  FR[`Selected clients`] = `Clients choisis`;
   FR[`Selected projects — websites, identities, and film.`] = `Projets choisis — sites web, identités et films.`;
+
+  /* QA pass 3 — films, privacy page, footer link, about origin */
+  FR[`Self-initiated`] = `Autoproduit`;
+  FR[`Privacy`] = `Confidentialité`;
+  FR[`A Geneva studio, working end to end — from the core of an identity to every surface it lives on. Different rooms, the <em>same discipline:</em> decide what to leave out.`] = `Un studio genevois, du début à la fin — du cœur d'une identité à chacune des surfaces qu'elle habite. Des salles différentes, la <em>même discipline :</em> décider quoi laisser de côté.`;
+  FR[`Legal`] = `Légal`;
+  FR[`Privacy.`] = `Confidentialité.`;
+  FR[`What we collect — and, mostly, what we don't.`] = `Ce que nous collectons — et, surtout, ce que nous ne collectons pas.`;
+  FR[`The short version.`] = `En bref.`;
+  FR[`This is a static site. We don't track you, we run no analytics or advertising cookies, and we build no profile of you. The only thing kept is your language choice.`] = `C'est un site statique. Nous ne vous pistons pas, aucun cookie d'analyse ou de publicité, et nous ne dressons aucun profil de vous. La seule chose conservée est votre choix de langue.`;
+  FR[`The contact form.`] = `Le formulaire de contact.`;
+  FR[`It opens your own email app with a message addressed to contact@agencefritz.com. Nothing reaches a server of ours — we only receive what you choose to send, and we keep it only as long as needed to reply.`] = `Il ouvre votre propre messagerie avec un message adressé à contact@agencefritz.com. Rien n'atteint l'un de nos serveurs — nous ne recevons que ce que vous choisissez d'envoyer, et nous le conservons uniquement le temps nécessaire pour vous répondre.`;
+  FR[`Cookies &amp; local storage.`] = `Cookies &amp; stockage local.`;
+  FR[`No cookies. We store a single language preference in your browser; it never leaves your device.`] = `Aucun cookie. Nous conservons une seule préférence de langue dans votre navigateur ; elle ne quitte jamais votre appareil.`;
+  FR[`Third parties.`] = `Tiers.`;
+  FR[`Fonts load from Google Fonts and Fontshare, and the site is hosted on Vercel. These providers may process technical data such as your IP address under their own policies.`] = `Les polices sont chargées depuis Google Fonts et Fontshare, et le site est hébergé sur Vercel. Ces prestataires peuvent traiter des données techniques comme votre adresse IP selon leurs propres politiques.`;
+  FR[`Your rights.`] = `Vos droits.`;
+  FR[`Under the Swiss nLPD and the GDPR, you can ask us to access, correct or delete any personal data you have sent us — just email contact@agencefritz.com.`] = `En vertu de la nLPD suisse et du RGPD, vous pouvez nous demander d'accéder, de corriger ou de supprimer toute donnée personnelle que vous nous avez transmise — écrivez simplement à contact@agencefritz.com.`;
+  FR[`Updates.`] = `Mises à jour.`;
+  FR[`Last updated June 2026.`] = `Dernière mise à jour : juin 2026.`;
 
   /* ── attribute (placeholder) translations ── */
   var FR_ATTR = {
@@ -377,6 +397,7 @@
   var FR_TITLE = {
     "Agence Fritz — Brand, Web & Growth · Genève": "Agence Fritz — Marque, Web & Croissance · Genève",
     "About — Agence Fritz": "À propos — Agence Fritz",
+    "Privacy — Agence Fritz": "Confidentialité — Agence Fritz",
     "Marketing — Agence Fritz": "Marketing — Agence Fritz",
     "Brand & Website — Agence Fritz": "Marque & Site web — Agence Fritz",
     "Growth Ops — Agence Fritz": "Growth Ops — Agence Fritz",
@@ -403,7 +424,7 @@
     ".xlink span,label,option,.note,.sf-tag,.sf-h,.sf-col a,.sf-muted,.sf-base span,.peek,.readout > span," +
     ".btn span,.outro-cta .ln,.outro-meta span,.hint span,.wk-visit,.pre-word,.m-foot span," +
     ".eyebrow b,.hero-sub," +
-    ".disc-row .t,.disc-row .meta,.disc-row .go span,.mq-head span,.works-head p,.hero-lockup span";
+    ".disc-row .t,.disc-row .meta,.disc-row .go span,.mq-head span,.works-head p,.hero-lockup span,.body p";
 
   function translate() {
     var els = document.querySelectorAll(SEL);
