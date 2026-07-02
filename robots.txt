@@ -2,4 +2,23 @@
 User-agent: *
 Allow: /
 
+# Search & AI crawlers — explicitly welcome
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://agencefritz.com/sitemap.xml
