@@ -260,16 +260,17 @@ try{ seen = sessionStorage.getItem('mulle_seen') === '1'; }catch(_){}
 var isHome = location.pathname === '/' || /index\.html?$/.test(location.pathname);
 if(pre && (!seen || isHome)){
   try{ sessionStorage.setItem('mulle_seen', '1'); }catch(_){}
+  var smallPre = window.matchMedia('(max-width:767px)').matches;   /* snappier count on phones */
   var preTl = gsap.timeline();
   preTl.to(counter, {
-      v:100, duration:1.15, ease:'power2.inOut',
+      v:100, duration: smallPre ? 0.6 : 1.15, ease:'power2.inOut',
       onUpdate:function(){
         var v = Math.round(counter.v);
         if(preCount){ preCount.textContent = (v < 10 ? '00' : v < 100 ? '0' : '') + v; }
         if(preBar){ preBar.style.transform = 'scaleX(' + (v/100) + ')'; }
       }
     })
-    .to(pre, { yPercent:-100, duration:.85, ease:'power4.inOut',
+    .to(pre, { yPercent:-100, duration: smallPre ? 0.6 : 0.85, ease:'power4.inOut',
       onComplete:function(){ pre.remove(); } }, '+=.1')
     .call(pageIntro, null, '-=.55');
 }else{
@@ -497,6 +498,26 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
   if('IntersectionObserver' in window){
     new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? play() : v.pause(); }); }, { threshold:0.25, rootMargin:'200px 0px' }).observe(v);
   } else { play(); }
+})();
+
+/* ── mobile: sticky "Start a project" CTA — appears after the first screen, hides near the footer ── */
+(function(){
+  if(/contact\.html$/.test(location.pathname)) return;   /* the form is already on this page */
+  var a = document.createElement('a');
+  a.className = 'sticky-cta'; a.href = 'contact.html';
+  var fr = (function(){ try{ var s = localStorage.getItem('fritz_lang'); if(s) return s === 'fr'; }catch(e){} return (navigator.language||'').toLowerCase().indexOf('fr') === 0; })();
+  a.innerHTML = '<span>' + (fr ? 'Démarrer un projet' : 'Start a project') + '</span><span class="sc-arr" aria-hidden="true">→</span>';
+  document.body.appendChild(a);
+  var foot = document.querySelector('.site-foot');
+  function upd(){
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var past = y > window.innerHeight * 0.6;
+    var nearFoot = foot ? (foot.getBoundingClientRect().top < window.innerHeight + 40) : false;
+    a.classList.toggle('show', past && !nearFoot);
+  }
+  window.addEventListener('scroll', upd, { passive:true });
+  window.addEventListener('resize', upd, { passive:true });
+  upd();
 })();
 
 /* ── work: cinematic Method — ghost numerals cross-fade, auto-plays ── */

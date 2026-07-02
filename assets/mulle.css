@@ -898,6 +898,7 @@ section{position:relative}
   .imprint{justify-content:center;text-align:center}
   .field input,.field select,.field textarea{font-size:16px}   /* stop iOS focus-zoom */
   .disc-row .meta{display:block;grid-column:2;font-size:10px;line-height:1.7;letter-spacing:.03em;color:var(--txt-55);margin-top:-2px}
+  .hero-title .hero-logo{width:clamp(210px,56vw,340px)}          /* stronger opening frame on phones */
 }
 
 /* touch devices: reveal affordances that are hover-only on desktop */
@@ -920,3 +921,10 @@ section{position:relative}
 .langtog button.on{color:var(--txt);background:rgba(29,29,31,.06)}
 .langtog button:hover{color:var(--txt)}
 @media (max-width:767px){ .langtog{right:calc(var(--margin) + 100px);top:16px} .langtog button{padding:11px 11px;font-size:11px} }
+
+/* ── mobile sticky CTA ── */
+.sticky-cta{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(160%);z-index:80;display:none;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--txt);color:var(--bg);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;box-shadow:0 12px 30px rgba(29,29,31,.3);transition:transform .5s var(--ease-out),opacity .35s var(--ease-out);opacity:0;pointer-events:none}
+.sticky-cta.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.sticky-cta .sc-arr{transition:transform .3s var(--ease-out)}
+.sticky-cta:active .sc-arr{transform:translateX(4px)}
+@media (max-width:767px){ .sticky-cta{display:inline-flex} }
