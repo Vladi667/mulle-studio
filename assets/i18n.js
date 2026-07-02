@@ -9,7 +9,7 @@
   "use strict";
 
   /* normalize whitespace exactly like the extractor did */
-  function norm(s) { return s.replace(/&nbsp;/g, " ").replace(/ /g, " ").replace(/\s+/g, " ").trim(); }
+  function norm(s) { return s.replace(/&nbsp;/g, " ").replace(/ /g, " ").replace(/<br\s*\/?>/gi, "<br>").replace(/\s+/g, " ").trim(); }
 
   /* ── FR dictionary: normalized English innerHTML → French innerHTML ── */
   var FR = {};
@@ -81,7 +81,7 @@
   FR[`A free 30-minute call. We listen for the problem, not just the brief.`] = `Un appel gratuit de 30 minutes. On cherche le vrai problème, pas seulement le brief.`;
   FR[`One document — scope, price, timeline — within 24 hours.`] = `Un document — périmètre, prix, délais — sous 24 heures.`;
   FR[`We make. You give honest feedback. Bounded revisions, unbounded care.`] = `On crée, vous nous faites un retour honnête. Révisions encadrées, attention sans limite.`;
-  FR[`Files, full licence, post-launch support. We stay reachable.`] = `Fichiers, licence complète, suivi après lancement. Nous restons joignables.`;
+  FR[`Files, full licence, and support that outlasts launch — most clients come back for the next one.`] = `Fichiers, licence complète et un suivi qui dépasse le lancement — la plupart des clients reviennent pour le projet suivant.`;
   FR[`Step`] = `Étape`;
 
   /* brand-web */
@@ -253,7 +253,7 @@
   FR[`Test`] = `Tester`;
   FR[`Learn`] = `Apprendre`;
   FR[`01 — Marketing`] = `01 — Marketing`;
-  FR[`Most agencies ship two ads a month and hope. We run an engine — studio-grade creative generated at volume, tested across Meta and Google by AI, and sharpened every cycle by what actually converts.`] = `La plupart des agences sortent deux pubs par mois et croisent les doigts. Nous, on fait tourner un moteur — des créations de qualité studio produites en volume, testées sur Meta et Google par l'IA, et affinées à chaque cycle par ce qui convertit vraiment.`;
+  FR[`Most agencies ship two ads a month and hope. We run an engine — studio-grade creative generated at volume, tested across Meta and Google, and sharpened every cycle by what actually converts.`] = `La plupart des agences sortent deux pubs par mois et croisent les doigts. Nous, on fait tourner un moteur — des créations de qualité studio produites en volume, testées sur Meta et Google, et affinées à chaque cycle par ce qui convertit vraiment.`;
   FR[`The engine, scaled down. On-brand ad creative at a lighter monthly volume — art-directed, studio-made, ready to test. A low-commitment way in.`] = `Le moteur, en version réduite. Des créations publicitaires fidèles à votre marque, en volume mensuel allégé — dirigées artistiquement, faites en studio, prêtes à tester. Une porte d'entrée sans engagement.`;
   FR[`The creative factory. On-brand ad creative at volume — art-directed, studio-made, ready to test. No shoots, no waiting.`] = `La fabrique créative. Des créations publicitaires fidèles à votre marque, en volume — dirigées artistiquement, faites en studio, prêtes à tester. Sans tournage, sans attente.`;
   FR[`The full flywheel. Creative, Meta and Google, all instrumented — generate, test, and put budget behind what converts.`] = `Le cercle vertueux au complet. Création, Meta et Google, tout est mesuré — générer, tester, puis investir derrière ce qui convertit.`;
@@ -290,7 +290,7 @@
 
   /* our-work */
   FR[`Our work, <em>in detail.</em>`] = `Nos travaux, <em>en détail.</em>`;
-  FR[`Want to be the <em>next plate?</em>`] = `Envie d'être le <em>prochain projet ?</em>`;
+  FR[`Want to be <em>next?</em>`] = `Envie d'être <em>le prochain ?</em>`;
   FR[`Context`] = `Contexte`;
   FR[`Outcome`] = `Résultat`;
   FR[`SoYou <em>Cosmetics.</em>`] = `SoYou <em>Cosmetics.</em>`;
@@ -352,6 +352,19 @@
   FR[`Three readings`] = `Trois lectures`;
   FR[`Brand, web and growth systems, machined in Geneva. We remove everything that isn't the signal — what remains is the brand.`] = `Marque, web et systèmes de croissance, façonnés à Genève. Nous retirons tout ce qui n'est pas le signal — ce qui reste, c'est la marque.`;
 
+  /* QA pass 2 — disciplines list, marquee, hero eyebrow, works sub */
+  FR[`Marketing<span class="sub">signal placement</span>`] = `Marketing<span class="sub">placement du signal</span>`;
+  FR[`Brand &amp; Website<span class="sub">identity &amp; interface</span>`] = `Marque &amp; Site web<span class="sub">identité &amp; interface</span>`;
+  FR[`Growth Ops<span class="sub">AI systems &amp; tracking</span>`] = `Growth Ops<span class="sub">systèmes d'IA &amp; tracking</span>`;
+  FR[`03 packages<br>Strategy → Creative → Performance<br>One-time &amp; monthly`] = `03 forfaits<br>Stratégie → Création → Performance<br>Ponctuel &amp; mensuel`;
+  FR[`03 packages<br>Identity → Site → Commerce<br>14 — 45 days`] = `03 forfaits<br>Identité → Site → Commerce<br>14 — 45 jours`;
+  FR[`03 plans<br>Signal → Compound → Enterprise<br>Monthly retainer`] = `03 plans<br>Signal → Cumuler → Enterprise<br>Forfait mensuel`;
+  FR[`View`] = `Voir`;
+  FR[`Agency — Geneva — Est. MMXXI`] = `Agence — Genève — Depuis MMXXI`;
+  FR[`Trusted by`] = `Ils nous font confiance`;
+  FR[`Selected · 30+ brands`] = `Sélection · 30+ marques`;
+  FR[`Selected projects — websites, identities, and film.`] = `Projets choisis — sites web, identités et films.`;
+
   /* ── attribute (placeholder) translations ── */
   var FR_ATTR = {
     "Your full name": "Votre nom complet",
@@ -362,7 +375,7 @@
 
   /* ── document.title translations ── */
   var FR_TITLE = {
-    "Agence Fritz": "Agence Fritz",
+    "Agence Fritz — Brand, Web & Growth · Genève": "Agence Fritz — Marque, Web & Croissance · Genève",
     "About — Agence Fritz": "À propos — Agence Fritz",
     "Marketing — Agence Fritz": "Marketing — Agence Fritz",
     "Brand & Website — Agence Fritz": "Marque & Site web — Agence Fritz",
@@ -389,7 +402,8 @@
     ".wk-row-specs span,.wk-row-specs b,.wk-vtag,.page-meta span,.page-meta b,.pricing-foot," +
     ".xlink span,label,option,.note,.sf-tag,.sf-h,.sf-col a,.sf-muted,.sf-base span,.peek,.readout > span," +
     ".btn span,.outro-cta .ln,.outro-meta span,.hint span,.wk-visit,.pre-word,.m-foot span," +
-    ".eyebrow b,.hero-sub";
+    ".eyebrow b,.hero-sub," +
+    ".disc-row .t,.disc-row .meta,.disc-row .go span,.mq-head span,.works-head p,.hero-lockup span";
 
   function translate() {
     var els = document.querySelectorAll(SEL);
