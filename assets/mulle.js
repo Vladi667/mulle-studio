@@ -481,14 +481,7 @@ if(document.querySelector('.hero')){
   var exs = gsap.utils.toArray(doc.querySelectorAll('.m-ex'));
   if(mks.length < 2) return;
 
-  /* mobile: the five rules slide in laterally — the horizontal DNA without the pin */
-  if(window.matchMedia('(max-width:900px)').matches){
-    mks.forEach(function(mk, i){
-      gsap.from(mk, { x: i % 2 ? 44 : -44, opacity:0, duration:.8, ease:'power3.out', clearProps:'transform,opacity',
-        scrollTrigger:{ trigger:mk, start:'top 85%', once:true } });
-    });
-    return;
-  }
+  /* the pinned register resolve now runs on mobile too (was a lateral slide-in on <=900px) */
 
   /* acceleration schedule: the first lock gets the long teaching runway, 2–5 compress.
      Each rail is near-still (ambient drift) until its .26-wide active window opens,
@@ -940,11 +933,12 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
   var vids = document.querySelectorAll('.pf-vid'); if(!vids.length) return;   // may be several film plates now
   var small = window.matchMedia('(max-width:767px)').matches;
   vids.forEach(function(v){
+    if(v.closest('.wd-stack')) return;   /* home strip loops: the carousel IIFE owns play/pause,
+                                            and they keep their full sources (no -mobile variant exists) */
     if(small){
       var s = v.querySelector('source');
       if(s && s.src){ s.src = s.src.replace(/\.mp4(\?.*)?$/, '-mobile.mp4'); v.load(); }
     }
-    if(v.closest('.wd-stack')) return;   /* home deck loops: dock-ignition owns play/pause */
     function play(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? play() : v.pause(); }); }, { threshold:0.25, rootMargin:'200px 0px' }).observe(v);

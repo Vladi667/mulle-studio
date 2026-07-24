@@ -1290,7 +1290,7 @@ body.is-transitioning{pointer-events:none}
 .langtog button,.langtog a{appearance:none;-webkit-appearance:none;background:none;border:0;margin:0;cursor:pointer;color:var(--txt-40);font:inherit;font-size:10px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:5px 8px;border-radius:999px;transition:color .3s var(--ease-out),background .3s var(--ease-out)}
 .langtog button.on,.langtog a.on{color:var(--txt);background:rgba(29,29,31,.06)}
 .langtog button:hover,.langtog a:hover{color:var(--txt)}
-@media (max-width:767px){ .langtog{right:calc(var(--margin) + 100px);top:16px} .langtog button,.langtog a{padding:11px 11px;font-size:11px} }
+@media (max-width:767px){ .langtog{right:calc(var(--margin) + 100px);top:16px} .langtog button,.langtog a{padding:6px 9px;font-size:10px} }
 
 /* ── mobile sticky CTA ── */
 .sticky-cta{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(160%);z-index:80;display:none;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--txt);color:var(--bg);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;box-shadow:0 12px 30px rgba(29,29,31,.3);transition:transform .5s var(--ease-out),opacity .35s var(--ease-out);opacity:0;pointer-events:none}
