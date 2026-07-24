@@ -744,8 +744,8 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
   if(!hasHover || reduced) return;
   if(window.matchMedia('(max-width:900px)').matches) return;
   /* work-page canvases + homepage plates — any image container (video plates have no <img> → skipped) */
-  var plates = Array.prototype.slice.call(document.querySelectorAll('.wk-canvas, .plate-visual'))
-    .filter(function(c){ return c.getAttribute('data-img') || c.querySelector('img') || c.getAttribute('data-video'); });
+  var plates = Array.prototype.slice.call(document.querySelectorAll('.wk-canvas, .plate-visual, .wd-shot'))
+    .filter(function(c){ return c.getAttribute('data-img') || c.querySelector('img') || c.getAttribute('data-video') || c.querySelector('video'); });
   if(!plates.length) return;
 
   var VERT = 'attribute vec2 aPos;varying vec2 vUv;void main(){vUv=aPos*0.5+0.5;gl_Position=vec4(aPos,0.0,1.0);}';
@@ -771,11 +771,12 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
   }
 
   plates.forEach(function(host){
-    /* video tiles: run the SAME liquid shader with the injected <video> as a live texture */
-    if(host.getAttribute('data-video')){
+    /* video tiles: run the SAME liquid shader with the <video> as a live texture. Work-page
+       data-video tiles inject a video.wk-vid; the home strip's .wd-shot already has video.pf-vid */
+    if(host.getAttribute('data-video') || (host.classList.contains('wd-shot') && host.querySelector('video.pf-vid'))){
       var tries = 0;
       (function waitVid(){
-        var vid = host.querySelector('video.wk-vid');
+        var vid = host.querySelector('video.wk-vid, video.pf-vid');
         if(vid && vid.readyState >= 2 && vid.videoWidth){ try{ build(host, vid, true); }catch(e){} return; }
         if(tries++ < 400){ setTimeout(waitVid, 120); }
       })();
