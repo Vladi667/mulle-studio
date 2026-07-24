@@ -741,10 +741,13 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
       fast scroll leans it. HARD-GATED: if WebGL or the texture fails at any step, no canvas
       is mounted and the original <img> is left untouched. ── */
 (function(){
-  if(!hasHover || reduced) return;
-  if(window.matchMedia('(max-width:900px)').matches) return;
-  /* work-page canvases + homepage plates — any image container (video plates have no <img> → skipped) */
-  var plates = Array.prototype.slice.call(document.querySelectorAll('.wk-canvas, .plate-visual, .wd-shot'))
+  if(reduced) return;
+  var mobile = window.matchMedia('(max-width:900px)').matches;
+  if(!mobile && !hasHover) return;                        /* desktop without a mouse: skip */
+  /* desktop: all plates (hover-driven). mobile: ONLY the home strip .wd-shot (scroll-driven,
+     gated so just the centred tile renders) — the Work page's many tiles stay desktop-only. */
+  var sel = mobile ? '.wd-shot' : '.wk-canvas, .plate-visual, .wd-shot';
+  var plates = Array.prototype.slice.call(document.querySelectorAll(sel))
     .filter(function(c){ return c.getAttribute('data-img') || c.querySelector('img') || c.getAttribute('data-video') || c.querySelector('video'); });
   if(!plates.length) return;
 
@@ -854,11 +857,48 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
       raf = requestAnimationFrame(tick);
     }
     function start(){ if(raf == null){ raf = requestAnimationFrame(tick); } }
-    if(gated){ /* driven by hover (wake), not by continuous visibility */ }
+    if(gated){ /* driven by hover (wake) on desktop, or by the scroll driver below on mobile */ }
     else if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){ es.forEach(function(e){ visible = e.isIntersecting; if(visible) start(); }); }, { threshold:0 }).observe(host);
     } else { visible = true; start(); }
   }
+})();
+
+/* ── mobile: scroll-driven mercury — touch has no hover, so the .wd-shot nearest the viewport
+   centre is "woken" via synthetic pointer events as you scroll the pinned takeover. Only that
+   one tile renders (the shader's gated sleep/wake handles the rest), so it stays light. ── */
+(function(){
+  if(reduced || !window.matchMedia('(max-width:900px)').matches) return;
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.wd-shot'));
+  if(!shots.length) return;
+  var active = null, raf = null;
+  function centred(){
+    var cx = window.innerWidth / 2, best = null, bestD = 1e9;
+    for(var i = 0; i < shots.length; i++){
+      var r = shots[i].getBoundingClientRect();
+      if(r.width === 0 || r.bottom <= 0 || r.top >= window.innerHeight) continue;
+      var d = Math.abs((r.left + r.width / 2) - cx);
+      if(d < bestD){ bestD = d; best = shots[i]; }
+    }
+    return best;
+  }
+  function tick(){
+    raf = null;
+    var s = centred();
+    if(s !== active){
+      if(active){ try{ active.dispatchEvent(new PointerEvent('pointerleave')); }catch(e){} }
+      active = s;
+    }
+    if(s){
+      var r = s.getBoundingClientRect();
+      try{ s.dispatchEvent(new PointerEvent('pointermove', { clientX: r.left + r.width / 2, clientY: r.top + r.height / 2 })); }catch(e){}
+    }
+  }
+  function schedule(){ if(raf == null){ raf = requestAnimationFrame(tick); } }
+  window.addEventListener('scroll', schedule, { passive:true });
+  if(window.lenis && typeof lenis.on === 'function'){ try{ lenis.on('scroll', schedule); }catch(e){} }
+  window.addEventListener('resize', schedule);
+  schedule();
 })();
 
 /* ── work: inject real media only when the asset exists (no broken icons) ── */
