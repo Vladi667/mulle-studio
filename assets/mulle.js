@@ -829,13 +829,19 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     window.addEventListener('load', resize);
 
     var mx = .5, my = .5, tmx = .5, tmy = .5, hov = 0, thov = 0, vel = 0, lastY = window.pageYOffset || 0, t0 = performance.now(), lastVT = -1;
-    host.addEventListener('pointermove', function(e){ var r = host.getBoundingClientRect(); tmx = (e.clientX - r.left) / r.width; tmy = 1 - (e.clientY - r.top) / r.height; thov = 1; });
-    host.addEventListener('pointerenter', function(){ thov = 1; });
+    /* PERF: home-strip tiles ripple ONLY while hovered — at rest the plain <video>/<img> shows
+       (GL canvas hidden, its rAF parked); hover wakes the canvas, it ripples, then sleeps again.
+       Work-page plates keep the original visible-gated continuous render (gated = false). */
+    var gated = host.classList.contains('wd-shot');
+    if(gated){ cv.style.opacity = '0'; cv.style.transition = 'opacity .25s ease'; }
+    host.addEventListener('pointermove', function(e){ var r = host.getBoundingClientRect(); tmx = (e.clientX - r.left) / r.width; tmy = 1 - (e.clientY - r.top) / r.height; thov = 1; if(gated) wake(); });
+    host.addEventListener('pointerenter', function(){ thov = 1; if(gated) wake(); });
     host.addEventListener('pointerleave', function(){ thov = 0; });
 
     var visible = false, raf = null;
+    function wake(){ cv.style.opacity = '1'; if(raf == null){ raf = requestAnimationFrame(tick); } }
     function tick(){
-      if(!visible){ raf = null; return; }
+      if(!gated && !visible){ raf = null; return; }
       mx += (tmx - mx) * .12; my += (tmy - my) * .12; hov += (thov - hov) * .08;
       var y = window.pageYOffset || 0;
       var dv = (lenis && lenis.velocity != null) ? lenis.velocity : (y - lastY); lastY = y;
@@ -844,10 +850,12 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
       if(isVideo && image.readyState >= 2 && image.currentTime !== lastVT){ lastVT = image.currentTime; try{ gl.bindTexture(gl.TEXTURE_2D, tex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image); }catch(e){} }
       gl.uniform2f(uMouse, mx, my); gl.uniform1f(uHover, hov); gl.uniform1f(uVel, vel * 0.06); gl.uniform1f(uTime, (performance.now() - t0) / 1000);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if(gated && thov < .001 && hov < .01){ cv.style.opacity = '0'; raf = null; return; }   /* settled → sleep, reveal plain media */
       raf = requestAnimationFrame(tick);
     }
     function start(){ if(raf == null){ raf = requestAnimationFrame(tick); } }
-    if('IntersectionObserver' in window){
+    if(gated){ /* driven by hover (wake), not by continuous visibility */ }
+    else if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){ es.forEach(function(e){ visible = e.isIntersecting; if(visible) start(); }); }, { threshold:0 }).observe(host);
     } else { visible = true; start(); }
   }
