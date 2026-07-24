@@ -1090,8 +1090,9 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
     io.observe(section);
   } else { vids.forEach(play); }
 
-  /* mobile / reduced-motion: no pin — CSS gives a bar-less touch scroll */
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches || window.innerWidth <= 900) return;
+  /* reduced-motion only: no pin — CSS gives a bar-less touch scroll. Otherwise the pinned
+     takeover runs on mobile too, for the same scroll feeling as desktop. */
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
 
   function maxX(){
     var last = cards[cards.length - 1];
