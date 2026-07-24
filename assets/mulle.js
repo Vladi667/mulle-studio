@@ -1041,124 +1041,80 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   }
 });
 
-/* ── home 'Selected work' deck — THE ONE-TAKE. Full-bleed banners on the sticky stack,
-   every beat owned by the scroll (scrub:true; the only smoothing authority is Lenis).
-   The Wipe: banner 01 drives over the pinned title. Flight: the elevation shadow blooms
-   mid-air and settles at dock. Dock: the covered frame recedes behind a white veil,
-   top edge welded to its step line. Ignition: a loop decodes only while its frame is
-   the docked one — one video alive at a time. ── */
+/* ── home 'Selected work' — GSAP PINNED horizontal takeover with strong liquid velocity skew.
+   The section pins at the top; vertical scroll becomes horizontal travel of the row; scroll
+   velocity skews the frames hard and springs them back to rest. ── */
 (function(){
+  var section = document.querySelector('.works');
   var stack = document.querySelector('.wd-stack');
-  if(!stack) return;
+  if(!section || !stack) return;
   var cards = gsap.utils.toArray(stack.querySelectorAll('.wd-card'));
   if(!cards.length) return;
-
-  /* pin/step resolved from the cards' computed sticky tops (clamp() already evaluated) */
-  var pin  = parseFloat(getComputedStyle(cards[0]).top) || 84;
-  var step = cards[1] ? (parseFloat(getComputedStyle(cards[1]).top) - pin) : 52;
+  var shots = cards.map(function(c){ return c.querySelector('.wd-shot'); }).filter(Boolean);
 
   /* furniture entrances — same vocabulary as every other chapter */
   var hdr = document.querySelector('.wd-hdr');
   if(hdr){
     gsap.fromTo(hdr, { '--hx':0 }, { '--hx':1, duration:.9, ease:'power2.inOut',
-      scrollTrigger:{ trigger:'.works', start:'top 78%', once:true } });
+      scrollTrigger:{ trigger:'.works', start:'top 84%', once:true } });
     gsap.from(hdr.children, { y:14, opacity:0, duration:.7, stagger:.06, ease:'power3.out',
-      scrollTrigger:{ trigger:'.works', start:'top 78%', once:true } });
+      scrollTrigger:{ trigger:'.works', start:'top 84%', once:true } });
   }
-  var title = document.querySelector('.wd-title');
-  revealHeading(title);
-  var foot = document.querySelector('.wd-foot');
-  if(foot){
-    gsap.from(foot.children, { y:12, opacity:0, duration:.7, stagger:.06, ease:'power3.out',
-      scrollTrigger:{ trigger:foot, start:'top 94%', once:true } });
-  }
+  revealHeading(document.querySelector('.wd-title'));
 
-  /* THE WIPE — banner 01 physically drives through the title on its way to the pin; the
-     title fully clears (autoAlpha → visibility:hidden) so nothing ghosts behind the footer */
-  if(title){
-    gsap.fromTo(title, { yPercent:0, scale:1, autoAlpha:1 }, { yPercent:22, scale:.94, autoAlpha:0, ease:'none',
-      scrollTrigger:{ trigger:cards[0], start:'top 85%', end:'top ' + pin + 'px', scrub:true } });
-  }
+  /* frames rise in on first entry (cleared afterwards so the travel system owns transforms) */
+  gsap.from(shots, { yPercent:14, autoAlpha:0, duration:.7, stagger:.07, ease:'power3.out', clearProps:'all',
+    scrollTrigger:{ trigger:stack, start:'top 88%', once:true } });
 
-  /* entrance — the frame rises at full opacity; media never fades in */
-  cards.forEach(function(card){
-    var shot = card.querySelector('.wd-shot');
-    if(shot){ gsap.from(shot, { y:64, duration:1.1, ease:'power3.out', clearProps:'transform',
-      scrollTrigger:{ trigger:card, start:'top 88%', once:true } }); }
-    var kids = card.querySelectorAll('.wd-cap > *');
-    if(kids.length){ gsap.from(kids, { y:12, opacity:0, duration:.6, stagger:.012, delay:.15, ease:'power2.out', clearProps:'transform',
-      scrollTrigger:{ trigger:card, start:'top 88%', once:true } }); }
-  });
+  /* loops autoplay while the section is on screen — driven by an IntersectionObserver, kept
+     independent of the pin so playback never stalls when the section is pinned */
+  var vids = cards.map(function(c){ return c.querySelector('video.pf-vid'); }).filter(Boolean);
+  vids.forEach(function(v){ try{ if(v.preload === 'none'){ v.preload = 'metadata'; } }catch(e){} });
+  function play(v){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ vids.forEach(play); }
+        else { vids.forEach(function(v){ v.pause(); }); }
+      });
+    }, { threshold: 0.12 });
+    io.observe(section);
+  } else { vids.forEach(play); }
 
-  /* flight elevation — the pre-rendered shadow blooms to full mid-flight, settles at dock
-     (opacity crossfade only; box-shadow itself is never animated) */
-  cards.forEach(function(card, i){
-    var tl = gsap.timeline({ scrollTrigger:{
-      trigger:card, start:'top bottom', end:'top ' + (pin + step * i) + 'px', scrub:true } });
-    tl.fromTo(card, { '--sh':0 }, { '--sh':1, duration:.55, ease:'none' }, 0)
-      .to(card, { '--sh':.25, duration:.45, ease:'none' }, .55);
-  });
+  /* mobile / reduced-motion: no pin — CSS gives a bar-less touch scroll */
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches || window.innerWidth <= 900) return;
 
-  /* in-banner dolly — the scene drifts slower than the frame and composes to rest
-     at the exact pixel the frame docks */
-  cards.forEach(function(card, i){
-    var media = card.querySelector('.wd-media');
-    if(!media) return;
-    gsap.fromTo(media, { '--py':'-3.2%' }, { '--py':'0%', ease:'none',
-      scrollTrigger:{ trigger:card, start:'top bottom', end:'top ' + (pin + step * i) + 'px', scrub:true } });
-  });
-
-  /* dock recede — the covered frame settles back behind a white veil; its caption fades */
-  cards.forEach(function(card, i){
-    var next = cards[i + 1]; if(!next) return;
-    var cap = card.querySelector('.wd-cap');
-    var tl = gsap.timeline({ scrollTrigger:{
-      trigger:next, start:'top 90%', end:'top ' + (pin + step * (i + 1)) + 'px', scrub:true } });
-    tl.fromTo(card, { '--dk':1, '--veil':0 }, { '--dk':.96, '--veil':.5, ease:'none' }, 0);
-    if(cap){ tl.to(cap, { opacity:0, ease:'none' }, 0); }
-  });
-
-  /* THE FINAL LIFT — nothing docks on top of the last banner, so once it settles it keeps
-     rising to the top of the frame and holds there as the closing shot; only then does the
-     page scroll on to Method. Scrub-owned, within the last card's runway so it never unpins
-     mid-lift. (Desktop only; reduced-motion keeps the static stack.) */
-  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches && window.innerWidth > 900){
+  function maxX(){
     var last = cards[cards.length - 1];
-    var lastDock = pin + step * (cards.length - 1);
-    var liftTop = Math.max(28, pin - 44);
-    var tail = stack.querySelector('.wd-tail');
-    var runway = (tail && parseFloat(getComputedStyle(tail).height)) || window.innerHeight * 0.5;
-    gsap.fromTo(last, { y:0 }, { y: -(lastDock - liftTop), ease:'none',
-      scrollTrigger:{ trigger:last, start:'top ' + lastDock + 'px', end:'+=' + Math.round(runway * 0.72),
-        scrub:true, invalidateOnRefresh:true } });
+    var span = (last.offsetLeft + last.offsetWidth) - cards[0].offsetLeft;
+    return Math.max(0, span - stack.clientWidth + 8);
   }
 
-  /* IGNITION — the loop comes alive the exact frame the camera settles; the blue index
-     marks the live frame; burial parks the decoder */
-  var vids = cards.map(function(c){ return c.querySelector('video.pf-vid'); });
-  function play(v){ if(!v) return; var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
-  var litIndex = -1;
-  cards.forEach(function(card, i){
-    if(vids[i]){
-      /* warm the file on approach so ignition is instant */
-      ScrollTrigger.create({ trigger:card, start:'top bottom', once:true,
-        onEnter:function(){ if(vids[i].preload === 'none'){ vids[i].preload = 'metadata'; vids[i].load(); } } });
-    }
-    ScrollTrigger.create({ trigger:card, start:'top ' + (pin + step * i + 2) + 'px',
-      onEnter:function(){ card.classList.add('is-active'); if(vids[i]){ play(vids[i]); litIndex = i; } },
-      onLeaveBack:function(){ card.classList.remove('is-active');
-        if(vids[i]){ vids[i].pause(); vids[i].classList.remove('is-live'); if(litIndex === i){ litIndex = i - 1; } } } });
-    var next = cards[i + 1];
-    if(next && vids[i]){
-      ScrollTrigger.create({ trigger:next, start:'top ' + (pin + step * (i + 1) + 40) + 'px',
-        onEnter:function(){ vids[i].pause(); },
-        onLeaveBack:function(){ play(vids[i]); litIndex = i; } });
+  /* strong liquid: scroll velocity -> hard skew on the frames, springs back to rest */
+  var setSkew = gsap.quickSetter(shots, 'skewX', 'deg');
+  var clampSkew = gsap.utils.clamp(-16, 16);
+  var proxy = { s:0 };
+
+  /* the pinned takeover: pin the section, hold the row still for a beat (movement starts a
+     little later), then travel across its overflow */
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: 'top top',
+      end: function(){ return '+=' + Math.round(maxX() * 1.15 + 40); },
+      pin: true, pinSpacing: true, anticipatePin: 1, scrub: 1, invalidateOnRefresh: true,
+      onUpdate: function(self){
+        var sk = clampSkew(self.getVelocity() / -220);
+        if(Math.abs(sk) > Math.abs(proxy.s)){
+          proxy.s = sk;
+          gsap.to(proxy, { s:0, duration:.9, ease:'power3', overwrite:true,
+            onUpdate:function(){ setSkew(proxy.s); } });
+        }
+      }
     }
   });
-  /* leaving the chapter parks every decoder; re-entering relights the docked frame */
-  ScrollTrigger.create({ trigger:'.works', start:'top bottom', end:'bottom top',
-    onLeave:function(){ vids.forEach(function(v){ if(v) v.pause(); }); },
-    onEnterBack:function(){ if(litIndex > -1) play(vids[litIndex]); } });
+  tl.to(cards, { x:0, duration:0.15 });                                  // hold — movement begins later
+  tl.to(cards, { x:function(){ return -maxX(); }, ease:'none', duration:1.0 });
 })();
 
 /* ── outro: bloom swells; headline builds and "noise" resolves out of noise ── */
