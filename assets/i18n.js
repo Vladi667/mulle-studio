@@ -34,7 +34,8 @@
   FR[`signal placement`] = `placement du signal`;
   FR[`identity &amp; interface`] = `identité &amp; interface`;
   FR[`AI systems &amp; tracking`] = `systèmes d'IA &amp; tracking`;
-  FR[`The agency that subtracts. Brand, web &amp; growth systems — machined in Geneva.`] = `L'agence qui soustrait. Marque, web &amp; systèmes de croissance — façonnés à Genève.`;
+  FR[`Built to last. Brand, web &amp; growth systems — machined in Geneva.`] = `Conçu pour durer. Marque, web &amp; systèmes de croissance — façonnés à Genève.`;
+  FR[`Built to last`] = `Conçu pour durer`;
   FR[`Services`] = `Services`;
   FR[`Get in touch`] = `Nous contacter`;
   FR[`Growth Ops`] = `Growth Ops`;
@@ -59,7 +60,7 @@
 
   /* about */
   FR[`A small studio, working <em>above the lake.</em>`] = `Un petit studio, <em>au-dessus du lac.</em>`;
-  FR[`Built on the idea that <em>subtraction</em> is the only loudness left.`] = `Fondé sur l'idée que <em>la soustraction</em> est la seule manière de se faire entendre.`;
+  FR[`Built on the idea that great work is <em>built to last</em>, not built for the moment.`] = `Fondé sur l'idée que le bon travail est <em>conçu pour durer</em>, pas pour l'éphémère.`;
   FR[`Four steps. <em>Nothing left to chance.</em>`] = `Quatre étapes. <em>Rien laissé au hasard.</em>`;
   FR[`Three things <em>we believe.</em>`] = `Nos trois <em>convictions.</em>`;
   FR[`We'd rather <em>show you.</em>`] = `Nous préférons <em>vous montrer.</em>`;
@@ -70,6 +71,11 @@
   FR[`Quiet <em>over loud.</em>`] = `Le calme <em>plutôt que le bruit.</em>`;
   FR[`Fixed <em>over flexible.</em>`] = `La constance <em>plutôt que le flou.</em>`;
   FR[`Restraint <em>over reach.</em>`] = `La retenue <em>plutôt que l'excès.</em>`;
+  FR[`Founder — <b>Genève</b>`] = `Fondateur — <b>Genève</b>`;
+  /* values before→after tags */
+  FR[`Loud`] = `Le bruit`; FR[`felt`] = `le ressenti`;
+  FR[`Estimates`] = `Les devis`; FR[`fixed`] = `le fixe`;
+  FR[`More`] = `Le plus`; FR[`less`] = `le moins`;
   FR[`04 — About`] = `04 — À propos`;
   FR[`01 — Origin`] = `01 — Origine`;
   FR[`02 — Process`] = `02 — Processus`;
@@ -229,8 +235,8 @@
   FR[`Custom AI agents`] = `Agents IA sur mesure`;
 
   /* index */
-  FR[`Three disciplines. <em>One subtraction.</em>`] = `Trois disciplines. <em>Une seule soustraction.</em>`;
-  FR[`A small body of work, <em>shipped slowly.</em>`] = `Peu de projets, <em>livrés sans hâte.</em>`;
+  FR[`Three disciplines. <em>One standard.</em>`] = `Trois disciplines. <em>Une seule exigence.</em>`;
+  FR[`A small body of work, <em>made to last.</em>`] = `Peu de projets, <em>faits pour durer.</em>`;
   FR[`Method`] = `Méthode`;
   FR[`SoYou Cosmetics, Geneva.`] = `SoYou Cosmetics, Genève.`;
   FR[`Sneaker, in motion.`] = `Sneaker, en mouvement.`;
@@ -241,11 +247,17 @@
   FR[`Website · E-Commerce`] = `Site web · E-Commerce`;
   FR[`Concept · Motion`] = `Concept · Motion`;
   FR[`Brand identity`] = `Identité de marque`;
-  FR[`Most agencies add. <em>Fritz subtracts.</em>`] = `La plupart des agences ajoutent. <em>Fritz soustrait.</em>`;
-  FR[`A brand is what <em>survives deletion.</em>`] = `Une marque, c'est ce qui <em>survit à la suppression.</em>`;
-  FR[`Precision, <em>not decoration.</em>`] = `La précision, <em>pas la décoration.</em>`;
-  FR[`Great work <em>explains itself.</em>`] = `Le bon travail <em>parle de lui-même.</em>`;
-  FR[`Noise spends. <em>Clarity compounds.</em>`] = `Le bruit se dépense. <em>La clarté se capitalise.</em>`;
+  /* manifesto — the Manuscript Edit: prose (.m-ex) + surviving tenets (.mk), translated per span */
+  FR[`Most agencies build for the launch, then move on.`] = `La plupart des agences travaillent pour le lancement, puis passent à autre chose.`;
+  FR[`Fritz builds <b class="mkey">what stays</b>.`] = `Fritz bâtit <b class="mkey">ce qui reste</b>.`;
+  FR[`Trends flare and fade; fundamentals endure.`] = `Les tendances flambent puis s'éteignent ; les fondamentaux perdurent.`;
+  FR[`A brand is what <b class="mkey">ages well</b>.`] = `Une marque, c'est ce qui <b class="mkey">vieillit bien</b>.`;
+  FR[`Anyone can decorate a surface.`] = `Décorer une surface, tout le monde sait faire.`;
+  FR[`<b class="mkey">Precision</b>, not decoration.`] = `La <b class="mkey">précision</b>, pas la décoration.`;
+  FR[`The work needs no manual, no caption, no pitch.`] = `Le travail n'a besoin ni de manuel, ni de légende, ni d'argumentaire.`;
+  FR[`Great work <b class="mkey">explains itself</b>.`] = `Le bon travail <b class="mkey">parle de lui-même</b>.`;
+  FR[`Noise spends your budget, then fades.`] = `Le bruit dépense votre budget, puis s'efface.`;
+  FR[`Clarity <b class="mkey">compounds</b>.`] = `La clarté <b class="mkey">se capitalise</b>.`;
 
   /* marketing */
   FR[`Marketing built on <em>position,</em> not noise.`] = `Un marketing fondé sur <em>la position,</em> pas le bruit.`;
@@ -280,6 +292,15 @@
   FR[`Starter`] = `Starter`;
   FR[`Performance`] = `Performance`;
   FR[`Two ads a month won't move an <em>algorithm.</em>`] = `Deux pubs par mois ne feront pas bouger un <em>algorithme.</em>`;
+  /* brand-web keynote (M7) */
+  FR[`How it builds`] = `Comment on construit`;
+  FR[`Brand and site built apart <em>always look apart.</em>`] = `Une marque et un site conçus séparément <em>ont toujours l'air séparés.</em>`;
+  FR[`Identity`] = `Identité`;
+  FR[`The mark, the palette, the voice. <em>Decided first.</em>`] = `La marque, la palette, la voix. <em>Décidées d'abord.</em>`;
+  FR[`Interface`] = `Interface`;
+  FR[`The site that carries them, <em>drawn in the same room.</em>`] = `Le site qui les porte, <em>dessiné dans la même pièce.</em>`;
+  FR[`One piece`] = `D'un seul tenant`;
+  FR[`So the whole thing arrives <em>at once.</em>`] = `Pour que l'ensemble arrive <em>d'un seul coup.</em>`;
   FR[`So we generate <em>dozens</em> — on brand, on demand.`] = `Alors nous en générons <em>des dizaines</em> — fidèles à la marque, à la demande.`;
   FR[`Every one, across Meta and Google. <em>Live.</em>`] = `Chacune, sur Meta et Google. <em>En direct.</em>`;
   FR[`The data keeps the <em>winners.</em>`] = `Les données ne gardent que les <em>gagnantes.</em>`;
@@ -299,7 +320,7 @@
   FR[`Sneaker, <em>in motion.</em>`] = `Sneaker, <em>en mouvement.</em>`;
   FR[`Timepiece, <em>in motion.</em>`] = `Garde-temps, <em>en mouvement.</em>`;
   FR[`05 — Work`] = `05 — Travaux`;
-  FR[`A small body of work, shipped slowly — client sites and identities, plus self-initiated films. One project at a time, in full.`] = `Peu de projets, livrés sans hâte — sites et identités pour nos clients, et des films autoproduits. Un projet à la fois, en entier.`;
+  FR[`A small body of work, made to last — client sites and identities, plus self-initiated films. One project at a time, in full.`] = `Peu de projets, faits pour durer — sites et identités pour nos clients, et des films autoproduits. Un projet à la fois, en entier.`;
   FR[`We show work the way we <em>make</em> it.`] = `Nous montrons le travail comme nous le <em>faisons.</em>`;
   FR[`Where the business stood — and the single problem worth solving first.`] = `Où en était l'entreprise — et le seul problème qui méritait d'être résolu en premier.`;
   FR[`The directions explored, the one chosen, and everything removed to get there.`] = `Les pistes explorées, celle retenue, et tout ce qui a été retiré pour y parvenir.`;
@@ -307,6 +328,21 @@
   FR[`Food · Motion`] = `Cuisine · Motion`;
   FR[`Concept · Film`] = `Concept · Film`;
   FR[`Watch · Concept`] = `Montre · Concept`;
+  FR[`03 — Work`] = `03 — Travaux`;
+  FR[`Selected`] = `Sélection`;
+  FR[`Selected <em>work.</em>`] = `Travaux <em>choisis.</em>`;
+  FR[`Built to <em>last.</em>`] = `Conçu pour <em>durer.</em>`;
+  FR[`<span class="el-tag">Built to last<span class="bl">.</span></span><span class="el-svc">Brand <b class="d">·</b> Web <b class="d">·</b> Growth <b class="d">·</b> Genève</span>`] = `<span class="el-tag">Conçu pour durer<span class="bl">.</span></span><span class="el-svc">Marque <b class="d">·</b> Web <b class="d">·</b> Croissance <b class="d">·</b> Genève</span>`;
+  FR[`Geneva — CH · 46.20°N 6.14°E`] = `Genève — CH · 46.20°N 6.14°E`;
+  FR[`Start a project`] = `Démarrer un projet`;
+  FR[`All work`] = `Tous les travaux`;
+  FR[`03 — End`] = `03 — Fin`;
+  FR[`IDENTITY`] = `IDENTITÉ`;
+  FR[`Website — E-Commerce`] = `Site — E-Commerce`;
+  FR[`Website — Agriculture`] = `Site — Agriculture`;
+  FR[`Brand Identity`] = `Identité de marque`;
+  FR[`Film — Gastronomy`] = `Film — Gastronomie`;
+  FR[`Watch — Concept`] = `Montre — Concept`;
   FR[`An e-commerce storefront for a Geneva maker of natural, handmade cosmetics — artisanal soaps, bath rituals and botanical body care — pairing a Swiss-clean shopping surface with on-site card checkout.`] = `Une boutique e-commerce pour une fabricante genevoise de cosmétiques naturels et artisanaux — savons, rituels de bain et soins du corps botaniques — alliant une interface d'achat épurée et un paiement par carte intégré.`;
   FR[`An emblem-led identity for a Lausanne gelateria artigianale — the figure of the duke distilled into a single mark, explored across signage, packaging and the storefront, and carried through a warm Renaissance palette.`] = `Une identité portée par un emblème pour une gelateria artigianale lausannoise — la figure du duc distillée en un seul signe, déclinée sur la signalétique, le packaging et la devanture, et portée par une palette Renaissance chaleureuse.`;
   FR[`A motion concept for a Geneva restaurant — the signature plate revealed in chiaroscuro light, herb-oil and steam suspended in slow motion.`] = `Un concept en motion pour un restaurant genevois — le plat signature révélé en clair-obscur, huile d'herbes et vapeur suspendues au ralenti.`;
@@ -350,7 +386,7 @@
   FR[`Recent`] = `Récent`;
   FR[`Selected`] = `Sélection`;
   FR[`Three readings`] = `Trois lectures`;
-  FR[`Brand, web and growth systems, machined in Geneva. We remove everything that isn't the signal — what remains is the brand.`] = `Marque, web et systèmes de croissance, façonnés à Genève. Nous retirons tout ce qui n'est pas le signal — ce qui reste, c'est la marque.`;
+  FR[`Brand, web and growth systems, machined in Geneva. Precise, essential, and made to endure.`] = `Marque, web et systèmes de croissance, façonnés à Genève. Précis, essentiels, et faits pour durer.`;
 
   /* QA pass 2 — disciplines list, marquee, hero eyebrow, works sub */
   FR[`Marketing<span class="sub">signal placement</span>`] = `Marketing<span class="sub">placement du signal</span>`;
@@ -416,15 +452,16 @@
   document.documentElement.lang = lang;
 
   /* selectors for translatable elements (parents before children: .lbl before .sub) */
-  var SEL = "h1,h2,h3,h4,.eyebrow span,.page-lede,.tag,.index-link span,.m-head," +
+  var SEL = "h1,h2,h3,h4,.eyebrow span,.hero-eyebrow span,.page-lede,.tag,.index-link span,.m-head," +
     ".m-label > span,.lbl,.pkg-tag,.period,.deliv,.pkg ul li,.pkg-n span,.pkg-n b," +
     ".pkg-badge,.value h4,.value p,.step h3,.step p,.step-n span,.kn-hook,.kn-word," +
-    ".kn-line,.mth-hook,.mth-word,.mth-line,.mline,.wk-row-name,.wk-row-type,.wk-row-desc," +
+    ".kn-line,.mth-hook,.mth-word,.mth-line,.m-doc .m-ex,.m-doc .mk,.wk-row-name,.wk-row-type,.wk-row-desc," +
     ".wk-row-specs span,.wk-row-specs b,.wk-vtag,.page-meta span,.page-meta b,.pricing-foot," +
     ".xlink span,label,option,.note,.sf-tag,.sf-h,.sf-col a,.sf-muted,.sf-base span,.peek,.readout > span," +
-    ".btn span,.outro-cta .ln,.outro-meta span,.hint span,.wk-visit,.pre-word,.m-foot span," +
-    ".eyebrow b,.hero-sub," +
-    ".disc-row .t,.disc-row .meta,.disc-row .go span,.mq-head span,.works-head p,.hero-lockup span,.body p";
+    ".btn span,.hs-chip span,.ht-lbl,.outro-cta .ln,.outro-meta span,.hint span,.wk-visit,.pre-word,.m-foot span," +
+    ".eyebrow b,.hero-sub,.wd-hdr .l span,.wd-giant,.wd-sub,.wd-join span,.wd-cap .c em,.wd-cap .r,.wd-foot .l,.wd-foot .r,.wd-all span," +
+    ".disc-row .t,.disc-row .meta,.disc-row .go span,.mq-head span,.works-head p,.hero-lockup span,.body p," +
+    ".value .ba .b,.value .ba .a,.origin-visual figcaption";
 
   function translate() {
     var els = document.querySelectorAll(SEL);

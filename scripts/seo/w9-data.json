@@ -1,0 +1,1054 @@
+[
+  {
+    "slug": "web-design-agency-geneva",
+    "type": "lander",
+    "lang": "en",
+    "dir": "",
+    "altFr": "/fr/creation-site-web-geneve",
+    "place": "Geneva",
+    "serviceType": "Web design",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Web design agency in Geneva",
+        "path": "/web-design-agency-geneva"
+      }
+    ],
+    "content": {
+      "metaTitle": "Web Design Agency in Geneva | Published Prices",
+      "metaDesc": "A one-person web design studio in Geneva working in English and French. Published prices: identity CHF 1'500, brochure site CHF 1'700, e-commerce CHF 2'500.",
+      "h1": "Web design agency in Geneva, working in English",
+      "kicker": "Geneva · working in English and French",
+      "lede": "Choosing a web design agency in Geneva is harder than it should be if you are new to Switzerland, because prices are rarely published. Fritz does the opposite: fixed prices stated up front, one person doing the design and the build, the whole project run in English if that is your working language, and the code and design source files handed over at the end.",
+      "quotableOpener": "Fritz is a one-person web design studio in Geneva with published fixed prices (brand identity CHF 1'500, brochure site CHF 1'700, e-commerce CHF 2'500), working end to end in English or French, and handing over the code and the design source files at the end of every project.",
+      "sections": [
+        {
+          "h2": "What you are actually buying when you hire a web designer in Geneva",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Geneva has a wide spread of web providers, from large communication agencies with account managers and production teams, to independents working alone, to resellers who assemble template sites. The output can look similar in a portfolio. What differs is who does the work, how much of the budget goes into design and code rather than coordination, and what you are left holding when the engagement ends."
+            },
+            {
+              "type": "p",
+              "text": "Fritz is the independent end of that spread, run deliberately. One person designs the brand, draws the interface, builds the site and answers the emails. There is no account layer between the brief and the person executing it, which removes a translation step that tends to be where intent gets lost. It also sets a natural ceiling on volume, which is covered honestly further down this page."
+            },
+            {
+              "type": "p",
+              "text": "For an English-speaking buyer the practical questions are usually these: is the price fair for this market, will the whole process happen in a working language you are fluent in, will the finished site also work for a local French-speaking audience, and can the work be taken elsewhere if the company moves or changes provider. Those four questions structure the rest of this page."
+            },
+            {
+              "type": "p",
+              "text": "The French version of this page, at /fr/creation-site-web-geneve, serves the same intent for a local buyer. There is no need to read both."
+            }
+          ]
+        },
+        {
+          "h2": "Published prices for the three engagements",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Providers in Switzerland usually quote on request. You describe the project, the studio scopes it, and a written offer arrives a few days later. That convention is thorough, and nothing is wrong with it, but it is slow when you are comparing several providers and it gives you nothing to calibrate against before the documents land. Publishing prices removes that step. How pricing is normally built here, what hourly rates imply about a total, and what maintenance tends to cost afterwards are set out on the website cost page rather than repeated here."
+            },
+            {
+              "type": "p",
+              "text": "Three engagements carry a published fixed price. One payment, agreed before work starts, not an estimate that drifts. If a project genuinely falls outside one of these shapes, that is said before anything begins rather than absorbed into a variation later."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Engagement",
+                "What it covers",
+                "Indicative timeline",
+                "Published price"
+              ],
+              "tableRows": [
+                [
+                  "Brand identity",
+                  "Logo system, palette, typography, stationery, source files",
+                  "About 14 days",
+                  "CHF 1'500"
+                ],
+                [
+                  "Brochure or marketing website",
+                  "A custom-designed site you can edit yourself",
+                  "2 to 4 weeks",
+                  "CHF 1'700"
+                ],
+                [
+                  "E-commerce",
+                  "A shop with product pages, checkout and order handling",
+                  "6 to 8 weeks",
+                  "CHF 2'500"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "What each engagement includes, deliverable by deliverable, is set out on the brand and web page. This page is about how the work runs in Geneva and in English rather than a second copy of the offer."
+            },
+            {
+              "type": "p",
+              "text": "Identity and website are frequently taken together, because a site designed around an identity that does not yet exist tends to get rebuilt once the identity arrives. Taken as one piece, the logo, the palette, the typography and the interface are decided in the same conversation. Taken separately they are still designed to fit, but the sequencing matters: identity first, site second."
+            },
+            {
+              "type": "p",
+              "text": "Against ranges observed on the Swiss market, where a brochure site commonly sits between CHF 1'500 and CHF 4'000, these prices sit inside the observed ranges near the bottom, with e-commerce the one item below its observed floor. That is stated plainly rather than dressed up, because a buyer new to Switzerland deserves to know where these figures sit against the observed ranges. The explanation is arithmetic, not generosity: no offices, no sales function, no project management layer, and a preference for working continuously at a stated price rather than negotiating every job."
+            }
+          ]
+        },
+        {
+          "h2": "How the work runs, from first message to launch",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "A brochure site typically moves through four stages, and the same shape holds for e-commerce with more weight in the middle."
+            },
+            {
+              "type": "h3",
+              "text": "1. Discovery, usually one conversation"
+            },
+            {
+              "type": "p",
+              "text": "What the business does, who it sells to, which languages the audience reads, what the site has to accomplish, and which pages actually need to exist. This is where the language architecture is decided, and it is short on purpose. Long discovery phases are not required to answer these questions when the person asking them is also the person building the result."
+            },
+            {
+              "type": "h3",
+              "text": "2. Design, settled on the pages that matter"
+            },
+            {
+              "type": "p",
+              "text": "The visual direction is proposed on the pages that carry the most weight, normally the home page and one interior template, before it is applied everywhere. Settling direction on two pages rather than fifteen means a change of mind is cheap in week one instead of expensive in week three. Feedback in plain language works better than annotated screenshots: saying that something feels too formal is more useful than proposing a specific fix."
+            },
+            {
+              "type": "h3",
+              "text": "3. Build, into a site you can edit"
+            },
+            {
+              "type": "p",
+              "text": "The design becomes a working site with a content management system you can operate yourself, without a developer standing behind you. Pages are built mobile-first, forms are wired up and tested, analytics are installed, and the technical foundations that search engines rely on, including page titles, structured headings, clean URLs and a sitemap, are put in place while the site is being built rather than added afterwards."
+            },
+            {
+              "type": "h3",
+              "text": "4. Review, launch and the week after"
+            },
+            {
+              "type": "p",
+              "text": "A review round on real content, a walkthrough of the CMS so you can make changes without asking, then deployment to your own hosting account with the domain pointed correctly. The days immediately after launch are when the small things surface, so they are part of the engagement rather than the start of a billing relationship."
+            },
+            {
+              "type": "p",
+              "text": "What extends a timeline, almost always, is text that has not been written yet, product photography that does not exist, or a review round waiting on someone who is travelling. What does not extend it is asking for changes. Revisions are part of the process, and it is better to say a direction is wrong early than to accept it politely and regret it at launch. E-commerce sits at the longer end because products, variants, stock, shipping rules, tax handling, payment provider onboarding and the automatic emails a customer receives all have to be correct before anyone can buy anything. Much of those six to eight weeks goes into making the unglamorous parts behave."
+            }
+          ]
+        },
+        {
+          "h2": "Working in English, building for a French-speaking market",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Switzerland has four national languages and English functions as a working language across a great deal of business here, particularly in Geneva with its large international community. That produces a specific and very common situation: the founder, the team and the internal documents run in English, while a meaningful share of the customers, suppliers or local partners read French."
+            },
+            {
+              "type": "p",
+              "text": "The whole engagement can run in English. Briefing, design reviews, written copy, the CMS interface you edit afterwards, the documentation, the emails. Nothing has to be translated back and forth on your side. The same work runs equally well in French if that suits you better, but for an English-first company there is no reason to work in a second language simply because the studio is local."
+            },
+            {
+              "type": "p",
+              "text": "The decision that matters is language architecture, and it belongs before design rather than after it. Broadly there are three shapes. English only, when the audience is international and the local market is not a sales channel. English primary with French added, which is the common case for a company selling into Geneva and the surrounding Romandy. Or genuinely bilingual, where both versions carry equal weight and equal maintenance."
+            },
+            {
+              "type": "p",
+              "text": "Each shape has consequences for navigation, URL structure, how search engines are told which version corresponds to which, and how much writing you are committing to maintain indefinitely. Retrofitting a second language onto a site built as monolingual is the expensive version of this decision, which is why it is taken at the start. The technical mechanics of running a bilingual Swiss site are covered in depth in the French guides rather than duplicated here. What is needed at this stage is the decision, not the implementation."
+            },
+            {
+              "type": "p",
+              "text": "One caution worth stating: a second language is not free after launch. Every product added, every page edited, every announcement written exists twice. If nobody internally will maintain the French version, an honest English-only site is better than a French version that goes stale."
+            }
+          ]
+        },
+        {
+          "h2": "What you own when the project ends",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "At handover you receive the design source files and the site code. Not exported images of a logo, but the editable files the logo was built in. Not screenshots of a layout, but the working design file. Not a login to a platform that owns your site, but the code that runs it."
+            },
+            {
+              "type": "p",
+              "text": "This matters more than it sounds, and it matters most to people whose situation may change. If the company relocates, restructures, hires in-house or eventually moves to a larger agency, the next person picks up a complete set of assets and continues. Nothing has to be rebuilt because the original files sat in someone else's drive."
+            },
+            {
+              "type": "p",
+              "text": "Accounts follow the same principle. Domain, hosting and CMS are registered in your name, with you as owner and administrator. Setup and deployment are handled for you, but the keys are yours from day one. Ending the relationship should cost nothing except the relationship."
+            },
+            {
+              "type": "p",
+              "text": "For a business that may change country or provider within a few years, this is worth checking explicitly with any studio, not only this one. The question is short: on the last day, what exactly is handed over, and in which file formats."
+            }
+          ]
+        },
+        {
+          "h2": "Three projects, and what each one needed",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Il Duca is an artisan gelateria in Lausanne, and the work was brand identity: the mark, the palette, the typography and the applications the shop actually uses. A food business is read from the street before anyone tastes anything, so the identity had to hold up printed small on packaging, applied to a signature and a card, and legible from across a road. That constraint shapes everything upstream of it, including how much detail a mark can carry."
+            },
+            {
+              "type": "p",
+              "text": "SoYou Cosmetics is a natural cosmetics company in Geneva, and the work was e-commerce. Product ranges, ingredient information that customers genuinely stop to read, checkout, and a back office the owner can run day to day without calling anyone. It is the clearest example of the e-commerce engagement, built in Geneva for a Geneva business, and it is a useful reference point if your catalogue is a manageable size rather than a warehouse."
+            },
+            {
+              "type": "p",
+              "text": "Eden Terranova is an agricultural investment company, and the work was a website built around a desert-to-oasis world. The brief sat closer to storytelling than to selling: a serious proposition presented to a serious audience, where the design had to carry a large idea without decoration for its own sake. Projects of that kind are mostly restraint, deciding what to leave out so the argument stays visible."
+            },
+            {
+              "type": "p",
+              "text": "LeVallon, in gastronomy, was film rather than a site. It is listed here only to be accurate about what has been made. Four projects is a small portfolio and it is presented as such rather than padded. The full set, with images, is on the work page."
+            }
+          ]
+        },
+        {
+          "h2": "What a one-person studio can and cannot take on",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Being direct about the limits is more useful than claiming there are none. This structure suits brand identities, brochure and marketing sites, e-commerce for a manageable catalogue, and long relationships where continuity with one person is worth something. In those cases the model is an advantage: fewer handoffs, faster decisions, one person who still remembers why something was built the way it was two years later."
+            },
+            {
+              "type": "p",
+              "text": "It is the wrong choice in several situations. A large web application with its own product team and a continuous release cycle needs engineers, not a design studio. A project requiring several languages beyond French and English, with ongoing translation management, needs a partner set up for that. A campaign demanding simultaneous production across film, print and media buying at scale needs a production company. And anything with a genuinely immovable deadline inside the next two weeks is a risk, because capacity is finite and honest scheduling beats an optimistic yes."
+            },
+            {
+              "type": "p",
+              "text": "There is also a capacity limit worth saying out loud: a small number of projects run at once, on purpose. If the calendar is full, you are told the next available start date rather than squeezed in badly. That is a real constraint of the model, and it is the price of the attention that comes with it."
+            },
+            {
+              "type": "p",
+              "text": "For work that sits at the identity end rather than the website end, or for companies outside Geneva across German and Italian-speaking Switzerland, the branding page covers that ground."
+            }
+          ]
+        },
+        {
+          "h2": "How a project starts",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The prices above are published so the budget question is settled before anyone spends a meeting on it. The person who replies to your first message is the person who will design and build the project, and the reply comes within 24 hours. A quote costs nothing and commits you to nothing."
+            },
+            {
+              "type": "p",
+              "text": "A useful first message says what the business does, whether you need identity, a site or both, which languages your audience reads, and roughly when you would like to launch. If a site already exists, the address is enough for a considered answer. If it does not, that is entirely normal and there is nothing to prepare beforehand."
+            },
+            {
+              "type": "p",
+              "text": "From there the sequence is short: a conversation, a written confirmation of scope and price, and a start date. Everything runs in English if that is your working language, and in French if it is not."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How much does a website cost in Geneva?",
+          "a": "In Geneva the price you are quoted depends far more on who does the work than on where they are based, and most providers here quote on request rather than publishing a figure. Fritz publishes fixed prices: brand identity CHF 1'500, brochure or marketing site CHF 1'700, e-commerce CHF 2'500, each as a single payment. For the ranges observed across the Swiss market and what actually drives a total up or down, see the guide to what a website costs in Switzerland."
+        },
+        {
+          "q": "Do you work in English?",
+          "a": "Yes, end to end. Briefing, design reviews, written copy, the CMS you edit afterwards and all documentation can run entirely in English. Geneva has a large international community and English is a normal working language for business here, so there is no reason to run a project in a second language simply because the studio is local. French is equally available if you prefer it."
+        },
+        {
+          "q": "Can you build a site in both English and French?",
+          "a": "Yes, and the decision belongs before design starts. The three usual shapes are English only, English primary with French added for the local market, or a genuinely bilingual site where both versions carry equal weight. The shape you choose affects navigation, URL structure and how much writing you commit to maintaining, so it is agreed in the first conversation rather than retrofitted later."
+        },
+        {
+          "q": "Who writes the French text if the project runs in English?",
+          "a": "That is agreed at the start, because it is the most common loose end on an English-run project serving a French-speaking audience. In practice it goes one of three ways: the client supplies the French, a translator the client appoints supplies it, or the French is written on the Fritz side as part of the copy work. Whichever route is chosen, the site is built with both language versions in the structure from the beginning, so French pages are not bolted on later."
+        },
+        {
+          "q": "Who owns the website when it is finished?",
+          "a": "You do. At handover you receive the site code and the editable design source files, not only exported images or a login to a platform. The domain, hosting and CMS accounts are registered in your name with you as administrator. If you relocate, hire in-house or move to another provider, the next person picks up a complete set of files and continues without rebuilding anything."
+        },
+        {
+          "q": "Are you an agency or a freelancer?",
+          "a": "Fritz is a one-person studio in Geneva, deliberately somewhere between the two: the care and finish of an agency, the structure and directness of an independent. It suits identities, brochure and marketing sites, and e-commerce with a manageable catalogue. It is the wrong fit for a large web application with its own product team, or for campaigns needing simultaneous production at scale, and that is said plainly rather than sold around."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "French version of this page",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "what each engagement includes",
+          "href": "/brand-web"
+        },
+        {
+          "anchor": "what a website costs in Switzerland",
+          "href": "/website-cost-switzerland"
+        },
+        {
+          "anchor": "branding across Switzerland",
+          "href": "/branding-agency-switzerland"
+        },
+        {
+          "anchor": "selected work",
+          "href": "/our-work"
+        },
+        {
+          "anchor": "start a project",
+          "href": "/contact"
+        }
+      ],
+      "distinctnessArgument": "This page owns the commercial query \"web design agency in Geneva\" for an English-speaking buyer who wants a site built, and is the hreflang pair of /fr/creation-site-web-geneve, which serves the same transactional intent in French. The earlier buying-guide drift has been removed: the devis explanation, hourly-rate-derived estimates, the maintenance ranges and the provider-questions checklist are compressed into a single orientation paragraph that hands the subject to /website-cost-switzerland, matching the FR counterpart's commercial register. The reclaimed space goes to the work itself: a four-stage process section (discovery, design on the pages that matter, build into an editable CMS, review and the week after launch), expanded case detail on Il Duca, SoYou Cosmetics, Eden Terranova and LeVallon, and a fuller treatment of running a project in English. Against /brand-web it no longer restates the offer: the table carries engagement, indicative timeline and published price only, with deliverable detail deferred to /brand-web, which is now linked. Against /website-cost-switzerland it answers cost in one Geneva-specific paragraph and one short FAQ, then links out; the interchangeable timeline FAQ is replaced by a question only an English-speaking Geneva buyer asks, about who writes the French text on an English-run project. Against /branding-agency-switzerland it is city-scoped and website-led rather than national and identity-led. Against the English homepage it makes no brand-led argument and does not compete for the brand query. Its two unique assets remain the language-architecture decision framed as a buying decision (stopping deliberately short of the mechanics owned by the French Fribourg page) and the ownership-and-portability argument framed for people who may relocate. Voice is third-person studio throughout, matching the French cluster. The four commitments appear once, in three sentences, in \"How a project starts\", rewritten so they no longer track the cost page's closing wording.",
+      "wordCount": 2680
+    }
+  },
+  {
+    "slug": "branding-agency-switzerland",
+    "type": "lander",
+    "lang": "en",
+    "dir": "",
+    "altFr": "/fr/agence-branding-suisse",
+    "place": "Switzerland",
+    "serviceType": "Brand identity",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Branding agency in Switzerland",
+        "path": "/branding-agency-switzerland"
+      }
+    ],
+    "content": {
+      "distinctnessArgument": "This page owns the national branding query in English and is the hreflang counterpart of /fr/agence-branding-suisse, not a translation of it. Its distinct asset is the multilingual reality of a Swiss brand and the naming decision that follows from it (language-neutral versus anchored name), plus the practical question of running an identity process in English while the documents it produces ship in French, an angle that only makes sense for an English-speaking founder building for a market they did not grow up in; the French page speaks to a reader who already lives inside that reality. Price material is now restricted to identity: the full brand identity range is stated once, and every other market range (brochure site, custom build, e-commerce, maintenance, hourly rate) is deferred by link to /website-cost-switzerland, which owns them. It does not restate /brand-web's offer, which sells brand and website as one combined build with three packages: here the website is mentioned once and pushed to that page. It does not compete with the English homepage, which is brand-led and does not argue price or scope. The cost FAQ is anchored on identity pricing rather than website pricing, and the four commitments appear once, in two sentences, inside the process section rather than under a standalone heading. Voice is the third-person studio register used across the cluster and the French pages.",
+      "faq": [
+        {
+          "q": "How much does branding cost in Switzerland?",
+          "a": "Ranges observed on the market put a full brand identity between CHF 1'200 and CHF 3'500, with wider branding programmes involving positioning, naming and rollout quoted well above that. A logo bought on its own generally costs less and delivers correspondingly less. Brand identity at Fritz is CHF 1'500 as a one-off payment, which sits inside that observed range, near the bottom of it. The ranges for websites, e-commerce and ongoing maintenance are set out on the cost guide."
+        },
+        {
+          "q": "What is the difference between a logo and a brand identity?",
+          "a": "A logo is one mark. A brand identity is the system around it: variants of the mark for different formats, a colour palette defined for screen and print, a typographic system with a defined hierarchy, clear-space and minimum-size rules, written usage guidance and the editable source files. The practical test is what happens when someone who is not a designer has to produce a document or a label. With a logo alone they improvise. With an identity they follow a rule."
+        },
+        {
+          "q": "Does a Swiss brand need to be multilingual?",
+          "a": "Not always, but it needs to decide. Switzerland has French, German and Italian as national languages and English is widely used as a business language, so a brand that crosses language regions usually needs at least French and German, while a company whose working language is English may reasonably start in English and add French later. The point is to design for the languages you commit to from the start, because a lockup, a navigation bar or a document template built and tested in one language often breaks when a longer language is added afterwards."
+        },
+        {
+          "q": "How long does a brand identity take?",
+          "a": "Around fourteen days from the agreed brief, as an indicative timeline. The sequence is a briefing conversation, a small number of distinct directions, development of the chosen one into a full system tested at real sizes and in the relevant languages, then the written rules and the file handover. What moves the date is almost always the speed of feedback rather than the design work itself, so if several people need to approve, plan for that."
+        },
+        {
+          "q": "What files should I receive with my logo?",
+          "a": "You should receive the editable source files, not just exports, along with vector formats for print and scaling, raster exports at the sizes screens and social platforms ask for, and a monochrome version. Ask about this explicitly before signing anything: a quote can look competitive and still exclude the source files, which means every future change has to go back through the same supplier. At Fritz the source files are handed over as part of the work, and the code as well when a website is involved."
+        },
+        {
+          "q": "Can the branding work be done entirely in English?",
+          "a": "Yes. Briefing, direction, review and the written usage document are all available in English, and the studio also works in French, which is often what the finished brand has to speak. That combination is the point: an English-language process can still produce templates, descriptors and document layouts that are correct in French, provided the language commitments are made at the briefing stage rather than discovered at handover."
+        }
+      ],
+      "h1": "Branding agency in Switzerland",
+      "internalLinks": [
+        {
+          "anchor": "Version française : agence de branding en Suisse",
+          "href": "/fr/agence-branding-suisse"
+        },
+        {
+          "anchor": "What a website costs in Switzerland",
+          "href": "/website-cost-switzerland"
+        },
+        {
+          "anchor": "Web design agency in Geneva",
+          "href": "/web-design-agency-geneva"
+        },
+        {
+          "anchor": "Brand and website, designed as one piece",
+          "href": "/brand-web"
+        },
+        {
+          "anchor": "Selected work, including Il Duca",
+          "href": "/our-work"
+        },
+        {
+          "anchor": "Send a brief, reply within 24 hours",
+          "href": "/contact"
+        }
+      ],
+      "kicker": "Brand identity · Switzerland · in English",
+      "lede": "Looking for a branding agency in Switzerland and working in English: this page explains what a brand identity actually contains, what the market charges for it, and the one constraint that shapes almost every Swiss brand, which is that it will be read in more than one language. It is written for founders and decision makers who are building here, often without a local reference for what any of this should cost.",
+      "metaDesc": "Brand identity for companies operating in Switzerland, in English: what an identity includes, what it costs, and the multilingual naming decision.",
+      "metaTitle": "Branding Agency in Switzerland | Brand Identity CHF 1'500",
+      "quotableOpener": "A full brand identity in Switzerland is commonly quoted between CHF 1'200 and CHF 3'500 on the market, and at that level it should include a logo system, a colour palette, typography, written usage rules and the editable source files.",
+      "wordCount": 2870,
+      "sections": [
+        {
+          "h2": "What a branding agency in Switzerland is actually selling",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The phrase covers a very wide range of work. At one end, someone draws a mark and sends back a PNG. At the other, a consultancy runs a positioning programme across several months with research, naming and an internal rollout. Both are sold under the same two words, and the pages selling them rarely say which one is on offer. If you are new to the Swiss market, the first useful step is not choosing a studio, it is deciding which of three purchases you are making."
+            },
+            {
+              "type": "p",
+              "text": "In the middle case, the one many companies need, what you are buying is a decision system. Every document, sign, invoice, deck, package and page you produce from now on will raise questions about size, colour, spacing, hierarchy and tone. An identity answers those questions once, in writing, so that nobody has to answer them again under deadline pressure, and so that the answer is the same whether the file is made by you, by a printer in Zurich or by a developer you hire next year."
+            },
+            {
+              "type": "p",
+              "text": "That is why the deliverable is a system and a set of editable files rather than a single image. A mark you cannot rebuild, resize or hand to someone else is not an asset, it is a picture you are renting from whoever holds the source file."
+            },
+            {
+              "type": "p",
+              "text": "A Swiss identity also has to survive a specific set of contexts before it is any good:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "A wordmark that stays legible at the size of a business card and at the size of a shopfront",
+                "Documents that carry a legal or administrative weight: quotes, invoices, contracts, terms",
+                "Print produced by a supplier you will never speak to, working from your files",
+                "A website where the same page exists in two or three languages",
+                "Slides and PDFs made by people who are not designers, using the templates you give them"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "None of those contexts is exotic. They are simply the ordinary life of a small company that trades in Switzerland, and they are the reason an identity is judged by how it behaves at the edges rather than by how it looks in a presentation."
+            }
+          ]
+        },
+        {
+          "h2": "Logo, brand identity, branding: three different purchases",
+          "blocks": [
+            {
+              "type": "h3",
+              "text": "A logo"
+            },
+            {
+              "type": "p",
+              "text": "A logo is a single mark. Bought on its own, it usually arrives as a handful of exported files with little or no guidance on how to use it. It solves the immediate problem of having something to put on a card, and it postpones every other problem. It is a reasonable purchase if you genuinely only need a mark, and a poor one if you are about to produce a website, packaging or a document set, because the questions the logo does not answer will simply be answered inconsistently later."
+            },
+            {
+              "type": "h3",
+              "text": "A brand identity"
+            },
+            {
+              "type": "p",
+              "text": "An identity is the logo plus everything that makes it usable: variants of the mark for different formats, a colour palette with defined values for screen and print, a typographic system with sizes and weights that relate to each other, spacing and clear-space rules, and a short written document that says what to do and what not to do. It includes the editable source files. This is the level most small and mid-sized companies should buy, and it is what CHF 1'500 covers at Fritz."
+            },
+            {
+              "type": "h3",
+              "text": "A branding programme"
+            },
+            {
+              "type": "p",
+              "text": "A programme goes further upstream: positioning, naming, verbal identity, message architecture, sometimes research, then the identity itself and an extended set of applications. It is a longer engagement quoted per project, not from a list. It earns its cost when the strategic question is genuinely open, for example when a company is entering a new market or merging two entities. When the strategic question is already settled and the company knows what it is, the money is usually better spent on a competent identity and on the applications that carry it."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Level of brand work",
+                "What it typically covers",
+                "Observed market range in Switzerland"
+              ],
+              "tableRows": [
+                [
+                  "Logo only",
+                  "A single mark, a few exported formats, little or no usage guidance, source files sometimes withheld",
+                  "No stable published band; generally priced below full identity work"
+                ],
+                [
+                  "Brand identity",
+                  "Logo system and variants, colour palette, typography, spacing and usage rules, editable source files",
+                  "CHF 1'200 to CHF 3'500 for a full identity"
+                ],
+                [
+                  "Branding programme",
+                  "Positioning, naming, verbal identity, research, identity system, extended applications and rollout",
+                  "Quoted per project, above the full identity range"
+                ],
+                [
+                  "Identity applied to a website",
+                  "The identity plus the design and build of the site it lives on",
+                  "Website ranges are set out on the cost guide rather than here"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "These are ranges observed on the market, not fixed rates. They move with scope, with the number of applications and with how much of the work is strategy rather than execution."
+            }
+          ]
+        },
+        {
+          "h2": "The multilingual reality of a Swiss brand",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Switzerland is a multilingual country. French, German and Italian are all national languages, the language regions are geographic rather than blended, and English is widely used as a working language in international business. Geneva in particular has a large international community, which means a company can be headquartered here and conduct almost all of its internal life in English while its customers, suppliers and administration operate in French."
+            },
+            {
+              "type": "p",
+              "text": "For a brand, that is not a translation problem. It is a design constraint that has to be handled at the point the system is built, because retrofitting it is expensive."
+            },
+            {
+              "type": "p",
+              "text": "The same sentence sets at different lengths in different languages. German compounds run long and break awkwardly. French is generally longer than English. A lockup that sits neatly under a wordmark in English can wrap to two lines in French and three in German, and a navigation bar that fits in English can collapse in German. If the identity was only ever tested in one language, you find this out on the day the second language ships."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Descriptor lines under the logo: decide whether the descriptor translates, or whether it stays in one language everywhere",
+                "Navigation and button labels: size the components for the longest language, not the shortest",
+                "Typography: choose faces with complete accented characters and a weight range that survives long words",
+                "Document templates: quotes and invoices often need to exist in two languages with the same layout",
+                "Tone: an English brand voice does not automatically survive translation into French, and a literal translation usually sounds wrong"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "There is also a straightforward strategic question that most Swiss companies have to answer explicitly rather than by default: which languages the brand commits to. Committing to English and French is a real position. Committing to English only, with the understanding that a French version follows when the company crosses into the wider market, is also a real position. What causes damage is not choosing, and then improvising a second language into a system that was never designed to hold one."
+            },
+            {
+              "type": "p",
+              "text": "The cheapest moment to answer that question is the briefing conversation. The most expensive moment is after the templates have been distributed to the people who use them every day."
+            }
+          ]
+        },
+        {
+          "h2": "Naming for a multilingual market: neutral or anchored",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "This is the decision an international founder in Switzerland faces most often, and it is where a naming choice made quickly costs the most later. Broadly there are two directions, and they are both legitimate."
+            },
+            {
+              "type": "h3",
+              "text": "The language-neutral name"
+            },
+            {
+              "type": "p",
+              "text": "An invented, abstract or Latin-rooted name belongs to no region in particular. It crosses the language border without changing meaning, it is usually easier to register and to secure a domain for, and it will not sound provincial to a customer in Zurich or a partner abroad. The cost is that it starts empty. It means nothing until you spend time and material making it mean something, which puts more weight on the identity and the writing around it."
+            },
+            {
+              "type": "h3",
+              "text": "The anchored name"
+            },
+            {
+              "type": "p",
+              "text": "A name rooted in a language, a place or a craft arrives with meaning already attached. It is warmer, more specific, and often more memorable in its home region. The cost is that the anchor may not travel: a name that reads as precise and local in French can read as foreign or simply opaque in German-speaking Switzerland, and vice versa. That is not automatically a problem. It is only a problem if your growth plan crosses the language border and the name was chosen as though it would not."
+            },
+            {
+              "type": "h3",
+              "text": "Practical checks before you commit"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Say it out loud in French and in German. If the pronunciation shifts, decide whether you accept both or enforce one",
+                "Check for unintended meanings and awkward homophones in the languages you will actually operate in",
+                "Check the domain and the main social handles before falling in love with the name, not after",
+                "Decide whether the legal entity name and the trading name need to be the same",
+                "Have the trademark question checked by a trademark professional; that is a legal matter and not something a design studio should answer for you"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Naming is not part of the CHF 1'500 identity. If you arrive without a name, that is a separate conversation and a separate quote, and the studio says so before any work starts rather than folding it silently into a design fee."
+            }
+          ]
+        },
+        {
+          "h2": "Precision over boldness: the Swiss design tradition",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "There is a design tradition here that predates all of this: grid systems, restrained typography, high standards of execution, and a general suspicion of decoration that does not do work. It shows up in signage, in public documents, in packaging, and in the visual habits of the market a Swiss company sells into."
+            },
+            {
+              "type": "p",
+              "text": "The practical consequence for a company operating in Switzerland is that visible effort in the wrong place tends to read as a lack of confidence rather than as ambition. A logo that is trying hard, a palette with too many colours, a typeface chosen for personality rather than legibility: against that tradition they read as unresolved. Alignment that is nearly right, spacing that is inconsistent between two documents, a mark that changes proportion between the website and the invoice: if your audience is used to that standard of execution, these are the details that can quietly cost credibility, and nobody is likely to tell you they noticed."
+            },
+            {
+              "type": "p",
+              "text": "This is not an argument for making everything grey and quiet. Restraint is not the absence of decisions, it is the result of having made them. A brand can be warm, specific and distinctive, and still hold a strict grid. What restraint rules out is arbitrariness, which is why the written rules matter more than they look like they should."
+            },
+            {
+              "type": "p",
+              "text": "It also has a direct commercial consequence for anyone arriving from a market with looser norms: the expectation for execution quality is high, and meeting it is closer to table stakes than to differentiation. Distinctiveness has to come from a real idea about the company, not from turning up the volume on the graphics."
+            }
+          ]
+        },
+        {
+          "h2": "What an identity costs in Switzerland, and what CHF 1'500 means",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Prices are rarely published here, which leaves a newcomer with little to calibrate a quote against. The useful reference point for this page is the identity range only: a full brand identity is commonly quoted between CHF 1'200 and CHF 3'500 on the market, covering a logo system, colour, typography, usage rules and the source files. Ranges for brochure sites, custom builds, e-commerce, ongoing maintenance and agency hourly rates are set out on the cost guide, which is the right place to read them because they belong to a different purchase."
+            },
+            {
+              "type": "p",
+              "text": "Brand identity at Fritz is CHF 1'500, one-off. That is inside the observed range for a full identity, near the bottom of it rather than beneath it, and the distinction is worth making because pages that claim to be below the floor of every range are usually wrong about at least one. In the published list, the item that genuinely sits below an observed floor is e-commerce at CHF 2'500 against a market floor of CHF 5'000."
+            },
+            {
+              "type": "p",
+              "text": "What keeps the number where it is has to do with the shape of the studio rather than with a promotion. Fritz is one person, so a brief reaches the person drawing the marks without passing through an account layer, and no time is billed to internal coordination or handover. The price is published in advance, so it does not move upward when a project looks like it could carry more, and the scope is stated before the work begins rather than discovered as it goes."
+            },
+            {
+              "type": "p",
+              "text": "What that price does not buy is unlimited scope. It buys a defined identity, delivered properly. A naming programme, packaging artwork across a product range, photography, illustration systems or a multi-market rollout are real work and are quoted separately. Naming the boundary is more useful than a low headline figure that expands on contact."
+            },
+            {
+              "type": "p",
+              "text": "One more thing worth knowing when comparing identity quotes: ask explicitly whether the editable source files are included. A quote that looks competitive can turn out to exclude them, which means every future change has to come back through the same supplier at whatever the rate is then. At Fritz the source files are handed over as part of the work, along with the code when a website is involved."
+            }
+          ]
+        },
+        {
+          "h2": "What CHF 1'500 buys, item by item",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The identity is a fixed scope. This is what is delivered:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "A primary logo and the variants the system actually needs: horizontal, stacked, a compact mark for small formats and for avatars, and a monochrome version",
+                "A colour palette with defined values for screen and for print, including which colours are primary, which are secondary and where each is allowed to be used",
+                "A typographic system: the faces, the weights, the sizes and the relationships between heading, subheading and body, so that hierarchy is a rule rather than a judgement call each time",
+                "Clear-space and minimum-size rules, so the mark is not crushed into a corner by someone in a hurry",
+                "Usage rules in plain language, including the misuses to avoid, written so that a non-designer can follow them",
+                "The editable source files, plus exports in the formats a printer, a developer and a social platform will each ask you for"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "It is deliberately a working document rather than a long presentation. The measure of an identity is not how impressive the deck is, it is whether the person who has to produce something on a Friday afternoon can find the answer in it."
+            },
+            {
+              "type": "p",
+              "text": "If the identity is going onto a website, brand and site are better designed as one piece rather than handed from one supplier to another, and that combined engagement is covered on the brand and website page."
+            }
+          ]
+        },
+        {
+          "h2": "Working in English on a brand that will speak French",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Plenty of companies here run their internal life in English and their external documents in French. That is a normal Swiss situation and it is not a contradiction, but it does put one requirement on the brand work: the process can be in English, and the artefacts have to be correct in the languages the company actually trades in."
+            },
+            {
+              "type": "p",
+              "text": "In practice that means the briefing, the design reviews and the written usage document can all happen in English, while the templates, descriptors and document layouts are built and tested against French text lengths and French typographic conventions from the start. Fritz works in both, which is the reason this page exists in English and its counterpart exists in French rather than as a machine translation of each other."
+            },
+            {
+              "type": "p",
+              "text": "It also means being explicit about a handful of small things that are easy to miss from outside the market: accented characters in every weight you intend to use, quotation and spacing conventions that differ from English usage, and the fact that an administrative document set is often the first thing a Swiss counterparty sees of your brand."
+            }
+          ]
+        },
+        {
+          "h2": "How the work runs, and the fourteen day timeline",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "An identity takes around fourteen days from the point the brief is agreed. The timeline is indicative and depends mostly on how quickly feedback comes back, not on how long the design takes."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Brief: one conversation about what the company does, who it serves, in which languages it operates and where the brand will physically appear. Language commitments are decided here, not later",
+                "Direction: a small number of distinct territories rather than a large number of variations on one idea, so the choice is a real choice",
+                "Development: the chosen direction built out into a full system, with the mark tested at the sizes and in the contexts it will actually face, including the languages you have committed to",
+                "Rules and handover: the usage document written, the files exported and organised, everything transferred to you"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "The terms are the same for every project and are not negotiated case by case. The prices are published, the source files are yours at the end, and the point of contact is the person doing the design. Messages get a reply within 24 hours, and a quote costs nothing."
+            }
+          ]
+        },
+        {
+          "h2": "Il Duca: identity for an artisan gelateria",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Il Duca is an artisan gelateria in Lausanne, and the brand identity is the piece of work that best shows what this level of engagement produces. The problem was the one most food and hospitality businesses have: the identity has to survive contexts that have nothing in common with each other. A shopfront read from across the street, a tub label read from thirty centimetres away, a menu board, a paper cup, a social post, an invoice."
+            },
+            {
+              "type": "p",
+              "text": "That range is exactly what a system solves and a single logo does not. The mark needed a compact form for small formats and a full form for the front of the shop; the palette needed to hold up both in print on packaging and on a backlit screen; the typography needed to carry a product list without turning into decoration. The written rules matter more here than in most sectors, because the person applying the brand day to day is usually not a designer and is usually busy."
+            },
+            {
+              "type": "p",
+              "text": "It also sits in French-speaking Switzerland with an Italian name, which is an anchored naming choice of exactly the kind described above: specific, warm, legible to the region, and made deliberately rather than by accident."
+            },
+            {
+              "type": "p",
+              "text": "Other work, including e-commerce for SoYou Cosmetics in Geneva, a website for Eden Terranova and film for LeVallon, is on the work page. To discuss an identity for a company operating in Switzerland, in English or in French, send the brief and you will get a reply within 24 hours."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "website-cost-switzerland",
+    "type": "guide",
+    "lang": "en",
+    "dir": "",
+    "altFr": "/fr/guides/combien-coute-site-web-suisse",
+    "place": "Switzerland",
+    "serviceType": null,
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Website cost in Switzerland",
+        "path": "/website-cost-switzerland"
+      }
+    ],
+    "content": {
+      "distinctnessArgument": "This page owns the informational query \"how much does a website cost in Switzerland\" and nothing else. It is a calibration guide for people who cannot price a Swiss quote from outside the country, not a service page: it sells nothing until section eight, and even there it states position rather than pitching. It does not restate /brand-web's offer, because it never describes a process, a deliverable list, or a scope of work; it describes the market and how to read it. It does not compete with the English homepage for the brand query, because the studio name appears only as a price reference point. It is distinct from its two siblings by object: /web-design-agency-geneva owns a local commercial query (who builds sites in Geneva), /branding-agency-switzerland owns identity work at national scale, and this page owns money. The only shared asset with either sibling is the price figures themselves, which are facts, and here they are framed as a comparison against observed market ranges rather than as an offer. The two tables (market ranges by site type, and three-year ownership) exist nowhere else in the cluster, and the three-year ownership frame is the page's real differentiator: almost all pricing content stops at the build cost. The three-year figures are labelled as arithmetic derived from the observed annual ranges, not as separately observed market data. It is the hreflang counterpart of /fr/guides/combien-coute-site-web-suisse, written for a different reader (arrivals and foreign companies calibrating Swiss norms) rather than translated. Voice is third-person studio throughout, matching the French cluster register.",
+      "wordCount": 2795,
+      "metaTitle": "How Much Does a Website Cost in Switzerland? | CHF Ranges",
+      "metaDesc": "Real CHF ranges for websites in Switzerland: brochure, custom and e-commerce builds, why Swiss prices sit higher, and the 3-year cost of ownership.",
+      "h1": "How much does a website cost in Switzerland?",
+      "kicker": "Guide, Switzerland, updated 2026",
+      "lede": "If you are asking how much does a website cost in Switzerland, the honest answer is that the ranges are wide, the quotes you receive will look inconsistent, and almost none of them will tell you what the site costs to keep once it is live. This guide sets out the ranges observed on the Swiss market, explains what sits behind them, and gives you a way to compare two quotes that look nothing alike. It is written in English for people pricing this from outside Swiss norms: internationals, arrivals, and foreign companies opening an entity here.",
+      "quotableOpener": "On the Swiss market, a brochure or marketing website is generally quoted between CHF 1'500 and CHF 4'000, a custom build between CHF 4'000 and CHF 15'000, and an e-commerce site between CHF 5'000 and CHF 20'000, with annual maintenance observed between CHF 350 and CHF 2'000.",
+      "sections": [
+        {
+          "h2": "The short answer, in figures",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "These are ranges observed on the Swiss market, not a price list and not a law. A brochure or marketing site, meaning five to ten pages presenting a company and its offer, is generally quoted between CHF 1'500 and CHF 4'000. A custom build, meaning bespoke features, integrations with other systems, or anything that cannot be assembled from existing components, sits between CHF 4'000 and CHF 15'000. An e-commerce site is generally quoted between CHF 5'000 and CHF 20'000. A full brand identity, separate from the site itself, is observed between CHF 1'200 and CHF 3'500. Ongoing maintenance runs between CHF 350 and CHF 2'000 per year, and agency hourly rates for work outside a fixed scope are commonly between CHF 120 and CHF 180."
+            },
+            {
+              "type": "p",
+              "text": "The width of those ranges is the first thing worth understanding. A brochure site at the bottom of the range and one at the top are not the same product sold at different prices; they are different amounts of work, different amounts of thinking, and often different amounts of what happens after launch. Two quotes that differ by a factor of three usually differ because one of them includes items the other does not, not because one of them is dishonest."
+            },
+            {
+              "type": "p",
+              "text": "The second thing worth understanding is that the build price is not the cost. Over three years, the recurring lines can account for a meaningful share of what you actually spend, and they are the lines least likely to appear in the quote you are comparing. That is covered further down, and it is the part most budgets treat as an afterthought."
+            }
+          ]
+        },
+        {
+          "h2": "What the market charges, by type of site",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The table below sets out the ranges observed on the market against what generally sits behind them. The last column shows where the studio's published prices fall, for reference; that comparison is made honestly further down rather than sold here."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Type of work",
+                "Range observed on the market",
+                "What sits behind the range",
+                "Fritz published price"
+              ],
+              "tableRows": [
+                [
+                  "Brochure or marketing site",
+                  "CHF 1'500 to CHF 4'000",
+                  "Number of pages, whether design is bespoke or templated, whether copy and photography are included, whether a second language is built in",
+                  "CHF 1'700"
+                ],
+                [
+                  "Custom build",
+                  "CHF 4'000 to CHF 15'000",
+                  "Bespoke functionality, integrations with booking, CRM or accounting systems, user accounts, anything requiring back-end logic",
+                  "Quoted case by case, outside the published list"
+                ],
+                [
+                  "E-commerce",
+                  "CHF 5'000 to CHF 20'000",
+                  "Catalogue size, payment and delivery setup, stock and order flows, whether product photography and product copy are included",
+                  "CHF 2'500"
+                ],
+                [
+                  "Full brand identity",
+                  "CHF 1'200 to CHF 3'500",
+                  "Naming, logo system, typography and colour, applications, and whether you receive usable source files",
+                  "CHF 1'500"
+                ],
+                [
+                  "Annual maintenance",
+                  "CHF 350 to CHF 2'000 per year",
+                  "Updates, backups, security, hosting, and how much monthly support time is included",
+                  "Not sold as a package; see the monthly marketing and Growth Ops offers"
+                ],
+                [
+                  "Hourly rate for out-of-scope work",
+                  "CHF 120 to CHF 180",
+                  "Seniority, whether the person quoting is the person working, and studio overheads",
+                  "Not applicable to fixed-price work"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "If a quote you have received sits well below the bottom of a range, that is not automatically a warning sign, but it is a question. Ask what has been removed to get there. If it sits well above the top, the same question applies in reverse: ask what is included that a cheaper quote would not deliver. Both answers should be specific."
+            }
+          ]
+        },
+        {
+          "h2": "Why Swiss prices sit above neighbouring markets",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Switzerland is an expensive country to operate in, and web work is priced in that reality like everything else. Salaries, social charges, workspace, insurance and general cost of living are all higher here than in the neighbouring markets that most comparison quotes come from. A studio in Geneva, Lausanne or Zurich has to cover those costs out of the same invoice as a studio in a lower-cost country, which is the largest part of the difference. There is no mystery in it and no premium being extracted; the same hour of work simply costs more to supply."
+            },
+            {
+              "type": "p",
+              "text": "There are secondary reasons. Swiss projects frequently need more than one language, and multilingual sites are structurally more work: more content, more decisions about which language leads, more testing, more ongoing maintenance because every future change happens twice or three times. Expectations around finish also tend to be high, and clients here often ask for a level of polish that is slow to produce. Data handling and hosting preferences add administrative work on some projects."
+            },
+            {
+              "type": "p",
+              "text": "The practical consequence is that comparing a Swiss quote to a foreign freelancer's quote is not a like-for-like comparison, even when the two documents describe the same pages. You are comparing different labour costs, different time zones, different working languages, and different levels of recourse if something goes wrong two years from now. That does not mean the foreign quote is worse. It means the difference between the two numbers is not a measure of quality, and treating it as one will lead you to a bad decision in either direction."
+            }
+          ]
+        },
+        {
+          "h2": "What actually moves a quote up or down",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Page count is the factor people often expect to dominate. It is a driver, but it is rarely the biggest one. These are the factors that genuinely move the number:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Who writes the content. Copy and photography are commonly excluded and commonly underestimated. If you are supplying them, the price falls and your own workload rises. If they are included, the price rises and the project usually ships faster.",
+                "How many languages. A second or third language is not a translation line at the end; it affects structure, navigation, URLs and every future update. It should appear in the quote explicitly.",
+                "Whether design is bespoke or based on an existing system. A well-adapted template is a legitimate choice and costs less. A design built from your brand is more expensive and looks like you.",
+                "Functionality beyond pages. Booking, memberships, payments, calculators, connections to a CRM or an accounting tool: each of these is a project of its own attached to the site.",
+                "How decisions get made. A project with one decision-maker who answers within a day costs less than the same project reviewed by a committee, because revision rounds are a hidden hourly cost in almost every build.",
+                "Deadline. Compressed timelines cost more everywhere, and Switzerland is no exception.",
+                "Whether you receive the source files. A build you can take elsewhere is worth more than one you cannot, and a build that cannot be taken elsewhere is a smaller scope, and scope shows up in the price."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Indicative timelines help calibrate the same way prices do. An identity typically takes around fourteen days, a brochure site two to four weeks, and an e-commerce build six to eight weeks. A quote promising materially less than that for the same scope is either compressing your involvement or compressing the work."
+            }
+          ]
+        },
+        {
+          "h2": "One-off build or monthly subscription",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Two models dominate the Swiss market and they are easy to confuse. The one-off build is a fixed price paid once. You own the result, you own the files, and afterwards you either maintain it yourself, pay for maintenance, or leave it alone. The monthly subscription bundles the build into a recurring fee, often over a minimum term, and the site typically remains with the provider."
+            },
+            {
+              "type": "p",
+              "text": "The subscription model is not a trap and it suits some businesses well: cash flow is smooth, support is continuous, and nothing needs to be budgeted as capital expenditure. The thing to check is what happens at the end. Over a long enough period a subscription can exceed the one-off price of an equivalent build several times over, and if the site is not portable you are also paying for the right to keep something you cannot move. Ask two questions before signing: what is the minimum term, and what leaves with you if you stop."
+            },
+            {
+              "type": "p",
+              "text": "There is a third arrangement that is often mistaken for the second: a one-off build, owned by you, with a separate optional monthly retainer for marketing or ongoing work. That is the structure of the Fritz monthly offers, and the distinction matters because the site does not depend on the retainer continuing. If a provider presents a monthly figure, establish which of the two things it is before comparing it to anything."
+            }
+          ]
+        },
+        {
+          "h2": "What a website really costs over three years",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "This is where budgets often go wrong. The build is the visible number and the recurring lines are the ones rarely quoted at signature. Three years is the horizon this guide uses, for no reason other than consistency: it is long enough for the recurring lines to become visible, and short enough to plan against. The figures in the third column are arithmetic, obtained by multiplying the annual ranges above by three. They are not separately observed market data, and no reader should treat them as such."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Cost line",
+                "How it is billed",
+                "Over three years (arithmetic from the ranges above)",
+                "Where budgets go wrong"
+              ],
+              "tableRows": [
+                [
+                  "The build",
+                  "One-off",
+                  "Brochure CHF 1'500 to CHF 4'000; custom CHF 4'000 to CHF 15'000; e-commerce CHF 5'000 to CHF 20'000 (paid once, carried unchanged)",
+                  "Treated as the total cost of the site"
+                ],
+                [
+                  "Maintenance and updates",
+                  "Annual, observed CHF 350 to CHF 2'000 per year",
+                  "CHF 1'050 to CHF 6'000, calculated as three times the observed annual range",
+                  "Not quoted at all at signature, then arrives as a surprise"
+                ],
+                [
+                  "Domain and hosting",
+                  "Annual, varies by provider and stack",
+                  "No range given; ask for the annual figure in writing before you sign",
+                  "Bundled invisibly, then inherited without knowing the amount"
+                ],
+                [
+                  "Content, photography and copy",
+                  "Per item or hourly",
+                  "No range given; usually unbudgeted entirely",
+                  "Postponed, the launch slips, and the site goes live half empty"
+                ],
+                [
+                  "Changes after launch",
+                  "Hourly, observed CHF 120 to CHF 180",
+                  "No range given; depends entirely on how much you can edit yourself",
+                  "Small edits you cannot make yourself become invoices"
+                ],
+                [
+                  "Three-year total, brochure site",
+                  "Build plus maintenance",
+                  "CHF 2'550 to CHF 10'000, being the two arithmetic lines above added together, before content and changes",
+                  "Only the first line was ever compared"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Two lessons come out of that table. The first is that a cheap build with expensive maintenance can be more costly over three years than a more expensive build with light maintenance, which is why comparing build prices alone tells you very little. The second is that the ability to edit your own content is a financial feature, not a convenience. If every text change requires a paid hour, the hourly rate becomes your real recurring cost."
+            }
+          ]
+        },
+        {
+          "h2": "How to read a quote and compare two of them",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "An honest quote is itemised. It does not need to be long, but it needs to let you see what you are paying for. When you receive one, check that it answers these things in writing:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "The number of pages or templates, named rather than counted.",
+                "Who writes the copy and who supplies the photography.",
+                "How many languages, and what happens to the second language when the first one changes.",
+                "How many revision rounds are included and what happens after them.",
+                "Who owns the design and code at the end, and whether source files are handed over.",
+                "Where the site will be hosted, who holds the domain, and in whose name.",
+                "What maintenance costs per year and what it includes, stated as a figure and not as a promise.",
+                "The hourly rate for anything outside the scope.",
+                "Whether the amounts are inclusive or exclusive of VAT."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Comparing two quotes that look nothing alike"
+            },
+            {
+              "type": "p",
+              "text": "Put both on the same three-year basis before you look at either total. Add the build, three years of stated maintenance, and any hosting figure to each. Then normalise the scope: if one includes copywriting and the other does not, price the missing item rather than ignoring it. If one of the two quotes has simply left more out, this exercise is what will show it, and the cheaper document may not stay the cheaper one once the missing lines are priced in."
+            },
+            {
+              "type": "p",
+              "text": "One more thing to test: ask each provider who will actually do the work and who you will speak to when something breaks. It is a fair question, the answer is usually informative, and it costs nothing to ask."
+            }
+          ]
+        },
+        {
+          "h2": "Where the published prices sit",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Stated plainly, because the point of this guide is calibration and it would be strange to leave the studio's own figures out of it. Brand identity is CHF 1'500 against an observed range of CHF 1'200 to CHF 3'500, so near the bottom. A brochure or marketing site is CHF 1'700 against CHF 1'500 to CHF 4'000, so near the bottom. E-commerce is CHF 2'500 against CHF 5'000 to CHF 20'000, which is below the observed floor, not at the low end of it. Monthly marketing is CHF 490, CHF 890 or CHF 1'390, and Growth Ops is CHF 490, CHF 1'290 or CHF 2'900; both are set out in full on their own pages. All build prices are one-off payments."
+            },
+            {
+              "type": "p",
+              "text": "The reason is structural rather than promotional. This is a one-person studio in Geneva, so there is no agency overhead in the number, no account layer, and no margin covering people who are not working on your project. That is the trade-off actually on offer: the same care, less structure around it, and less capacity than an agency has."
+            },
+            {
+              "type": "p",
+              "text": "Prices are published rather than quoted on request; the code and the design source files are handed over at the end so the work is portable; you speak to the person doing the work, and you get a reply within twenty-four hours. A quote costs nothing. Nothing on this page changes if you take those figures and use them to negotiate with someone else, which is the intended use."
+            }
+          ]
+        },
+        {
+          "h2": "If you are pricing this from outside Switzerland",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "If you are calibrating rather than buying, this section is the one that matters. That describes a lot of the people who reach a page like this: newly arrived founders, staff at international organisations and multinationals, and foreign companies opening a Swiss entity with a budget approved somewhere else and no way to tell whether a given quote is reasonable. A few things are worth knowing before you start collecting quotes."
+            },
+            {
+              "type": "p",
+              "text": "Switzerland has four national languages and English functions as a working language in a large part of the economy, particularly in Geneva with its international community. That means the question of what language your site leads in is a real strategic decision here rather than an afterthought. An English-first site with French added later is a legitimate structure, and so is the reverse; what matters is that the decision is made before the build, because retrofitting a second language costs more than planning for it."
+            },
+            {
+              "type": "p",
+              "text": "It is also worth being realistic about what a Swiss provider gives you that a remote one may not: the same time zone, the same legal jurisdiction, familiarity with local expectations, and someone reachable when a payment flow breaks on a Friday. Whether those are worth the difference depends entirely on your situation. If they are not, hiring abroad is a rational choice and you should make it without guilt. If they are, this guide should at least let you tell a fair Swiss quote from an unfair one."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How much does a website cost in Switzerland?",
+          "a": "On the Swiss market, a brochure or marketing site is generally quoted between CHF 1'500 and CHF 4'000, a custom build between CHF 4'000 and CHF 15'000, and an e-commerce site between CHF 5'000 and CHF 20'000. These are ranges observed on the market, not fixed prices, and the width comes mostly from what is included: copywriting, photography, a second language, and bespoke rather than templated design. Annual maintenance is observed separately, between CHF 350 and CHF 2'000 per year."
+        },
+        {
+          "q": "Why are websites more expensive in Switzerland?",
+          "a": "Mainly because it costs more to operate here. Salaries, social charges, workspace and general cost of living are higher than in neighbouring markets, and that difference is carried by the same invoice. Secondary reasons include the frequency of multilingual projects, which are structurally more work to build and to maintain, and generally high expectations around finish. It is a labour cost difference rather than a quality premium, which is why comparing a Swiss quote to a foreign one is not like for like."
+        },
+        {
+          "q": "How much does an e-commerce site cost in Switzerland?",
+          "a": "The range observed on the market is CHF 5'000 to CHF 20'000. What moves the figure is catalogue size, payment and delivery configuration, stock and order flows, whether product photography and product descriptions are included, and any connection to accounting or logistics systems. Timelines of six to eight weeks are typical. The Fritz published price for e-commerce is CHF 2'500 as a one-off payment, which sits below the observed floor because there is no agency overhead in it."
+        },
+        {
+          "q": "What are the ongoing costs of a website?",
+          "a": "Four lines, and only one of them usually appears in a build quote. Maintenance and updates are observed between CHF 350 and CHF 2'000 per year. Domain and hosting are billed annually and vary by provider, so ask for the figure in writing before signing. Content, meaning new copy and photography, is almost never budgeted. Changes after launch are billed hourly, commonly CHF 120 to CHF 180, which is why being able to edit your own content is a financial feature rather than a convenience. Multiply the annual lines by three and they can rival the build itself."
+        },
+        {
+          "q": "Is it cheaper to hire a freelancer abroad?",
+          "a": "Often yes on the invoice, and it would be dishonest to pretend otherwise. Lower cost of living means lower rates, and there is good work available at those rates. The trade-offs are real but not moral ones: time zone and response speed, working language, familiarity with Swiss expectations, and what your options are if something breaks two years later in a different jurisdiction. If those matter to your situation, a Swiss provider is worth the difference. If they do not, hiring abroad is a rational decision and this guide should still help you judge whether the quote is fair."
+        },
+        {
+          "q": "How long does it take to build a website in Switzerland?",
+          "a": "Indicative timelines are around fourteen days for a brand identity, two to four weeks for a brochure or marketing site, and six to eight weeks for e-commerce. The largest variable is not the building, it is content and decisions: projects slip when copy and photography are not ready, or when revisions pass through several reviewers. A quote promising materially faster delivery for the same scope is compressing either your involvement or the work itself, and it is worth asking which."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "Lire ce guide en français : combien coûte un site web en Suisse",
+          "href": "/fr/guides/combien-coute-site-web-suisse"
+        },
+        {
+          "anchor": "Web design agency in Geneva",
+          "href": "/web-design-agency-geneva"
+        },
+        {
+          "anchor": "Branding agency in Switzerland",
+          "href": "/branding-agency-switzerland"
+        },
+        {
+          "anchor": "Monthly marketing: CHF 490, CHF 890 or CHF 1'390",
+          "href": "/marketing"
+        },
+        {
+          "anchor": "Growth Ops: CHF 490, CHF 1'290 or CHF 2'900",
+          "href": "/growth-ops"
+        },
+        {
+          "anchor": "Ask for a free quote",
+          "href": "/contact"
+        }
+      ]
+    }
+  }
+]

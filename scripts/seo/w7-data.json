@@ -1,0 +1,448 @@
+[
+  {
+    "slug": "agence-web-lausanne",
+    "type": "lander",
+    "dir": "",
+    "hreflangEn": null,
+    "langEn": "/",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Agence web en Suisse romande",
+        "path": "/fr/agence-web-suisse-romande"
+      },
+      {
+        "name": "Agence web à Lausanne",
+        "path": "/fr/agence-web-lausanne"
+      }
+    ],
+    "content": {
+      "metaTitle": "Agence web à Lausanne | Fritz, studio genevois",
+      "metaDesc": "Fritz est un studio d'une personne basé à Genève. Pas de bureau à Lausanne, mais un mandat lausannois réel : l'identité d'Il Duca, gelateria artisanale.",
+      "h1": "Agence web à Lausanne",
+      "kicker": "Lausanne",
+      "lede": "Une recherche d'agence web à Lausanne aboutit rarement à une réponse claire sur le prix, sur ce que vous possédez à la fin, ou sur l'identité de la personne qui exécutera réellement le travail. Cette page répond aux trois, et consacre l'essentiel de sa longueur au seul mandat lausannois que Fritz peut montrer.",
+      "quotableOpener": "Une gelateria se découvre en marchant. Le site arrive plus tard, et pour une raison prosaïque : vérifier une adresse ou un horaire.",
+      "sections": [
+        {
+          "h2": "Fritz n'a ni bureau, ni adresse, ni équipe à Lausanne",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Fritz n'a ni bureau, ni adresse, ni équipe à Lausanne. C'est un studio d'une personne basé à Genève, qui travaille avec des entreprises lausannoises à distance par défaut, et sur place quand la situation le justifie. Aucune promesse de temps de trajet ne sera faite ici : la proximité n'est pas proposée comme argument."
+            },
+            {
+              "type": "p",
+              "text": "Ce qui existe réellement, c'est un mandat lausannois abouti : l'identité de marque d'Il Duca, une gelateria artisanale. Il est mentionné ici parce qu'il est vrai, pas parce qu'il sert d'argument, et il est mentionné seul, sans laisser entendre qu'il y en a d'autres. Le reste de cette page le décrit en détail, parce que c'est la seule chose qu'une page de ville puisse honnêtement offrir de spécifique."
+            }
+          ]
+        },
+        {
+          "h2": "Il Duca : une identité dessinée depuis la rue",
+          "blocks": [
+            {
+              "type": "h3",
+              "text": "Le premier contact n'a pas lieu sur un écran"
+            },
+            {
+              "type": "p",
+              "text": "Une gelateria se découvre en marchant. Le nom se lit sur une enseigne, avant la vitrine, avant le comptoir, avant même de savoir ce que la maison vaut. Le site, lui, arrive plus tard et pour une raison prosaïque : vérifier une adresse, un horaire, savoir si c'est ouvert le dimanche. Cette hiérarchie n'est pas un détail de goût, elle décide de l'ordre dans lequel une identité doit être dessinée."
+            },
+            {
+              "type": "p",
+              "text": "La marque a donc été conçue depuis la rue vers l'intérieur : d'abord ce qui tient sur une façade, ensuite ce qui tient sur un contenant, enfin ce qui tient sur un écran. L'écran hérite, il ne dicte pas. L'ordre inverse est plus courant qu'on ne croit, et il produit toujours les mêmes dégâts : une identité validée sur un grand moniteur calibré, en RVB, à quarante centimètres des yeux, qui découvre la réalité au moment de la pose. Un tracé trop fin pour être découpé, une nuance qui n'existe pas en peinture, un lettrage qui perd ses contre-formes dès qu'on le réduit. Traiter les contraintes physiques en premier plutôt qu'en dernier évite cette série de mauvaises surprises."
+            },
+            {
+              "type": "h3",
+              "text": "Deux distances, un seul dessin"
+            },
+            {
+              "type": "p",
+              "text": "Une identité de commerce alimentaire doit fonctionner à deux échelles qui n'ont presque rien en commun. À vingt mètres, sur une enseigne, un passant ne lit pas : il reconnaît une silhouette. Ce qui compte alors, c'est la masse générale, l'épaisseur des traits, la différence entre lettres hautes et basses, et le contraste avec ce qu'il y a derrière, qui n'est pas contrôlable. À quinze millimètres, sur une étiquette de contenant ou un sticker de fermeture, les mêmes formes doivent survivre à une impression qui bave légèrement et à des angles qui s'arrondissent."
+            },
+            {
+              "type": "p",
+              "text": "Un dessin qui gagne à une distance perd souvent à l'autre. La réponse n'est pas de produire deux logos, c'est de choisir dès le départ des formes dont la lisibilité ne dépend pas du détail : contre-formes ouvertes, jonctions dégagées, écart de graisse suffisant pour tolérer un gain de matière, hiérarchie qui reste claire même quand le mot secondaire devient illisible. Une version réduite, simplifiée là où il le faut, couvre ensuite les usages minuscules sans trahir le dessin principal."
+            },
+            {
+              "type": "h3",
+              "text": "Une palette qui ne doit pas se battre avec le produit"
+            },
+            {
+              "type": "p",
+              "text": "Une gelateria pose un problème de couleur que peu d'autres commerces connaissent : le produit est déjà le spectacle. Pistache, fraise, café, citron, chocolat, ce sont des couleurs saturées, alignées, éclairées, et elles changent avec la saison. Une identité qui arrive avec sa propre palette forte entre en concurrence directe avec ce que le client est venu regarder. Le résultat est bruyant, et c'est le produit qui perd."
+            },
+            {
+              "type": "p",
+              "text": "L'approche retenue laisse la couleur au produit et donne à la marque un rôle de cadre. Une base sobre, un ou deux tons stables qui tiennent aussi bien sur un mur, une vitrine, un contenant et un écran, et qui ne jurent avec aucun parfum, y compris ceux qui n'existent pas encore. Il faut aussi tenir compte du fait qu'une teinte ne se comporte pas de la même façon en peinture d'enseigne, en impression sur carton non couché, en vinyle découpé et en rétroéclairé. Choisir une couleur qui reste elle-même dans ces quatre matières est un exercice plus contraignant que de choisir une belle couleur."
+            },
+            {
+              "type": "h3",
+              "text": "L'artisanal, entre la chaîne et le pastiche"
+            },
+            {
+              "type": "p",
+              "text": "Le registre est l'endroit où ce type de projet dérape le plus facilement, et il y a deux pentes opposées. D'un côté le look de chaîne : formes lisses, sans accident, sans main, rassurantes et interchangeables, qui rendent un artisan indistinct d'une franchise. De l'autre le pastiche : le faux vintage italien, les ornements, la fioriture nostalgique, tout un vocabulaire d'ambiance qui parle d'une époque plutôt que d'un artisan qui travaille aujourd'hui."
+            },
+            {
+              "type": "p",
+              "text": "Tenir la ligne entre les deux relève du dosage plus que du style. Un dessin fait avec soin plutôt qu'avec effets, des irrégularités assumées mais rares et intentionnelles, une typographie qui a du caractère sans réciter un siècle. Un test simple permet de vérifier : retirer le nom, et regarder s'il reste quelque chose qui ne pourrait appartenir à personne d'autre."
+            },
+            {
+              "type": "h3",
+              "text": "Prévoir ce qui change"
+            },
+            {
+              "type": "p",
+              "text": "Une carte de parfums n'est pas un contenu figé. Elle bouge avec les arrivages, la saison, la production, parfois d'un jour à l'autre, et elle est le plus souvent écrite à la main sur une ardoise. Une identité qui traite cette liste comme un élément fixe condamne le commerce à repasser par un studio chaque fois qu'un parfum entre ou sort. Le commerce doit alors repasser par un studio à chaque changement de parfum, ce qui n'a pas de sens."
+            },
+            {
+              "type": "p",
+              "text": "La marque a donc été construite avec une zone de souplesse assumée : une règle stricte pour ce qui ne bouge jamais, soit le bloc-marque, la couleur et la hiérarchie, et une liberté encadrée pour ce qui bouge tout le temps, soit les noms de parfums, dans un format et une position prévus pour eux. L'écriture manuelle n'est plus un accident toléré, elle fait partie du système. Le commerçant modifie sa liste seul, sans redessin, sans appel, sans facture."
+            }
+          ]
+        },
+        {
+          "h2": "Le site arrive après, et il hérite",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le site d'un commerce comme celui-ci ne remplace pas la vitrine, il la prolonge. On y va rarement pour découvrir la marque, on y va pour vérifier quelque chose : où c'est, si c'est ouvert, s'il y a un numéro à appeler. Un site qui traite ces informations comme secondaires, derrière une animation d'accueil et trois écrans de défilement, échoue à sa fonction principale même s'il est réussi visuellement."
+            },
+            {
+              "type": "p",
+              "text": "Cela oriente presque toutes les décisions techniques. Si votre fréquentation vient surtout de passants qui consultent debout, dehors, en quelques secondes, alors l'adresse et les horaires doivent être atteignables sans effort et la page doit rester légère. Le reste, l'atmosphère, le ton, les images, vient ensuite, et vient de l'identité physique déjà posée dans la rue. C'est cette continuité qui fait qu'un commerce a l'air d'être le même dedans et dehors."
+            }
+          ]
+        },
+        {
+          "h2": "Ce que le client possède à la fin",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Une identité livrée en PDF et en PNG est une identité qui rend son propriétaire dépendant. À la première enseigne, au premier lot de contenants, au premier imprimeur qui réclame un fichier vectoriel avec des références de couleur exploitables, il faut revenir vers le studio, attendre, payer une manipulation qui n'aurait pas dû exister."
+            },
+            {
+              "type": "p",
+              "text": "Fritz livre les fichiers sources. Cela signifie les fichiers de travail, les déclinaisons, les versions vectorielles et les références de couleur dans les espaces utiles : de quoi servir directement un imprimeur, un poseur d'enseigne ou un fournisseur d'emballage sans repasser par le studio. Le client peut faire produire où il veut, changer de prestataire, ou reprendre le travail en interne. C'est une position moins confortable pour un studio, et c'est la bonne pour celui qui paie."
+            }
+          ]
+        },
+        {
+          "h2": "Ce que demandent les entreprises lausannoises",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Trois types d'entreprises structurent le tissu lausannois, et leurs besoins n'ont pas grand-chose en commun."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le commerce et l'artisanat alimentaire, où la marque se joue d'abord dans la rue et où le site est un appoint. C'est le terrain d'Il Duca, décrit plus haut.",
+                "Le monde issu de l'EPFL et de l'UNIL : des projets techniquement solides, souvent portés par des fondateurs scientifiques, et parfois sans identité construite. Le besoin y est l'exact inverse du précédent, puisque tout commence par l'écran, que la première page vue est celle d'un investisseur ou d'un candidat, et que l'anglais peut y précéder le français.",
+                "L'écosystème des fédérations sportives internationales installées dans la région, souvent bilingue FR/EN, avec une exigence de clarté et de sobriété plus proche de l'institutionnel que du commerce."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Dans les deux derniers cas, la question des langues se pose tôt et structure le site plus qu'on ne l'imagine. Les mécanismes concrets, hreflang, structure d'URL, traduction ou adaptation, sont traités en détail sur la page consacrée à Fribourg, et il serait inutile de les répéter ici."
+            },
+            {
+              "type": "p",
+              "text": "Le choix ne manque pas à Lausanne. La question utile n'est donc pas de savoir combien il existe de studios, mais lequel publie ses prix, montre son travail, et fait exécuter le mandat par la personne avec qui vous parlez."
+            }
+          ]
+        },
+        {
+          "h2": "Ce sur quoi Fritz s'engage",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Les prix sont publiés, le mandat est exécuté par la personne avec qui vous échangez, les fichiers sources et le code vous sont livrés, et toute demande reçoit une réponse en moins de 24 h. Une identité de marque est à CHF 1'500 et un site vitrine à CHF 1'700, en paiement unique ; le détail complet figure sur la page tarifs. Le devis est gratuit."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelle agence web choisir à Lausanne ?",
+          "a": "Il n'y a pas de bonne réponse générale, mais il y a quatre questions qui trient vite. Le prix est-il publié avant le premier rendez-vous. La personne qui vous répond est-elle celle qui exécutera. Que possédez-vous à la fin, fichiers sources et code compris, ou seulement des exports. Et le travail montré ressemble-t-il à ce que vous voulez, ou seulement à un portfolio. Un studio qui répond clairement aux quatre est comparable ; un studio qui esquive l'une d'elles ne l'est pas."
+        },
+        {
+          "q": "Avez-vous déjà travaillé à Lausanne ?",
+          "a": "Oui, sur un mandat : l'identité de marque d'Il Duca, une gelateria artisanale. C'est le seul, et il est présenté comme tel, sans laisser entendre qu'il y en a d'autres. Il est décrit en détail sur cette page parce qu'il est réel, pas parce qu'il sert d'argument. Les autres réalisations du studio sont genevoises ou romandes et figurent sur la page réalisations."
+        },
+        {
+          "q": "Vous déplacez-vous à Lausanne ?",
+          "a": "Oui, quand c'est utile : une prise de brief sur le lieu, une visite de commerce avant de dessiner une enseigne, une réunion qui décide de quelque chose. Le reste du travail se fait à distance par défaut, parce que c'est plus rapide pour tout le monde. Aucune promesse de temps de trajet ne sera faite ici, et Fritz n'a ni bureau, ni adresse, ni équipe à Lausanne."
+        },
+        {
+          "q": "Notre projet vient de l'EPFL et notre première langue de travail est l'anglais. Est-ce un problème ?",
+          "a": "Non. C'est une configuration qui existe dans l'environnement académique lausannois, et elle change surtout l'ordre des choses : le site est construit en anglais d'abord, le français devient la version secondaire, et la structure prévoit les deux dès le départ plutôt que d'ajouter une traduction après coup. Les mécanismes multilingues eux-mêmes sont détaillés sur la page Fribourg."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "Agence web en Suisse romande",
+          "href": "/fr/agence-web-suisse-romande"
+        },
+        {
+          "anchor": "Agence de branding à Genève",
+          "href": "/fr/agence-branding-geneve"
+        },
+        {
+          "anchor": "Réalisations",
+          "href": "/fr/realisations"
+        },
+        {
+          "anchor": "Tarifs",
+          "href": "/fr/tarifs"
+        },
+        {
+          "anchor": "Contact",
+          "href": "/fr/contact"
+        }
+      ],
+      "distinctnessArgument": "Roughly 65% of the body is material no other Fritz page can carry. The spine is a single real Lausanne mandate, Il Duca, treated as a design problem rather than a credential: five sub-sections on why an identity whose first encounter is physical must be drawn from the street inwards, what that ordering forces at 20 m versus 15 mm, why the palette has to yield to the product's own colour and survive four materials, how the artisanal register is held between chain-look and pastiche, and how a rotating parfum list is designed as a flexible zone rather than a redraw. None of that is transposable to another city page, and none of it is transposable to the pillar. The page also opens on an unambiguous denial of local presence and an explicit refusal to make travel-time claims, which inverts the usual city-page move. Everything the auditor killed is gone: no process list, no price table (one sentence plus a link to /fr/tarifs), no market-density or superlative claims (replaced by the flat \"le choix ne manque pas\"), and the FAQ names Il Duca only. The buyer-profile section stays to public, uncontested facts about Lausanne (food retail and artisanat, the EPFL/UNIL spinoff world, the international sports-federation ecosystem) with no numbers, no density comparisons and no claimed sector experience. Multilingual mechanics are held to two sentences and deferred to the Fribourg page, which owns them. The four commitments appear once, in three sentences, under a heading that is not the flagged formula.",
+      "wordCount": 1520
+    }
+  },
+  {
+    "slug": "sites-web-hotellerie-restauration",
+    "type": "lander",
+    "dir": "",
+    "hreflangEn": null,
+    "langEn": "/",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Agence web en Suisse romande",
+        "path": "/fr/agence-web-suisse-romande"
+      },
+      {
+        "name": "Sites web hôtellerie et restauration",
+        "path": "/fr/sites-web-hotellerie-restauration"
+      }
+    ],
+    "content": {
+      "distinctnessArgument": "Cette page ne rejoue aucune page existante du site. Les pages villes (Fribourg, Neuchâtel) traitent un lieu, la page pilier /fr/agence-web-suisse-romande traite le périmètre régional, /fr/creation-site-web-geneve traite la création de site en général, et /fr/tarifs porte seul les questions de prix. Ici, la matière est entièrement sectorielle et technique : la photographie comme actif principal d'un site d'établissement et la marche à suivre quand elle n'existe pas ; la vitesse mobile posée comme contrainte de conception et non comme optimisation finale ; la décision de construire ou non un moteur de réservation face à un système déjà payé par le client ; la carte et les horaires traités comme un problème de maintenance et non de mise en page, avec l'argument contre le menu PDF ; la saisonnalité comme exigence structurelle sur le CMS ; le rapport entre le site et les fiches cartographiques d'où arrive réellement un visiteur ; et l'arbitrage vitrine contre e-commerce pour un établissement qui vend aussi des produits. Aucun de ces sept blocs n'a d'équivalent ailleurs sur le site. La page est également honnête sur l'expérience : elle indique explicitement que le studio n'a pas livré de site d'hôtel, nomme Il Duca et LeVallon pour ce qu'ils sont, et présente le reste comme méthode. Les hypothèses de comportement des visiteurs sont formulées au conditionnel, jamais comme des faits mesurés. Aucun tableau de prix, aucune liste de processus, aucune mécanique multilingue développée : deux phrases et un lien vers Fribourg.",
+      "wordCount": 1580,
+      "metaTitle": "Site web pour hôtel ou restaurant : méthode | Fritz",
+      "metaDesc": "Sites web hôtellerie et restauration en Suisse romande : photographie, vitesse mobile, réservation, menus et horaires.",
+      "h1": "Site web pour hôtel ou restaurant",
+      "kicker": "Méthode sectorielle",
+      "lede": "Un site web pour hôtel ou restaurant se juge sur peu de choses : ce que montrent les images, la vitesse à laquelle la page s'affiche sur un téléphone, la clarté du chemin vers une réservation ou un message, et la facilité avec laquelle un menu ou un horaire se corrige un mardi matin. Le reste est décoration. Cette page décrit comment le studio traite ces quatre points, et ce qu'il ne prétend pas avoir déjà fait.",
+      "quotableOpener": "Un site d'établissement ne se juge pas sur sa page d'accueil, mais sur la facilité avec laquelle on corrige un horaire un mardi matin.",
+      "sections": [
+        {
+          "h2": "Ce que le studio a fait, et ce qu'il n'a pas fait",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Autant le dire au début : le studio n'a pas livré de site d'hôtel. Le travail le plus proche de ce secteur est Il Duca, une identité pour une gelateria artisanale à Lausanne, et LeVallon, un film autour de la gastronomie. Ce sont des projets alimentaires, pas des projets hôteliers. Ils ont appris certaines choses transférables : comment une marque de bouche tient sur une devanture comme sur un écran, et comment une image en mouvement porte un lieu mieux qu'un paragraphe."
+            },
+            {
+              "type": "p",
+              "text": "Ce qui suit n'est donc pas une expérience de secteur revendiquée. C'est une méthode : la manière dont le studio aborde les contraintes propres à un établissement qui reçoit du public, et les décisions qu'il pose avant d'ouvrir un fichier de design. Si vous cherchez un prestataire qui vous montrera douze sites d'hôtels déjà en ligne, ce n'est pas ici. Si vous cherchez quelqu'un qui vous dira honnêtement quand ne pas construire une fonctionnalité, la suite vous concerne."
+            }
+          ]
+        },
+        {
+          "h2": "La photographie est l'actif principal, pas une illustration",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Sur un site d'établissement, l'image ne décore pas le texte : elle est le produit. Une chambre, une salle, une assiette, une terrasse en fin de journée. Aucune mise en page, aussi soignée soit-elle, ne compense des photos faites au téléphone sous un néon. C'est la première question que le studio pose, avant le périmètre et avant le calendrier : quelles images existent, qui les possède, et sont-elles utilisables."
+            },
+            {
+              "type": "p",
+              "text": "Trois cas se présentent. Le client a un reportage récent et exploitable : le design se construit autour de ces images précises, pas autour d'un gabarit dans lequel on les fera entrer. Le client a des images hétérogènes accumulées sur des années : le studio sélectionne un sous-ensemble cohérent, quitte à réduire fortement le nombre, et construit le site pour vivre avec cette quantité limitée plutôt que de réclamer des trous à remplir. Le client n'a rien d'utilisable : il faut un reportage avant le site, et le studio le dit plutôt que de livrer une coquille remplie de banques d'images."
+            },
+            {
+              "type": "h3",
+              "text": "Concevoir pour la quantité réelle, pas pour la quantité idéale"
+            },
+            {
+              "type": "p",
+              "text": "Un gabarit qui exige vingt photos pour ne pas paraître vide est un piège. Il oblige à publier des images faibles pour combler la structure. Le studio dimensionne la mise en page sur ce qui existe vraiment : mieux vaut six images fortes qui respirent que vingt images moyennes empilées. Les images sont ensuite livrées dans des formats modernes, en plusieurs tailles, avec les fichiers sources conservés de votre côté."
+            }
+          ]
+        },
+        {
+          "h2": "La vitesse sur mobile est une contrainte de conception",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un site d'hôtel ou de restaurant est majoritairement composé d'images lourdes. C'est précisément le type de site qui devient lent si la vitesse est traitée à la fin, comme une optimisation. Le studio la traite au début, comme une contrainte qui limite les choix de design."
+            },
+            {
+              "type": "p",
+              "text": "Concrètement : pas de bibliothèque d'animation chargée pour un seul effet, pas de carrousel qui télécharge huit images pour en montrer une, polices limitées et chargées sans blocage du rendu, images servies à la taille réellement affichée. Si votre audience consulte surtout depuis un téléphone, en déplacement ou sur une connexion moyenne, ces décisions comptent davantage que le raffinement de la grille sur un grand écran. Cette hypothèse mérite d'être vérifiée sur vos propres données avant d'y accorder du poids."
+            },
+            {
+              "type": "p",
+              "text": "Une conséquence pratique : le studio préfère parfois refuser un effet demandé plutôt que d'ajouter deux cents kilo-octets à une page d'accueil. C'est un arbitrage explicite, discuté, pas une décision prise en silence."
+            }
+          ]
+        },
+        {
+          "h2": "Réservation : la question honnête est souvent de ne pas la construire",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Beaucoup d'établissements paient déjà un système : un moteur de réservation hôtelier relié au channel manager, une plateforme de réservation de table, un outil de commande en ligne. Reconstruire une couche de réservation sur mesure au-dessus de cela produit deux sources de vérité, et la seconde finit par diverger de la première."
+            },
+            {
+              "type": "p",
+              "text": "La position du studio est simple. Si un système existe et fonctionne, on l'intègre proprement : bouton visible depuis n'importe quelle page, ouverture sans rupture visuelle brutale, disponibilité vérifiée sur téléphone. Si aucun système n'existe, la première question n'est pas quel outil choisir mais quel volume de demandes vous recevez réellement. En dessous d'un certain flux, un formulaire de demande bien construit, avec les bons champs et une réponse rapide de votre part, sert mieux qu'un moteur qui coûte un abonnement mensuel et impose une rigidité de calendrier."
+            },
+            {
+              "type": "h3",
+              "text": "Le chemin de contact compte autant que l'outil"
+            },
+            {
+              "type": "p",
+              "text": "Un numéro de téléphone cliquable, une adresse qui ouvre l'application de cartes, des horaires visibles sans défilement, un formulaire court. Ces éléments demandent peu de travail et sont pourtant les plus souvent négligés au profit de la page d'accueil."
+            }
+          ]
+        },
+        {
+          "h2": "Menus, horaires et saisons : un problème de maintenance",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "C'est le point où un site d'établissement se dégrade le plus facilement une fois livré. Les prix changent, un plat sort de la carte, les horaires d'hiver arrivent, et plus personne ne sait comment modifier la page. Le site devient alors faux, ce qui est pire qu'un site laid."
+            },
+            {
+              "type": "p",
+              "text": "Le menu en PDF est le raccourci classique et le piège le plus courant. Il est lourd à télécharger, souvent illisible sur un téléphone sans zoom, invisible pour les moteurs de recherche, inaccessible aux lecteurs d'écran, et il donne l'illusion d'être facile à mettre à jour alors qu'il exige de repasser par un logiciel de mise en page à chaque correction. Le studio construit les cartes en contenu éditable : chaque plat, chaque prix, chaque section modifiable depuis une interface, sans toucher au design."
+            },
+            {
+              "type": "h3",
+              "text": "Qui édite, et à quelle fréquence"
+            },
+            {
+              "type": "p",
+              "text": "La question se pose avant de choisir la structure. Si la carte change chaque semaine, l'édition doit tenir en trois minutes depuis un téléphone. Si elle change deux fois par an, une interface plus complète est acceptable. Le studio dimensionne le système d'édition sur votre rythme réel, pas sur un standard générique."
+            },
+            {
+              "type": "h3",
+              "text": "La saisonnalité sans refonte"
+            },
+            {
+              "type": "p",
+              "text": "Un établissement ne dit pas la même chose en février et en juillet : terrasse ou salle, carte d'hiver ou carte d'été, fermeture annuelle, période de fêtes. Un site correctement construit permet de basculer ces contenus sans intervention technique et sans refonte. Cela signifie prévoir dès la conception les zones qui changent, les visuels alternatifs, et un moyen simple d'activer ou de désactiver un bloc."
+            }
+          ]
+        },
+        {
+          "h2": "Le site face aux fiches cartographiques",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Si vos visiteurs arrivent surtout par une fiche cartographique, une plateforme de réservation ou un lien partagé, ils atterrissent directement sur une page intérieure plutôt que sur l'accueil. Dans ce cas, deux conséquences suivent : chaque page doit être autonome, avec le nom, le lieu et le chemin de contact accessibles sans remonter à l'accueil ; et les informations essentielles doivent être identiques entre le site et vos fiches externes."
+            },
+            {
+              "type": "p",
+              "text": "Un horaire qui diffère entre votre site et votre fiche cartographique crée une incertitude, et l'incertitude est le contraire d'une réservation. Le studio traite le site comme la source de vérité que les autres surfaces reflètent, et vous laisse une seule liste d'informations à tenir à jour."
+            }
+          ]
+        },
+        {
+          "h2": "Vitrine ou e-commerce, et ce que cela coûte",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un établissement qui vend aussi des produits (bouteilles, conserves, bons cadeaux, coffrets) se demande s'il lui faut une boutique. La réponse dépend du nombre de références et de la fréquence des commandes, pas de l'envie d'avoir un panier. Pour une poignée de bons cadeaux, un formulaire et un lien de paiement suffisent. Pour un catalogue qui bouge, avec stock, variantes et expédition, une vraie structure e-commerce est justifiée et doit être budgétée comme telle."
+            },
+            {
+              "type": "p",
+              "text": "Les prix du studio sont publiés et fixes : le détail figure sur la page tarifs, et les fourchettes observées sur le marché suisse sont détaillées dans le guide consacré au coût d'un site web."
+            },
+            {
+              "type": "h3",
+              "text": "Langues"
+            },
+            {
+              "type": "p",
+              "text": "Un établissement qui reçoit une clientèle internationale a souvent besoin de deux ou trois langues, ce qui change la structure des URL et le balisage plutôt que le seul texte. La mécanique complète (hreflang, arborescence, adaptation contre traduction) est traitée en détail sur la page Fribourg."
+            }
+          ]
+        },
+        {
+          "h2": "Travailler avec le studio",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le studio est basé à Genève et peut intervenir pour des établissements de Suisse romande, à distance par défaut, sur place quand la visite du lieu sert le projet, ce qui est souvent le cas quand il s'agit de photographier une salle ou de comprendre un service."
+            },
+            {
+              "type": "p",
+              "text": "Les prix sont publiés avant toute discussion. Vous parlez à une seule personne, celle qui exécute. Le code et les fichiers sources vous sont livrés, sans dépendance au studio pour la suite, et une réponse arrive sous 24 heures."
+            },
+            {
+              "type": "p",
+              "text": "Le devis est gratuit. Si votre besoin réel est un reportage photo avant un site, ou l'intégration propre d'un système que vous payez déjà plutôt qu'une refonte complète, c'est ce qui vous sera dit."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Faut-il un moteur de réservation sur le site, ou suffit-il d'un lien vers le système existant ?",
+          "a": "Si vous payez déjà un moteur de réservation ou une plateforme de réservation de table, l'intégration propre est souvent préférable à une reconstruction. Deux systèmes de disponibilité finissent par diverger, et c'est le client qui découvre l'erreur. Si aucun système n'existe, la question est votre volume réel de demandes : en dessous d'un certain flux, un formulaire court avec une réponse rapide sert mieux qu'un abonnement mensuel et un calendrier rigide."
+        },
+        {
+          "q": "Pourquoi éviter un menu en PDF ?",
+          "a": "Un PDF est lourd à télécharger, exige de zoomer sur un téléphone, reste invisible pour les moteurs de recherche, pose des problèmes d'accessibilité, et impose de repasser par un logiciel de mise en page pour corriger un seul prix. Une carte construite en contenu éditable se modifie en quelques minutes, s'affiche correctement sur tout écran, et reste lisible par les moteurs de recherche."
+        },
+        {
+          "q": "Que se passe-t-il si l'établissement n'a pas de photographies utilisables ?",
+          "a": "Le studio le dit avant de commencer, plutôt que de livrer une mise en page remplie d'images génériques. Deux options : produire un reportage avant la construction du site, ou concevoir le site sur le petit nombre d'images fortes réellement disponibles, en dimensionnant la mise en page pour cette quantité au lieu de créer des emplacements vides à combler."
+        },
+        {
+          "q": "Comment le site gère-t-il les changements de saison sans refonte ?",
+          "a": "Les zones qui changent (carte, horaires, visuels, fermetures) sont identifiées dès la conception et rendues éditables. Basculer d'une carte d'hiver à une carte d'été, activer un bloc de fermeture annuelle ou changer les visuels de terrasse se fait depuis l'interface, sans intervention technique et sans nouveau projet."
+        },
+        {
+          "q": "Le studio a-t-il déjà réalisé des sites pour des hôtels ?",
+          "a": "Non. Le travail le plus proche du secteur alimentaire est Il Duca, une identité pour une gelateria artisanale à Lausanne, et LeVallon, un film autour de la gastronomie. Ni l'un ni l'autre n'est un site d'hôtel. Ce qui est proposé ici est une méthode explicite sur des contraintes techniques identifiables, pas une expérience de secteur revendiquée."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "agence web en Suisse romande",
+          "href": "/fr/agence-web-suisse-romande"
+        },
+        {
+          "anchor": "mécanique multilingue et structure des URL",
+          "href": "/fr/agence-web-fribourg"
+        },
+        {
+          "anchor": "création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "combien coûte un site web en Suisse",
+          "href": "/fr/guides/combien-coute-site-web-suisse"
+        },
+        {
+          "anchor": "prix publiés",
+          "href": "/fr/tarifs"
+        },
+        {
+          "anchor": "demander un devis",
+          "href": "/fr/contact"
+        }
+      ]
+    }
+  }
+]

@@ -3,5 +3,20 @@
   "framework": null,
   "installCommand": "echo no-install",
   "buildCommand": "echo no-build",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.agencefritz.com" }],
+      "destination": "https://agencefritz.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.agencefritz.com" }],
+      "destination": "https://agencefritz.com/:path*",
+      "permanent": true
+    }
+  ]
 }

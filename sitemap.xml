@@ -1,11 +1,327 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://agencefritz.com/</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://agencefritz.com/marketing.html</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://agencefritz.com/brand-web.html</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://agencefritz.com/growth-ops.html</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://agencefritz.com/our-work.html</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agencefritz.com/about.html</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agencefritz.com/contact.html</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agencefritz.com/privacy.html</loc><lastmod>2026-06-30</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://agencefritz.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/brand-web</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/brand-web"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-branding-geneve"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/brand-web"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/agence-branding-geneve</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/brand-web"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-branding-geneve"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/brand-web"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/marketing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/marketing"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-marketing-geneve"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/marketing"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/agence-marketing-geneve</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/marketing"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-marketing-geneve"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/marketing"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/growth-ops</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/growth-ops"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/systemes-croissance-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/growth-ops"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/systemes-croissance-ia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/growth-ops"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/systemes-croissance-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/growth-ops"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/pricing"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/tarifs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/pricing"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/tarifs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/pricing"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/tarifs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/pricing"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/web-design-agency-geneva</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/web-design-agency-geneva"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/creation-site-web-geneve"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/web-design-agency-geneva"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/creation-site-web-geneve</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/web-design-agency-geneva"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/creation-site-web-geneve"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/web-design-agency-geneva"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/agence-web-suisse-romande</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-web-suisse-romande"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/agence-web-suisse-romande"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/branding-agency-switzerland</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/branding-agency-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-branding-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/branding-agency-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/agence-branding-suisse</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/branding-agency-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-branding-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/branding-agency-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/guides/prix-site-web-geneve</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/prix-site-web-geneve"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/guides/prix-site-web-geneve"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/website-cost-switzerland</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/website-cost-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/combien-coute-site-web-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/website-cost-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/guides/combien-coute-site-web-suisse</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/website-cost-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/combien-coute-site-web-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/website-cost-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/logo-design-cost-switzerland</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/logo-design-cost-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/prix-logo-identite-visuelle-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/logo-design-cost-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/guides/prix-logo-identite-visuelle-suisse</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/logo-design-cost-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/prix-logo-identite-visuelle-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/logo-design-cost-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/web-agency-vs-freelancer-switzerland</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/web-agency-vs-freelancer-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/agence-ou-freelance-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/web-agency-vs-freelancer-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/guides/agence-ou-freelance-suisse</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/web-agency-vs-freelancer-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/agence-ou-freelance-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/web-agency-vs-freelancer-switzerland"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/sites-web-hotellerie-restauration</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/sites-web-hotellerie-restauration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/sites-web-hotellerie-restauration"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/guides/wix-ou-site-sur-mesure</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/wix-ou-site-sur-mesure"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/guides/wix-ou-site-sur-mesure"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/guides/creer-un-site-internet-en-suisse</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/creer-un-site-internet-en-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/guides/creer-un-site-internet-en-suisse"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/guides/refonte-site-web-suisse</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/guides/refonte-site-web-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/guides/refonte-site-web-suisse"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/agence-web-lausanne</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-web-lausanne"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/agence-web-lausanne"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/agence-web-fribourg</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-web-fribourg"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/agence-web-fribourg"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/agence-web-neuchatel</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-web-neuchatel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/agence-web-neuchatel"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/our-work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/our-work"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/realisations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/our-work"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/realisations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/our-work"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/realisations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/our-work"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/about"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/about"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/a-propos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/about"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/about"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/contact"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/contact"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/privacy"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://agencefritz.com/fr/confidentialite</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agencefritz.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/privacy"/>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

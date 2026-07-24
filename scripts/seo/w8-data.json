@@ -1,0 +1,1194 @@
+[
+  {
+    "slug": "wix-ou-site-sur-mesure",
+    "type": "guide",
+    "dir": "guides",
+    "hreflangEn": null,
+    "langEn": "/",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Guide — Wix ou site sur mesure",
+        "path": "/fr/guides/wix-ou-site-sur-mesure"
+      }
+    ],
+    "content": {
+      "metaTitle": "Wix ou site sur mesure : comment choisir | Agence Fritz",
+      "metaDesc": "Wix ou site sur mesure : ce que vous louez vraiment, les limites d'export, le plafond SEO et design, et le coût réel d'une migration.",
+      "h1": "Wix ou site sur mesure : ce que vous louez, ce que vous possédez",
+      "kicker": "Guide · Plateformes et propriété",
+      "lede": "Wix ou site sur mesure : la question se pose souvent au même moment, quand un site monté en quelques soirées commence à porter une part sérieuse de l'activité. Tant que le site est une carte de visite, le constructeur hébergé fait le travail et le fait bien. Le jour où il devient un canal, la nature de ce que vous avez acheté commence à compter autant que son apparence.",
+      "quotableOpener": "Le choix entre Wix et un site sur mesure ne se joue pas d'abord sur le prix, mais sur la propriété : un constructeur hébergé vous loue une plateforme complète dont le contenu ressort, alors que la mise en forme, elle, ne ressort pas.",
+      "sections": [
+        {
+          "h2": "Ce que vous louez réellement chez un constructeur hébergé",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un constructeur de site hébergé vend un ensemble indissociable : l'éditeur visuel, la bibliothèque de blocs, la base de données, l'hébergement, le certificat de sécurité, les sauvegardes et les mises à jour. C'est une location, au sens strict du terme. Tant que l'abonnement court, tout fonctionne sans que vous ayez à y penser, et c'est précisément la valeur du produit. Le jour où il s'arrête, il ne reste pas un site hors ligne : il ne reste rien de fonctionnel."
+            },
+            {
+              "type": "p",
+              "text": "Un site sur mesure sépare ces couches. Le code source, les gabarits, les feuilles de style, les scripts et le contenu sont des fichiers. L'hébergement est un fournisseur interchangeable. Le nom de domaine est enregistré à votre nom chez un registrar. Aucune de ces briques ne rend les autres captives : vous pouvez changer d'hébergeur sans refaire le site, changer de prestataire sans refaire l'hébergement, et récupérer l'ensemble sans demander l'autorisation à personne."
+            },
+            {
+              "type": "p",
+              "text": "Cette distinction n'est pas idéologique. Elle devient concrète le jour où vous voulez faire une chose que l'éditeur ne prévoit pas, ou le jour où vous voulez partir."
+            },
+            {
+              "type": "h3",
+              "text": "La ligne de partage, concrètement"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Ce que vous contrôlez sur un constructeur : votre nom de domaine si vous l'avez acheté séparément, vos textes, vos images d'origine, vos données clients dans la mesure où l'outil propose un export.",
+                "Ce que vous ne contrôlez pas : le HTML généré, le CSS, les scripts chargés, la structure des URL au delà des options offertes, le comportement des blocs, le rythme des évolutions de la plateforme.",
+                "Ce qui est livré sur un site sur mesure, chez Fritz systématiquement : le code, les fichiers sources du design, les accès d'hébergement et de domaine, sans clause qui vous oblige à revenir."
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "Exporter un site Wix : ce que cela donne vraiment",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "C'est le point le plus mal compris du débat, et celui qui coûte le plus cher quand il est découvert tard. Les constructeurs hébergés proposent généralement des exports de données : articles de blog, fiches produits, commandes, contacts, le plus souvent au format CSV. Ces exports sont réels et utiles. Ils ne constituent pas une sauvegarde de votre site."
+            },
+            {
+              "type": "p",
+              "text": "Ce qui ne sort pas, en règle générale : la mise en page, les animations, les réglages responsive, les formulaires et leurs destinataires, les règles de redirection, les blocs propriétaires qui n'ont d'équivalent nulle part ailleurs. Autrement dit, vous récupérez la matière, pas l'objet. Reconstruire un site à partir d'un export de contenu reste un projet de conception, pas une opération de copie."
+            },
+            {
+              "type": "p",
+              "text": "Il faut être précis sur les nuances entre plateformes, parce qu'elles ne se valent pas sur ce point. Webflow fait figure d'exception partielle en proposant, sur certains plans, un export de code statique, sans la partie CMS dynamique. Shopify occupe une position intermédiaire : les fichiers de thème sont accessibles et modifiables, et les données commerciales s'exportent, ce qui rend une sortie plus praticable que sur un éditeur entièrement fermé. WordPress auto-hébergé n'est pas un constructeur hébergé mais un logiciel que vous installez : base de données et fichiers vous appartiennent, avec la charge de maintenance qui va avec. Squarespace et Wix, eux, restent des environnements fermés par construction, ce qui est leur modèle et non un défaut caché."
+            },
+            {
+              "type": "h3",
+              "text": "Ce qu'il faut sauvegarder tant que le site est en ligne"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "La liste complète de vos URL, récupérée depuis le sitemap.xml de la plateforme puis vérifiée par un crawl.",
+                "Les textes, dans un document séparé de l'éditeur, avec les titres et les balises meta.",
+                "Les images dans leur résolution d'origine, pas les versions recompressées servies par la plateforme.",
+                "Les données transactionnelles et les contacts, exportés régulièrement, pas seulement au moment de partir.",
+                "Des captures de chaque gabarit de page, qui serviront de référence de mise en page pendant la reconstruction."
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "Abonnement récurrent ou construction ponctuelle : raisonner sur plusieurs années",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un constructeur facture un abonnement, mensuel ou annuel, auquel s'ajoutent souvent le domaine, un thème payant, et un ou plusieurs modules tiers pour des fonctions que l'offre de base ne couvre pas. La logique du modèle est de commencer bas et de monter par paliers, chaque palier levant une limite précise. Rien de malhonnête là dedans : vous payez un service qui tourne, se met à jour et se sauvegarde tout seul."
+            },
+            {
+              "type": "p",
+              "text": "Un site sur mesure inverse la structure : une dépense de conception au départ, puis un hébergement et un entretien nettement plus légers. Chez Fritz, un site vitrine est publié à CHF 1'700 en paiement unique, code et fichiers sources livrés. Le détail des fourchettes du marché et le calcul sur trois ans appartiennent à nos guides de prix, nous ne les redoublons pas ici."
+            },
+            {
+              "type": "p",
+              "text": "L'arbitrage financier dépend surtout de l'horizon. Sur un projet dont vous ignorez encore s'il durera un an, l'abonnement gagne souvent : il transforme un investissement en charge courante, et il s'arrête quand vous vous arrêtez. Sur un site qui portera votre activité pendant cinq ans, la question n'est plus le montant mensuel mais ce qu'il reste à la fin de ces cinq ans. Dans un cas, un historique de facturation. Dans l'autre, un actif que vous pouvez faire évoluer, déplacer ou revendre avec l'entreprise."
+            },
+            {
+              "type": "p",
+              "text": "Il existe aussi un coût invisible qu'on oublie de compter des deux côtés : le temps. Un constructeur vous fait gagner des semaines au démarrage et vous en fait perdre lorsque vous contournez ses limites avec des modules empilés. Un site sur mesure demande des semaines au départ et en rend ensuite, à condition d'avoir été construit pour être modifié."
+            }
+          ]
+        },
+        {
+          "h2": "Performance : ce que le template ajoute sans vous le demander",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un éditeur visuel doit servir un moteur capable d'afficher n'importe quel bloc que n'importe quel utilisateur pourrait poser sur la page. La conséquence est structurelle : votre page charge une part de code prévue pour des fonctions que vous n'utilisez pas. Chaque module tiers ajouté (avis, réservation, chat, pixel publicitaire) ajoute ses propres scripts. Le poids n'est pas un accident, c'est le prix de la souplesse de l'éditeur."
+            },
+            {
+              "type": "p",
+              "text": "Il faut être juste : les plateformes modernes ont beaucoup progressé. Diffusion par CDN, chargement différé des images, formats d'image récents servis automatiquement, rendu mobile correct par défaut. Sur une connexion fixe et un écran large, l'écart avec un site sur mesure est souvent imperceptible."
+            },
+            {
+              "type": "p",
+              "text": "Le sujet change si votre trafic vient surtout du mobile, en déplacement, sur des réseaux irréguliers. Dans ce cas, ce qui compte n'est pas la moyenne mais le plancher : le temps d'affichage du plus grand élément visible, la réactivité au premier geste, la stabilité de la mise en page pendant le chargement. Ces trois signaux sont mesurables sur votre propre site, aujourd'hui, sans hypothèse. Sur un constructeur, vous pouvez les améliorer jusqu'à un certain point, puis vous butez sur un socle que vous ne contrôlez pas. Sur un site sur mesure, chaque kilo-octet envoyé est une décision, y compris celle de ne rien envoyer du tout."
+            },
+            {
+              "type": "p",
+              "text": "La bonne façon de trancher n'est pas de croire l'un ou l'autre camp : mesurez votre site actuel sur mobile, regardez d'où vient le poids, et voyez si ce qui pèse vient de vos choix ou de la plateforme. Si l'essentiel vient de la plateforme, vous connaissez votre plafond."
+            }
+          ]
+        },
+        {
+          "h2": "Référencement : ce qu'un constructeur fait bien, et où le plafond arrive",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "L'idée qu'un site fait avec un constructeur ne peut pas se référencer est dépassée en tant qu'affirmation générale. Les plateformes sérieuses couvrent aujourd'hui l'essentiel des fondamentaux : titres et métadonnées éditables, structure de titres, URL modifiables, textes alternatifs, sitemap.xml, robots.txt, balise canonique, HTTPS, outil de redirection 301, rendu mobile, et données structurées sur certains types de pages. À contenu inégal, un site de constructeur bien tenu et écrit pour une intention réelle peut devancer un site sur mesure au contenu creux. Nous travaillons sur l'hypothèse que le contenu pèse davantage que la technologie employée, et cette hypothèse ne dépend d'aucune plateforme."
+            },
+            {
+              "type": "p",
+              "text": "Le plafond existe néanmoins, et il est identifiable. Il apparaît quand vous avez besoin d'une architecture d'URL qui ne rentre pas dans les schémas prévus, d'une gestion multilingue avec des balises hreflang cohérentes sur une arborescence non triviale, de données structurées au delà des modèles proposés, d'un contrôle serveur pour des redirections en volume, ou simplement d'une marge de performance que le socle ne vous laisse pas. Il apparaît aussi quand la plateforme change quelque chose et que vous n'avez pas votre mot à dire sur le calendrier."
+            },
+            {
+              "type": "p",
+              "text": "Formulé autrement : un constructeur vous emmène très correctement jusqu'à un niveau de concurrence donné. Sur une requête peu disputée, il suffit. Sur une requête où plusieurs acteurs travaillent sérieusement leur site, les derniers pourcents de marge technique cessent d'être un détail, et ce sont justement ceux que vous ne pouvez pas aller chercher."
+            }
+          ]
+        },
+        {
+          "h2": "Le plafond de design : quand un template cesse de suffire",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un template est un ensemble de décisions déjà prises : une grille, une hiérarchie typographique, un rythme de sections, une grammaire de blocs. Ces décisions sont bonnes tant que votre activité ressemble à celles pour lesquelles il a été dessiné. Le signal que le plafond est atteint est toujours le même : vous passez plus de temps à faire rentrer votre contenu dans les blocs qu'à travailler le contenu lui même."
+            },
+            {
+              "type": "p",
+              "text": "Le second signal est la ressemblance. Les familles de gabarits les plus diffusées finissent par se reconnaître, et si vos concurrents puisent dans les mêmes, votre site leur ressemblera. Si votre différence tient à votre exécution visuelle, ce qui est fréquent en hôtellerie, en gastronomie, en cosmétique ou dans les métiers de création, ressembler au voisin est un coût commercial réel, même s'il ne se mesure pas."
+            },
+            {
+              "type": "p",
+              "text": "Un site sur mesure part de l'inverse : le contenu, l'offre et le parcours d'abord, la forme ensuite. C'est ce qui permet une navigation non conventionnelle, un système typographique propre, une mise en mouvement pensée pour le sujet, un configurateur, un parcours de réservation spécifique. Nos projets de site partent tous de là : pour SoYou Cosmetics, cosmétiques naturels à Genève, l'enjeu était la boutique ; pour Eden Terranova, société d'investissement agricole, il fallait construire un univers désert vers oasis qu'aucun gabarit ne propose."
+            },
+            {
+              "type": "p",
+              "text": "Cela dit, un template bien choisi et discipliné vaut mieux qu'un sur mesure mal dirigé. Le sur mesure n'est pas une garantie de qualité, c'est une absence de limite. Ce qui remplit cette absence, c'est le travail de direction, pas la technologie."
+            }
+          ]
+        },
+        {
+          "h2": "Comparatif : constructeur hébergé et site sur mesure, critère par critère",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ce tableau ne compare pas des prix. Il compare ce que chaque approche vous donne et vous refuse, ce qui est le seul terrain où la décision se joue vraiment."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Critère",
+                "Constructeur hébergé",
+                "Site sur mesure"
+              ],
+              "tableRows": [
+                [
+                  "Propriété du code",
+                  "Aucune : le code est généré et reste sur la plateforme",
+                  "Totale : fichiers sources livrés"
+                ],
+                [
+                  "Portabilité du contenu",
+                  "Partielle : textes, médias et données exportables, mise en forme non",
+                  "Complète : contenu et gabarits sont des fichiers"
+                ],
+                [
+                  "Délai de mise en ligne",
+                  "Très court, quelques jours si le contenu est prêt",
+                  "Plus long, de quelques semaines selon le périmètre"
+                ],
+                [
+                  "Autonomie d'édition au quotidien",
+                  "Excellente et immédiate, sans intermédiaire",
+                  "Bonne si un système d'édition a été prévu au départ"
+                ],
+                [
+                  "Plafond de personnalisation",
+                  "Celui de la grammaire de blocs de l'éditeur",
+                  "Aucun autre que le budget et la direction"
+                ],
+                [
+                  "Performance mobile",
+                  "Bonne en moyenne, plancher imposé par le socle",
+                  "Décidée ligne par ligne, optimisable jusqu'au bout"
+                ],
+                [
+                  "Fondamentaux SEO",
+                  "Couverts",
+                  "Couverts, plus le contrôle serveur et l'architecture"
+                ],
+                [
+                  "Cas techniques avancés",
+                  "Limités aux options prévues (multilingue, données structurées, redirections en volume)",
+                  "Traitables sans contourner l'outil"
+                ],
+                [
+                  "Maintenance",
+                  "Prise en charge par la plateforme",
+                  "À prévoir : hébergement, mises à jour, sauvegardes"
+                ],
+                [
+                  "Dépendance fournisseur",
+                  "Forte : arrêt de l'abonnement, arrêt du site",
+                  "Faible : hébergeur et prestataire interchangeables"
+                ],
+                [
+                  "Sortie",
+                  "Reconstruction complète, plus plan de redirections",
+                  "Déplacement de fichiers"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Lu ligne par ligne, aucune colonne ne gagne partout. Le constructeur domine sur le délai, l'autonomie immédiate et la maintenance. Le sur mesure domine sur la propriété, le plafond et la sortie. La décision consiste à savoir lesquels de ces critères pèsent dans votre situation, pas à désigner un vainqueur théorique."
+            }
+          ]
+        },
+        {
+          "h2": "Quitter un constructeur : ce que la sortie implique",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Quitter un constructeur n'est pas un transfert, c'est une reconstruction accompagnée d'une opération de conservation. Le contenu se récupère, la mise en forme se refait, et surtout les adresses existantes doivent être préservées : ce sont elles qui portent le référencement acquis, et une sortie mal préparée le laisse sur place."
+            },
+            {
+              "type": "p",
+              "text": "La mécanique complète de cette bascule, de l'inventaire des adresses au plan de redirections et aux vérifications d'après mise en ligne, est traitée dans notre guide de la refonte de site web. Elle s'applique telle quelle au départ d'un constructeur, à une différence près : le contenu doit d'abord être extrait d'un système qui ne le rend pas toujours facilement."
+            },
+            {
+              "type": "p",
+              "text": "Sur le référencement, la formulation honnête est celle-ci : une migration correctement redirigée vise à conserver l'acquis, pas à le multiplier. Une migration sans redirections, elle, le perd."
+            }
+          ]
+        },
+        {
+          "h2": "Qui devrait rester sur un constructeur, qui devrait en partir",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Nous construisons des sites sur mesure, et il serait facile de conclure que tout le monde devrait en avoir un. Ce serait faux, et un client mal orienté finit par revenir en arrière."
+            },
+            {
+              "type": "h3",
+              "text": "Restez sur un constructeur si"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Vous validez encore une offre et vous ignorez à quoi ressemblera l'activité dans un an.",
+                "Le site est un point de contact, pas un canal d'acquisition : on vous trouve par le bouche à oreille, la recommandation ou un lieu physique.",
+                "Le budget de départ est réellement contraint et la trésorerie compte plus que la propriété.",
+                "Le projet a une durée de vie connue : événement, campagne, saison.",
+                "Personne ne s'occupera du site après la mise en ligne et vous avez besoin que la maintenance soit incluse d'office."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Partez si"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le site est devenu une source de demandes que vous ne voulez pas voir s'interrompre.",
+                "Votre marque est le produit et vous êtes visuellement interchangeable avec vos concurrents.",
+                "Vous empilez des modules payants pour contourner des limites de l'éditeur.",
+                "Vous avez des besoins que l'outil refuse : multilingue structuré, intégration à un logiciel métier, exigence de performance mobile.",
+                "Vous voulez posséder ce que vous payez depuis des années."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Notre position est simple : prix publiés, un seul interlocuteur qui est aussi celui qui exécute, code et fichiers sources livrés, réponse sous 24 heures, devis gratuit. Si votre situation relève de la première liste, nous vous le dirons avant de vous faire un devis."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Faut-il choisir Wix ou un site sur mesure ?",
+          "a": "Cela dépend de l'horizon et du rôle du site. Un constructeur hébergé est le bon choix pour valider une offre, pour un projet à durée de vie connue, ou quand personne n'assurera la maintenance : la mise en ligne est rapide et tout est inclus. Un site sur mesure devient le bon choix quand le site est un canal d'acquisition durable, quand la marque est le produit, ou quand vous butez sur des limites de l'éditeur. Le critère décisif n'est pas le prix mensuel, c'est ce qu'il vous reste au bout de plusieurs années : un historique de facturation, ou un actif transférable."
+        },
+        {
+          "q": "Peut-on exporter un site Wix ?",
+          "a": "On exporte des données, pas un site. Les constructeurs hébergés permettent généralement de sortir les textes, les médias, les fiches produits, les commandes et les contacts, souvent en CSV. La mise en page, les blocs propriétaires, les animations, les formulaires et les règles de redirection ne sortent pas : ils n'existent que dans l'environnement de la plateforme. Vous récupérez donc la matière première, et reconstruire reste un projet de conception. Webflow constitue une exception partielle avec un export de code statique sur certains plans, sans le CMS, et Shopify donne accès aux fichiers de thème."
+        },
+        {
+          "q": "Un site Wix est-il bon pour le référencement ?",
+          "a": "Sur les fondamentaux, oui : titres et métadonnées, structure de titres, URL modifiables, textes alternatifs, sitemap, robots.txt, balise canonique, HTTPS, redirections 301 et rendu mobile sont couverts. L'affirmation générale selon laquelle un constructeur ne peut pas se référencer est dépassée, et le contenu pèse selon nous davantage que la plateforme. Le plafond arrive plus haut : architecture d'URL contrainte, multilingue complexe, données structurées au delà des modèles fournis, contrôle serveur limité, et un plancher de performance que vous ne pouvez pas descendre. Sur une requête peu disputée, cela ne se voit pas. Sur une requête travaillée par plusieurs acteurs, cela se voit."
+        },
+        {
+          "q": "Quand faut-il quitter un constructeur de site ?",
+          "a": "Quand les signaux s'accumulent : vous passez plus de temps à faire rentrer votre contenu dans les blocs qu'à le travailler, vous payez des modules tiers pour contourner l'outil, vous ressemblez à vos concurrents parce que vous partagez la même famille de gabarits, ou une demande légitime reçoit pour réponse que la plateforme ne le permet pas. Le meilleur moment pour partir est avant que le catalogue et l'historique de contenu ne deviennent volumineux, parce que c'est ce volume, et non le nombre de pages du menu, qui détermine l'effort de migration."
+        },
+        {
+          "q": "Combien coûte le passage d'un constructeur à un site sur mesure ?",
+          "a": "Le coût est essentiellement celui d'un nouveau site, auquel s'ajoute un travail de conservation : récupérer le contenu et les données, puis préserver les adresses existantes pour ne pas perdre le référencement acquis. Pour un site vitrine de quelques pages, cette partie reste modeste au regard de la conception ; nos sites vitrine sont publiés à CHF 1'700 en paiement unique, code et fichiers sources livrés. Ce qui fait réellement monter le devis, ce sont les catalogues volumineux, les historiques de blog et les sites dont les adresses ont déjà changé plusieurs fois. Le détail de la bascule figure dans notre guide de la refonte, et les fourchettes de prix dans nos guides de prix."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "refonte de site web en Suisse",
+          "href": "/fr/guides/refonte-site-web-suisse"
+        },
+        {
+          "anchor": "Créer un site internet en Suisse",
+          "href": "/fr/guides/creer-un-site-internet-en-suisse"
+        },
+        {
+          "anchor": "création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "combien coûte un site web en Suisse",
+          "href": "/fr/guides/combien-coute-site-web-suisse"
+        },
+        {
+          "anchor": "nos tarifs publiés",
+          "href": "/fr/tarifs"
+        },
+        {
+          "anchor": "nous contacter",
+          "href": "/fr/contact"
+        }
+      ],
+      "distinctnessArgument": "Aucune page vivante ne traite l'axe plateforme contre construction : le guide agence-ou-freelance possède QUI construit, celui-ci possède SUR QUOI le site est construit, et les guides de prix possèdent les fourchettes que nous refusons de reconstruire ici. Le coeur de la page est la mécanique d'export réelle d'un constructeur hébergé (ce qui sort en CSV, ce qui ne sort jamais, la nuance Webflow et Shopify) et la procédure de migration ligne à ligne, deux contenus que ni une page money transactionnelle ni une page tarifaire ne peuvent porter. La page défend explicitement les cas où le constructeur est la bonne réponse, ce qu'aucune page commerciale du site ne fait, et le tableau comparatif est un tableau de contrôle et de propriété, jamais de prix.",
+      "wordCount": 2960
+    }
+  },
+  {
+    "slug": "creer-un-site-internet-en-suisse",
+    "type": "guide",
+    "dir": "guides",
+    "hreflangEn": null,
+    "langEn": "/",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Guide — Créer un site internet en Suisse",
+        "path": "/fr/guides/creer-un-site-internet-en-suisse"
+      }
+    ],
+    "content": {
+      "metaTitle": "Créer un site internet en Suisse : le guide des étapes",
+      "metaDesc": "Créer un site internet en Suisse, étape par étape : objectif, domaine .ch, hébergement, contenu, structure, design, mentions légales, mise en ligne et suivi.",
+      "h1": "Créer un site internet en Suisse : les étapes, dans l'ordre",
+      "kicker": "Guide · Processus de création",
+      "lede": "Créer un site internet en Suisse n'est pas d'abord une question de design ou d'outil : c'est une suite de décisions qui se prennent dans un ordre précis, et dont les premières conditionnent toutes les suivantes. Ce guide décrit la séquence complète, du moment où vous n'avez encore rien jusqu'au jour où le site vit sans vous. Il est écrit pour quelqu'un qui n'a jamais fait l'exercice, et il ne cache pas l'étape où beaucoup de projets s'enlisent.",
+      "quotableOpener": "Créer un site internet en Suisse suit huit étapes : définir l'objectif du site, réserver un nom de domaine .ch, choisir l'hébergement et l'emplacement des données, produire le contenu, arrêter la structure des pages, concevoir et développer, poser le cadre légal, puis mettre en ligne et maintenir.",
+      "sections": [
+        {
+          "h2": "La séquence complète, en une vue",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un site échoue rarement au moment du développement. Il échoue plus tôt, quand personne n'a écrit à quoi il servait, ou plus tard, quand personne n'a écrit les textes. Les deux erreurs de départ les plus fréquentes sont symétriques : commencer par le design, et commencer par l'outil. Dans les deux cas, on décide de la forme avant de savoir ce qu'elle doit porter, et il faut reprendre le travail à mi-parcours."
+            },
+            {
+              "type": "p",
+              "text": "L'ordre ci-dessous n'est pas une convention esthétique. Chaque étape produit une décision dont la suivante a besoin : l'objectif détermine la structure, la structure détermine le contenu à produire, le contenu détermine ce que le design doit résoudre. Sauter une étape ne la supprime pas, elle revient plus tard et coûte davantage."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Étape",
+                "Ce que vous décidez",
+                "Qui fait quoi",
+                "Durée indicative"
+              ],
+              "tableRows": [
+                [
+                  "1. Objectif",
+                  "Ce que le site doit produire et quelle action vous attendez du visiteur",
+                  "Vous, seul ou en atelier avec le prestataire",
+                  "Variable"
+                ],
+                [
+                  "2. Nom de domaine",
+                  "Le .ch à réserver, les variantes à protéger, le titulaire inscrit",
+                  "Vous réservez, ou le prestataire réserve à votre nom",
+                  "Variable"
+                ],
+                [
+                  "3. Hébergement",
+                  "Où le site et les données sont stockés, et sur quel compte",
+                  "Le prestataire configure, sur un compte à votre nom",
+                  "Variable"
+                ],
+                [
+                  "4. Contenu",
+                  "Textes, photographies, langues, preuves",
+                  "Vous fournissez la matière, le prestataire arbitre et met en forme",
+                  "Variable, souvent le poste le plus long"
+                ],
+                [
+                  "5. Structure",
+                  "Inventaire des pages, hiérarchie, adresses",
+                  "Le prestataire propose, vous validez",
+                  "Variable"
+                ],
+                [
+                  "6. Design et développement",
+                  "Direction visuelle, système, intégration",
+                  "Le prestataire",
+                  "Vitrine 2 à 4 semaines, e-commerce 6 à 8 semaines"
+                ],
+                [
+                  "7. Cadre légal",
+                  "Mentions, conditions de vente, cookies, protection des données",
+                  "Vous vérifiez vos obligations, le prestataire intègre",
+                  "Variable"
+                ],
+                [
+                  "8. Mise en ligne et suite",
+                  "Vérifications, propriété du code, maintenance",
+                  "Le prestataire, puis vous ou lui",
+                  "Variable"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Les durées de production ci-dessus supposent que le contenu existe. Si une identité visuelle doit être créée avant le site, comptez environ quatorze jours de plus pour cette phase. Tout le reste dépend de votre disponibilité, pas de celle du prestataire : c'est la raison pour laquelle une grande partie de ce guide parle de décisions et non de technique."
+            }
+          ]
+        },
+        {
+          "h2": "Étape 1 : décider ce que le site doit faire",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "C'est l'étape que presque tout le monde saute, parce qu'elle ne produit rien de visible. Elle est pourtant la seule qui permette de trancher tous les arbitrages suivants sans discuter à l'infini. Un site qui doit faire prendre rendez-vous n'a pas la même forme qu'un site qui doit rassurer un investisseur, qui n'a pas la même forme qu'un site qui doit vendre en ligne."
+            },
+            {
+              "type": "h3",
+              "text": "Trois questions à écrire avant tout le reste"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Quelle action unique voulez-vous qu'un visiteur accomplisse ? Un appel, un formulaire, une commande, une visite en boutique. Une seule action principale, les autres sont secondaires.",
+                "Qui arrive sur le site, et que sait-il déjà de vous ? Quelqu'un qui vous a été recommandé cherche une confirmation. Quelqu'un qui vous découvre cherche une preuve.",
+                "Qu'est-ce qui, aujourd'hui, empêche cette personne de décider ? Un prix opaque, une offre floue, l'absence de références, l'absence d'un interlocuteur identifiable."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Les réponses tiennent en une page. Cette page devient le cahier des charges réel du projet, celui qui permet de dire non à une idée de dernière minute. Si vous consultez plusieurs prestataires, c'est aussi le document qui rend leurs devis comparables : sans lui, chacun chiffre un projet différent et vous comparez des sommes qui ne recouvrent pas la même chose."
+            },
+            {
+              "type": "p",
+              "text": "Écrivez également, à ce stade, vos hypothèses plutôt que des certitudes. Si votre activité se joue surtout sur mobile, dites-le, et le site sera pensé d'abord pour un écran étroit et une main occupée. Si vos clients comparent longuement avant de vous contacter, la page de prix et les références comptent plus que la page d'accueil. Ces hypothèses sont à vérifier plus tard, pas à inventer maintenant."
+            }
+          ]
+        },
+        {
+          "h2": "Étape 2 : le nom de domaine .ch",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le domaine est le seul élément du projet que vous ne pouvez pas modifier facilement après coup. Il se réserve auprès d'un bureau d'enregistrement, se paie par période et se renouvelle. En Suisse, l'extension de référence est le .ch, qui n'impose pas de condition particulière et reste l'attente naturelle d'un visiteur local. L'extension .swiss existe également mais son attribution est soumise à des conditions d'éligibilité liées au rattachement à la Suisse, à vérifier avant de compter dessus."
+            },
+            {
+              "type": "h3",
+              "text": "Ce qu'il faut vérifier avant de réserver"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "La disponibilité, évidemment, mais aussi les variantes proches : singulier, pluriel, avec et sans trait d'union, fautes de frappe courantes.",
+                "Le conflit possible avec une marque déposée ou une raison sociale existante. Une recherche dans le registre du commerce et dans le registre des marques évite un renommage douloureux.",
+                "La transmissibilité orale. Si vous devez épeler le domaine à chaque fois au téléphone, vous le paierez tous les jours.",
+                "Les identifiants sociaux correspondants, à réserver au même moment même si vous ne les utilisez pas encore.",
+                "Le titulaire inscrit. Le domaine doit être enregistré à votre nom ou à celui de votre société, jamais au nom du prestataire. C'est le point qui coince le plus souvent lors d'un changement d'agence."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Un .com défensif se justifie si votre nom est générique ou si vous visez au-delà des frontières. Il redirige simplement vers le .ch. Réservez le domaine tôt, avant même d'avoir choisi un prestataire : il ne coûte pas grand-chose et il fige le nom pendant que le reste avance."
+            }
+          ]
+        },
+        {
+          "h2": "Étape 3 : hébergement et emplacement des données",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "L'hébergement est l'endroit où vivent les fichiers du site et, le cas échéant, la base de données qui contient vos contenus et vos commandes. Techniquement, un site vitrine moderne demande peu : la question intéressante n'est pas la puissance, c'est la localisation, la sauvegarde et le contrôle du compte."
+            },
+            {
+              "type": "h3",
+              "text": "Faut-il un hébergement suisse ?"
+            },
+            {
+              "type": "p",
+              "text": "Pour beaucoup d'activités, un hébergement européen ou international convient parfaitement et personne ne le remarquera. L'hébergement suisse devient une vraie considération dans trois cas de figure. Premièrement, lorsque vous traitez des données sensibles et que votre secteur, votre déontologie ou vos contrats clients exigent que ces données restent en Suisse : santé, conseil juridique, finance, ressources humaines. Deuxièmement, lorsque vos clients ou vos partenaires vous posent la question et que la réponse fait partie de votre crédibilité. Troisièmement, lorsque vous voulez que l'ensemble de la chaîne, hébergeur compris, relève du droit suisse en cas de litige."
+            },
+            {
+              "type": "p",
+              "text": "En dehors de ces cas, l'argument de la localisation est surtout commercial. Vérifiez vos propres obligations plutôt que de suivre une règle générale : elles dépendent de votre secteur et de vos contrats, pas d'une bonne pratique universelle. La loi fédérale révisée sur la protection des données, dite nLPD, encadre le traitement des données personnelles indépendamment du pays d'hébergement, et le transfert vers un pays tiers suppose des garanties adéquates."
+            },
+            {
+              "type": "h3",
+              "text": "Les points à cadrer avec votre prestataire"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le compte d'hébergement est ouvert à votre nom, et vous en détenez les accès administrateur.",
+                "Le certificat TLS est actif, donc le site est servi en https, sans exception ni page oubliée.",
+                "Les sauvegardes sont automatiques, leur fréquence est connue, et la restauration a été testée au moins une fois.",
+                "La messagerie professionnelle est traitée séparément du site. Mélanger les deux sur un même hébergement mutualisé complique tout déménagement futur.",
+                "Le renouvellement du domaine et de l'hébergement est surveillé. Un site parfaitement construit disparaît en une nuit si une facture de renouvellement passe dans les indésirables."
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "Étape 4 : le contenu, là où les projets s'arrêtent",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Si un projet de site prend six mois au lieu de six semaines, la cause est souvent la même : les textes ne sont pas écrits et les photographies n'existent pas. Le développement, lui, est fini depuis longtemps. Le prestataire attend, le client s'excuse, la maquette reste remplie de faux texte et personne n'ose dire que le projet est à l'arrêt pour une raison qui n'a rien de technique."
+            },
+            {
+              "type": "p",
+              "text": "Il faut donc traiter le contenu comme une étape à part entière, avec des responsables et des échéances, et non comme une formalité à régler en fin de parcours. Concrètement, cela signifie décider trois choses avant que la première maquette n'existe."
+            },
+            {
+              "type": "h3",
+              "text": "Qui écrit"
+            },
+            {
+              "type": "p",
+              "text": "Trois modèles fonctionnent. Vous écrivez tout et le prestataire édite : le moins cher, le plus lent, et cela ne marche que si vous bloquez réellement des heures dans votre agenda. Vous fournissez la matière brute, notes, courriels types, réponses aux questions fréquentes, et le prestataire rédige : le meilleur compromis dans bien des cas. Le prestataire écrit à partir d'entretiens : le plus rapide, à condition d'accepter deux ou trois séances de questions parfois inconfortables sur ce que vous vendez vraiment."
+            },
+            {
+              "type": "h3",
+              "text": "Qui photographie"
+            },
+            {
+              "type": "p",
+              "text": "Les images génériques de banque d'images sont souvent reconnaissables, et lorsqu'elles le sont elles affaiblissent exactement ce qu'un site doit installer, la confiance. Pour un commerce, un atelier, un restaurant ou un cabinet, une séance photo dédiée pèse généralement plus lourd dans la perception qu'un simple habillage graphique. Prévoyez le budget et la date au moment du cadrage, pas après la mise en ligne, sinon la séance n'aura jamais lieu."
+            },
+            {
+              "type": "h3",
+              "text": "Dans quelles langues"
+            },
+            {
+              "type": "p",
+              "text": "La question se tranche maintenant, jamais après : ajouter une langue à un site déjà construit coûte nettement plus cher que de l'avoir prévu dès le premier jour. La mécanique détaillée d'un site bilingue est traitée sur notre page consacrée aux sites bilingues français-allemand. Décidez aussi qui traduit, et qui relit : un texte traduit approximativement fait plus de dégâts qu'une page unilingue assumée."
+            },
+            {
+              "type": "p",
+              "text": "Un plan de contenu utile tient dans un tableau à trois colonnes : la page, la personne responsable, la date. Tant que ce tableau n'est pas rempli, aucune date de mise en ligne n'est crédible."
+            }
+          ]
+        },
+        {
+          "h2": "Étape 5 : structure et inventaire des pages",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "La structure traduit l'objectif en architecture. Elle se pose sur papier, page par page, avant toute mise en forme. L'exercice consiste à lister chaque page, à écrire en une phrase ce qu'elle doit obtenir du visiteur, et à supprimer celles qui ne répondent pas."
+            },
+            {
+              "type": "p",
+              "text": "Une règle simple évite beaucoup de dérives : une intention, une page. Une page qui essaie de convaincre un client, de recruter et de rassurer un partenaire ne convainc personne. Si vous vendez plusieurs prestations distinctes, chacune mérite sa page, avec son vocabulaire et ses preuves, plutôt qu'une liste de services empilés sur l'accueil."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Un inventaire de site vitrine tient souvent en cinq à huit pages : accueil, une page par prestation, références ou réalisations, à propos, contact, plus les pages légales.",
+                "La navigation principale reste courte : une liste d'entrées trop longue se parcourt mal et pousse le visiteur à deviner plutôt qu'à lire.",
+                "Les adresses des pages sont lisibles, en minuscules, sans accent, et décrivent le contenu. Elles se figent au lancement, car les changer plus tard suppose des redirections.",
+                "Chaque page se termine par une suite logique. Une page qui ne propose rien après sa dernière ligne renvoie le visiteur vers le bouton retour.",
+                "Prévoyez dès maintenant l'endroit où vous publierez plus tard : un journal, des projets, des actualités. Ajouter une section entière après coup est plus coûteux que la réserver."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "C'est également à ce moment que se décide la question du système de gestion de contenu. Si vous publiez rarement, un site construit sans interface d'administration est plus rapide, plus sûr et plus simple à maintenir. Si vous publiez chaque semaine, il vous faut un espace d'édition, et il doit être choisi en fonction de ce que vous éditerez réellement, pas de ce que vous imaginez éditer un jour."
+            }
+          ]
+        },
+        {
+          "h2": "Étape 6 : design et développement",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le design n'est pas la décoration finale, c'est la mise en ordre de tout ce qui précède. Un bon processus commence par un système, typographie, échelle, couleurs, composants, avant de dessiner la moindre page. Le système garantit que la vingtième page ressemblera à la première et que vous pourrez en ajouter une sans appeler personne."
+            },
+            {
+              "type": "p",
+              "text": "Exigez de voir les maquettes avec vos vrais textes et vos vraies images. Une maquette remplie de faux texte est toujours belle, et elle masque souvent les endroits où votre contenu est trop long, trop court ou absent. Le premier passage sur contenu réel est le moment où l'on découvre les problèmes qui comptent."
+            },
+            {
+              "type": "h3",
+              "text": "Ce qui se vérifie pendant la construction"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le rendu sur un téléphone tenu à une main, pas seulement sur un grand écran de bureau.",
+                "Le poids des images et le temps d'affichage sur une connexion mobile ordinaire.",
+                "Les contrastes et la taille des textes, pour que le site reste lisible par tout le monde.",
+                "Les formulaires : ce qu'ils envoient, à quelle adresse, où les données sont stockées et qui y accède.",
+                "Le comportement des pages sans JavaScript ou avec une connexion lente, si votre public est mobile."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Sur le plan budgétaire, les repères publics existent et il est inutile de les reconstruire ici. Chez Fritz, les prix sont publiés : identité de marque CHF 1'500, site vitrine CHF 1'700, e-commerce CHF 2'500, en paiement unique. Pour les fourchettes observées sur le marché suisse et le coût réel sur trois ans, le guide dédié au budget est plus complet que ce paragraphe."
+            }
+          ]
+        },
+        {
+          "h2": "Étape 7 : le minimum légal d'un site suisse",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Cette section décrit un cadre général et ne remplace pas un avis juridique. Vos obligations dépendent de votre activité, de votre forme juridique et des personnes que vous adressez, y compris hors de Suisse. Faites-les vérifier si votre activité est réglementée ou si vous traitez des données sensibles."
+            },
+            {
+              "type": "h3",
+              "text": "Mentions légales et identification"
+            },
+            {
+              "type": "p",
+              "text": "Le droit suisse impose à qui propose des biens ou des services en ligne d'indiquer clairement son identité et de permettre une prise de contact rapide, adresse de courriel comprise. En pratique, une page de mentions légales lisible et accessible depuis chaque page suffit à couvrir cette exigence : raison sociale ou nom, adresse, courriel, et le numéro d'identification des entreprises si vous êtes inscrit au registre du commerce."
+            },
+            {
+              "type": "h3",
+              "text": "Conditions générales si vous vendez"
+            },
+            {
+              "type": "p",
+              "text": "Dès que le site encaisse un paiement, les conditions générales cessent d'être un ornement. Le droit suisse ne prévoit pas de droit de rétractation général pour les achats en ligne, contrairement à ce que beaucoup d'acheteurs supposent. Ce sont donc vos conditions qui définissent les délais, les frais de port, les retours, la garantie et le droit applicable. Elles doivent être acceptées explicitement au moment de la commande, pas simplement mises en lien quelque part."
+            },
+            {
+              "type": "h3",
+              "text": "Cookies, mesure d'audience et protection des données"
+            },
+            {
+              "type": "p",
+              "text": "Le droit suisse impose d'informer les utilisateurs lorsque des données sont traitées sur leur appareil et de leur laisser la possibilité de refuser. Cette logique diffère de l'approche européenne, qui repose sur un consentement préalable. Si votre site s'adresse aussi à des visiteurs de l'Union européenne, le règlement européen peut s'appliquer à vous, et une bannière conforme aux deux régimes est plus prudente."
+            },
+            {
+              "type": "p",
+              "text": "Ajoutez une politique de confidentialité qui dit, en langage clair, quelles données vous collectez, par quels moyens, pourquoi, combien de temps vous les conservez et avec quels prestataires elles sont partagées. Les outils de mesure d'audience, les formulaires, la messagerie et l'hébergement en font partie. Moins vous collectez, plus cette page est simple à écrire et à tenir à jour."
+            }
+          ]
+        },
+        {
+          "h2": "Étape 8 : mise en ligne, puis la vie du site",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "La mise en ligne n'est pas un événement, c'est une liste de vérifications. Elle se fait de préférence en début de semaine, jamais un vendredi soir, et avec quelqu'un de disponible dans les heures qui suivent."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Toutes les pages s'affichent en https, l'ancienne version ne subsiste nulle part.",
+                "Les formulaires ont été testés depuis un appareil extérieur, et les messages arrivent bien dans une boîte relevée.",
+                "Les redirections depuis les anciennes adresses sont en place s'il s'agit d'une refonte.",
+                "Les balises de titre et de description sont uniques sur chaque page.",
+                "Le site est déclaré aux outils de suivi que vous utilisez, et le plan du site leur est soumis.",
+                "Les pages légales sont accessibles depuis le pied de page, sur toutes les pages."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Ensuite vient la partie que les devis mentionnent rarement. Un site demande des mises à jour techniques, des sauvegardes vérifiées, un renouvellement de domaine et d'hébergement, et des corrections de contenu. Décidez qui s'en charge, à quelle fréquence et à quel prix, avant la mise en ligne plutôt qu'au premier incident."
+            },
+            {
+              "type": "p",
+              "text": "Posez enfin la question de la propriété, la seule qui détermine votre liberté future. Qui détient le domaine, qui détient l'hébergement, qui détient le code et les fichiers sources de votre identité visuelle. Chez Fritz, le code et les fichiers sources sont livrés au client, les comptes sont ouverts à son nom, l'interlocuteur est celui qui exécute, et la réponse arrive en moins de vingt-quatre heures. Le devis est gratuit, et le premier échange sert surtout à vérifier que le projet décrit dans ce guide correspond bien au vôtre."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Comment créer un site internet en Suisse ?",
+          "a": "En suivant huit étapes dans l'ordre : définir l'objectif du site et l'action attendue du visiteur, réserver un nom de domaine .ch à votre nom, choisir l'hébergement et l'emplacement des données, produire les textes et les photographies, arrêter la structure et l'inventaire des pages, concevoir et développer, poser le cadre légal, puis mettre en ligne et organiser la maintenance. Les décisions initiales conditionnent tout le reste : commencer par le design ou par l'outil oblige souvent à revenir en arrière."
+        },
+        {
+          "q": "Faut-il un hébergement suisse ?",
+          "a": "Pas systématiquement. Un hébergement européen ou international convient à beaucoup d'activités. L'hébergement suisse devient une vraie considération si vous traitez des données sensibles et que votre secteur, votre déontologie ou vos contrats l'exigent, si vos clients vous posent la question et que la réponse fait partie de votre crédibilité, ou si vous voulez que toute la chaîne relève du droit suisse. Vérifiez vos obligations propres plutôt que d'appliquer une règle générale."
+        },
+        {
+          "q": "Quelles mentions légales pour un site suisse ?",
+          "a": "Au minimum, une page identifiant clairement l'éditeur : raison sociale ou nom, adresse, adresse de courriel permettant un contact rapide, et le numéro d'identification des entreprises si vous êtes inscrit au registre du commerce. S'y ajoutent une politique de confidentialité décrivant les données collectées et leur usage, une information sur les cookies avec possibilité de refus, et des conditions générales dès que vous vendez. Faites vérifier vos obligations exactes selon votre activité."
+        },
+        {
+          "q": "Combien de temps faut-il pour créer un site internet ?",
+          "a": "Chez Fritz, comptez 2 à 4 semaines pour un site vitrine et 6 à 8 semaines pour un e-commerce, une identité de marque prenant environ quatorze jours si elle doit être créée avant. Ces durées supposent que le contenu est disponible. Dans la pratique, le facteur qui allonge le plus les projets n'est pas la production mais l'attente des textes et des photographies."
+        },
+        {
+          "q": "Peut-on créer un site professionnel soi-même ?",
+          "a": "Oui, et c'est parfois le bon choix, notamment pour une page de présentation simple ou pour tester une offre. Vous restez toutefois responsable des mêmes étapes : objectif, domaine, hébergement, contenu, structure, cadre légal, maintenance. Le temps que demande la production du contenu ne disparaît pas, et il représente souvent la plus grande part du travail. La question utile n'est pas la difficulté technique mais le nombre d'heures que vous pouvez réellement y consacrer."
+        },
+        {
+          "q": "Par quoi commencer quand on n'a encore rien ?",
+          "a": "Par deux gestes peu coûteux et réversibles : écrire sur une page ce que le site doit obtenir du visiteur, et réserver le domaine .ch à votre nom. Ces deux éléments suffisent pour consulter un prestataire, obtenir des devis comparables et éviter que le nom vous échappe pendant que vous réfléchissez."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "Wix ou site sur mesure : ce que change vraiment le choix de l'outil",
+          "href": "/fr/guides/wix-ou-site-sur-mesure"
+        },
+        {
+          "anchor": "sites bilingues français-allemand",
+          "href": "/fr/agence-web-fribourg"
+        },
+        {
+          "anchor": "Refonte de site web",
+          "href": "/fr/guides/refonte-site-web-suisse"
+        },
+        {
+          "anchor": "Création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "Agence web en Suisse romande",
+          "href": "/fr/agence-web-suisse-romande"
+        },
+        {
+          "anchor": "Combien coûte un site web en Suisse",
+          "href": "/fr/guides/combien-coute-site-web-suisse"
+        },
+        {
+          "anchor": "Demander un devis gratuit",
+          "href": "/fr/contact"
+        }
+      ],
+      "distinctnessArgument": "Ce guide n'est ni une offre ni une grille de prix : il possède la SÉQUENCE de décisions, exprimée comme un enchaînement de dépendances (l'objectif contraint la structure, la structure contraint le contenu), là où /fr/creation-site-web-geneve vend une prestation locale et où les guides tarifaires possèdent les fourchettes. Il traite deux zones que les pages sœurs ne couvrent pas : le contenu comme cause réelle des retards, avec trois modèles de rédaction et la question des photographies et des langues, et le minimum légal suisse spécifique (identification en ligne, absence de droit de rétractation général, logique d'opt-out des cookies, nLPD) qui n'a d'équivalent ni sur les landers ni sur les guides de prix. Une page de service ne peut pas dire à un prospect que son projet prendra six mois parce qu'il n'aura pas écrit ses textes.",
+      "wordCount": 2940
+    }
+  },
+  {
+    "slug": "refonte-site-web-suisse",
+    "type": "guide",
+    "dir": "guides",
+    "hreflangEn": null,
+    "langEn": "/",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Guide — Refonte de site web",
+        "path": "/fr/guides/refonte-site-web-suisse"
+      }
+    ],
+    "content": {
+      "distinctnessArgument": "Rien sur le site ne traite le cas où quelque chose existe déjà et peut être cassé : les pages live parlent de création, de prix ou de choix de prestataire, jamais de bascule. Le cœur de ce guide (inventaire d'URL, table de correspondance 301, canoniques, slash final, resoumission du sitemap, vérification post-bascule) n'a aucun équivalent chez les frères de portée : le guide Wix ou sur mesure arbitre un outil, le guide agence ou freelance arbitre une structure de prestataire, les guides prix arbitrent un budget. La section honnête qui conclut que beaucoup de sites n'ont pas besoin d'une refonte mais d'une correction de contenu est un angle que ni un lander transactionnel ni une page tarifs ne peuvent porter.",
+      "faq": [
+        {
+          "q": "Faut-il refaire son site internet ?",
+          "a": "Pas toujours. Beaucoup de sites jugés dépassés souffrent d'un problème de contenu et non de structure : offre floue, absence de prix, aucun chemin clair vers le contact, images trop lourdes, textes écrits pour l'entreprise plutôt que pour le lecteur. Ces défauts se corrigent sur le site existant, souvent en quelques jours, sans toucher aux URL ni au référencement. La refonte se justifie quand le problème est structurel : positionnement qui a changé, technologie que personne ne peut plus maintenir, expérience mobile défaillante, site que vous ne pouvez pas modifier vous-même, ou identité visuelle contredite par le site. Le test le plus simple : listez les cinq choses qui vous dérangent. Si un rédacteur compétent peut les régler dans l'interface actuelle, ce n'est pas une refonte qu'il vous faut."
+        },
+        {
+          "q": "Une refonte fait-elle perdre son référencement ?",
+          "a": "Elle peut, et c'est le risque principal. Une refonte ne fait pas perdre de positions parce que le design change, mais parce que les adresses changent sans que les anciennes soient redirigées vers les nouvelles. Une page qui recevait des visites et qui répond soudain en erreur 404 perd sa position, et les liens entrants qui pointaient vers elle ne transmettent plus rien. S'y ajoutent les causes moins visibles : le blocage de préproduction laissé actif après la mise en ligne, les titres réécrits sur des pages qui fonctionnaient déjà, le contenu raccourci au nom de l'épure. Une refonte préparée, avec un inventaire d'URL complet et un plan de redirections, traverse la bascule sans dommage durable. Une refonte improvisée peut coûter des mois."
+        },
+        {
+          "q": "Comment ne pas perdre son SEO lors d'une refonte ?",
+          "a": "En traitant la préservation comme un livrable, pas comme une vérification de dernière minute. Concrètement : exporter l'inventaire complet des URL existantes avant de commencer, repérer celles qui reçoivent effectivement du trafic ou des liens, écrire une table de correspondance ancienne URL vers nouvelle URL couvrant chaque ligne, mettre en place des redirections 301 permanentes et non temporaires, conserver les titres et les contenus des pages qui se positionnent déjà, fixer une convention d'URL unique (slash final, extensions, majuscules) et la tenir, vérifier les balises canoniques, retirer tout blocage d'indexation hérité de la préproduction, régénérer le sitemap et le resoumettre, puis réécrire les liens internes vers les nouvelles adresses directes plutôt que vers les redirections. Le contrôle se fait avant la bascule sur la préproduction, puis le jour même, puis à nouveau après quelques semaines."
+        },
+        {
+          "q": "Combien coûte une refonte de site web ?",
+          "a": "Une refonte n'est pas simplement une création avec un budget différent : son prix dépend surtout de ce qui existe déjà. Trois facteurs la rendent plus chère qu'un premier site : un volume important de pages à inventorier et à rediriger, un contenu à migrer manuellement parce qu'il est piégé dans un système ancien, et des contraintes à respecter (formulaires connectés, boutique en activité, contenus multilingues). Trois facteurs la rendent moins chère : un contenu déjà écrit et exploitable, un nombre de pages réduit, une identité visuelle déjà fixée qu'il suffit d'appliquer. Chez Fritz, le site vitrine est publié à CHF 1'700, et une refonte est devisée depuis ce même prix publié lorsque le périmètre correspond ; au-delà, elle fait l'objet d'un devis. Pour les fourchettes observées sur le marché et le détail du calcul, le guide dédié au prix d'un site web en Suisse est plus complet."
+        },
+        {
+          "q": "Faut-il changer d'identité visuelle en même temps ?",
+          "a": "C'est cohérent seulement si le repositionnement est la cause de la refonte. Si votre logo, vos couleurs et votre discours ne correspondent plus à ce que vous vendez, refaire le site sur l'ancienne identité revient à payer deux fois. En revanche, si l'identité tient encore, la mener en parallèle multiplie les décisions ouvertes au même moment et rend le diagnostic impossible en cas de baisse après la bascule : vous ne saurez pas si le problème vient de la technique, de la structure ou du nouveau positionnement. Quand les deux chantiers sont nécessaires, l'ordre qui fonctionne est de fixer l'identité d'abord, de la valider hors du site, puis de construire la refonte sur une base arrêtée."
+        }
+      ],
+      "h1": "Refonte de site web : le guide honnête avant de tout casser",
+      "internalLinks": [
+        {
+          "anchor": "Wix ou site sur mesure : le comparatif",
+          "href": "/fr/guides/wix-ou-site-sur-mesure"
+        },
+        {
+          "anchor": "Créer un site internet en Suisse",
+          "href": "/fr/guides/creer-un-site-internet-en-suisse"
+        },
+        {
+          "anchor": "identité de marque à Genève",
+          "href": "/fr/agence-branding-geneve"
+        },
+        {
+          "anchor": "création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "combien coûte un site web en Suisse",
+          "href": "/fr/guides/combien-coute-site-web-suisse"
+        },
+        {
+          "anchor": "parler de votre refonte",
+          "href": "/fr/contact"
+        }
+      ],
+      "kicker": "Guide · Refonte",
+      "lede": "Une refonte de site web n'est pas une création avec un décor différent : c'est une intervention sur un actif vivant, qui possède déjà des adresses indexées, des pages qui reçoivent des visites et un historique qu'une mise en ligne mal préparée peut effacer en une nuit. C'est la seule différence qui compte, et c'est celle que beaucoup de projets traitent en dernier. Ce guide part de là : comment savoir si vous avez vraiment besoin d'une refonte, ce qu'il faut mesurer avant de décider, et comment traverser la bascule sans perdre ce que le site avait déjà gagné.",
+      "metaDesc": "Refonte de site web : comment savoir si vous en avez besoin, ce qu'il faut auditer avant, et surtout comment ne pas perdre son référencement à la bascule.",
+      "metaTitle": "Refonte de site web : le guide complet (Suisse)",
+      "quotableOpener": "Une refonte de site web se distingue d'une création par un seul point, mais il change tout : quelque chose existe déjà, avec des URL indexées et des pages qui reçoivent du trafic, et une mise en ligne sans plan de redirections 301 peut détruire cet acquis en une nuit.",
+      "sections": [
+        {
+          "h2": "Refonte ou réparation : la question à trancher en premier",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "La demande arrive souvent sous la même forme : le site fait vieux, il ne nous ressemble plus, il faudrait tout refaire. Dans une partie des cas, c'est exact. Dans une autre partie, la gêne est réelle mais le diagnostic est faux, et refaire l'ensemble revient à remplacer une maison parce que les fenêtres sont sales."
+            },
+            {
+              "type": "p",
+              "text": "Un site peut donner une impression de fatigue pour des raisons qui n'ont rien de structurel. L'offre n'est pas dite en clair sur la page d'accueil. Les prix ne figurent nulle part, ce qui oblige le visiteur à demander pour savoir. Les textes sont écrits du point de vue de l'entreprise et pas du lecteur. Les images pèsent lourd et le chargement traîne. Le chemin vers le contact demande trois clics au lieu d'un. Aucun de ces points ne réclame une refonte : ils se corrigent sur le site existant, sans toucher aux adresses, sans risque pour le référencement, et pour une fraction du coût."
+            },
+            {
+              "type": "p",
+              "text": "Un test simple permet de trancher. Listez précisément les cinq choses qui vous dérangent sur le site actuel, formulées comme des faits et non comme des impressions. Puis posez pour chacune une seule question : est-ce qu'une personne compétente pourrait la régler en modifiant le contenu existant dans l'interface actuelle ? Si la réponse est oui pour la majorité des lignes, vous avez un problème éditorial. Si la réponse est non parce que l'interface ne le permet pas, parce que le système est bloqué ou parce que le site ne dit plus ce que vous faites, alors la refonte se justifie."
+            },
+            {
+              "type": "p",
+              "text": "Cette section existe parce qu'elle fait perdre des projets, et c'est assumé. Un studio qui vend une refonte à quelqu'un qui avait besoin de deux jours de réécriture livre un site neuf, plus beau, et un problème intact. Le meilleur résultat pour vous n'est pas toujours le plus gros mandat."
+            }
+          ]
+        },
+        {
+          "h2": "Les vrais déclencheurs d'une refonte",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Certains signaux, eux, ne se corrigent pas par le contenu. Ils indiquent que la structure elle-même est devenue le problème."
+            },
+            {
+              "type": "h3",
+              "text": "Le positionnement a changé"
+            },
+            {
+              "type": "p",
+              "text": "Vous ne vendez plus la même chose, plus aux mêmes clients, ou plus au même niveau de prix. Un site est une architecture d'arguments : quand l'offre bouge, les pages, la hiérarchie et les entrées ne correspondent plus. Réécrire les textes sur une structure conçue pour l'ancienne activité produit un compromis que personne ne défend."
+            },
+            {
+              "type": "h3",
+              "text": "La technologie n'est plus maintenable"
+            },
+            {
+              "type": "p",
+              "text": "Le système sur lequel tourne le site n'est plus mis à jour, dépend d'extensions abandonnées, ou tombe en panne à chaque modification. Le symptôme habituel : plus personne n'ose y toucher, et chaque changement mineur devient une négociation. Le coût de l'immobilisme finit par dépasser celui de la reconstruction."
+            },
+            {
+              "type": "h3",
+              "text": "L'expérience mobile ne tient pas"
+            },
+            {
+              "type": "p",
+              "text": "Si votre site a quelques années et que vos propres statistiques montrent une majorité de visites depuis un téléphone, la version mobile est souvent une réduction de la version bureau plutôt qu'une conception à part entière. Menus qui débordent, formulaires impraticables, textes minuscules : ces défauts se rustinent rarement."
+            },
+            {
+              "type": "h3",
+              "text": "Le site contredit votre identité"
+            },
+            {
+              "type": "p",
+              "text": "Vous avez fait évoluer votre logo, vos couleurs, votre nom, votre discours, et le site est resté sur l'ancien registre. L'écart entre la carte de visite et l'écran est visible immédiatement, et il coûte en crédibilité."
+            },
+            {
+              "type": "h3",
+              "text": "Personne ne peut le modifier"
+            },
+            {
+              "type": "p",
+              "text": "C'est le déclencheur le plus fréquent et le plus sous-estimé. Le site fonctionne, mais toute modification passe par un prestataire, un ancien collaborateur ou une personne injoignable. Un site que vous ne pouvez pas éditer se dégrade mécaniquement, parce que l'information s'y périme sans que personne n'intervienne. Chez Fritz, le code et les fichiers sources sont livrés au client pour cette raison exacte."
+            }
+          ]
+        },
+        {
+          "h2": "L'audit avant de décider : ce qu'il faut mesurer et ce qu'il faut garder",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Avant d'ouvrir un logiciel de design, il faut savoir ce que le site actuel vaut. C'est ce que beaucoup de refontes sautent, et c'est précisément l'étape qui protège la suite."
+            },
+            {
+              "type": "p",
+              "text": "L'audit porte sur quatre plans. Le premier est l'inventaire : la liste exhaustive des pages existantes, y compris celles que vous avez oubliées, les anciennes actualités, les pages de service publiées puis abandonnées, les fichiers PDF encore accessibles. Cet inventaire se constitue à partir du sitemap, des outils de suivi de recherche et d'un crawl complet du domaine. Il est la matière première du plan de redirections."
+            },
+            {
+              "type": "p",
+              "text": "Le deuxième plan est la performance réelle de ces pages. Lesquelles reçoivent effectivement des visites depuis les moteurs, sur quelles requêtes, et lesquelles reçoivent des liens depuis d'autres sites. Une page ancienne, laide et mal écrite peut être celle qui vous amène le plus de contacts. Elle se garde, elle se réécrit peut-être, mais son adresse ne disparaît pas."
+            },
+            {
+              "type": "p",
+              "text": "Le troisième plan est technique : vitesse de chargement, structure des adresses, présence de contenus dupliqués, état des balises, accessibilité de base, sécurité et certificat. Il détermine ce qu'il faut réparer et ce qu'il faut reprendre."
+            },
+            {
+              "type": "p",
+              "text": "Le quatrième plan est humain : qui écrit, qui publie, à quelle fréquence, et avec quel outil. Un site conçu pour un rythme de publication que personne n'a le temps de tenir sera vide six mois après la mise en ligne. La refonte doit être calibrée sur la réalité de l'équipe, pas sur son intention."
+            },
+            {
+              "type": "p",
+              "text": "À la sortie de cet audit, vous devez pouvoir produire deux listes tenables : ce qui est conservé tel quel, et ce qui est abandonné volontairement. Tout ce qui n'est ni dans l'une ni dans l'autre est un oubli en puissance."
+            }
+          ]
+        },
+        {
+          "h2": "Le cœur du sujet : préserver le référencement pendant la bascule",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "C'est ici que les refontes se gagnent ou se perdent. Un site qui reçoit du trafic depuis les moteurs a accumulé quelque chose d'invisible dans les maquettes : des adresses connues, associées à des requêtes, pointées par des liens externes. Ce capital n'est attaché ni au design, ni au contenu, mais aux URL. Changez les URL sans les rediriger, et vous le jetez."
+            },
+            {
+              "type": "h3",
+              "text": "L'inventaire des URL et la table de correspondance"
+            },
+            {
+              "type": "p",
+              "text": "Le livrable central d'une refonte n'est pas une maquette : c'est un tableau à deux colonnes, ancienne adresse et nouvelle adresse, couvrant l'intégralité des pages existantes. Chaque ligne doit avoir une destination. Quand une page disparaît sans équivalent, elle est redirigée vers la page la plus proche par le sujet, pas vers l'accueil par défaut : une redirection massive vers l'accueil est traitée comme un signal de page introuvable et n'apporte rien."
+            },
+            {
+              "type": "h3",
+              "text": "Des redirections 301, pas 302"
+            },
+            {
+              "type": "p",
+              "text": "La redirection 301 signale un déplacement permanent et transmet le signal accumulé à la nouvelle adresse. La 302 signale un déplacement temporaire et n'a pas le même effet. La confusion entre les deux est banale et coûteuse. Les redirections doivent aussi être directes : une ancienne adresse qui pointe vers une adresse elle-même redirigée crée une chaîne, et les chaînes se cassent."
+            },
+            {
+              "type": "h3",
+              "text": "Ce qui arrive si vous sautez cette étape"
+            },
+            {
+              "type": "p",
+              "text": "Les anciennes adresses répondent en erreur 404. Les visiteurs venus des moteurs, des favoris, des e-mails et des liens externes tombent dans le vide. Les positions acquises se dégradent, parfois en quelques jours. Les liens entrants obtenus au fil des années cessent de compter. Ce n'est pas une hypothèse pessimiste, c'est le mode d'échec classique de la refonte, et il est entièrement évitable."
+            },
+            {
+              "type": "h3",
+              "text": "Titres, métadonnées et contenu qui se positionne"
+            },
+            {
+              "type": "p",
+              "text": "Sur les pages qui fonctionnent déjà, la tentation est de tout réécrire au nom de la cohérence éditoriale. Réécrire un titre qui capte des recherches précises pour un titre plus élégant est une décision qui se prend en connaissance de cause, pas par inadvertance. Même principe pour le corps de texte : raccourcir de moitié une page qui se positionne au nom de l'épure revient à retirer ce qui la faisait remonter. L'épure se paie ailleurs, dans la mise en page."
+            },
+            {
+              "type": "h3",
+              "text": "Canoniques, slash final et extensions"
+            },
+            {
+              "type": "p",
+              "text": "Une refonte change souvent la forme des adresses : passage de fichiers en .html à des chemins propres, ajout ou retrait du slash final, disparition d'un préfixe de catégorie. Chacun de ces changements crée des variantes de la même page. Il faut arrêter une convention unique, la déclarer dans les balises canoniques, et rediriger toutes les autres formes vers elle."
+            },
+            {
+              "type": "h3",
+              "text": "Sitemap et resoumission"
+            },
+            {
+              "type": "p",
+              "text": "Après la bascule, le sitemap XML doit être régénéré pour ne contenir que les nouvelles adresses, sans redirections ni pages retirées, puis resoumis dans les outils de suivi. C'est ce qui accélère la découverte de la nouvelle structure. Une propriété distincte doit être conservée pour surveiller l'ancienne version si le domaine change."
+            }
+          ]
+        },
+        {
+          "h2": "La checklist de bascule, poste par poste",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Cette liste se remplit avant la mise en ligne, sur la préproduction, puis se vérifie le jour même. Elle constitue le document de recette de la refonte."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Poste",
+                "À faire avant la bascule",
+                "Risque si oublié"
+              ],
+              "tableRows": [
+                [
+                  "Inventaire des URL",
+                  "Exporter toutes les adresses connues : sitemap, outils de suivi, crawl complet, fichiers PDF inclus",
+                  "Des pages actives disparaissent sans que personne le remarque"
+                ],
+                [
+                  "Plan de redirections 301",
+                  "Associer chaque ancienne adresse à une destination définitive et directe",
+                  "Erreurs 404 en masse, perte de positions et de liens entrants"
+                ],
+                [
+                  "Titres et métadonnées",
+                  "Reprendre les titres des pages qui reçoivent déjà des visites",
+                  "Chute de clics sur des requêtes déjà acquises"
+                ],
+                [
+                  "Contenu positionné",
+                  "Conserver le fond des pages qui performent, quitte à le remettre en forme",
+                  "Le nouveau site perd la substance qui le faisait remonter"
+                ],
+                [
+                  "Convention d'URL",
+                  "Fixer une forme unique : slash final, extensions, minuscules, et rediriger les variantes",
+                  "Doublons techniques et redirections en chaîne"
+                ],
+                [
+                  "Balises canoniques",
+                  "Vérifier qu'elles pointent vers l'adresse définitive, pas vers la préproduction",
+                  "Pages dupliquées et signal dilué"
+                ],
+                [
+                  "Blocage d'indexation",
+                  "Retirer robots.txt de préproduction et toute balise noindex héritée",
+                  "Site invisible dans les moteurs, parfois durablement"
+                ],
+                [
+                  "Liens internes",
+                  "Réécrire les liens vers les nouvelles adresses directes",
+                  "Chaînes de redirection et maillage affaibli"
+                ],
+                [
+                  "Images et fichiers",
+                  "Conserver les chemins ou les rediriger explicitement",
+                  "Liens cassés et perte du référencement images"
+                ],
+                [
+                  "Sitemap XML",
+                  "Régénérer sans anciennes adresses, resoumettre après la mise en ligne",
+                  "Découverte lente de la nouvelle structure"
+                ],
+                [
+                  "Suivi analytique",
+                  "Réinstaller les balises et relever les chiffres avant la bascule",
+                  "Impossible de savoir si la refonte a nui ou aidé"
+                ],
+                [
+                  "Formulaires et destinataires",
+                  "Tester chaque envoi vers la bonne adresse e-mail",
+                  "Demandes clients perdues sans signal d'erreur"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Un point mérite d'être souligné : la ligne sur le blocage d'indexation est celle qui cause le plus de dégâts pour le moins d'effort. Un fichier de préproduction laissé en place peut rendre un site neuf invisible pendant des semaines, alors que le retrait prend quelques secondes."
+            }
+          ]
+        },
+        {
+          "h2": "Migration de contenu : ce qui part, ce qui reste, ce qui s'arrête",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Une refonte est aussi une occasion de retirer. Beaucoup de sites anciens accumulent des pages qui n'ont plus d'usage : services abandonnés, actualités datées, mentions d'événements passés, pages créées pour une campagne oubliée. Les garder par précaution produit un site plus lourd à maintenir et plus difficile à lire."
+            },
+            {
+              "type": "p",
+              "text": "Le tri se fait sur deux critères, et pas sur le sentiment. Premier critère : la page reçoit-elle encore des visites ou des liens ? Si oui, elle reste, même si elle vous déplaît. Deuxième critère : la page dit-elle encore quelque chose de vrai sur ce que vous vendez aujourd'hui ? Si non, elle sort, même si elle reçoit du trafic, et dans ce cas elle est redirigée vers la page qui la remplace le mieux."
+            },
+            {
+              "type": "p",
+              "text": "Le contenu conservé demande une décision supplémentaire : migration à l'identique ou réécriture. La réécriture est souvent justifiée, parce que les textes anciens portent le vocabulaire d'une époque et d'un positionnement révolus. Elle doit alors être faite page par page, en conservant les sujets traités et les termes que vos clients utilisent réellement pour vous chercher, plutôt qu'en repartant d'une page blanche."
+            },
+            {
+              "type": "p",
+              "text": "Attention enfin aux contenus qui vivent hors du site visible : documents téléchargeables, images utilisées dans des articles externes, pages de remerciement liées depuis des campagnes, adresses imprimées sur des supports physiques. Ce sont ceux qu'on oublie parce qu'ils n'apparaissent dans aucun menu, et ceux qui génèrent les liens cassés les plus embarrassants."
+            }
+          ]
+        },
+        {
+          "h2": "Refonte ou reconstruction depuis zéro : comment décider",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Les deux termes sont employés indifféremment, mais ils désignent deux chantiers distincts. La refonte conserve la base technique et remplace ce qui se voit : structure des pages, design, contenu. La reconstruction repart d'un socle neuf et ne garde du site actuel que ce qu'on décide explicitement de reprendre."
+            },
+            {
+              "type": "p",
+              "text": "La refonte sur la base existante se défend quand le système en place est sain et à jour, quand vous savez le faire évoluer, quand le volume de contenu est important et bien organisé, et quand le problème est d'abord esthétique et éditorial. Elle est plus rapide, moins risquée pour les adresses, et l'inventaire des URL sert surtout de contrôle."
+            },
+            {
+              "type": "p",
+              "text": "La reconstruction s'impose quand le système ne peut plus être mis à jour, quand chaque intervention casse autre chose, quand la structure des pages ne correspond plus du tout à l'offre, ou quand le site dépend d'un empilement d'extensions dont personne ne connaît le rôle. Elle coûte davantage en préparation, précisément à cause du travail de préservation décrit plus haut, mais elle produit une base que vous pouvez tenir."
+            },
+            {
+              "type": "p",
+              "text": "Le choix de la plateforme se pose au même moment : rester sur un constructeur avec abonnement mensuel, ou passer sur un site sur mesure dont vous détenez le code. Ce n'est pas le sujet de ce guide, et il est traité en détail dans le comparatif Wix ou site sur mesure. Une seule remarque ici : si le déclencheur de votre refonte est justement que vous ne pouvez pas modifier votre site, la question de la propriété du code fait partie de la décision."
+            },
+            {
+              "type": "p",
+              "text": "Sur le budget, une refonte n'est pas mécaniquement plus chère qu'une première création. Elle l'est quand il y a beaucoup de pages à inventorier et à rediriger, ou du contenu à extraire manuellement d'un système ancien. Elle l'est moins quand le contenu existe déjà, est exploitable, et que l'identité visuelle est fixée. Chez Fritz, le site vitrine est publié à CHF 1'700 : une refonte est devisée depuis ce même prix publié lorsque le périmètre correspond, et fait l'objet d'un devis si l'inventaire ou la migration sortent de ce cadre. Les fourchettes observées sur le marché sont détaillées dans le guide sur le coût d'un site web en Suisse."
+            }
+          ]
+        },
+        {
+          "h2": "Refaire l'identité en même temps : le risque de tout ouvrir d'un coup",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "La question revient souvent. Puisqu'on refait le site, autant revoir le logo, les couleurs et le discours. Parfois c'est la bonne décision. Souvent, c'est ce qui fait dérailler le projet."
+            },
+            {
+              "type": "p",
+              "text": "Le cas où mener les deux ensemble est justifié est net : votre identité ne correspond plus à ce que vous vendez. Construire un site neuf sur un logo et un discours périmés revient à payer deux fois, puisque la refonte devra être reprise dès que l'identité changera. Dans cette situation, l'identité vient d'abord et le site en découle."
+            },
+            {
+              "type": "p",
+              "text": "Le cas où c'est risqué est tout aussi net : votre identité tient encore, mais l'occasion donne envie. Vous ouvrez alors trois chantiers simultanés, technique, éditorial et graphique, avec des allers-retours qui se croisent. Chaque validation en attend une autre. Le calendrier s'étire, et surtout, si les résultats baissent après la bascule, vous n'avez aucun moyen de savoir si le problème vient de la technique, de la nouvelle structure ou du nouveau positionnement."
+            },
+            {
+              "type": "p",
+              "text": "La séquence qui fonctionne quand les deux sont nécessaires : fixer l'identité en amont, la valider sur des supports simples et indépendants du site, puis lancer la refonte sur une base arrêtée. Chez Fritz, l'identité de marque est publiée à CHF 1'500 et livrée en une quinzaine de jours, ce qui rend cette séquence tenable sans allonger l'ensemble de manière déraisonnable. Le détail de la démarche figure sur la page consacrée à l'identité de marque."
+            }
+          ]
+        },
+        {
+          "h2": "Après la bascule : ce qu'on vérifie, et quand",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "La mise en ligne n'est pas la fin du projet. Elle est le début de la période où les erreurs se voient, et elles se voient d'autant mieux qu'on les cherche."
+            },
+            {
+              "type": "h3",
+              "text": "Le jour même"
+            },
+            {
+              "type": "p",
+              "text": "Vérifier que le blocage d'indexation de préproduction a bien été retiré. Tester manuellement un échantillon d'anciennes adresses, en priorité celles qui recevaient du trafic, et confirmer qu'elles arrivent bien sur la bonne page en une seule redirection. Envoyer chaque formulaire et vérifier la réception effective, pas seulement le message de confirmation. Contrôler le certificat et la redirection vers la version sécurisée. Vérifier l'affichage sur téléphone, sur un vrai appareil et pas uniquement dans un simulateur. Confirmer que le suivi analytique enregistre les visites."
+            },
+            {
+              "type": "h3",
+              "text": "La première semaine"
+            },
+            {
+              "type": "p",
+              "text": "Régénérer et resoumettre le sitemap. Surveiller les erreurs 404 remontées par les outils de suivi et par vos propres journaux de serveur : c'est là qu'apparaissent les adresses oubliées dans l'inventaire, et il est encore temps de les rediriger. Vérifier la vitesse de chargement sur les pages principales, qui se dégrade souvent avec les images de la nouvelle version. Relire les pages en conditions réelles, sur écran de téléphone, plutôt que dans l'outil de design."
+            },
+            {
+              "type": "h3",
+              "text": "Les premières semaines"
+            },
+            {
+              "type": "p",
+              "text": "Comparer le trafic et les demandes reçues aux chiffres relevés avant la bascule. Une variation à court terme est fréquente pendant que les moteurs réévaluent la nouvelle structure, et elle ne doit pas déclencher de correction précipitée. Ce qui doit alerter, c'est une baisse qui persiste sur des pages précises : elle indique souvent une redirection manquante, un titre modifié sans raison ou un contenu amputé."
+            },
+            {
+              "type": "p",
+              "text": "Une refonte réussie ne se reconnaît pas au fait que le site est plus beau. Elle se reconnaît au fait que rien n'a été perdu, que vous pouvez le modifier vous-même, et qu'il dit enfin ce que vous faites. Si vous hésitez encore entre une correction et une reconstruction, le plus utile reste d'en parler à partir de votre site réel : le devis est gratuit et la réponse arrive sous 24 heures."
+            }
+          ]
+        }
+      ],
+      "wordCount": 2980
+    }
+  }
+]

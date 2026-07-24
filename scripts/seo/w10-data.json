@@ -1,0 +1,1153 @@
+[
+  {
+    "slug": "pricing",
+    "type": "lander",
+    "lang": "en",
+    "dir": "",
+    "altFr": "/fr/tarifs",
+    "place": "Geneva",
+    "serviceType": "Web design and brand identity",
+    "priceBlock": "",
+    "extraSchema": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Agence Fritz pricing",
+        "url": "https://agencefritz.com/pricing",
+        "provider": {
+          "@id": "https://agencefritz.com/#org"
+        },
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Brand identity",
+            "price": "1500",
+            "priceCurrency": "CHF"
+          },
+          {
+            "@type": "Offer",
+            "name": "Brochure or marketing website",
+            "price": "1700",
+            "priceCurrency": "CHF"
+          },
+          {
+            "@type": "Offer",
+            "name": "E-commerce website",
+            "price": "2500",
+            "priceCurrency": "CHF"
+          },
+          {
+            "@type": "Offer",
+            "name": "Marketing programme (monthly, from)",
+            "price": "490",
+            "priceCurrency": "CHF"
+          },
+          {
+            "@type": "Offer",
+            "name": "Growth Ops programme (monthly, from)",
+            "price": "490",
+            "priceCurrency": "CHF"
+          }
+        ]
+      }
+    ],
+    "breadcrumb": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Prices",
+        "path": "/pricing"
+      }
+    ],
+    "content": {
+      "metaTitle": "Web Design Prices | Fritz, Geneva Studio Pricing",
+      "metaDesc": "Fritz publishes its web design prices in full: brand identity CHF 1'500, brochure site CHF 1'700, e-commerce CHF 2'500",
+      "h1": "Web design prices",
+      "kicker": "Pricing · Geneva",
+      "lede": "This page lists the web design prices Fritz actually charges, in Swiss francs, with the deliverables attached to each one. Fritz is a one-person studio based in Geneva, working across French-speaking Switzerland and in English. Three engagements are one-off payments, two are monthly programmes, and every figure below is the figure that appears on the quote.",
+      "quotableOpener": "Brand identity CHF 1'500. Brochure or marketing site CHF 1'700. E-commerce CHF 2'500. Marketing and Growth Ops from CHF 490 per month. Those are the figures, published in full.",
+      "sections": [
+        {
+          "h2": "Why the prices are published at all",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Quoting privately, case by case, is an ordinary convention in this market and there is nothing irregular about it. Publishing simply removes a step for the buyer: a figure can be checked against a budget before any conversation takes place. Fritz publishes and accepts the consequence that comes with it, which is that the price is the same whether the buyer is a two-person gelateria or a company with a legal department."
+            },
+            {
+              "type": "p",
+              "text": "The published figures are not entry points that grow during the project. They are the amounts invoiced for the scope described on this page. If the scope changes, the price changes, and it changes in writing before anything is built, not at the end."
+            },
+            {
+              "type": "p",
+              "text": "This page is Fritz's own price list. It is not a survey of what design costs in Switzerland generally; that material lives on the market cost guide, which covers observed ranges and how to read a quote from anyone, including from studios other than this one."
+            }
+          ]
+        },
+        {
+          "h2": "One-off builds: the three engagements",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Three engagements are paid once, not monthly. They are three separate engagements, bought individually or together as needed. Each has a fixed price and an indicative timeline. The timelines assume the client returns feedback and content at a normal pace; they are estimates of working time, not contractual deadlines."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Engagement",
+                "Price",
+                "What it covers",
+                "Indicative timeline",
+                "Payment"
+              ],
+              "tableRows": [
+                [
+                  "Brand identity",
+                  "CHF 1'500",
+                  "Logo system, palette, typography, stationery, guidelines, all source files",
+                  "~14 days",
+                  "One-off"
+                ],
+                [
+                  "Brochure / marketing site",
+                  "CHF 1'700",
+                  "A custom-designed site you can edit yourself, built on an identity you already have",
+                  "2 to 4 weeks",
+                  "One-off"
+                ],
+                [
+                  "E-commerce",
+                  "CHF 2'500",
+                  "A shop with product pages, checkout, payment and order handling",
+                  "6 to 8 weeks",
+                  "One-off"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "The three are priced independently. If you already have a brand you are happy with, the website engagement stands on its own. If you do not, the identity is designed first and the site is built on it, and the two are quoted as two engagements."
+            },
+            {
+              "type": "h3",
+              "text": "Brand identity, CHF 1'500"
+            },
+            {
+              "type": "p",
+              "text": "A complete visual identity rather than a logo on its own. The engagement produces a primary logo with the secondary and reduced versions a real business needs (horizontal, stacked, monogram, single-colour), a colour palette with the exact values for screen and print, a typographic system with the weights and the hierarchy set out, and the basic applied pieces: business card, email signature, and the avatar and header formats used on social profiles."
+            },
+            {
+              "type": "p",
+              "text": "It ships with a short guidelines document that states how the marks are used and how they are not, and with the editable source files. The indicative timeline is around 14 days from the moment the brief and the reference material are in hand. Il Duca, an artisan gelateria in Lausanne, was built as this engagement. The scope question that sits underneath this price, meaning where a logo ends and an identity begins, is treated separately in the guide to what a logo and a full identity cost in Switzerland."
+            },
+            {
+              "type": "h3",
+              "text": "Brochure or marketing site, CHF 1'700"
+            },
+            {
+              "type": "p",
+              "text": "A site that presents a company and produces enquiries. It covers the design of the pages, the build, and the deployment: responsive layouts that hold on a phone as well as on a desktop, the page structure and internal linking, the technical SEO foundations (titles, meta descriptions, heading hierarchy, sitemap, structured data where it applies), a contact form wired to a real inbox, analytics installed, and the site put live on the client's own hosting account."
+            },
+            {
+              "type": "p",
+              "text": "The content is editable after handover, and the code is handed over with it. The indicative timeline is 2 to 4 weeks. Eden Terranova, an agricultural investment company, was built as this engagement."
+            },
+            {
+              "type": "h3",
+              "text": "E-commerce, CHF 2'500"
+            },
+            {
+              "type": "p",
+              "text": "Everything in the site engagement plus the machinery of selling: catalogue and collection structure, product pages built to hold real variants and real photography, cart and checkout connected to a payment provider, shipping and tax rules configured for the markets being sold to, order and stock management set up in an interface the client can operate, and the transactional emails (confirmation, dispatch) styled to match the brand."
+            },
+            {
+              "type": "p",
+              "text": "Handover includes a working session on running the shop day to day. The indicative timeline is 6 to 8 weeks, most of which is catalogue and checkout rather than design. SoYou Cosmetics, a natural cosmetics company in Geneva, was built as this engagement."
+            }
+          ]
+        },
+        {
+          "h2": "Monthly programmes: Marketing and Growth Ops",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Two programmes are billed monthly, because the work is continuous rather than delivered once. Marketing covers the visible output: content, campaigns, the material that goes out under the brand. Growth Ops covers the machinery underneath: tracking, automation, the systems that route and measure what the marketing produces."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Programme",
+                "Tier",
+                "Price per month"
+              ],
+              "tableRows": [
+                [
+                  "Marketing",
+                  "Entry",
+                  "CHF 490"
+                ],
+                [
+                  "Marketing",
+                  "Standard",
+                  "CHF 890"
+                ],
+                [
+                  "Marketing",
+                  "Extended",
+                  "CHF 1'390"
+                ],
+                [
+                  "Growth Ops",
+                  "Entry",
+                  "CHF 490"
+                ],
+                [
+                  "Growth Ops",
+                  "Standard",
+                  "CHF 1'290"
+                ],
+                [
+                  "Growth Ops",
+                  "Extended",
+                  "CHF 2'900"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "The tiers differ in amplitude, not in kind. The entry tier is not a lesser method applied by a lesser person; it is the same method applied to fewer channels, at a lower cadence, with a smaller volume of output each month. Moving up a tier buys more surface covered, more frequent iteration, and more of the studio's month, and nothing else changes: the same person does the work at every tier, and the strategic thinking is not withheld from the lower ones."
+            },
+            {
+              "type": "p",
+              "text": "Programmes run month to month. There is no minimum term stated on this page, and no tier is a prerequisite for another. A build can be commissioned without a programme, and a programme can be started without a build."
+            }
+          ]
+        },
+        {
+          "h2": "What is not included in the price",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The figures above are complete for the scope described, which means it matters exactly what falls outside them. Four things do."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Content that does not exist yet. Copywriting, translation, and the sourcing of photography are not inside the build price. If a site needs text and images that have never been written or shot, that is separate work and it is quoted separately.",
+                "Advertising spend. Media budgets on any platform are paid by the client to the platform. The programme fee covers the work, never the spend, and Fritz does not take a percentage of it.",
+                "Multi-day photo or film production. A shoot with a crew, a location, and a production schedule is its own project. LeVallon was that kind of work, commissioned as film, not folded into a website price.",
+                "Domain and hosting fees. These are paid by the client directly to the registrar and the host, on accounts opened in the client's own name. It costs slightly more attention at setup, and it means the client holds the infrastructure and the credentials directly, without a studio account in between."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Nothing in this list is an upsell waiting to happen. Each item is named here so that the number on the quote is the number that is actually paid."
+            }
+          ]
+        },
+        {
+          "h2": "Ownership: the code and the files are handed over",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "At the end of a build the client receives the design source files and the code. For an identity that means the editable vector files and the exports; for a site it means the repository. The domain and the hosting are already in the client's name because they were set up that way from the start."
+            },
+            {
+              "type": "p",
+              "text": "The practical consequence is that another studio, or an in-house developer, can pick the work up without asking Fritz for permission or for a file. That is deliberate, and it is the structure Fritz prefers to work under: a continuing relationship should rest on the work being worth continuing, and a change of direction, if it comes, should cost nothing in rebuilt assets."
+            }
+          ]
+        },
+        {
+          "h2": "What the buyer gives up in exchange",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Published prices at this level are possible because Fritz is one person, without the overhead a larger structure carries. That structure is also the limit, and it is worth stating plainly before anyone commits."
+            },
+            {
+              "type": "p",
+              "text": "One person can hold a limited number of projects at a time. A slot may not be available in the week it is requested, and the honest answer to that is a start date rather than a promise. There is no capacity to staff a large simultaneous programme: a rebrand, a site, a shop, and a campaign all running in parallel across several markets is not work this studio can take, and saying so early is cheaper for everyone than discovering it in month two."
+            },
+            {
+              "type": "p",
+              "text": "What the arrangement gives back is that the person quoting is the person designing and building. There is no account layer between the brief and the work, and nothing is passed to a junior after the pitch. Whether that trade is the right one depends on the project, and the structural comparison between commissioning an agency or an independent is set out in its own guide rather than argued here."
+            }
+          ]
+        },
+        {
+          "h2": "How payment and the quote work",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Builds are one-off payments. Programmes are billed monthly. A quote is free and carries no obligation, and enquiries receive a reply within 24 hours."
+            },
+            {
+              "type": "p",
+              "text": "The sequence is short. The client describes what is needed; Fritz confirms which engagement fits, or says that none of them does; a written quote states the scope, the price, and the start date. Work begins once that is agreed. There is one point of contact throughout, and it is the same person at the start, in the middle, and at handover."
+            },
+            {
+              "type": "p",
+              "text": "Fritz works from Geneva, across French-speaking Switzerland, and in English. The French version of this price grid is published separately for clients who prefer to read it in French."
+            }
+          ]
+        },
+        {
+          "h2": "Where these prices sit against observed market ranges",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ranges observed on the Swiss market are wide, and it would be inaccurate to claim that everything here undercuts them. The precise position is this."
+            },
+            {
+              "type": "p",
+              "text": "Brand identity at CHF 1'500 sits inside the observed range for a full identity, near the bottom of it. It is not below the floor. A brochure site at CHF 1'700 sits inside the observed range for brochure sites, again near the bottom, and again not below the floor. Only e-commerce at CHF 2'500 is genuinely below the observed floor, which starts higher for shop builds."
+            },
+            {
+              "type": "p",
+              "text": "The accurate formulation, then: at or near the bottom of the observed range, and below the floor on e-commerce. Anyone calibrating a quote from any studio, including this one, will find the observed ranges, the reasons Swiss prices differ, and the three-year cost of ownership set out in full on the market cost guide. That page does the market arithmetic; this one simply states what Fritz charges."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How much does a website cost with Fritz?",
+          "a": "A brochure or marketing site is CHF 1'700 as a one-off payment, with an indicative timeline of 2 to 4 weeks. An e-commerce build is CHF 2'500, with an indicative timeline of 6 to 8 weeks. Both prices cover design, build, technical SEO foundations, analytics, and deployment onto the client's own hosting account, with the code handed over at the end. They do not cover copywriting, photography, or the domain and hosting fees, which the client pays directly."
+        },
+        {
+          "q": "Are the prices really fixed?",
+          "a": "Yes, for the scope described on this page. CHF 1'500, CHF 1'700 and CHF 2'500 are the amounts invoiced, not opening figures that grow during the project. If the scope changes, for example if a site needs a shop it was not going to have, the price changes in writing before anything is built. Nothing is revised at the end of a project."
+        },
+        {
+          "q": "What is not included in the price?",
+          "a": "Four things sit outside it: content that does not exist yet (copywriting, translation, sourcing photography), advertising spend on any platform, multi-day photo or film production, and domain and hosting fees. The domain and hosting are paid by the client directly so that the accounts stay in the client's own name."
+        },
+        {
+          "q": "Do I own the website and the files?",
+          "a": "Yes. The design source files and the code are handed over at the end of the engagement, and the domain and hosting sit on accounts in the client's name from the start. Another studio or an in-house developer can take the work forward without asking Fritz for anything."
+        },
+        {
+          "q": "What is the difference between the monthly tiers?",
+          "a": "Amplitude, not kind. Marketing runs at CHF 490, CHF 890 and CHF 1'390 per month; Growth Ops at CHF 490, CHF 1'290 and CHF 2'900. A higher tier covers more channels, iterates more frequently, and produces more output each month. The method is identical at every tier, and the same person does the work, so the lower tiers are a smaller volume of the same thing rather than a reduced version of it."
+        },
+        {
+          "q": "Should I hire an agency or a freelancer?",
+          "a": "It depends on the shape of the project rather than on the price alone. An agency carries a structure that can absorb several parallel workstreams and cover absences; an independent carries less overhead and puts the person quoting on the work itself. Fritz is one person, which sets a capacity limit that is stated on this page. The structural comparison, including what each arrangement costs and where each one fails, is set out in the dedicated guide to commissioning an agency or an independent in Switzerland."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "the French price grid",
+          "href": "/fr/tarifs"
+        },
+        {
+          "anchor": "market cost guide",
+          "href": "/website-cost-switzerland"
+        },
+        {
+          "anchor": "what a logo and a full identity cost",
+          "href": "/logo-design-cost-switzerland"
+        },
+        {
+          "anchor": "agency or an independent",
+          "href": "/web-agency-vs-freelancer-switzerland"
+        },
+        {
+          "anchor": "web design in Geneva",
+          "href": "/web-design-agency-geneva"
+        },
+        {
+          "anchor": "branding across Switzerland",
+          "href": "/branding-agency-switzerland"
+        },
+        {
+          "anchor": "request a free quote",
+          "href": "/contact"
+        }
+      ],
+      "distinctnessArgument": "This page is transactional and first-party: it states what Fritz charges, deliverable by deliverable, with two price tables and a capacity disclosure. It deliberately does not rebuild the market material owned by /website-cost-switzerland (observed ranges by project type, why Swiss prices differ, three-year cost of ownership, how to read a quote, hiring abroad); that page is referenced once, in the final section, where the precision on Fritz's position against the ranges requires it. It is also the single page on which the studio boilerplate is stated in full (one person, capacity limit, no account layer, code and design source files handed over, reply within 24 hours, free quote); /logo-design-cost-switzerland and /web-agency-vs-freelancer-switzerland reduce that material to one sentence and link here, so the block exists once on the site. Those two siblings own, respectively, the scope question underneath identity pricing and the structural agency-versus-independent comparison; this page links to both rather than re-arguing either. It differs from /brand-web, /marketing and /growth-ops, which sell each discipline on its own terms, by putting all five commercial structures side by side in one comparable list, and by carrying the material those pages do not: exclusions, ownership of files, capacity limits of a one-person studio, and the payment mechanics. It is the English counterpart of /fr/tarifs and is hreflang-paired with it rather than duplicating it in a second language on the same URL. The angle no other page on the site takes is the honest cost of published pricing, stated as what the buyer gives up (limited simultaneous capacity, no ability to staff a large parallel programme) rather than as a benefit list.",
+      "wordCount": 2015
+    }
+  },
+  {
+    "slug": "logo-design-cost-switzerland",
+    "type": "guide",
+    "lang": "en",
+    "dir": "",
+    "altFr": "/fr/guides/prix-logo-identite-visuelle-suisse",
+    "place": "Switzerland",
+    "serviceType": null,
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Logo design cost in Switzerland",
+        "path": "/logo-design-cost-switzerland"
+      }
+    ],
+    "content": {
+      "distinctnessArgument": "This page owns LOGO AND IDENTITY PRICING as a buyer's guide, and is fenced off from the pages nearest to it. Against /branding-agency-switzerland (a SERVICE page whose distinct assets are the multilingual Swiss brand, the neutral-versus-anchored naming decision, the Swiss design tradition and working in English): this page touches none of those, defers the multilingual and service-delivery ground to it in two places, and no longer carries the logo-versus-identity FAQ, which that page owns outright. Where the three-level table appears here, the columns are deliverable-level and the third column is a pure market range with the studio's own price removed entirely; the branding page keeps its service framing. Against /website-cost-switzerland: no website ranges, no three-year ownership arithmetic, no how-to-read-a-quote section, no hiring-abroad question; that page is linked as the owner of market calibration for websites. Against /pricing: the closing section is reduced to the identity price and its single range position, with the studio boilerplate (one person, capacity, source files, 24 hours, free quote) compressed to one sentence and a link, so /pricing keeps the full commercial statement and the complete grid. Against /web-agency-vs-freelancer-switzerland: that page decides which STRUCTURE to approach; this one prices a single deliverable family, and the two are reciprocally linked. Against /fr/guides/prix-logo-identite-visuelle-suisse: hreflang counterpart, not a translation. The genuinely unique assets here, present on no other page in either cluster: (1) the six-part file-delivery specification with the typography-licence question written out as a procurement question; (2) the five named price drivers broken into H3s, including decision structure as an explicit cost factor; (3) the brief checklist that determines what a quote can be priced against; (4) the rebrand-versus-refresh diagnosis with two signal lists; (5) automated and template-based logo services handled as a scope question with a fair case for when they are the correct decision, with no figure invented and no seller impugned. Precision rules applied: CHF 1'500 is stated as INSIDE the CHF 1'200 to CHF 3'500 range and near its bottom, not below floor. No invented statistics or price points, no characterisation of how other providers bill or why, no results promises, third person in all body copy, FAQ questions in natural search voice, no em dashes, CHF prefixed with Swiss apostrophes on both bounds of every range.",
+      "wordCount": 2905,
+      "metaTitle": "Logo Design Cost in Switzerland | CHF Ranges and What You Get",
+      "metaDesc": "What a logo and a brand identity cost in Switzerland: the three price levels in CHF, what drives a quote up, the files to insist on receiving",
+      "h1": "Logo design cost in Switzerland",
+      "kicker": "Pricing guide, identity, Switzerland",
+      "lede": "Anyone comparing logo design cost in Switzerland runs into the same problem: two quotes for what looks like the same job can differ by a wide margin, and neither one is obviously wrong. The spread rarely comes from the drawing. It comes from what is being bought around the drawing, and from whether the files that make a mark usable are part of the delivery or not. This guide separates the three purchases people call \"a logo\", gives the ranges observed on the Swiss market for each, and sets out the list of files to insist on before any invoice is paid.",
+      "quotableOpener": "In Switzerland, a logo on its own is typically quoted between CHF 500 and CHF 1'500, a full visual identity between CHF 1'200 and CHF 3'500, and a complete brand programme between CHF 8'000 and CHF 25'000: three different purchases that are easily mistaken for one another.",
+      "sections": [
+        {
+          "h2": "The short answer, in figures",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "On the Swiss market, a logo commissioned on its own is typically quoted between CHF 500 and CHF 1'500. A full visual identity, meaning the mark plus the system that makes it usable, is commonly quoted between CHF 1'200 and CHF 3'500. A complete brand programme, where positioning and naming sit alongside the design work, is commonly quoted between CHF 8'000 and CHF 25'000. These are ranges observed on the market, not a tariff, and any individual quote can sit outside them for reasons that are perfectly legitimate."
+            },
+            {
+              "type": "p",
+              "text": "The important thing about those three figures is that they are not three quality levels of the same product. They are three different purchases. A buyer who pays for the first and expects the second will be disappointed, and a buyer who pays for the third when the first would have done has bought a lot of work that will sit unused. If a price comparison feels incoherent, the first thing worth checking is whether the two quotes are answering the same scope question at all."
+            },
+            {
+              "type": "p",
+              "text": "There is a second reason the numbers vary. The price of an identity is the price of time and judgement, not the price of a file. Two studios can spend very different amounts of effort arriving at marks that look comparably simple, and simplicity in a logo is usually expensive rather than cheap, because a mark that has to hold together at very small sizes, in a single colour, under poor reproduction, and across a shop window has had decisions removed from it rather than added."
+            }
+          ]
+        },
+        {
+          "h2": "Logo, visual identity, brand programme: three different purchases",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Before comparing two prices, compare two scopes. The table below sets out what each level actually delivers and where the market ranges sit. The studio's own price is deliberately kept out of the range column, because a single studio's published price is not market data and should never be read as one; it is stated separately at the end of this page."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Level of work",
+                "What it actually delivers",
+                "Range observed on the market"
+              ],
+              "tableRows": [
+                [
+                  "Logo alone",
+                  "A single mark: a symbol, a wordmark, or the two locked together. Usually a colour version and a monochrome version, exported in the formats agreed in advance. No palette, no typographic system, no written rules for using it.",
+                  "Typically between CHF 500 and CHF 1'500"
+                ],
+                [
+                  "Full visual identity",
+                  "The mark, plus the system that lets other people use it correctly: a colour palette with values defined for screen and for print, a typography selection, logo variants for small sizes and for dark backgrounds, and written usage rules. Editable source files handed over.",
+                  "CHF 1'200 to CHF 3'500"
+                ],
+                [
+                  "Full brand programme",
+                  "Positioning and brand platform, a naming or renaming exercise where one is required, the complete visual identity, tone of voice, and applied design across a defined list of touchpoints such as packaging, signage, print and digital.",
+                  "CHF 8'000 to CHF 25'000"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "The line that matters most is the one between the first and second rows. A logo on its own is a drawing. A visual identity is a set of decisions that survives being handed to a printer, a sign maker, a developer and whoever writes the next brochure. If a business is going to produce anything beyond a single signboard, the second row is usually the real requirement. If the first row is bought instead, each of those later surfaces will still need its own design decision made by someone, and those decisions will be commissioned one at a time rather than together."
+            },
+            {
+              "type": "p",
+              "text": "The third row is a different order of commitment. It is worth the money when the brand has to hold a position against competitors, carry a name that does not yet exist, or run consistently across many surfaces and several teams. For a company where one person makes the decisions and the touchpoint list is short, much of a brand programme's output would be documentation that never gets opened. The service side of this work, including how a Swiss brand handles more than one language, is covered on the branding service page rather than here."
+            }
+          ]
+        },
+        {
+          "h2": "What actually drives the price of an identity",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "At equal scope, two quotes can still differ substantially. The reasons are usually concrete and can be asked about directly. These five factors move a Swiss identity quote more than anything else."
+            },
+            {
+              "type": "h3",
+              "text": "The number of applications"
+            },
+            {
+              "type": "p",
+              "text": "A logo becomes an identity when it is drawn against real surfaces. Every additional application, whether that is packaging, a vehicle, a shopfront, a uniform, an email signature template or a set of social profile crops, is a separate design problem with its own constraints. A quote covering three applications and a quote covering fifteen are not the same job, and the applications list is the single easiest thing to compare between two proposals. Ask for it in writing."
+            },
+            {
+              "type": "h3",
+              "text": "Whether a naming exercise is included"
+            },
+            {
+              "type": "p",
+              "text": "Naming is a separate discipline with its own timeline, and it is one of the few parts of brand work with a hard external dependency: the name has to be available, both as a trademark in the relevant classes and as a usable domain. That verification work sits outside the design process and takes as long as it takes. If a quote includes naming, the price reflects a research phase that a design-only quote does not carry."
+            },
+            {
+              "type": "h3",
+              "text": "How many languages the identity has to survive"
+            },
+            {
+              "type": "p",
+              "text": "A mark designed once and used in one language is a simpler object than one that has to hold up across French, German, Italian and English. The pressure shows up in specific places: a tagline lockup whose proportions break when the translated line runs longer, a wordmark built around a word that only exists in one language, and layouts that were spaced for one text length. Building for several languages from the start costs less than retrofitting later, and the number of languages should be named in the brief rather than discovered halfway through."
+            },
+            {
+              "type": "h3",
+              "text": "How many people have to approve it"
+            },
+            {
+              "type": "p",
+              "text": "Decision structure is a price factor, not a personality quirk. Each additional approver adds a review cycle, and each cycle consumes time that has to be quoted for. A project with one decision-maker can move through revisions in days. A project where a committee reviews each round moves at the speed of the committee's calendar. Neither is better, but a quote priced for one approver against a project that turns out to have five will run over, and the overrun will surface as a variation request rather than as a design disagreement."
+            },
+            {
+              "type": "h3",
+              "text": "Whether source files and usage rules are delivered"
+            },
+            {
+              "type": "p",
+              "text": "This is the quietest of the five and the most consequential. Delivering editable source files and written usage rules is real work: the files have to be organised, the variants built out properly, the colour values specified for more than one output, and the rules written so that someone who was not in the room can follow them. A quote that excludes this is a smaller scope than a quote that includes it, and the two should be compared as different scopes rather than as two prices for the same thing. What a complete handover contains is set out further down this page."
+            }
+          ]
+        },
+        {
+          "h2": "What an automated or template-based logo service can and cannot deliver",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Online marketplaces, template libraries and generated-mark services offer a finished logo far below any figure in the table above, usually within minutes or days. The promise is accurate on speed and on price. The question worth asking is not whether the people behind these services are doing something wrong, because they are not, but what that format is structurally able to include and what it is not."
+            },
+            {
+              "type": "p",
+              "text": "What such a service can genuinely deliver: a usable mark, quickly, at a price that suits a project with a short life or a fixed and modest budget. For a one-off event, a personal side project, a concept being tested before any real investment, or an internal tool that will never be seen by a customer, that can be entirely sufficient, and commissioning a full identity for it would be the actual mistake."
+            },
+            {
+              "type": "p",
+              "text": "What the format frequently does not include, and what should therefore be checked before purchase rather than after, is the following. None of this is a criticism of the sellers; it is a description of scope."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Exclusivity. A template can be sold to more than one buyer, and a generated mark can be regenerated. Whether a given service guarantees an exclusive mark, and states that guarantee in writing, is a question to put before paying.",
+                "Editable vector source files. Some services include them, others supply raster exports only, and some supply vector files under restricted terms. Without an editable vector master, the mark cannot be enlarged cleanly, recoloured, or adapted for a printer or a sign maker.",
+                "Written usage rules. Clear spacing, minimum sizes, what may and may not be done to the mark, and which version goes on which background. Without them, every supplier who touches the brand makes their own call.",
+                "Variants for real conditions. A single-colour version, a reversed version for dark backgrounds, and a simplified version drawn for very small sizes. A mark that only exists in one full-colour form will eventually be scaled down or printed in one ink by someone, and the result is outside anyone's control.",
+                "Clarity on the typography licence. Which typefaces the mark uses, what the licence covers, and whether it transfers to the buyer. This is dealt with in its own section below because it is the item most likely to produce a cost after the fact.",
+                "Any research into the sector, the competitive field or the audience. A mark produced without that context may be perfectly attractive and still say nothing specific about the business it belongs to."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "A practical way to use this section: decide first how long the mark has to last and how many hands will touch it. If the answer is a few months and one person, a low-cost route is a reasonable decision and this page is not arguing otherwise. If the answer is several years, a printer, a sign maker and a web developer, then each missing item above becomes something that has to be commissioned separately later, and the total of those separate commissions is what should be compared against the price of buying them together at the start."
+            }
+          ]
+        },
+        {
+          "h2": "The files to insist on receiving",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "This is the most useful test available to a buyer who cannot judge design quality with confidence: ask, before signing, exactly which files will be delivered. The answer says more about the seriousness of a proposal than the portfolio does. A professional identity delivery is never a single PNG. The list below is what a complete handover looks like, and each item exists because something breaks without it."
+            },
+            {
+              "type": "h3",
+              "text": "The vector master"
+            },
+            {
+              "type": "p",
+              "text": "The editable source file the logo was actually built in, commonly an .ai or .eps file, or the native file of whichever vector tool was used. This is the original. Everything else on this list can be regenerated from it, and nothing on this list can replace it. A delivery without a vector master leaves the buyer dependent on the original designer for any change at all, including changes as small as adjusting spacing in a lockup."
+            },
+            {
+              "type": "h3",
+              "text": "SVG for screen"
+            },
+            {
+              "type": "p",
+              "text": "The vector format the web uses. An SVG stays sharp at any size, weighs very little, and can have its colours changed in code, which matters for dark backgrounds and for interface states. Any developer building a site will ask for this file first. Supplying a PNG instead means the logo will be a fixed-resolution image on every screen it appears on."
+            },
+            {
+              "type": "h3",
+              "text": "PDF for print"
+            },
+            {
+              "type": "p",
+              "text": "The format printers and sign makers work with. A press-ready PDF carries the vector artwork with the colour information intact, which is what allows a print supplier to reproduce the mark without redrawing it or guessing at values. Ask for the print PDF specifically, separately from any presentation PDF of the design work."
+            },
+            {
+              "type": "h3",
+              "text": "Favicon and small-size variants"
+            },
+            {
+              "type": "p",
+              "text": "A logo at browser-tab size, at app-icon size, or embossed on a small object is a different design problem from the same logo across a wall. Fine detail disappears, thin strokes vanish, and a horizontal lockup becomes unreadable. A proper delivery includes a simplified or cropped variant built for small sizes, plus the favicon files a website needs. Without them, someone will eventually scale the full mark down and the result will be a smudge."
+            },
+            {
+              "type": "h3",
+              "text": "Colour values for screen and for print"
+            },
+            {
+              "type": "p",
+              "text": "Screen and print do not produce colour the same way, so a palette needs more than one set of values. For screen, HEX or RGB. For print, CMYK values, and where a colour must be reproduced identically across different suppliers and materials, a spot colour reference as well. A palette handed over with screen values only will drift the moment anything is printed, and the drift tends to be noticed after the print run rather than before."
+            },
+            {
+              "type": "h3",
+              "text": "The typography licence question"
+            },
+            {
+              "type": "p",
+              "text": "This one is easy to overlook and can be expensive. Typefaces are generally licensed rather than owned, and licences are commonly sold by use: desktop use, web use and app use are typically separate permissions, often priced by the number of workstations or by web traffic volume. A licence held by a designer does not automatically transfer to the client. So the question to ask, in writing, is: which typefaces does this identity use, what does the licence cover, who holds it, and what will it cost annually going forward. If the answer is that the identity uses open-source typefaces, the question resolves itself and that is worth knowing too."
+            },
+            {
+              "type": "p",
+              "text": "Alongside the files, expect the variants that real use requires: the primary colour version, a monochrome black version, a white or reversed version for dark backgrounds, and a horizontal or stacked alternative where the layout demands it. Ask for the whole list at quotation stage, not at delivery. A supplier who intends to hand everything over will have no difficulty confirming it in advance."
+            }
+          ]
+        },
+        {
+          "h2": "What the brief needs to contain before a price means anything",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "A quote can only be priced against what it has been told. Two proposals that differ sharply are often responses to two different readings of the same vague brief, and the fastest way to make a comparison meaningful is to give both parties the same five pieces of information in writing before either one puts a figure on it."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "The list of surfaces the mark has to appear on, named individually rather than described as \"the usual\": signage, packaging, vehicle, uniform, website, print documents, social profiles.",
+                "The languages the identity has to work in, decided at the start rather than added later.",
+                "Who approves the work, and how many people that is in total.",
+                "Whether a name already exists and is settled, or whether naming is part of the job.",
+                "Whether the code and design source files, the usage rules and the licence information are to be handed over as part of the delivery."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Two further things belong in the brief and are frequently left out. The first is the date the identity has to be in use, as distinct from the date the design is signed off, because print production and signage have their own lead times that sit outside the design timeline. The second is what already exists: an old mark, a palette in use, a typeface already licensed, photography, a shopfront that cannot be changed. Constraints reduce the work when they are known at the start and increase it when they arrive halfway through."
+            },
+            {
+              "type": "p",
+              "text": "With those points fixed, a difference between two prices becomes readable. It is either a difference in the number of applications, in the research included, in the review cycles allowed for, or in what is handed over at the end. Each of those can be discussed. A difference between two prices given against no brief at all cannot be discussed, because there is nothing to attach it to."
+            }
+          ]
+        },
+        {
+          "h2": "Rebrand or refresh: which one the situation calls for",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Not every identity that feels tired needs replacing, and the cost difference between the two options is significant, so the diagnosis is worth doing carefully. A refresh keeps the existing equity and repairs what has stopped working. A rebrand replaces the mark and accepts that recognition built up so far will have to be rebuilt."
+            },
+            {
+              "type": "p",
+              "text": "Signals that point towards a refresh rather than a rebrand:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "The mark itself still reads well, but it was never delivered in the formats current use requires, so every application is a workaround.",
+                "The palette and typography have drifted because different suppliers made different choices, and what is missing is a written rule, not a new drawing.",
+                "The logo works in print but fails at small sizes on screen, which is a variants problem rather than a design problem.",
+                "The business has changed in scale but not in what it does or who it sells to."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Signals that a rebrand is genuinely the right purchase:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "The name no longer describes the business, or blocks it from operating in a market or a language it now needs.",
+                "The company has merged, split, or changed its offer to the point where the current mark refers to something that no longer exists.",
+                "The identity was built for one audience and the business now sells to a different one.",
+                "The mark cannot be owned properly, for example because rights were never transferred or the design cannot be defended as distinctive."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "A useful discipline: if the honest answer is that the identity is fine but the assets are incomplete, then the money is better spent on completing the system, which is a fraction of the cost of starting again. If a mark that was already working is redrawn, the spend lands at the top of the range and the thing that was actually broken, usually the missing files and the missing rules, is still missing afterwards unless it was scoped in."
+            }
+          ]
+        },
+        {
+          "h2": "Il Duca: what an identity delivered that a logo would not have",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Il Duca is an artisan gelateria in Lausanne, and the brief was a good illustration of the distinction this page is built around. A logo alone would have produced a signboard. What the business actually needed was a mark that held its own on a street frontage, survived being reduced onto small packaging, and read as artisanal rather than as a chain, which is a narrower target than it sounds."
+            },
+            {
+              "type": "p",
+              "text": "The work was built around an emblem, the figure of the duke, chosen because it carried the idea of care and refinement in a hand-made product. Around that emblem sat the parts that make a mark usable by other people: a palette that had to sit alongside the colours of the product itself without competing with it, typography, and variants drawn for two very different viewing distances, the shop window and the object in the hand."
+            },
+            {
+              "type": "p",
+              "text": "The point of the case is not a growth figure, and none is offered here. It is the scope demonstration. A logo would have produced one drawing. An identity produced something the owner can hand to a printer, a packaging supplier and a sign maker without the design decisions being reopened each time, which is precisely what the second row of the table is paying for."
+            }
+          ]
+        },
+        {
+          "h2": "Where the CHF 1'500 identity sits, stated precisely",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Fritz publishes a brand identity at CHF 1'500, a single one-off payment. Stated accurately: that figure sits inside the range observed on the market for a full visual identity, which runs from CHF 1'200 to CHF 3'500, and it sits near the bottom of that range. It is not below the market floor, and this page will not claim that it is."
+            },
+            {
+              "type": "p",
+              "text": "What the CHF 1'500 covers is the second row of the table, not the first: the mark and the system around it, with the source files and the usage rules handed over as part of the delivery rather than as an extra. The indicative timeline is around fourteen days, which depends on the same decision-structure factor described earlier: one approver moves quickly, several move at the pace of the slowest calendar."
+            },
+            {
+              "type": "p",
+              "text": "Fritz is one person, which sets a hard limit on how many identities can run at once and means timing has to be agreed rather than assumed; the full commercial terms, the other published prices and how the studio works are set out on the prices page. For the market-wide picture on websites rather than identity, the separate cost guide covers that ground. For the question of whether to approach a studio, an agency or an independent at all, the comparison page covers the structural side. The branding service page covers how an identity is run for a company operating across more than one Swiss language."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How much does a logo cost in Switzerland?",
+          "a": "It depends on which of three purchases is being made. A logo commissioned on its own is typically quoted between CHF 500 and CHF 1'500. A full visual identity, meaning the mark plus a colour palette, typography, variants and written usage rules, is commonly quoted between CHF 1'200 and CHF 3'500. A complete brand programme including positioning and naming is commonly quoted between CHF 8'000 and CHF 25'000. These are ranges observed on the market. Fritz publishes a brand identity at CHF 1'500 as a one-off payment, which sits inside the identity range, near the bottom of it."
+        },
+        {
+          "q": "Why is one identity quote so much higher than another for what looks like the same job?",
+          "a": "At equal scope the usual causes are countable. The number of applications the mark has to be drawn against, whether a naming exercise with its trademark and domain checks is included, how many languages the identity has to survive, how many people have to approve each round, and whether editable source files and written usage rules are part of the delivery. A quote that excludes source files and rules is a smaller scope than one that includes them, and the two should be compared as different scopes rather than as two prices for the same thing. Fixing those five points in writing before asking for prices is what makes a comparison readable."
+        },
+        {
+          "q": "What files should I receive with my logo?",
+          "a": "At minimum: the editable vector master, commonly an .ai or .eps file, which is the original everything else is generated from; an SVG for screen and web use; a press-ready PDF for printers and sign makers; favicon and small-size variants built for browser tabs and app icons; and colour values specified for screen (HEX or RGB) and for print (CMYK, plus a spot reference where a colour must match exactly across suppliers). Also expect a colour version, a monochrome black version and a white or reversed version. Ask for this list at quotation stage rather than at delivery."
+        },
+        {
+          "q": "How long does a brand identity take?",
+          "a": "At Fritz, the indicative timeline for a brand identity is around fourteen days. Across the market, timelines vary too widely to quote a general figure honestly, and the main variable is usually not the design work itself but the decision structure: how many people have to approve each round, and how quickly they can meet. A project with a single decision-maker moves through revision cycles in days. A project reviewed by a committee moves at the pace of that committee's calendar."
+        },
+        {
+          "q": "Is a cheap online logo worth it?",
+          "a": "For a short-lived project, a one-off event, a concept being tested, or anything that will not be seen by customers at scale, an automated or template-based logo can be entirely sufficient, and commissioning a full identity instead would be the real error. The questions to ask before buying are whether the mark is exclusive and stated as such in writing, whether editable vector source files are included and under what terms, and exactly what commercial rights transfer. What that format frequently does not include is a system around the mark: print-ready colour values, single-colour and small-size variants, written usage rules and clarity on the typography licence. If the business needs those, they will have to be commissioned separately later."
+        },
+        {
+          "q": "When is a rebrand worth paying for, and when is a refresh enough?",
+          "a": "A rebrand is worth the cost when the name no longer describes the business, when a merger or a change of offer has made the current mark refer to something that no longer exists, when the audience has fundamentally changed, or when the mark cannot be properly owned. A refresh is enough when the mark still reads well but the assets around it are incomplete: missing file formats, no written rules, no small-size variants, or a palette that has drifted because different suppliers made different choices. Completing an existing system costs a fraction of starting again."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "Version française : prix d'un logo et d'une identité visuelle en Suisse",
+          "href": "/fr/guides/prix-logo-identite-visuelle-suisse"
+        },
+        {
+          "anchor": "Branding agency in Switzerland",
+          "href": "/branding-agency-switzerland"
+        },
+        {
+          "anchor": "Web agency or freelancer in Switzerland",
+          "href": "/web-agency-vs-freelancer-switzerland"
+        },
+        {
+          "anchor": "What a website costs in Switzerland",
+          "href": "/website-cost-switzerland"
+        },
+        {
+          "anchor": "Published prices, all services",
+          "href": "/pricing"
+        },
+        {
+          "anchor": "Selected work, including Il Duca",
+          "href": "/our-work"
+        },
+        {
+          "anchor": "Ask for a free quote, reply within 24 hours",
+          "href": "/contact"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "web-agency-vs-freelancer-switzerland",
+    "type": "guide",
+    "lang": "en",
+    "dir": "",
+    "altFr": "/fr/guides/agence-ou-freelance-suisse",
+    "place": "Switzerland",
+    "serviceType": null,
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Home",
+        "path": "/"
+      },
+      {
+        "name": "Web agency vs freelancer",
+        "path": "/web-agency-vs-freelancer-switzerland"
+      }
+    ],
+    "content": {
+      "metaTitle": "Web Agency vs Freelancer in Switzerland: How to Choose",
+      "metaDesc": "A balanced Swiss guide to choosing between a web agency, a freelancer and a third structure: what each one finances, how each bills, the real risks of each",
+      "h1": "Web agency vs freelancer in Switzerland: choosing the right provider structure",
+      "kicker": "Guide · Choosing a provider",
+      "lede": "The question of web agency vs freelancer in Switzerland is almost always framed as a choice between two options, and that framing is the reason it stays difficult to answer. The decision is not really about price, and it is not about talent either, since strong and weak practitioners exist on both sides. It is about structure: what a provider is built to carry, what it therefore has to charge for, who actually sits at the keyboard, and what happens to the project when that person is unavailable. This guide sets out the three structures available in Switzerland, what a budget finances inside each one, how each bills, the risks of each stated evenly, and a checklist of questions that will tell a buyer more in ten minutes than a proposal document will in ten pages.",
+      "quotableOpener": "The choice is not between a cheap option and a safe one. It is between three different cost structures, each of which finances something different, and each of which fails in a different way.",
+      "sections": [
+        {
+          "h2": "There are three models on the Swiss market, not two",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The comparison is usually set up as a freelancer on one side and an agency on the other. In practice a Swiss buyer commissioning a website or a brand identity is choosing between three distinct structures, and the third one is frequently the closest fit for a small business or a founder-led company. Naming it changes the shape of the decision, because a buyer who believes there are only two options tends to choose the one whose weaknesses are easier to see."
+            },
+            {
+              "type": "h3",
+              "text": "The freelancer"
+            },
+            {
+              "type": "p",
+              "text": "A freelancer is an individual selling their own time, usually with one clear specialism: design, front-end development, WordPress, Webflow, copywriting, or SEO. The engagement is direct. The person who answers the first email is the person doing the work. Because there is no structure to fund beyond the individual, the rate reflects execution time and very little else. Scope is typically defined by the buyer, and the freelancer executes it. Where a project needs a discipline outside the freelancer's specialism, that gap is either subcontracted, handed back to the client, or left open."
+            },
+            {
+              "type": "h3",
+              "text": "The agency"
+            },
+            {
+              "type": "p",
+              "text": "An agency is a team plus the structure that lets a team function. That structure is real work and it has a real cost: an account or project manager who holds the relationship, a producer or lead who coordinates between disciplines, premises, employment costs, insurance, business development, and the internal time spent briefing people who were not in the room when the client spoke. The upside is coverage and continuity. Several disciplines are available under one roof, holidays and illness do not stop the project, and there is a documented process that does not live in one person's head."
+            },
+            {
+              "type": "h3",
+              "text": "The independent studio"
+            },
+            {
+              "type": "p",
+              "text": "Between the two sits a structure that is neither a generalist freelancer nor an agency: one practitioner, or a very small operation, running an agency-standard process without the commercial layer that a team requires. The distinguishing features are usually a defined method rather than an open-ended hourly arrangement, published or fixed prices, and delivery of the finished assets rather than access to a platform. The single point of contact is also the person executing. The trade is straightforward: the buyer gets agency-level care without paying for coordination, and accepts that capacity is genuinely limited."
+            },
+            {
+              "type": "p",
+              "text": "None of these is the correct answer in general. Each is the correct answer for a particular situation, and the rest of this page is about identifying which situation applies. A buyer who identifies the situation first will usually find that the structure follows from it without much argument."
+            }
+          ]
+        },
+        {
+          "h2": "What a budget actually finances in each model",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The most useful way to compare quotes across structures is not to compare the totals. It is to ask what each total is paying for. Two figures that look similar can finance very different things, and a figure that looks high may be buying coordination and continuity that the project genuinely needs. A figure that looks low may simply have less inside it."
+            },
+            {
+              "type": "p",
+              "text": "The table below is a cost-structure comparison, not a price list. It describes where money goes inside each model, not what any provider charges. For observed Swiss price ranges and how to calibrate a quote against them, see the dedicated cost guide; for the figures Fritz publishes, see the pricing page."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "What the fee covers",
+                "Freelancer",
+                "Agency",
+                "Independent studio"
+              ],
+              "tableRows": [
+                [
+                  "Execution time (design, build, content)",
+                  "The largest share of the fee",
+                  "Present, alongside several other cost lines",
+                  "The largest share of the fee"
+                ],
+                [
+                  "Project coordination",
+                  "Usually handled by the client",
+                  "A dedicated role, funded inside the fee",
+                  "Handled by the same person doing the work"
+                ],
+                [
+                  "Client relationship and account management",
+                  "Direct, informal, unbilled",
+                  "A defined role with its own cost",
+                  "Direct, and the same person throughout"
+                ],
+                [
+                  "Premises, employment and overheads",
+                  "Minimal",
+                  "A structural cost the model requires",
+                  "Minimal"
+                ],
+                [
+                  "Multi-discipline coverage",
+                  "Limited to one specialism, or subcontracted",
+                  "Broad, available in-house",
+                  "Defined in advance by what the studio does and does not take on"
+                ],
+                [
+                  "Continuity if one person is unavailable",
+                  "No cover",
+                  "Covered by the team",
+                  "No cover"
+                ],
+                [
+                  "Documented method and process",
+                  "Varies widely by individual",
+                  "Formalised and maintained",
+                  "Formalised, but held by one person"
+                ],
+                [
+                  "Capacity to run several projects at once",
+                  "Limited",
+                  "High",
+                  "Deliberately low"
+                ],
+                [
+                  "Ownership of code and source files",
+                  "Depends entirely on the agreement",
+                  "Depends entirely on the agreement",
+                  "Depends entirely on the agreement"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "The final row matters more than any other and is the one most often left unexamined. It is not determined by the model at all. A freelancer, an agency and a studio can each hand over everything or hand over nothing. It is decided by the contract, which is why it appears in the checklist further down this page rather than in the comparison of structures."
+            }
+          ]
+        },
+        {
+          "h2": "How each model bills, and what that transfers to whom",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Billing structure is not an administrative detail. It determines who carries the risk that the project takes longer than anyone expected, and that risk is the single biggest variable in a web or identity project. Three arrangements cover almost everything on offer in Switzerland, and each one moves that risk to a different party."
+            },
+            {
+              "type": "h3",
+              "text": "Hourly or daily rates"
+            },
+            {
+              "type": "p",
+              "text": "Hourly and daily billing is common across freelancers and agencies alike, with agency hourly rates observed on the Swiss market broadly in the CHF 120 to CHF 180 band. Under this structure the client carries the estimation risk. If the build takes 40 hours more than the estimate, the client pays for 40 more hours. This is genuinely the fairest arrangement when scope cannot be known in advance, which is the case for open-ended platform work, ongoing development, or a project whose requirements will be discovered as it proceeds. It is a poor fit for a defined deliverable, because the buyer has no ceiling."
+            },
+            {
+              "type": "h3",
+              "text": "Fixed price"
+            },
+            {
+              "type": "p",
+              "text": "A fixed price transfers the estimation risk to the provider. If the work runs long, the provider absorbs it. This is only possible where scope is genuinely defined in advance, which is why fixed pricing appears most often on deliverables with a repeatable shape: a brand identity, a brochure site, a standard e-commerce build. The thing to verify is not whether the price is fixed, but what it is fixed against. A fixed price attached to a vague scope is not a fixed price; it is a deposit against a negotiation that has not happened yet. The two questions that settle it are what triggers a variation, and what a variation costs."
+            },
+            {
+              "type": "h3",
+              "text": "Monthly retainer"
+            },
+            {
+              "type": "p",
+              "text": "A retainer buys availability and continuity rather than a deliverable. It suits work that is genuinely continuous: marketing, ongoing content, maintenance, performance work, or an evolving product. It is the wrong instrument for a one-off build, and it becomes an expensive habit when it outlives the work it was set up to cover. A retainer should have a stated scope and a stated exit, in the same way a fixed-price project has a stated deliverable. If the scope of a monthly arrangement cannot be written down, the arrangement is buying access rather than output, and the buyer should decide deliberately whether access is what is wanted."
+            },
+            {
+              "type": "p",
+              "text": "Fritz works on fixed prices for one-off deliverables, with the brand identity published at CHF 1'500. That figure sits inside the range observed on the Swiss market for a full brand identity, CHF 1'200 to CHF 3'500, near the bottom of it. The remaining figures, one-off and monthly, are set out on the pricing page rather than restated here. What matters structurally is that they are published rather than quoted case by case: the estimation risk sits with the studio, and a buyer can calibrate before making contact."
+            }
+          ]
+        },
+        {
+          "h2": "The real risks of each model, stated evenly",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Every structure has a characteristic way of going wrong. Knowing which failure a model is prone to is more useful than knowing its selling points, because the selling points are already in the proposal. The three lists below are set out in the same terms and none of them is softened."
+            },
+            {
+              "type": "h3",
+              "text": "Risks of hiring a freelancer"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Continuity. One person means no cover. Illness, an overrun on another project, or a change of career direction can stall the work, and there is no second person to pick it up.",
+                "Single point of failure on access. If domain registration, hosting, analytics and the repository all sit in one individual's accounts, an unplanned absence becomes an operational problem and not just a scheduling one.",
+                "Uneven scope. A specialist covers their specialism well. The parts outside it (content, technical SEO, accessibility, post-launch handling) may be assumed by the client to be included when they were never quoted.",
+                "Variance in method. Freelance practice ranges from highly systematic to entirely improvised, and the difference is not visible in a portfolio. Portfolios show outcomes, not process."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Risks of hiring an agency"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Paying for structure the project does not need. Coordination, account management and premises are real costs that a team requires in order to work. On a small, well-defined project they can represent a meaningful share of a budget that would otherwise go into execution.",
+                "Distance between the sale and the build. In any team structure, the person who presents the proposal is frequently not the person who will execute it. This is an ordinary consequence of division of labour rather than a flaw, but it means intent has to survive an internal handover, and the buyer should ask who executes.",
+                "Lock-in where assets are not transferred. If the code, the design source files or the platform account remain with the provider, moving elsewhere later means rebuilding. This is a contractual question, not an agency-specific one, but it has more consequence where a proprietary platform or internal framework is involved.",
+                "Slower cycles on small changes. Process that protects a large project can add latency to a two-hour amendment."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Risks of hiring an independent studio"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Capacity is genuinely limited. This is the honest weakness of the model and it applies to Fritz directly. Only a small number of projects can run at once, and a start date can be several weeks out. A buyer with a fixed launch date should establish availability before anything else.",
+                "The same continuity exposure as a freelancer. One person means no internal cover, and an unplanned absence has no team to absorb it.",
+                "A narrower range than an agency. A studio that has defined its method has also defined what it does not take on. That is a feature when the project fits and a real limitation when it does not.",
+                "Scale ceiling. Work requiring several disciplines in parallel, sustained high volume, or a large internal stakeholder process is better served by a team."
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "Who each model actually suits",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Matching the structure to the situation is more reliable than matching it to a budget. Each of the three has a set of conditions under which it is straightforwardly the right call."
+            },
+            {
+              "type": "h3",
+              "text": "A freelancer suits"
+            },
+            {
+              "type": "p",
+              "text": "A buyer who can write a clear brief and manage the work. Projects with a single dominant discipline, such as a front-end build against an existing design, a copywriting pass, or a set of layouts to be produced. Ongoing incremental work on an existing site where scope naturally arrives in small pieces. Buyers who already have internal capability and need extra hands rather than direction. If the brief is clear and the discipline is single, a freelancer is frequently the most efficient choice available, and paying for more structure would be paying for something the project does not use."
+            },
+            {
+              "type": "h3",
+              "text": "An agency suits"
+            },
+            {
+              "type": "p",
+              "text": "Organisations with several internal stakeholders who need a managed process to reach a decision. Projects spanning multiple disciplines that must run in parallel against a fixed date. Companies with compliance, procurement or reporting requirements that a single practitioner cannot satisfy. Long programmes where continuity across years matters more than the cost of coordination. Anyone who needs to know that the work continues when a specific individual is on holiday. When continuity and coverage are the priority, the structural cost is not overhead; it is the thing being bought."
+            },
+            {
+              "type": "h3",
+              "text": "An independent studio suits"
+            },
+            {
+              "type": "p",
+              "text": "Small and medium businesses, founders, and independent professionals with a defined deliverable, a real quality expectation, and no appetite for an open-ended process. Buyers who want the person doing the work to be the person they speak to. Situations where a fixed, known figure matters more than flexible scope. Projects sized as a single identity, a single site, or a single continuous stream of marketing work rather than several simultaneous workstreams."
+            }
+          ]
+        },
+        {
+          "h2": "Where Fritz sits, stated plainly",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Fritz is an independent studio based in Geneva, working across French-speaking Switzerland and in English. It is one person. That is the whole structure, and it produces both the advantages and the limitation described above. Stating it here is not a pitch; it is the disclosure a reader needs in order to weigh anything else on this page."
+            },
+            {
+              "type": "p",
+              "text": "What follows from it on the buyer's side is set out in full, with the prices, on the pricing page."
+            },
+            {
+              "type": "p",
+              "text": "What also follows from it is the constraint. Capacity is limited, only a small number of projects run at a time, and a start date may be several weeks away. There is no internal cover for an absence. A company that needs four disciplines working simultaneously against a hard date is better served by an agency, and a company whose scope will only be discovered as the work proceeds is better served by an hourly arrangement with someone who has the capacity to absorb it. Saying so is more useful than pretending otherwise, and a reader who recognises their own project in that description has been served by this page even if they never make contact."
+            }
+          ]
+        },
+        {
+          "h2": "Questions to ask any provider before signing",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "These five questions apply equally to a freelancer, an agency and a studio. They are more revealing than a portfolio review, because they surface structure rather than taste, and structure is what the earlier sections of this page showed to be the real variable. A good provider of any type answers all five without hesitation, and the answers can be compared across quotes that otherwise look nothing alike."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Who will actually execute the work. Ask for the name and the role of the person who will design and build, not the name of the company. If it is a team, ask who leads it and who the day-to-day contact will be. Distance between the sale and the build is manageable once it is known.",
+                "Whether the price is fixed, and fixed against what. Ask what is included, what is explicitly excluded, what triggers a variation, and what a variation costs. A fixed price attached to an undefined scope is not a fixed price.",
+                "Whether the code and the design source files are handed over at the end. Ask for it in writing, in what format, and whether the site can be hosted elsewhere without the provider's involvement. This single question does more to prevent lock-in than any other, and it is the point at which a one-person provider stops being a single point of failure: if the code, the design source files and the accounts are with the client, any competent provider can continue the work.",
+                "Who holds the domain, the hosting and the analytics accounts. These should be registered in the client's name, with the client as owner and the provider granted access. Retrospective transfers are possible but rarely pleasant.",
+                "What happens if the provider is unavailable. For a team, ask who covers. For an individual, ask what state the work would be left in and what the client would hold at that moment."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "A sixth question is worth adding whenever a monthly figure appears: what the notice period is, and what the client keeps on leaving. A retainer that cannot be exited cleanly leaves a client paying for an arrangement after the work it was set up to cover has finished, so the exit terms deserve as much attention as the monthly figure itself."
+            }
+          ]
+        },
+        {
+          "h2": "How to reach a decision without a long procurement process",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "A useful sequence, in order, for a buyer who wants to decide within a week rather than a quarter. None of these steps requires a formal tender, and together they take less time than reading three proposals."
+            },
+            {
+              "type": "p",
+              "text": "First, write down the deliverable in one sentence. If it can be written in one sentence, fixed pricing is available and an open-ended hourly arrangement is probably unnecessary. If it cannot, the scope is not yet defined, and the first purchase should be a short paid definition phase rather than a build. A definition phase bought deliberately is far cheaper than one discovered halfway through a project."
+            },
+            {
+              "type": "p",
+              "text": "Second, count the disciplines the project genuinely requires in parallel. One or two points toward a freelancer or a studio. Four or five running simultaneously against a fixed date points toward an agency. Counting them in parallel rather than in total matters: a project that needs four disciplines in sequence over four months is a different problem from one that needs four in the same fortnight."
+            },
+            {
+              "type": "p",
+              "text": "Third, decide how much internal management capacity is available. A freelancer usually needs a client who directs. An agency provides the direction and charges for it. A studio provides it without a separate coordination layer, at the cost of capacity. A buyer with no time to direct the work should not choose the model that assumes they will."
+            },
+            {
+              "type": "p",
+              "text": "Fourth, ask the five questions above of every provider under consideration, and compare the answers rather than the totals. Two quotes that differ significantly usually differ because they finance different structures, not because one provider is better value than another."
+            },
+            {
+              "type": "p",
+              "text": "Fifth, calibrate the figures against ranges observed on the Swiss market before treating any quote as high or low. That calibration is covered in detail on the cost guide, which is the right companion page to this one: this page decides which kind of provider to approach, and that page decides whether the figure they return is reasonable. For identity and logo work specifically, the same calibration is set out separately, since scope varies more there than on a website."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Should I hire a web agency or a freelancer?",
+          "a": "It depends on the shape of the project rather than the budget. Hire a freelancer when the brief is clear, the project is dominated by a single discipline, and there is internal capacity to direct the work. Hire an agency when several disciplines must run in parallel against a fixed date, when multiple internal stakeholders need a managed process, or when continuity matters more than the cost of coordination. Consider a third option, the independent studio, when the deliverable is defined, quality expectations are high, and the buyer wants the person doing the work to be the person answering the emails."
+        },
+        {
+          "q": "Is a freelancer cheaper than an agency in Switzerland?",
+          "a": "Not reliably, and the comparison is less clean than it looks. A freelancer carries almost no structural cost, so where two providers quote similar totals, more of the freelance total is likely to be financing execution time. An agency funds coordination, account management, premises and employment costs alongside the work. The two figures are not measuring the same thing: an agency fee that looks high may be financing continuity and multi-discipline coverage that a project genuinely needs, while a freelance fee that looks low may exclude work the buyer assumed was included. Compare what each total finances before comparing the totals."
+        },
+        {
+          "q": "What are the risks of hiring a freelancer?",
+          "a": "Four in particular. Continuity, because one person means no cover if they are ill or overrun elsewhere. Single point of failure on access, if domain, hosting and repository all sit in one individual's accounts. Uneven scope, where the parts outside the freelancer's specialism are assumed to be included but were never quoted. And variance in method, which a portfolio cannot show, since portfolios display outcomes rather than process. Each of these is manageable if it is raised before signing rather than after."
+        },
+        {
+          "q": "What is an independent studio?",
+          "a": "An independent studio is one practitioner, or a very small operation, running an agency-standard process without the commercial layer a team requires. In practice that means a defined method rather than an open-ended arrangement, prices that are published or fixed in advance, delivery of the finished code and design source files, and a single point of contact who is also the person executing. The buyer avoids paying for coordination and account management, and accepts a genuine capacity limit in exchange."
+        },
+        {
+          "q": "How do I choose between them?",
+          "a": "Write the deliverable in one sentence, count the disciplines that must run in parallel, and assess how much internal management capacity is available. Then ask every provider under consideration the same five questions: who executes, whether the price is fixed and fixed against what, whether the code and design source files are handed over, who holds the domain and hosting, and what happens if the provider is unavailable. Compare the answers rather than the totals, then calibrate the figures against ranges observed on the Swiss market."
+        },
+        {
+          "q": "Does the choice of model determine whether I own my website?",
+          "a": "No. Ownership of the code, the design source files, the domain and the hosting accounts is decided by the contract, not by the type of provider. A freelancer, an agency and a studio can each hand over everything or hand over nothing. It should be confirmed in writing before signing, with the domain and hosting registered in the client's name and the provider granted access rather than ownership."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "Agence ou freelance en Suisse (version française)",
+          "href": "/fr/guides/agence-ou-freelance-suisse"
+        },
+        {
+          "anchor": "What a website costs in Switzerland: observed market ranges",
+          "href": "/website-cost-switzerland"
+        },
+        {
+          "anchor": "What a logo and a visual identity cost in Switzerland",
+          "href": "/logo-design-cost-switzerland"
+        },
+        {
+          "anchor": "Published prices",
+          "href": "/pricing"
+        },
+        {
+          "anchor": "Web design agency in Geneva",
+          "href": "/web-design-agency-geneva"
+        },
+        {
+          "anchor": "Ask a question or request a free quote",
+          "href": "/contact"
+        }
+      ],
+      "distinctnessArgument": "This page owns the PROVIDER-STRUCTURE decision and deliberately does not rebuild market cost calibration, which belongs to /website-cost-switzerland, identity pricing, which belongs to /logo-design-cost-switzerland, or the price grid, which belongs to /pricing. Following the audit, the page now carries a single illustrative figure (the CHF 1'500 identity and its position inside the observed CHF 1'200 to CHF 3'500 range) instead of the full list, and the studio boilerplate is reduced to one sentence plus a link to /pricing. Three points of distinctness against the global corpus ranking for this query. First, it introduces a third model, the independent studio, that the two-way framing leaves out, and defines it structurally rather than as a marketing label. Second, the central comparison is a cost-structure table (what a fee finances: execution, coordination, account management, overheads, continuity, capacity) rather than another price table, which keeps it non-overlapping with the cost guide while still being the concrete artifact readers want. Third, it is written from a Swiss position with CHF figures used only where they are structural, the observed CHF 120 to CHF 180 agency hourly band as it relates to who carries estimation risk, rather than as a generic price roundup. It is genuinely balanced: the freelancer and agency sections each contain an explicit affirmative (\"a freelancer is frequently the most efficient choice available\"; \"the structural cost is not overhead; it is the thing being bought\"), the three risk lists are now presented evenly with no in-line mitigation on any of them, and the capacity limit is stated as a real weakness named to Fritz. The handover point that previously mitigated only the studio list has been moved into the provider-agnostic checklist, where it applies to any one-person provider. The five-question checklist is written in the third person, is provider-agnostic and reusable, which makes the page linkable and quotable independently of Fritz. Internally it feeds /pricing, /logo-design-cost-switzerland and /website-cost-switzerland downstream and pairs hreflang with the French guide.",
+      "wordCount": 2815
+    }
+  }
+]

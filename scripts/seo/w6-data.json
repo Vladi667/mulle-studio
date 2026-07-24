@@ -1,0 +1,602 @@
+[
+  {
+    "slug": "agence-web-fribourg",
+    "type": "lander",
+    "dir": "",
+    "hreflangEn": null,
+    "langEn": "/",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Agence web en Suisse romande",
+        "path": "/fr/agence-web-suisse-romande"
+      },
+      {
+        "name": "Agence web à Fribourg",
+        "path": "/fr/agence-web-fribourg"
+      }
+    ],
+    "content": {
+      "metaTitle": "Agence web à Fribourg : sites bilingues FR/DE | Fritz",
+      "metaDesc": "Agence web à Fribourg : quand un site a vraiment besoin du français et de l'allemand, ce que le bilingue change et ce qu'il coûte.",
+      "h1": "Agence web à Fribourg : concevoir un site bilingue français-allemand",
+      "kicker": "Fribourg · site bilingue FR/DE",
+      "lede": "Chercher une agence web à Fribourg pose une question que les autres villes romandes ne posent presque jamais : faut-il un site en français, en allemand, ou dans les deux langues ? La réponse n'est pas culturelle, elle est technique et budgétaire. Elle se décide au cadrage, parce qu'elle détermine la structure des adresses, les gabarits de mise en page et la charge de mise à jour des années suivantes.",
+      "quotableOpener": "Un site bilingue n'est pas un site traduit. C'est un site construit deux fois, et surtout maintenu deux fois.",
+      "sections": [
+        {
+          "h2": "Fribourg est bilingue, votre site ne l'est pas forcément",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le canton de Fribourg est officiellement bilingue français-allemand et la frontière des langues le traverse : certaines communes fonctionnent en allemand, d'autres en français, la ville vit avec les deux. Cela ne signifie pas que chaque entreprise fribourgeoise a besoin d'un site en deux langues. Cela signifie que la question doit être tranchée avant la première ligne de code, pas après."
+            },
+            {
+              "type": "p",
+              "text": "La bonne question n'est pas « est-ce que Fribourg est bilingue », mais « est-ce que la personne que je veux atteindre lira ma page en allemand ». Deux réponses différentes, deux budgets différents."
+            },
+            {
+              "type": "h3",
+              "text": "Quand la version allemande se justifie"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Vous travaillez avec l'administration cantonale ou répondez à des marchés publics, dans un environnement qui fonctionne dans les deux langues.",
+                "Votre clientèle vient aussi des communes germanophones du canton, ou du canton de Berne voisin.",
+                "Vous recrutez : une annonce lisible uniquement en français réduit mécaniquement le vivier de candidats.",
+                "Vous vendez à des entreprises alémaniques et votre site est votre premier document commercial.",
+                "Vous êtes dans l'hôtellerie, la restauration ou l'événementiel, où le visiteur arrive rarement avec une seule langue."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Quand elle ne se justifie pas encore"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Votre activité est de proximité et votre clientèle réelle est francophone.",
+                "Personne, en interne ou en externe, n'est désigné pour écrire et maintenir l'allemand dans la durée.",
+                "Votre contenu français n'est pas stable : dupliquer un texte que vous réécrirez dans trois mois revient à le payer deux fois."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Un site français propre vaut mieux qu'un site bilingue à moitié tenu. Une version allemande abandonnée, avec des prix périmés et des pages vides, coûte plus en crédibilité qu'elle ne rapporte."
+            }
+          ]
+        },
+        {
+          "h2": "Ce que le bilingue change dans la structure du site",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un site bilingue n'est pas un site avec un drapeau en haut à droite. C'est un site dont chaque page existe deux fois, à deux adresses distinctes, et qui l'annonce correctement aux moteurs de recherche."
+            },
+            {
+              "type": "h3",
+              "text": "L'adresse de chaque version"
+            },
+            {
+              "type": "p",
+              "text": "Chaque langue doit avoir sa propre URL, indexable indépendamment. Un contenu qui change sans que l'adresse change ne peut pas être référencé en allemand."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Structure d'URL",
+                "Ce que ça implique",
+                "Quand c'est pertinent"
+              ],
+              "tableRows": [
+                [
+                  "exemple.ch/fr/ et exemple.ch/de/",
+                  "Un seul domaine, une seule autorité accumulée, hreflang entre les deux versions",
+                  "Cas par défaut pour une entreprise fribourgeoise"
+                ],
+                [
+                  "de.exemple.ch",
+                  "Sous-domaine traité comme un site quasi distinct : configuration, suivi et maintenance séparés",
+                  "Rare, surtout si deux équipes différentes pilotent les deux marchés"
+                ],
+                [
+                  "exemple.ch et exemple.de",
+                  "Deux domaines, deux hébergements, deux fois tout",
+                  "Seulement si vous visez l'Allemagne, pas la Suisse alémanique"
+                ],
+                [
+                  "Une seule page mêlant les deux langues",
+                  "Aucune adresse propre par langue, rien à indexer séparément, lecture confuse",
+                  "À éviter"
+                ]
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "hreflang, balise canonique, sélecteur de langue"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Les balises hreflang doivent être réciproques : la page française déclare l'allemande, et l'inverse. Une déclaration à sens unique est ignorée.",
+                "Une valeur x-default indique quelle version servir quand la langue du visiteur ne correspond à rien.",
+                "La balise canonique de la page allemande pointe vers elle-même, jamais vers la française. C'est l'erreur qui fait disparaître une version entière de l'index.",
+                "L'attribut lang de chaque page doit être juste (fr-CH, de-CH) : il conditionne la césure automatique et les lecteurs d'écran.",
+                "Le sélecteur de langue renvoie vers la page équivalente, pas vers l'accueil. Renvoyer à l'accueil est la façon la plus rapide de perdre un visiteur.",
+                "Pas de redirection automatique forcée selon la langue du navigateur : un francophone peut avoir un système en allemand, et l'inverse. On propose, on n'impose pas.",
+                "Le plan du site liste les deux versions, et les redirections d'un ancien site s'écrivent langue par langue."
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "Traduire n'est pas adapter, et les deux ne coûtent pas pareil",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Les mentions légales, les fiches techniques et les descriptifs de produits se traduisent : on cherche la fidélité. Les accroches, la page d'accueil et les arguments de vente s'adaptent : un texte français efficace donne rarement un bon texte allemand une fois traduit littéralement. Confondre les deux registres est la raison pour laquelle tant de versions allemandes sonnent faux."
+            },
+            {
+              "type": "p",
+              "text": "L'allemand écrit en Suisse n'est pas exactement celui d'Allemagne. Le ß n'y est pas utilisé, remplacé par ss, et une partie du vocabulaire administratif diffère. Un texte visiblement rédigé pour le marché allemand se remarque immédiatement côté alémanique. Les formats suivent : montants en CHF, numéros de téléphone, dates, adresses."
+            },
+            {
+              "type": "p",
+              "text": "La traduction automatique publiée telle quelle est une mauvaise idée, pour le lecteur d'abord, pour le référencement ensuite. Comme premier jet relu par quelqu'un dont c'est la langue, elle reste un outil de travail légitime."
+            },
+            {
+              "type": "p",
+              "text": "Reste la question qu'on oublie souvent : qui écrit l'allemand, et qui le maintiendra dans deux ans ? Un studio construit la structure et garantit qu'elle tient ; il ne peut pas rédiger à votre place un texte dont il ne maîtrise pas les nuances. Nommer cette personne au cadrage fait partie du projet, au même titre que le choix des pages."
+            }
+          ]
+        },
+        {
+          "h2": "L'allemand est plus long : ce que ça impose au design",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "C'est la contrainte la plus concrète et la plus sous-estimée. À contenu égal, l'allemand occupe davantage de place que le français, et il le fait de la pire manière pour une mise en page : par des mots composés longs, insécables, qui ne se coupent pas là où on voudrait."
+            },
+            {
+              "type": "p",
+              "text": "Un bouton dessiné pour « Contact » doit accueillir « Kontakt aufnehmen ». Un menu qui tient sur une ligne en français passe à deux en allemand. Des cartes alignées à hauteur fixe se désalignent. Un titre calibré au mot près déborde."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Aucune largeur ni hauteur fixe sur un élément contenant du texte : on dimensionne par le contenu.",
+                "Les maquettes se valident sur la chaîne la plus longue des deux langues, pas sur la plus courte.",
+                "Césure automatique activée, avec l'attribut lang correct, pour que le navigateur coupe proprement les composés allemands.",
+                "Aucun texte intégré dans une image : il faudrait produire deux images et les maintenir toutes les deux.",
+                "Prudence sur les majuscules et le grand interlettrage dans les titres : c'est ce qui casse en premier.",
+                "Menus, formulaires, messages d'erreur et boutons se testent en allemand avant mise en ligne, pas seulement les pages de contenu."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Ces règles ne coûtent presque rien si elles sont posées au départ. Elles coûtent une reprise complète de la mise en page si on les découvre le jour où l'on colle les textes allemands dans un design conçu pour le français."
+            }
+          ]
+        },
+        {
+          "h2": "Le coût du bilingue, à la création et après",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Les tarifs du studio sont publiés : identité de marque CHF 1'500, site vitrine CHF 1'700, e-commerce CHF 2'500, en paiement unique. Ils correspondent à un site dans une langue. Une seconde langue ajoute du travail réel : il est chiffré au cadrage et annoncé dans le devis avant de commencer, jamais découvert en cours de route. Les délais suivent la même logique : identité environ 14 jours, vitrine 2 à 4 semaines, e-commerce 6 à 8 semaines."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Élément",
+                "À la création",
+                "À chaque mise à jour"
+              ],
+              "tableRows": [
+                [
+                  "Pages et contenus",
+                  "Doublés",
+                  "Doublés"
+                ],
+                [
+                  "Menus, boutons, microcopie",
+                  "Doublés une fois",
+                  "Rarement touchés"
+                ],
+                [
+                  "Formulaires et courriels de confirmation",
+                  "Doublés",
+                  "Doublés"
+                ],
+                [
+                  "Titres et descriptions pour les moteurs",
+                  "Doublés",
+                  "Doublés"
+                ],
+                [
+                  "Mentions légales, CGV",
+                  "Doublées",
+                  "Selon évolution"
+                ],
+                [
+                  "Actualités, articles, offres d'emploi",
+                  "Selon volume",
+                  "Doublés à chaque publication"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Le poste le plus lourd n'est pas la création, c'est la suite. Chaque prix modifié, chaque page ajoutée existe désormais en deux exemplaires. Une entreprise qui met son site à jour souvent doit intégrer ce facteur deux dans son organisation avant de s'engager."
+            },
+            {
+              "type": "p",
+              "text": "À titre de repère, les fourchettes observées sur le marché vont de CHF 1'500 à CHF 4'000 pour un site vitrine et de CHF 5'000 à CHF 20'000 pour un e-commerce, avec des taux horaires d'agence de CHF 120 à CHF 180 de l'heure. Le détail des prestations figure sur la page tarifs."
+            }
+          ]
+        },
+        {
+          "h2": "Décider au cadrage coûte beaucoup moins cher que rattraper",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ajouter l'allemand à un site pensé pour une seule langue n'est pas une option qu'on active. C'est un chantier, et il touche presque tout."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "La structure d'adresses change : créer /fr/, déplacer l'existant, écrire les redirections sans perdre ce qui était déjà référencé.",
+                "Le modèle de contenu doit gagner une dimension de langue. Un CMS installé sans elle se reconfigure, parfois se remigre.",
+                "La mise en page se retouche partout où l'allemand déborde, et les images contenant du texte se refont.",
+                "Formulaires, courriels automatiques, messages d'erreur et documents légaux se doublent.",
+                "Le suivi statistique doit séparer les deux versions, sinon vous ne saurez jamais si l'allemand sert à quelque chose."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Décidé au départ, tout cela se résume à choisir une structure et à respecter quelques règles de gabarit. Décidé après, cela ressemble à une refonte partielle. Même quand la réponse honnête est « pas tout de suite », il vaut la peine de construire le site pour que l'allemand puisse être ajouté sans casse : structure d'adresses prête, gabarits qui tolèrent des textes longs, aucun texte dans les images. Cette précaution ne se facture pas, elle relève de la manière de travailler."
+            }
+          ]
+        },
+        {
+          "h2": "Travailler avec un studio genevois depuis Fribourg",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Fritz est un studio d'une seule personne basé à Genève : il n'y a pas de bureau à Fribourg ni d'équipe locale, et prétendre le contraire serait malhonnête. Le travail se fait à distance par défaut, sur place quand une réunion le justifie, avec un seul interlocuteur, des prix publiés, une réponse sous 24 heures, un devis gratuit et la livraison du code et des fichiers sources, ce qui compte particulièrement sur un site bilingue puisque vous y reviendrez à chaque mise à jour de la seconde langue. Cette page complète le panorama régional des services web en Suisse romande, ainsi que la page consacrée à la création de site web à Genève."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Faut-il un site en français et en allemand à Fribourg ?",
+          "a": "Pas automatiquement. Le canton est officiellement bilingue, mais votre site s'adresse à vos clients, pas au canton. La version allemande se justifie si vous travaillez avec l'administration cantonale, si votre clientèle vient aussi des communes germanophones ou du canton de Berne, si vous recrutez, ou si vous vendez à des entreprises alémaniques. Elle ne se justifie pas si votre activité est de proximité et francophone, ou si personne n'est désigné pour maintenir l'allemand dans la durée. Une version allemande à l'abandon fait plus de mal qu'une absence de version allemande."
+        },
+        {
+          "q": "Combien coûte un site bilingue par rapport à un site en une seule langue ?",
+          "a": "Ce qui fait varier le prix n'est pas le fait d'être bilingue en soi, c'est le volume de contenu à produire dans la seconde langue, puis à maintenir. Une vitrine de six pages avec des textes stables ajoute peu de travail. Un site avec des actualités, des offres d'emploi ou un catalogue qui bouge ajoute une charge permanente, parce que chaque publication se fait ensuite deux fois. S'y ajoutent des postes ponctuels : les formulaires et les courriels automatiques, les documents légaux, les titres et descriptions pour les moteurs, et les images contenant du texte, qui doivent exister en double. La rédaction ou la relecture de l'allemand par quelqu'un dont c'est la langue est un poste à part, à prévoir chez vous ou en externe. Ce surcoût est chiffré au cadrage et figure dans le devis avant le démarrage. La grille de prix et de délais figure sur la page tarifs."
+        },
+        {
+          "q": "Comment gère-t-on deux langues sur un site ?",
+          "a": "Chaque langue a ses propres adresses, en général sous /fr/ et /de/ sur un seul domaine. Les pages équivalentes se déclarent mutuellement avec des balises hreflang réciproques, plus une valeur x-default. La balise canonique de chaque page pointe vers elle-même. L'attribut lang est renseigné correctement, ce qui permet notamment la césure automatique des mots composés allemands. Le sélecteur de langue mène à la page équivalente et non à l'accueil, et aucune redirection forcée ne s'appuie sur la langue du navigateur. Côté mise en page, les gabarits sont dimensionnés par le contenu, jamais à hauteur ou largeur fixe."
+        },
+        {
+          "q": "Quelle agence web choisir à Fribourg ?",
+          "a": "Sur un projet potentiellement bilingue, jugez sur trois points concrets. Premièrement, la question de l'allemand est-elle posée au cadrage, avec ses conséquences sur les adresses et les gabarits, ou repoussée à plus tard ? Deuxièmement, qui rédige et maintient la seconde langue est-il clairement établi, plutôt que laissé dans le flou ? Troisièmement, le code et les fichiers sources vous sont-ils livrés, pour que vous puissiez faire évoluer les deux versions sans dépendance. Fritz est un studio basé à Genève qui peut travailler avec des entreprises fribourgeoises, à distance par défaut et sur place quand c'est utile."
+        },
+        {
+          "q": "Peut-on ajouter l'allemand plus tard ?",
+          "a": "Oui, mais rarement au prix qu'on imagine. Il faut reprendre la structure des adresses et écrire les redirections, ajouter une dimension de langue au modèle de contenu, retoucher la mise en page partout où l'allemand déborde, refaire les images contenant du texte, doubler les formulaires et les courriels automatiques, et séparer le suivi statistique. Si la décision n'est pas mûre, la bonne approche est de construire le site français de manière à ce que l'allemand puisse s'y greffer sans casse : structure d'adresses prête, gabarits tolérants aux textes longs, aucun texte dans les images."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "panorama régional des services web en Suisse romande",
+          "href": "/fr/agence-web-suisse-romande"
+        },
+        {
+          "anchor": "création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "page tarifs",
+          "href": "/fr/tarifs"
+        },
+        {
+          "anchor": "devis gratuit",
+          "href": "/fr/contact"
+        }
+      ],
+      "distinctnessArgument": "La quasi-totalité de la page traite d'un problème qui ne se pose qu'à Fribourg parmi les villes visées : la construction d'un site français-allemand sur la frontière des langues. Structure d'URL /fr/ et /de/, hreflang réciproques et x-default, canonique auto-référente, sélecteur de langue vers la page équivalente, absence de redirection forcée selon la langue du navigateur, absence de ß en allemand de Suisse, débordement des mots composés allemands sur les boutons et les menus, césure via l'attribut lang, doublement de la maintenance à chaque publication, coût du rattrapage a posteriori : rien de tout cela n'aurait de sens sur une page Lausanne, Neuchâtel, Nyon ou Vevey, où la question de la seconde langue officielle ne se pose pas. Seules les trois phrases sur le mode de collaboration sont transposables, et elles représentent une part marginale du texte.",
+      "wordCount": 1490
+    }
+  },
+  {
+    "slug": "agence-web-neuchatel",
+    "type": "lander",
+    "dir": "",
+    "hreflangEn": null,
+    "langEn": "/",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Agence web en Suisse romande",
+        "path": "/fr/agence-web-suisse-romande"
+      },
+      {
+        "name": "Agence web à Neuchâtel",
+        "path": "/fr/agence-web-neuchatel"
+      }
+    ],
+    "content": {
+      "metaTitle": "Agence web à Neuchâtel : sites B2B et industriels | Fritz",
+      "metaDesc": "Agence web à Neuchâtel pour PME industrielles et sous-traitants techniques : sites B2B qui documentent un savoir-faire sans le divulguer.",
+      "h1": "Agence web à Neuchâtel : le site d'une entreprise technique",
+      "kicker": "Studio basé à Genève · disponible pour des entreprises neuchâteloises",
+      "lede": "Chercher une agence web à Neuchâtel, quand on est une PME industrielle ou un sous-traitant technique, ce n'est pas chercher la même chose qu'un commerce de détail : le site ne doit pas déclencher un achat, il doit convaincre un ingénieur, un acheteur ou un bureau d'études que votre atelier sait faire ce qu'ils ont à faire faire.",
+      "quotableOpener": "Un site industriel ne vend pas une envie. Il vend une preuve de capacité à quelqu'un qui saura vérifier.",
+      "sections": [
+        {
+          "h2": "Pourquoi un site B2B industriel ne se conçoit pas comme un site vitrine ordinaire",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "La région neuchâteloise est historiquement associée à l'horlogerie et à la microtechnique. Autour de ces métiers gravite tout un tissu d'entreprises de précision : décolletage, usinage, traitement de surface, assemblage, contrôle, machines spéciales, instrumentation. Beaucoup de ces sociétés ne vendent pas au public. Elles vendent à d'autres entreprises, souvent à l'étranger, à des interlocuteurs qui savent lire une tolérance et qui jugeront votre sérieux à la précision de vos formulations."
+            },
+            {
+              "type": "p",
+              "text": "Cela change la nature même du site. Un site de restaurant doit provoquer une envie. Un site de commerce en ligne doit réduire les frictions jusqu'au paiement. Un site industriel, lui, doit répondre à une question beaucoup plus froide : est-ce que cette entreprise est capable de produire ma pièce, dans ma matière, à ma tolérance, dans mes volumes, avec la traçabilité que mon secteur exige."
+            },
+            {
+              "type": "p",
+              "text": "Si le site ne répond pas à cette question, il ne sert à rien. Aucune animation, aucun slogan, aucune photo d'équipe souriante ne compense l'absence d'information technique. C'est le point aveugle de beaucoup de sites industriels : ils sont soignés visuellement et muets sur le fond."
+            }
+          ]
+        },
+        {
+          "h2": "Le vrai problème : documenter un savoir-faire sans divulguer son procédé",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "C'est la difficulté centrale, et elle est propre à ce type d'entreprise. Une PME technique vit d'un savoir-faire accumulé : des réglages, des astuces d'outillage, des séquences d'opérations, parfois des procédés maison. Ce savoir-faire est précisément ce qui justifie le prix. Et c'est précisément ce qu'on ne peut pas publier."
+            },
+            {
+              "type": "p",
+              "text": "Beaucoup d'entreprises résolvent ce dilemme par le silence : le site dit \"usinage de précision depuis plusieurs décennies\" et rien de plus. Le prospect n'apprend rien et va voir ailleurs. D'autres versent dans l'excès inverse et publient des détails que la concurrence lit avec gratitude."
+            },
+            {
+              "type": "p",
+              "text": "La sortie de ce dilemme est méthodique. On distingue trois couches d'information et on décide, page par page, ce qui va dans laquelle."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Couche",
+                "Contenu",
+                "Où elle vit"
+              ],
+              "tableRows": [
+                [
+                  "Publique",
+                  "Familles de pièces, matières travaillées, plages dimensionnelles, plages de tolérances, volumes de série, parc machines par type, certifications et normes de secteur, langues et zones de livraison",
+                  "Pages capacités du site, indexables"
+                ],
+                [
+                  "Sur demande",
+                  "Études de cas anonymisées, exemples de pièces sans identification du client, gammes de contrôle types, délais indicatifs",
+                  "Document envoyé après un premier contact qualifié"
+                ],
+                [
+                  "Confidentielle",
+                  "Procédés propriétaires, réglages, outillage spécifique, noms de donneurs d'ordre, prix",
+                  "Jamais en ligne, jamais dans un document public"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Cette grille rend la rédaction possible. Elle transforme une angoisse floue (\"on ne peut rien dire\") en un arbitrage clair. Dans la pratique, la couche publique est bien plus riche que ce que beaucoup d'entreprises croient : dire qu'on usine tel type d'alliage entre telles dimensions avec telle tolérance courante ne révèle aucun secret, et c'est exactement ce que le prospect cherche."
+            }
+          ]
+        },
+        {
+          "h2": "Pages de capacités plutôt que pages marketing",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Sur un site industriel, la structure qui fonctionne n'est pas \"Accueil / Services / À propos / Contact\". C'est une arborescence de capacités, où chaque page correspond à quelque chose qu'un acheteur pourrait taper ou demander."
+            },
+            {
+              "type": "h3",
+              "text": "Ce qu'une page de capacité contient"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le procédé, nommé avec le terme du métier, pas avec un synonyme grand public",
+                "Les matières travaillées, listées explicitement",
+                "Les plages : dimensions, tolérances courantes et tolérances atteignables, états de surface",
+                "Les volumes : prototype, petite série, série récurrente",
+                "Les moyens de contrôle et la documentation fournie avec les pièces",
+                "Les normes et certifications applicables, sans les surinterpréter",
+                "Ce que vous ne faites pas, ou pas en interne"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Ce dernier point surprend souvent. Écrire ce qu'on ne fait pas est un accélérateur de confiance et un filtre à demandes inutiles. Un acheteur qui comprend en trente secondes que vous n'êtes pas le bon fournisseur ne vous fera pas perdre trois échanges. Un acheteur qui voit une frontière nette en déduit que le reste du site est également honnête."
+            },
+            {
+              "type": "p",
+              "text": "La conséquence est aussi structurelle : une page par capacité, avec un vocabulaire technique réel, crée naturellement des pages que la recherche peut servir sur des requêtes très précises. Ce n'est pas une astuce de référencement. C'est simplement le fait qu'un contenu écrit dans la langue du métier est trouvable par les gens du métier."
+            }
+          ]
+        },
+        {
+          "h2": "Vocabulaire du métier, unités et normes : ce qui se perd dans une traduction littérale",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Une entreprise technique de l'Arc jurassien s'adresse rarement à un marché uniquement francophone. Dès qu'une seconde langue existe sur le site, le sujet n'est pas la langue : c'est la terminologie. Un acheteur allemand ne cherche pas la traduction mot à mot de votre page française, il cherche le terme que sa propre profession utilise, et une traduction littérale produit une page correcte grammaticalement et introuvable dans la pratique."
+            },
+            {
+              "type": "p",
+              "text": "Le décolletage n'a pas d'équivalent immédiat : selon le marché, on parlera de tournage sur machine à poupée mobile ou du terme anglais consacré dans le secteur. Un état de surface se cherche par sa désignation normalisée, pas par une périphrase. Une matière se cherche par sa désignation dans le référentiel du lecteur : la même nuance d'acier inoxydable porte un numéro de matériau européen et une désignation américaine, et l'acheteur tape celle qu'il a sous les yeux sur son plan. La règle de travail est simple : chaque terme technique de chaque page est validé par quelqu'un de votre entreprise qui pratique la langue en question, ou il n'est pas publié."
+            },
+            {
+              "type": "h3",
+              "text": "Les conventions qui doivent être explicites"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le système d'unités : millimètre par défaut, avec l'équivalent en pouces si vos marchés le pratiquent, jamais un mélange implicite",
+                "Le séparateur décimal : 0.05 et 0,05 ne se lisent pas de la même manière selon le lecteur, et une valeur de tolérance ne supporte pas l'ambiguïté",
+                "La notation des tolérances : ajustements normalisés, écarts explicites en plus ou moins, symboles de tolérancement géométrique, en indiquant le référentiel utilisé",
+                "Les normes citées : préciser l'organisme et la version plutôt que le sigle seul, parce que le même sujet est couvert par des référentiels différents selon les marchés",
+                "La documentation qui accompagne les pièces : rapport de contrôle, certificat de matière, et sous quelle norme il est établi"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Le bénéfice est double. Un lecteur étranger comprend sans avoir à convertir mentalement, et il constate que l'entreprise sait dans quel référentiel elle travaille. Dans un métier où une virgule mal placée change une cote, cette rigueur affichée fait partie de la démonstration de capacité."
+            }
+          ]
+        },
+        {
+          "h2": "Cycle de vente long : le site qualifie, il ne convertit pas",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Dans le B2B industriel, personne ne signe en ligne. Entre la première visite et la première commande, il peut y avoir une demande d'information, un échange technique, un plan transmis, une offre, un échantillon, une validation qualité, puis seulement une série. Le site n'est qu'un maillon de cette chaîne, et attendre de lui qu'il \"convertisse\" est une erreur de cadrage."
+            },
+            {
+              "type": "p",
+              "text": "Son travail réel est la qualification : amener les bons interlocuteurs à se manifester avec assez de contexte pour que le premier échange soit déjà utile, et dissuader les autres."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Rôle du site",
+                "Site grand public",
+                "Site industriel B2B"
+              ],
+              "tableRows": [
+                [
+                  "Objectif du parcours",
+                  "Déclencher un achat rapide",
+                  "Qualifier une demande sérieuse"
+                ],
+                [
+                  "Appel à l'action",
+                  "Acheter, réserver",
+                  "Demander une offre avec plan et cahier des charges"
+                ],
+                [
+                  "Formulaire",
+                  "Le plus court possible",
+                  "Assez détaillé pour cadrer la demande, avec dépôt de fichier"
+                ],
+                [
+                  "Contenu décisif",
+                  "Prix, avis, images produit",
+                  "Capacités, tolérances, normes, moyens de contrôle"
+                ],
+                [
+                  "Mesure de succès",
+                  "Taux de conversion",
+                  "Qualité et pertinence des demandes reçues"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Cela a une implication directe sur le formulaire de contact. Un champ \"votre message\" ne suffit pas. Un formulaire qui demande le type de pièce, la matière, la quantité, l'échéance souhaitée et qui accepte un plan en pièce jointe fait gagner un aller-retour complet à chaque demande. Il décourage aussi les sollicitations sans objet, ce qui est un bénéfice net."
+            },
+            {
+              "type": "p",
+              "text": "Autre implication : le site doit être lisible par quelqu'un qui n'achètera peut-être que dans six mois. Il est consulté pendant une veille fournisseurs, retrouvé plus tard, comparé à deux concurrents. Sa stabilité et sa clarté comptent davantage que son effet de surprise."
+            }
+          ]
+        },
+        {
+          "h2": "Le studio est à Genève, votre atelier est dans le canton de Neuchâtel",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Fritz est un studio basé à Genève. Il n'y a pas de bureau à Neuchâtel, pas d'équipe locale, pas d'adresse dans le canton. Le travail se fait à distance par défaut, avec un déplacement chez vous quand il apporte quelque chose que l'écran ne remplace pas."
+            },
+            {
+              "type": "p",
+              "text": "Pour une entreprise technique, ce déplacement a précisément une valeur : voir l'atelier. On comprend mieux ce qu'une entreprise sait faire en traversant sa halle de production qu'en lisant une liste de machines. C'est aussi le moment de photographier correctement les moyens et les pièces, ce qui règle en une journée le problème récurrent des visuels industriels tristes ou empruntés à des banques d'images."
+            },
+            {
+              "type": "p",
+              "text": "Le cadre tient en trois points. Un seul interlocuteur, celui qui exécute, sans commercial qui promet puis transmet. Le code et les fichiers sources vous sont livrés, ce qui n'est pas un détail pour une entreprise qui raisonne en durée de vie longue et en indépendance vis-à-vis de ses fournisseurs. Réponse sous 24 heures et devis gratuit."
+            },
+            {
+              "type": "p",
+              "text": "Les prix sont publiés et identiques quel que soit le canton, avec un paiement unique pour la création : la grille complète et les délais indicatifs se trouvent sur la page tarifs. Pour une PME industrielle, c'est le site vitrine qui correspond au besoin dans la grande majorité des cas."
+            },
+            {
+              "type": "p",
+              "text": "Sur les délais, un point de franchise : dans un projet industriel, le facteur limitant est souvent la validation technique interne. Les plages annoncées supposent que quelqu'un chez vous puisse relire et valider les contenus techniques dans un délai raisonnable. C'est la seule vraie variable."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelle agence web pour une PME industrielle à Neuchâtel ?",
+          "a": "Cherchez d'abord quelqu'un qui accepte d'entrer dans le vocabulaire de votre métier plutôt que de le contourner. Le test est simple : demandez au prestataire comment il compte présenter vos tolérances, vos matières et vos moyens de contrôle sans divulguer vos procédés. Si la réponse parle uniquement de design et de \"storytelling\", le site sera joli et inutile pour un acheteur. Fritz est un studio genevois qui peut travailler à distance avec des entreprises neuchâteloises, avec un déplacement en atelier quand c'est utile pour comprendre et photographier la production."
+        },
+        {
+          "q": "Peut-on montrer des pièces sans identifier le donneur d'ordre ?",
+          "a": "Oui, à condition de choisir quoi montrer. Une pièce dont la géométrie est caractéristique d'un produit final identifiable ne doit pas être publiée, pas plus qu'un marquage, un numéro de plan, une référence client ou un emballage siglé. Ce qui se montre sans risque : des pièces de géométrie courante, des vues de détail centrées sur un état de surface ou un usinage, la machine en action, les moyens de contrôle. Quand une pièce est trop reconnaissable, la solution n'est pas de la flouter à moitié mais d'en photographier une autre. En cas de doute, demandez l'accord écrit du donneur d'ordre, ou renvoyez la démonstration vers un cas anonymisé transmis après contact."
+        },
+        {
+          "q": "Faut-il publier les matières et les tolérances dans plusieurs référentiels ?",
+          "a": "Si vous travaillez avec des marchés qui n'utilisent pas les mêmes désignations, oui. Une même nuance porte souvent un numéro de matériau européen et une désignation étrangère, et l'acheteur cherche celle qui figure sur son plan : indiquer les deux évite qu'il conclue à tort que vous ne traitez pas sa matière. Même logique pour les unités et la notation des tolérances, qui doivent être explicites plutôt que supposées. Précisez aussi le référentiel de vos rapports de contrôle : c'est une information que l'acheteur vérifiera de toute façon."
+        },
+        {
+          "q": "Comment présenter un savoir-faire technique sur un site ?",
+          "a": "En séparant trois couches. La couche publique regroupe ce qui décrit votre capacité sans révéler comment vous l'obtenez : familles de pièces, matières, plages dimensionnelles, tolérances, volumes, types de machines, normes, moyens de contrôle. La couche sur demande contient les études de cas anonymisées, envoyées après un premier contact. La couche confidentielle ne va jamais en ligne : procédés propriétaires, réglages, outillage spécifique, noms de clients, prix. Beaucoup d'entreprises sous-estiment largement la richesse de la première couche."
+        },
+        {
+          "q": "Faut-il publier des références clients quand on est sous-traitant ?",
+          "a": "Rarement, et jamais sans accord écrit. Beaucoup de contrats de sous-traitance interdisent de nommer le donneur d'ordre, et certains secteurs le considèrent comme une faute grave. L'alternative qui fonctionne est le cas anonymisé : le type de pièce, la contrainte technique à résoudre, la solution retenue, sans jamais identifier le client ni montrer une pièce reconnaissable. Cela démontre la compétence sans exposer personne."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "agence web en Suisse romande",
+          "href": "/fr/agence-web-suisse-romande"
+        },
+        {
+          "anchor": "création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "tarifs publiés",
+          "href": "/fr/tarifs"
+        },
+        {
+          "anchor": "demander un devis gratuit",
+          "href": "/fr/contact"
+        }
+      ],
+      "distinctnessArgument": "The spine of the page is the confidentiality dilemma of precision subcontracting: a three-layer public / on-request / confidential content grid, a capability-page anatomy built on tolerances, materials, ranges and control means, and the argument for publishing what you do not do. The multilingual section is now purely industrial: trade terminology per market, unit systems, decimal separators, tolerance notation and material designation referentials, none of which belongs on a bilingual-canton page about hreflang and German compounds, a Riviera hospitality page, or a Lausanne page built around Il Duca. The qualification-not-conversion table with plan upload and multi-month supplier vetting, and the two FAQs on showing parts without identifying the principal and on anonymised references, only make sense for an audience of engineers, buyers and design offices.",
+      "wordCount": 1430
+    }
+  }
+]

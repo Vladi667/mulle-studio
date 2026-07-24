@@ -1,0 +1,765 @@
+[
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/web-design-agency-geneva.html",
+  "quote": "these prices sit at or below the low end, and on several items below the floor entirely",
+  "type": "internal-contradiction",
+  "severity": "high",
+  "fix": "Replace with the accurate formulation used on pricing.html: identity CHF 1'500 and site CHF 1'700 sit inside their observed ranges near the bottom; only e-commerce CHF 2'500 is below its observed floor of CHF 5'000."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/web-design-agency-geneva.html",
+  "quote": "a buyer new to Switzerland deserves to know they are looking at the bottom of the market and not the middle of it",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Drop the 'bottom of the market' claim, or restate as 'near the bottom of the observed ranges, and below the floor on e-commerce only'."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/web-design-agency-geneva.html",
+  "quote": "most providers here quote on request rather than publishing a figure",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Rewrite as a convention, not a measurement: 'quoting on request rather than publishing a figure is the usual convention here' (appears in the FAQ item and in the FAQPage JSON-LD; fix both)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/web-design-agency-geneva.html",
+  "quote": "Four projects is a small portfolio and it is presented as such rather than padded.",
+  "type": "internal-contradiction",
+  "severity": "low",
+  "fix": "The section heading above it reads 'Three projects, and what each one needed' while the body counts four; change the heading to 'Four projects, and what each one needed'."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/branding-agency-switzerland.html",
+  "quote": "No stable published band; generally priced below full identity work",
+  "type": "internal-contradiction",
+  "severity": "medium",
+  "fix": "logo-design-cost-switzerland.html states 'a logo commissioned on its own is typically quoted between CHF 500 and CHF 1'500'; use that same canonical band in this table's 'Logo only' row instead of denying a band exists."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/branding-agency-switzerland.html",
+  "quote": "The problem was the one most food and hospitality businesses have",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Rewrite without the 'most … have' measurement and without the hospitality framing: 'The problem here was one a food business typically faces'."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/website-cost-switzerland.html",
+  "quote": "one of them includes things the other quietly leaves out",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Remove 'quietly' — say 'one of them includes items the other does not', which is the neutral structural point."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/website-cost-switzerland.html",
+  "quote": "some low quotes are low precisely because they are not portable",
+  "type": "competitor-motive",
+  "severity": "low",
+  "fix": "Restate structurally: 'a build that cannot be taken elsewhere is a smaller scope, and scope shows up in the price'."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/website-cost-switzerland.html",
+  "quote": "A quote promising materially less than that for the same scope is either compressing your involvement or compressing the work.",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Make it conditional: 'If a quote promises materially less for the same scope, it is worth asking what has been compressed.'"
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/website-cost-switzerland.html",
+  "quote": "no way to tell whether a CHF 6'000 quote is reasonable",
+  "type": "invented-figure",
+  "severity": "low",
+  "fix": "Drop the invented CHF 6'000 example or replace it with a figure taken from the canonical ranges already published on the page."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-marketing-geneve.html",
+  "quote": "Une agence marketing à Genève qui se contente de publier deux annonces par mois saute les trois quarts de ce travail",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Drop the fabricated \"trois quarts\" proportion and the imputed competitor behaviour; describe the four pillars neutrally without quantifying what others omit."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-marketing-geneve.html",
+  "quote": "Dans les fourchettes observées sur le marché genevois, un accompagnement récurrent démarre rarement sous quelques centaines de francs par mois et monte selon le nombre de canaux pilotés.",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Remove this market price claim — no canonical range exists for recurring monthly marketing retainers; state only Fritz's own published CHF 490 / 890 / 1'390."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-marketing-geneve.html",
+  "quote": "une agence classique qui facture des départements et sort deux publications par mois, ou un studio qui construit un vrai moteur d'acquisition de clients",
+  "type": "competitor-motive",
+  "severity": "high",
+  "fix": "Replace with a neutral structural contrast (multi-role team vs single operator) with no claimed output cadence for other agencies."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-marketing-geneve.html",
+  "quote": "Dans une agence marketing à Genève de taille classique, le compte passe entre un commercial, un chef de projet, un stratège et des exécutants qui ne se croisent qu'en réunion.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Reframe as a description of Fritz's own model (\"ici, une seule personne…\") rather than an asserted account of how other Geneva agencies operate."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-marketing-geneve.html",
+  "quote": "Une agence marketing digital à Genève qui traite ces leviers séparément paie plus cher pour des résultats qu'elle ne parvient pas à relier.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "State the structural point conditionally (\"des leviers pilotés séparément se mesurent mal\") without asserting what other agencies pay or achieve."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-marketing-geneve.html",
+  "quote": "La plupart des agences sortent deux pubs par mois et croisent les doigts.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Remove the \"la plupart des agences\" claim; lead with what Fritz does instead."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-marketing-geneve.html",
+  "quote": "un moteur d'acquisition demande en général un trimestre pour livrer une lecture fiable",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Mark explicitly as an assumption/working hypothesis rather than a general fact about acquisition engines."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/systemes-croissance-ia.html",
+  "quote": "Cette clarté est rare. Peu d'acteurs en Suisse romande expliquent honnêtement ce que l'IA fait, et surtout ce qu'elle ne fait pas, pour une petite structure.",
+  "type": "competitor-motive",
+  "severity": "high",
+  "fix": "Delete the comparative claim about the honesty of other Suisse romande providers; keep only the statement of what Fritz explains."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/systemes-croissance-ia.html",
+  "quote": "La plupart des entreprises se développent encore <em>à l'instinct.</em>",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Rephrase conditionally (\"quand la croissance se pilote à l'instinct…\") instead of asserting what most companies do."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/systemes-croissance-ia.html",
+  "quote": "Un indépendant ou une PME de quelques personnes en tire souvent plus de valeur qu'un grand groupe",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Present as the studio's view/reasoning, not as an observed comparative outcome."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/systemes-croissance-ia.html",
+  "quote": "<b>CHF 490 — 2,900 / mo</b>",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Write both bounds with the CHF prefix and Swiss apostrophe: CHF 490 to CHF 2'900 / mois."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-neuchatel.html",
+  "quote": "Fritz est un studio genevois qui travaille à distance avec des entreprises neuchâteloises, avec un déplacement en atelier quand c'est utile pour comprendre et photographier la production.",
+  "type": "false-implied-experience",
+  "severity": "high",
+  "fix": "Fritz has no Neuchâtel client — change to the conditional form used elsewhere (\"peut travailler à distance avec des entreprises neuchâteloises\") and state plainly there is no Neuchâtel mandate to show."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-neuchatel.html",
+  "quote": "Studio basé à Genève · travaille avec des entreprises neuchâteloises",
+  "type": "false-implied-experience",
+  "severity": "high",
+  "fix": "Same issue in the hero eyebrow — reword to \"disponible pour des entreprises neuchâteloises\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-neuchatel.html",
+  "quote": "Beaucoup d'entreprises résolvent ce dilemme par le silence : le site dit \"usinage de précision depuis plusieurs décennies\" et rien de plus. Le prospect n'apprend rien et va voir ailleurs.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Present as a possible failure mode (\"un site peut se réfugier dans le silence…\") rather than as measured prevalence and a stated prospect reaction."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-neuchatel.html",
+  "quote": "la couche publique est bien plus riche que ce que la plupart des entreprises croient",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Drop \"la plupart des entreprises croient\"; state only that the public layer usually contains more than a confidentiality reflex suggests, as an argument not a finding."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-neuchatel.html",
+  "quote": "La plupart des entreprises sous-estiment largement la richesse de la première couche.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Same fix in the FAQ answer — remove the unmeasured \"la plupart des entreprises\" assertion."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-neuchatel.html",
+  "quote": "Un acheteur qui comprend en trente secondes que vous n'êtes pas le bon fournisseur ne vous fera pas perdre trois échanges.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Remove the invented \"trente secondes\" and \"trois échanges\" figures; say a clear boundary filters unsuitable enquiries early."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-neuchatel.html",
+  "quote": "Beaucoup de contrats de sous-traitance interdisent de nommer le donneur d'ordre, et certains secteurs le considèrent comme une faute grave.",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Make conditional: \"si votre contrat de sous-traitance interdit de nommer le donneur d'ordre…\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-fribourg.html",
+  "quote": "Fritz est un studio basé à Genève qui travaille avec des entreprises fribourgeoises, à distance par défaut et sur place quand c'est utile.",
+  "type": "false-implied-experience",
+  "severity": "high",
+  "fix": "Fritz has no Fribourg client — reword to availability (\"peut travailler avec des entreprises fribourgeoises\"), consistent with the body text that already denies a local presence."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-fribourg.html",
+  "quote": "Confondre les deux registres est la raison pour laquelle tant de versions allemandes sonnent faux.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Rephrase as a risk (\"confondre les deux registres fait sonner faux une version allemande\") rather than an asserted cause of an observed prevalence."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-lausanne.html",
+  "quote": "Aucune promesse de temps de trajet ne sera faite ici : ce genre d'argument sert surtout à masquer l'absence de raison plus solide de choisir quelqu'un.",
+  "type": "competitor-motive",
+  "severity": "high",
+  "fix": "Keep the first clause and delete the imputed motive; simply state that proximity is not offered as an argument."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-lausanne.html",
+  "quote": "C'est un mauvais service rendu, et c'est une dépendance déguisée en cohérence.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Describe the structural consequence (the shop must return to a studio for every flavour change) without imputing disguise or intent."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-lausanne.html",
+  "quote": "L'ordre inverse est plus courant qu'on ne croit, et il produit toujours les mêmes dégâts",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Remove the prevalence and the \"toujours\" absolute; present the failure modes as risks of designing screen-first."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-geneve.html",
+  "quote": "Un freelance résout le coût mais rarement la structure : pas toujours de charte, pas toujours de fichiers sources remis, un cadre variable.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "State what Fritz delivers (charte, fichiers sources, cadre fixe) without asserting what freelances generally fail to deliver."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-geneve.html",
+  "quote": "Une grande agence facture des strates : chef de projet, directeur artistique, exécutant. Le prix monte, et la personne qui vous répond n'est pas celle qui dessine.",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Keep the neutral structural description of layered teams but drop the asserted consequence about who answers versus who designs."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-geneve.html",
+  "quote": "Un logo seul se copie ou se démode vite",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Rephrase as a design argument (\"un logo seul n'offre pas de cadre d'usage\") rather than an asserted outcome."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-geneve.html",
+  "quote": "<b>CHF 1,500 — 2,500</b>",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Use the Swiss format with CHF on both bounds: CHF 1'500 to CHF 2'500."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-geneve.html",
+  "quote": "<div class=\"deliv\"><b>Livré</b> en 45 jours</div>",
+  "type": "internal-contradiction",
+  "severity": "low",
+  "fix": "Fribourg states \"e-commerce 6 à 8 semaines\" for the same service; align the e-commerce timeline wording across both pages."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "Il se situe sous le plancher observé pour ce niveau, et la raison est structurelle plutôt que commerciale",
+  "type": "internal-contradiction",
+  "severity": "high",
+  "fix": "CHF 1'500 sits INSIDE the observed CHF 1'200–3'500 range shown in the table directly above; rewrite as \"dans le bas de cette fourchette\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "Fritz publie son identité de marque à CHF 1'500 en paiement unique, fichiers sources inclus, ce qui se situe sous le plancher habituellement observé pour ce niveau.",
+  "type": "internal-contradiction",
+  "severity": "high",
+  "fix": "Same error repeated in the FAQ; replace with \"ce qui se situe dans le bas de la fourchette observée (CHF 1'200 à CHF 3'500)\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "Les prix ci-dessus se situent au bas de ces fourchettes, et sous le plancher observé sur plusieurs postes.",
+  "type": "internal-contradiction",
+  "severity": "high",
+  "fix": "Only e-commerce CHF 2'500 is below its observed floor (CHF 5'000); identity and site are inside their ranges — say \"sous le plancher observé sur l'e-commerce uniquement\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "Une agence installée dans votre rue peut très bien vous facturer CHF 4'000 pour un thème installé en trois jours, sans vous remettre les fichiers.",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Invented price + duration attributed to an unnamed competitor, plus bad-faith framing; delete the sentence or state only the canonical ranges."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "l'offre locale se limite souvent à deux ou trois prestataires",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Unsupported count of local providers; remove the number or say \"l'offre locale est plus restreinte\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "avec des taux horaires d'agence de l'ordre de CHF 120 à 180 de l'heure",
+  "type": "convention",
+  "severity": "medium",
+  "fix": "CHF must prefix both bounds: \"CHF 120 à CHF 180 de l'heure\" (also in the FAQ occurrence on the same page)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "avec des taux horaires d'agence de CHF 120 à 180 de l'heure",
+  "type": "convention",
+  "severity": "medium",
+  "fix": "FAQ \"Combien coûte un site web en Suisse romande ?\" — write \"CHF 120 à CHF 180 de l'heure\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "un taux horaire d'agence se situe le plus souvent entre CHF 120 à 180 de l'heure",
+  "type": "convention",
+  "severity": "medium",
+  "fix": "Write \"entre CHF 120 et CHF 180 de l'heure\" (same fix in the FAQ occurrence)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "<td>CHF 1'200 à 3'500</td>",
+  "type": "convention",
+  "severity": "medium",
+  "fix": "Table cell must carry CHF on both bounds: \"CHF 1'200 à CHF 3'500\"; same for the \"CHF 8'000 à 25'000\" cell."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "En pratique, la plupart des projets romands comportent un ou deux déplacements, concentrés sur les étapes ci-dessus.",
+  "type": "false-implied-experience",
+  "severity": "high",
+  "fix": "Implies a body of client projects across Romandie that does not exist (only Lausanne and Geneva); reframe as a stated working method, not observed practice."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "Un client à Neuchâtel voit exactement la même chose, au même moment, qu'un client au bout de la rue.",
+  "type": "false-implied-experience",
+  "severity": "medium",
+  "fix": "Implies a Neuchâtel client; make it hypothetical (\"un client basé à Neuchâtel verrait…\")."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "Le déplacement est proposé quand il sert le projet, jamais pour justifier une facture.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Implies other providers travel to justify fees; keep only the positive statement of the studio's own policy."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "Facturer le déplacement au kilomètre pousse à se déplacer pour de mauvaises raisons, et transforme la géographie du client en variable commerciale.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Imputes bad-faith incentive to unnamed providers; state the flat-pricing policy without the motive claim."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "L'argument de la proximité est l'argument commercial par défaut des agences régionales.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Unmeasured claim about what most regional agencies do; mark as an observation or delete."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "Le prix est-il publié à l'avance, ou construit après estimation de votre budget.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Implies competitors price against the client's wallet; rephrase neutrally as \"le prix est-il publié ou communiqué après un échange\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "Beaucoup de propositions s'arrêtent à la livraison, alors que la vie d'un site commence là.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Unmeasured claim about other proposals; turn into a question the buyer should ask."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-web-suisse-romande.html",
+  "quote": "C'est l'étape qui fait déraper la majorité des projets, quel que soit le canton.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "State as an assumption (\"d'expérience, c'est souvent…\") or drop the majority claim."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "Un client suisse qui compare deux prestataires regarde la précision avant l'audace.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Buyer-behaviour asserted as fact; reframe as the studio's working assumption."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "C'est une étape banale, rarement faite, et elle évite la majorité des reprises.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Two unmeasured claims (\"rarement faite\", \"la majorité des reprises\"); state only that the studio tests templates with real German text."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "ce qui explique qu'une entreprise ayant acheté un logo se retrouve rarement avec une image cohérente six mois plus tard",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Asserted outcome frequency with a made-up horizon; describe structurally what a logo alone leaves undecided."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/agence-branding-suisse.html",
+  "quote": "Elle explique aussi une grande partie des déceptions : un client achète un logo et croit avoir acheté une marque.",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Unmeasured claim about client disappointment; keep the definitional distinction only."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/creation-site-web-geneve.html",
+  "quote": "Un site créé ici doit inspirer confiance en quelques secondes, se charger vite sur mobile et rester trouvable quand un client cherche votre service.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "\"en quelques secondes\" states visitor behaviour as measured fact; drop the timing or mark it as an assumption."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/creation-site-web-geneve.html",
+  "quote": "Une grande agence offre de la structure mais coûte cher et vous éloigne du créateur ; un freelance est abordable mais moins prévisible.",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Characterises unnamed providers' reliability as fact; restrict to structural differences (nombre d'interlocuteurs, périmètre)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/creation-site-web-geneve.html",
+  "quote": "Pour Eden Terranova, société d'investissement agricole active aux Émirats",
+  "type": "false-implied-experience",
+  "severity": "low",
+  "fix": "Ground truth records Eden Terranova only as an agricultural investment company with no country attached; drop \"active aux Émirats\" unless documented."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/sites-web-hotellerie-restauration.html",
+  "quote": "Le studio est basé à Genève et travaille avec des établissements de Suisse romande",
+  "type": "false-implied-experience",
+  "severity": "high",
+  "fix": "Contradicts this page's own disclaimer (no hotel/restaurant client); write \"travaille depuis Genève et peut intervenir pour des établissements de Suisse romande\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/sites-web-hotellerie-restauration.html",
+  "quote": "Reconstruire une couche de réservation sur mesure au-dessus de cela produit deux sources de vérité, et la seconde finit toujours par diverger de la première.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "\"finit toujours par diverger\" is stated as measured fact; use \"risque de diverger\"."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/sites-web-hotellerie-restauration.html",
+  "quote": "Ces éléments demandent peu de travail et sont pourtant les plus souvent négligés au profit de la page d'accueil.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Unmeasured claim about what other sites neglect; state only that the studio treats these as priorities."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/sites-web-hotellerie-restauration.html",
+  "quote": "Beaucoup d'établissements paient déjà un système",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Make conditional: \"Si vous payez déjà un système…\" (as the FAQ already does)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/tarifs.html",
+  "quote": "<li>Identité de marque incluse</li>",
+  "type": "internal-contradiction",
+  "severity": "medium",
+  "fix": "The CHF 1'700 site tier claims brand identity is included, while /fr/creation-site-web-geneve prices identity separately at CHF 1'500 (\"Beaucoup de clients associent l'identité de marque à la création du site\"); align both pages on one rule."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "Autrement dit, en dessous des fourchettes de marché ci-dessus — parfois nettement — tout en livrant un design entièrement sur-mesure plutôt qu'un modèle industriel.",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Only e-commerce CHF 2'500 is below its observed floor; rewrite to say identity CHF 1'500 and site CHF 1'700 sit near the bottom of (inside) their ranges, and e-commerce alone sits below the observed CHF 5'000 floor."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "<tr><td>Prix site vitrine</td><td>800 – 3'000</td><td>1'500 – 3'500</td><td>5'000 – 15'000</td></tr>",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Delete the per-provider price columns or replace with the canonical brochure-site range CHF 1'500 to CHF 4'000; CHF 800–3'000, 1'500–3'500 and 5'000–15'000 are not observed figures."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "<tr><td>Site vitrine avancé</td><td>3'500 – 8'000</td><td>design personnalisé, animations, blog, multilingue léger</td></tr>",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Remove the invented 'site vitrine avancé' band; the canonical ladder goes brochure CHF 1'500 to CHF 4'000 then custom build CHF 4'000 to CHF 15'000."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "« Genève est 30 à 50 % plus cher que Lausanne » : vrai ou faux ?",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Delete the 30–50% figure (and its repeat in the section body); no such measurement exists — describe the cost-structure difference without a percentage."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "Mais l'écart de 30 à 50 % concerne surtout les grandes structures avec des locaux et des équipes à Genève.",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Remove the quantified gap; state only that fixed costs differ by provider type."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "la différence entre un site à CHF 800 qui ne convertit pas et un site à CHF 1'700 qui convertit se compte vite en milliers de francs",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Drop the CHF 800 price point and the asserted thousands-of-francs delta; no such figure is observed or measured."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "Beaucoup d'agences ne publient aucun tarif et facturent au ressenti",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Replace with a neutral structural statement: many agencies quote per project rather than publishing fixed prices."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "la maintenance reste un service optionnel, jamais une prise en otage",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Remove the hostage framing; state only that maintenance at Fritz is optional and priced separately."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "vous parlez rarement à la personne qui exécute réellement le travail",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Reframe as a structural feature of team-based delivery rather than a stated frequency."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "l'hébergement (CHF 60 à 400 par an)",
+  "type": "internal-contradiction",
+  "severity": "medium",
+  "fix": "Contradicts combien-coute-site-web-suisse.html which states « l'hébergement (CHF 100 à 400/an) » — pick one hosting range and use it on both pages."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-site-web-geneve.html",
+  "quote": "le SEO structurel — hiérarchie des titres, vitesse, balisage, contenu utile — se joue à la conception",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Replace em dashes inside .lp-body with commas, colons or parentheses (also occurs at « en dessous des fourchettes de marché ci-dessus — parfois nettement — »)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "<tr><td>Genève</td><td>CHF 1'700 – 4'000+</td><td>Haut de fourchette</td></tr><tr><td>Lausanne / Vaud</td><td>CHF 1'500 – 3'800</td><td>Proche de Genève</td></tr><tr><td>Fribourg / Neuchâtel / Jura</td><td>CHF 1'200 – 3'000</td><td>Milieu à bas</td></tr>",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Delete the per-region price table; no canonical regional ranges exist — keep the single brochure-site range CHF 1'500 to CHF 4'000."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "<tr><td>Site vitrine avancé / sur-mesure</td><td>CHF 3'500 – 15'000</td><td>sur devis</td></tr>",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Use the canonical custom-build range CHF 4'000 to CHF 15'000; the CHF 3'500 floor is invented."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "Fourchette observée : CHF 1'500 à 4'000 pour un site standard, et CHF 3'500 à 8'000 pour une version avancée",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Remove the CHF 3'500–8'000 'advanced' band, which is not a canonical range."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "(120 à 180 CHF/h en Suisse, contre souvent 50 à 90 €/h en France). Un même site vitrine peut se négocier autour de 1'000 à 2'500 € chez un prestataire français",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Delete the French hourly and project figures (also repeated in the FAQ); no source supports 50–90 €/h or 1'000–2'500 €."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "pour un abonnement de CHF 15 à 60 par mois, hébergement compris",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Remove the CHF 15–60/month figure (also in the FAQ) or attribute it to the platforms' own published pricing pages."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "Comptez plusieurs dizaines d'heures pour un résultat correct",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Drop the hours estimate or mark it explicitly as an assumption, not an observation."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "<tr><td>Total indicatif</td><td>—</td><td>—</td><td>≈ CHF 3'000 – 15'000</td></tr>",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Remove the 3-year total (repeated in prose and FAQ) or show it as a pure arithmetic sum of ranges the page can source."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "Méfiez-vous des offres offshore à très bas prix : l'économie initiale se paie souvent en reprises, en délais et en incompréhensions.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Remove the imputation about offshore providers or restate as a neutral coordination-cost consideration."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "le taux horaire d'une agence en Suisse se situe généralement entre 120 et CHF 180 de l'heure",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Write « entre CHF 120 et CHF 180 de l'heure » — CHF must prefix both bounds of a range."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/combien-coute-site-web-suisse.html",
+  "quote": "Ces tarifs se situent au bas — voire en dessous — des fourchettes du marché",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Remove em dashes inside .lp-body (also « La complexité — donc le prix — grimpe vite », « du prestataire — indépendant, studio ou agence »)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-logo-identite-visuelle-suisse.html",
+  "quote": "Un même signe peut valoir CHF 200 sur une place de marché en ligne ou CHF 15'000 au sein d'une grande agence",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Delete the CHF 200 and CHF 15'000 anchors; the canonical logo range is CHF 500 to CHF 1'500 and full brand programme CHF 8'000 to CHF 25'000."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-logo-identite-visuelle-suisse.html",
+  "quote": "c'est elle qui explique pourquoi un devis passe de CHF 800 à CHF 8'000",
+  "type": "invented-figure",
+  "severity": "medium",
+  "fix": "Replace CHF 800 with the canonical logo floor CHF 500 (or drop the figures and name the perimeters instead)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-logo-identite-visuelle-suisse.html",
+  "quote": "<tr><td>Rebranding</td><td>Refonte d'une identité existante, déclinaison sur tous les supports</td><td>5'000 – 20'000</td><td>Sur devis</td></tr>",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Remove the rebranding row (and the same figure in the FAQ « entre CHF 5'000 et CHF 20'000 ») — no canonical rebranding range exists."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-logo-identite-visuelle-suisse.html",
+  "quote": "Le logo bon marché doit presque toujours être refait dès que l'activité décolle",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Restate conditionally: a template logo may need redoing if the perimeter grows — do not assert a frequency."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-logo-identite-visuelle-suisse.html",
+  "quote": "Sans elles, votre logo sera inutilisable la moitié du temps.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Drop the 'half the time' quantification; say the variants are needed for dark backgrounds, favicons and print."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-logo-identite-visuelle-suisse.html",
+  "quote": "La plupart des incompréhensions sur le prix d'un logo viennent de l'opacité",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Reframe as an assumption ('à notre avis') or remove the majority claim."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/prix-logo-identite-visuelle-suisse.html",
+  "quote": "Fritz prend le parti inverse — les prix sont publiés.",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Remove em dashes inside .lp-body (also « un branding global — positionnement, naming, territoire de marque étendu — », « Une cohérence d'ensemble — couleurs, typographies, règles — »)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/agence-ou-freelance-suisse.html",
+  "quote": "Ce n'est pas « dans la fourchette basse » : sur plusieurs prestations, c'est sous le plancher observé.",
+  "type": "invented-figure",
+  "severity": "high",
+  "fix": "Only e-commerce CHF 2'500 is below its observed floor (CHF 5'000); identity CHF 1'500 and site CHF 1'700 are inside their ranges — correct the claim to a single prestation."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/agence-ou-freelance-suisse.html",
+  "quote": "le commercial qui vend n'est presque jamais celui qui code ou qui dessine",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "State structurally that in agencies the sales contact and the executing team are usually distinct roles, without the 'presque jamais' assertion."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/agence-ou-freelance-suisse.html",
+  "quote": "L'interlocuteur qui change : le commercial séduisant du départ n'est plus joignable une fois le contrat signé.",
+  "type": "competitor-motive",
+  "severity": "medium",
+  "fix": "Remove the bad-faith characterisation; note only that the point of contact can change after signature."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/agence-ou-freelance-suisse.html",
+  "quote": "<td>Forfait, avec heures hors devis fréquentes</td>",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Replace with a neutral description: fixed fee plus possible additional hours depending on the contract."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/agence-ou-freelance-suisse.html",
+  "quote": "la plupart des demandes qui commencent par « agence ou freelance » atterrissent sur la troisième ligne",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Remove the majority claim or mark it explicitly as the studio's own assumption."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/agence-ou-freelance-suisse.html",
+  "quote": "où l'on observe souvent CHF 120 à 180 de l'heure",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Write « CHF 120 à CHF 180 de l'heure » — CHF must prefix both bounds (same issue in the FAQ « CHF 120 à 180 de l'heure »)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/agence-ou-freelance-suisse.html",
+  "quote": "Entre les deux s'est installé un troisième modèle : le studio indépendant — une structure légère qui livre comme une agence mais facture comme un artisan.",
+  "type": "convention",
+  "severity": "low",
+  "fix": "Remove em dashes inside .lp-body (also « un projet concret — un premier site, une refonte », « des prix publiés — site vitrine à CHF 1'700 … — »)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/creer-un-site-internet-en-suisse.html",
+  "quote": "C'est l'étape que presque tout le monde saute, parce qu'elle ne produit rien de visible.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Restate as a conditional ('cette étape est facile à sauter') rather than a claim about what almost everyone does."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/creer-un-site-internet-en-suisse.html",
+  "quote": "Si un projet de site prend six mois au lieu de six semaines, la cause est presque toujours la même : les textes ne sont pas écrits et les photographies n'existent pas.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Frame as the studio's own experience or as a common risk, not as a measured near-universal cause."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/creer-un-site-internet-en-suisse.html",
+  "quote": "Le droit suisse ne prévoit pas de droit de rétractation général pour les achats en ligne, contrairement à ce que beaucoup d'acheteurs supposent.",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Keep the legal point, drop the unsourced claim about what many buyers assume."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/creer-un-site-internet-en-suisse.html",
+  "quote": "une séance photo dédiée pèse généralement plus lourd dans la perception qu'un simple habillage graphique",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Mark as an assumption or remove the comparative weighting, which is not measured."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/refonte-site-web-suisse.html",
+  "quote": "C'est ce que la plupart des refontes sautent, et c'est précisément l'étape qui protège la suite.",
+  "type": "asserted-behaviour",
+  "severity": "medium",
+  "fix": "Replace the majority claim with a conditional: this audit step is easy to skip and it is the one that protects the migration."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/refonte-site-web-suisse.html",
+  "quote": "Parfois c'est la bonne décision. Souvent, c'est ce qui fait dérailler le projet.",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Drop 'souvent'; state the risk conditionally (opening three worksites at once makes diagnosis harder)."
+ },
+ {
+  "file": "C:/Users/Admin/Desktop/mulle-studio/fr/guides/refonte-site-web-suisse.html",
+  "quote": "La plupart des sites anciens accumulent des pages qui n'ont plus d'usage",
+  "type": "asserted-behaviour",
+  "severity": "low",
+  "fix": "Soften to a conditional ('un site ancien accumule souvent…') or remove the majority framing."
+ }
+]

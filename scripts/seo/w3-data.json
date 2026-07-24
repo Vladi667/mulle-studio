@@ -1,0 +1,1006 @@
+[
+  {
+    "slug": "combien-coute-site-web-suisse",
+    "type": "guide",
+    "dir": "guides",
+    "hreflangEn": "/website-cost-switzerland",
+    "langEn": "/website-cost-switzerland",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Guide — Prix d'un site web en Suisse",
+        "path": "/fr/guides/combien-coute-site-web-suisse"
+      }
+    ],
+    "content": {
+      "metaTitle": "Combien coûte un site web en Suisse ? Prix 2026 par région",
+      "metaDesc": "Prix d'un site internet en Suisse : fourchettes par type et par région (Genève, Lausanne, Zurich), CMS vs agence et coût réel d'un site sur 3 ans.",
+      "h1": "Combien coûte un site web en Suisse ?",
+      "kicker": "Guide budget · Suisse",
+      "lede": "Le prix d'un site web en Suisse varie fortement selon le type de site, le prestataire et la région. Ce guide réunit les fourchettes observées sur le marché suisse, une comparaison entre Genève, Lausanne, Fribourg, Neuchâtel et la Suisse alémanique, ainsi que le coût réel d'un site sur trois ans, pour prévoir un budget juste, sans mauvaise surprise.",
+      "quotableOpener": "En Suisse, un site vitrine professionnel coûte généralement entre CHF 1'500 et CHF 4'000 et un site e-commerce entre CHF 5'000 et CHF 20'000, le prix dépendant davantage du périmètre du projet et du prestataire que du canton.",
+      "sections": [
+        {
+          "h2": "Combien coûte un site web en Suisse ? La réponse en bref",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "En Suisse, la création d'un site web professionnel se situe le plus souvent entre CHF 1'500 et CHF 4'000 pour un site vitrine, et entre CHF 5'000 et CHF 20'000 pour un site e-commerce. Ces montants correspondent à des fourchettes observées sur le marché suisse, Suisse romande et alémanique confondues ; ils ne constituent pas un tarif officiel, mais un ordre de grandeur utile pour cadrer un budget. Le prix réel d'un site internet en Suisse dépend de trois variables : le type de site, l'étendue du travail (design sur-mesure, contenu, fonctionnalités) et le profil du prestataire, indépendant, studio ou agence."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Type de site",
+                "Fourchette observée (marché suisse)",
+                "Prix publié Fritz"
+              ],
+              "tableRows": [
+                [
+                  "Site vitrine",
+                  "CHF 1'500 – 4'000",
+                  "CHF 1'700"
+                ],
+                [
+                  "Site vitrine avancé / sur-mesure",
+                  "CHF 3'500 – 15'000",
+                  "sur devis"
+                ],
+                [
+                  "Site e-commerce",
+                  "CHF 5'000 – 20'000",
+                  "CHF 2'500"
+                ],
+                [
+                  "Identité de marque (logo + charte)",
+                  "CHF 1'200 – 3'500",
+                  "CHF 1'500"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "À titre de repère, un studio comme Fritz publie ses prix : CHF 1'500 pour une identité de marque, CHF 1'700 pour un site vitrine, CHF 2'500 pour un e-commerce, en paiement unique, chacune étant une prestation distincte. Ces tarifs se situent au bas (voire en dessous) des fourchettes du marché : c'est un choix assumé, le soin d'une agence avec la structure d'un indépendant, et non un signe de prestation au rabais. À l'inverse, un budget très supérieur ne garantit pas un meilleur résultat : il finance souvent une structure plus lourde plutôt que le site lui-même."
+            }
+          ]
+        },
+        {
+          "h2": "Ce qui fait varier le prix d'un site web en Suisse",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Deux sites vitrine peuvent être facturés du simple au triple. L'écart ne relève pas du hasard, mais d'un ensemble de facteurs concrets qui déterminent le temps de travail, et donc le prix, puisque le taux horaire d'une agence en Suisse se situe généralement entre CHF 120 et CHF 180 de l'heure (fourchette observée sur le marché)."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le type et l'objectif du site : une simple présence en ligne coûte moins qu'un site pensé pour générer des demandes ou pour vendre.",
+                "Le nombre de pages et la profondeur du contenu : cinq pages ou trente, cela change tout.",
+                "Le design : un thème préfabriqué adapté est plus rapide qu'une identité et une interface dessinées sur-mesure.",
+                "La création de contenu : rédaction des textes, photographie, traduction FR / DE / IT / EN, un poste souvent sous-estimé dans les devis.",
+                "Les fonctionnalités : réservation, paiement en ligne, espace membre, multilingue, connexion à un outil métier.",
+                "Le référencement (SEO) : une structure optimisée dès le départ demande un travail supplémentaire, mais rentable dans la durée.",
+                "L'identité de marque : logo et charte graphique, s'ils ne sont pas déjà en place.",
+                "Les délais : un projet urgent mobilise davantage de ressources sur une période courte."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "En Suisse, comptez des délais indicatifs de deux à quatre semaines pour un site vitrine et de six à huit semaines pour un e-commerce ; une identité de marque se construit en une quinzaine de jours. Plus le périmètre est défini clairement en amont, plus le prix est stable, les dépassements naissent souvent d'un cahier des charges flou."
+            }
+          ]
+        },
+        {
+          "h2": "Prix par type de site : vitrine, e-commerce et sur-mesure",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le type de site est le premier déterminant du prix. Voici les fourchettes observées sur le marché suisse, format par format."
+            },
+            {
+              "type": "h3",
+              "text": "Site vitrine"
+            },
+            {
+              "type": "p",
+              "text": "Un site vitrine présente une activité : accueil, services, à-propos, contact, parfois un blog. C'est le format le plus demandé par les indépendants, artisans, cabinets et PME de Suisse romande. Fourchette observée : CHF 1'500 à 4'000 pour un site standard, et CHF 3'500 à 8'000 pour une version avancée (design sur-mesure poussé, animations, nombreuses pages). Chez Fritz, un site vitrine est publié à CHF 1'700, code et fichiers sources livrés au client."
+            },
+            {
+              "type": "h3",
+              "text": "Site e-commerce"
+            },
+            {
+              "type": "p",
+              "text": "Un site marchand ajoute un catalogue, un panier, le paiement en ligne, la gestion des stocks et des commandes. La complexité (donc le prix) grimpe vite : fourchette observée de CHF 5'000 à 20'000 selon le nombre de produits et les intégrations (paiement, livraison, comptabilité). Le prix e-commerce publié par Fritz est de CHF 2'500, nettement sous le plancher du marché, pour un périmètre cadré clairement en amont."
+            },
+            {
+              "type": "h3",
+              "text": "Site sur-mesure et application web"
+            },
+            {
+              "type": "p",
+              "text": "Dès qu'un projet sort des sentiers battus (plateforme, portail, configurateur, outil métier) on entre dans le sur-mesure : CHF 4'000 à 15'000, et au-delà. Ici, le devis dépend entièrement du cahier des charges ; aucun prix catalogue ne s'applique. Pour un accompagnement pas à pas de la création de site web, voir notre page dédiée."
+            }
+          ]
+        },
+        {
+          "h2": "Le prix d'un site web selon la région : Genève, Lausanne, Fribourg, Zurich",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "La géographie joue un rôle plus modeste qu'on ne le croit : à périmètre égal, l'écart de prix entre cantons est moins marqué que l'écart entre un indépendant et une grande agence. Cela dit, le coût de la vie et la densité de prestataires tirent certaines régions vers le haut de la fourchette. Voici un aperçu du prix d'un site vitrine par région suisse (fourchettes observées, à périmètre comparable)."
+            },
+            {
+              "type": "p",
+              "text": "Genève et Zurich, marchés les plus denses et les plus chers, concentrent aussi les agences premium ; Fribourg, Neuchâtel et le Tessin affichent des fourchettes plus basses. Il ne s'agit pas d'une règle absolue : un bon indépendant établi à Genève peut être plus abordable qu'une agence lausannoise. Pour un examen détaillé du marché genevois (avec la comparaison indépendant / studio / agence et le duel Genève vs Lausanne) consultez notre guide du prix d'un site web à Genève."
+            }
+          ]
+        },
+        {
+          "h2": "Créer soi-même ou déléguer : CMS, solutions DIY et agence",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Avant de parler budget, une question précède toutes les autres : qui crée le site ? Trois voies existent en Suisse, et leur coût réel diffère souvent de leur coût apparent."
+            },
+            {
+              "type": "h3",
+              "text": "La voie DIY et les CMS grand public"
+            },
+            {
+              "type": "p",
+              "text": "Wix, Squarespace, Webflow ou WordPress permettent de créer soi-même un site pour un abonnement mensuel, hébergement compris. Sur le papier, c'est l'option la moins chère. En pratique, elle a un coût caché : votre temps. Comptez plusieurs dizaines d'heures pour un résultat correct, sans garantie de qualité de design, de performance ou de référencement. Cette voie convient à un projet simple, temporaire ou à très petit budget."
+            },
+            {
+              "type": "h3",
+              "text": "WordPress géré par un professionnel"
+            },
+            {
+              "type": "p",
+              "text": "WordPress reste le CMS le plus répandu au monde. Confié à un prestataire, un site WordPress se facture dans les mêmes fourchettes qu'un site vitrine classique (CHF 1'500 à 4'000), auxquelles s'ajoutent l'hébergement et la maintenance des extensions. L'avantage : un site autonome, que vous pouvez faire évoluer. Le point d'attention : les mises à jour régulières, indispensables à la sécurité."
+            },
+            {
+              "type": "h3",
+              "text": "Le studio ou l'agence"
+            },
+            {
+              "type": "p",
+              "text": "Un prestataire professionnel prend en charge stratégie, design, développement et mise en ligne. C'est l'option qui coûte le plus à l'achat, mais qui livre un site pensé pour durer et convertir. Le point de vigilance : réclamer la propriété du code et des fichiers sources, pour ne pas rester dépendant d'un tiers. C'est précisément ce que Fritz remet systématiquement au client, en fin de projet."
+            }
+          ]
+        },
+        {
+          "h2": "Un site web coûte-t-il plus cher en Suisse qu'en France ?",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Oui, généralement. À prestation comparable, un site créé en Suisse coûte plus qu'en France, pour des raisons structurelles : coût de la vie, salaires et taux horaires plus élevés (CHF 120 à CHF 180 de l'heure en Suisse, contre des taux nettement inférieurs dans les marchés voisins), contre CHF 1'500 à 4'000 en Suisse."
+            },
+            {
+              "type": "p",
+              "text": "Faut-il pour autant sous-traiter à l'étranger ? Pas nécessairement. Un prestataire suisse offre la proximité, la maîtrise du contexte local (langues, mentions légales, TVA, habitudes de paiement), la réactivité et un recours simple en cas de problème. Le vrai arbitrage n'est pas Suisse contre France, mais prix affiché contre coût total et tranquillité. Une offre nettement moins chère venue d'un autre marché peut être un choix rationnel ; les points à vérifier sont le décalage horaire, la langue de travail et ce qui se passe en cas de reprise."
+            }
+          ]
+        },
+        {
+          "h2": "Le vrai coût d'un site sur 3 ans : le coût total de possession",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le prix de conception n'est que la partie visible. Un site vit, se met à jour et s'héberge. Pour comparer honnêtement deux devis, il faut raisonner en coût total de possession sur trois ans, nom de domaine, hébergement et maintenance compris. Voici les postes à intégrer, avec leurs fourchettes observées en Suisse."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Poste",
+                "Coût unique",
+                "Récurrent / an",
+                "Sur 3 ans"
+              ],
+              "tableRows": [
+                [
+                  "Conception (site vitrine)",
+                  "CHF 1'500 – 4'000",
+                  "–",
+                  "CHF 1'500 – 4'000"
+                ],
+                [
+                  "Nom de domaine (.ch)",
+                  "–",
+                  "CHF 10 – 20",
+                  "CHF 30 – 60"
+                ],
+                [
+                  "Hébergement",
+                  "–",
+                  "CHF 100 – 400",
+                  "CHF 300 – 1'200"
+                ],
+                [
+                  "Certificat SSL",
+                  "souvent inclus",
+                  "CHF 0 – 100",
+                  "CHF 0 – 300"
+                ],
+                [
+                  "Maintenance et mises à jour",
+                  "–",
+                  "CHF 350 – 2'000",
+                  "CHF 1'050 – 6'000"
+                ],
+                [
+                  "Évolutions et contenu",
+                  "–",
+                  "CHF 0 – 1'500",
+                  "CHF 0 – 4'500"
+                ],
+                [
+                  "Total indicatif",
+                  "–",
+                  "–",
+                  "≈ CHF 3'000 – 15'000"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Sur trois ans, un site vitrine revient donc, tout compris, à un ordre de grandeur de CHF 3'000 à 15'000 selon le niveau de maintenance choisi. La maintenance est le poste le plus variable : de CHF 350 à 2'000 par an sur le marché. Un point de prudence : un site livré sans code ni fichiers sources peut vous enfermer chez un prestataire et gonfler durablement ce poste. Exiger la livraison des sources reste le meilleur moyen de garder la main sur le coût dans la durée."
+            }
+          ]
+        },
+        {
+          "h2": "Comment fixer et maîtriser le budget de votre site web",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un bon budget de site web en Suisse n'est pas le plus bas : c'est le plus lisible. Voici comment cadrer le vôtre et éviter les devis opaques."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Définissez l'objectif avant le devis : présence, demandes de contact ou ventes ? Le prix découle de l'usage, pas l'inverse.",
+                "Préférez un prix fixe et publié à un tarif horaire flou : vous saurez exactement ce que vous payez.",
+                "Exigez la propriété du code et des fichiers sources : c'est votre assurance d'indépendance.",
+                "Distinguez la conception (paiement unique) de l'exploitation (hébergement et maintenance, récurrents).",
+                "Prévoyez la maintenance dès le départ plutôt que de la subir plus tard.",
+                "Demandez plusieurs devis réellement comparables : même périmètre, mêmes livrables, mêmes délais."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "C'est la logique que défend Fritz : des prix publiés, un devis gratuit avec réponse sous 24 heures, un paiement unique pour la conception, et le code comme les fichiers sources livrés au client. Pour le détail chiffré, consultez la page de nos tarifs."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien coûte un site web en Suisse ?",
+          "a": "En Suisse, un site vitrine coûte le plus souvent entre CHF 1'500 et 4'000, et un site e-commerce entre CHF 5'000 et 20'000 (fourchettes observées sur le marché). Le prix dépend du type de site, de l'étendue du travail et du prestataire choisi. À titre de repère, Fritz publie un site vitrine à CHF 1'700 et un e-commerce à CHF 2'500, en paiement unique."
+        },
+        {
+          "q": "Un site web coûte-t-il plus cher en Suisse qu'en France ?",
+          "a": "Oui, à prestation comparable. Les taux horaires suisses (CHF 120 à CHF 180 de l'heure) sont plus élevés que dans les marchés voisins, en raison du coût de la vie et des salaires. Un même site vitrine se situe plutôt entre CHF 1'500 et CHF 4'000 en Suisse. En contrepartie, un prestataire suisse offre proximité, maîtrise du contexte local et réactivité."
+        },
+        {
+          "q": "Quel est le prix d'un site e-commerce en Suisse ?",
+          "a": "Un site e-commerce en Suisse se situe généralement entre CHF 5'000 et 20'000 selon le nombre de produits, les moyens de paiement et les intégrations (livraison, stock, comptabilité). Un périmètre bien défini permet de contenir ce budget : Fritz publie un e-commerce à CHF 2'500, sous le plancher du marché, pour un cahier des charges cadré en amont."
+        },
+        {
+          "q": "Combien coûte un site avec WordPress ou un CMS ?",
+          "a": "En le créant vous-même sur un CMS (WordPress, Wix, Squarespace, Webflow), comptez CHF 15 à 60 par mois d'abonnement, plus votre temps. Confié à un professionnel, un site WordPress se facture dans les fourchettes d'un site vitrine, soit CHF 1'500 à 4'000, hébergement et maintenance en sus."
+        },
+        {
+          "q": "Quel budget prévoir sur 3 ans pour un site web ?",
+          "a": "Au-delà de la conception, prévoyez le nom de domaine (CHF 10 à 20/an), l'hébergement (CHF 100 à 400/an) et la maintenance (CHF 350 à 2'000/an). Sur trois ans, un site vitrine revient, tout compris, à environ CHF 3'000 à 15'000 selon le niveau de maintenance. Raisonner en coût total de possession évite les mauvaises surprises."
+        },
+        {
+          "q": "Le prix d'un site web en Suisse est-il un paiement unique ?",
+          "a": "La conception se règle en général en une fois (paiement unique), comme chez Fritz. En revanche, l'exploitation (nom de domaine, hébergement, maintenance) reste récurrente, d'année en année. Il faut donc distinguer le coût de création du coût de fonctionnement lorsqu'on établit un budget."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "prix d'un logo et d'une identité visuelle",
+          "href": "/fr/guides/prix-logo-identite-visuelle-suisse"
+        },
+        {
+          "anchor": "agence ou freelance : comment choisir",
+          "href": "/fr/guides/agence-ou-freelance-suisse"
+        },
+        {
+          "anchor": "prix d'un site web à Genève",
+          "href": "/fr/guides/prix-site-web-geneve"
+        },
+        {
+          "anchor": "nos tarifs",
+          "href": "/fr/tarifs"
+        }
+      ],
+      "wordCount": 3050
+    }
+  },
+  {
+    "slug": "prix-logo-identite-visuelle-suisse",
+    "type": "guide",
+    "dir": "guides",
+    "hreflangEn": "/logo-design-cost-switzerland",
+    "langEn": "/logo-design-cost-switzerland",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Guide — Prix d'un logo en Suisse",
+        "path": "/fr/guides/prix-logo-identite-visuelle-suisse"
+      }
+    ],
+    "content": {
+      "metaTitle": "Prix d'un logo en Suisse : combien coûte une identité visuelle",
+      "metaDesc": "Logo, identité visuelle ou branding complet : les vrais prix en Suisse (CHF 500 à 25'000) et les fichiers à exiger de votre prestataire.",
+      "h1": "Prix d'un logo en Suisse : combien coûte vraiment une identité visuelle ?",
+      "kicker": "Guide des prix, identité de marque",
+      "lede": "« Combien coûte un logo ? » n'a pas de réponse unique, parce que le même dessin peut être facturé très peu sur une place de marché en ligne, ou beaucoup au sein d'une grande agence. La différence n'est pas dans le trait : elle est dans le périmètre. Ce guide clarifie les trois budgets à ne pas confondre (logo, identité visuelle, branding) donne les fourchettes réelles observées en Suisse romande, et détaille les fichiers que vous devez exiger avant de payer quoi que ce soit.",
+      "quotableOpener": "En Suisse, comptez environ CHF 500 à CHF 1'500 pour un logo seul, CHF 1'200 à CHF 3'500 pour une identité visuelle complète et CHF 8'000 à CHF 25'000 pour un branding global, trois périmètres distincts qu'il ne faut jamais confondre.",
+      "sections": [
+        {
+          "h2": "Combien coûte un logo en Suisse ? Les fourchettes réelles du marché",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "« Combien coûte un logo ? » est la question qui revient le plus souvent, et c'est aussi celle qui n'a pas de réponse unique. En Suisse, le prix d'un logo dépend moins du dessin lui-même que du périmètre commandé, du temps de recherche investi et du prestataire choisi. Un même signe peut être facturé très peu sur une place de marché en ligne, ou beaucoup au sein d'une grande agence, non pas parce que le trait est cent fois meilleur, mais parce que ce que vous achetez n'est pas la même chose."
+            },
+            {
+              "type": "p",
+              "text": "Sur le marché romand, on observe des fourchettes assez stables. Pour un logo seul, comptez de CHF 500 à CHF 1'500. Pour une identité visuelle complète, de CHF 1'200 à CHF 3'500. Pour un branding global (positionnement, naming, territoire de marque étendu) les budgets démarrent autour de CHF 8'000 et montent jusqu'à CHF 25'000. Ces chiffres sont des ordres de grandeur observés sur le marché, pas une grille officielle : ils vous donnent un repère pour juger un devis, rien de plus."
+            },
+            {
+              "type": "p",
+              "text": "L'écart s'explique par une réalité simple : le prix d'un logo (ou plutôt le prix d'une identité visuelle) est d'abord le prix d'un travail, fait d'heures de recherche, d'itérations et de maîtrise technique, et non celui d'un fichier image. Un taux horaire d'agence en Suisse se situe généralement entre CHF 120 et CHF 180 de l'heure. Quelques heures suffisent à produire une proposition ; un système de marque cohérent en demande beaucoup plus. C'est cette différence de temps, invisible sur le résultat final, qui sépare un logo à un tarif dérisoire d'une identité pensée pour durer."
+            }
+          ]
+        },
+        {
+          "h2": "Logo, identité visuelle, branding : trois périmètres à ne pas confondre",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Avant de comparer des prix, il faut comparer des périmètres. Trois termes sont utilisés de façon interchangeable dans le langage courant, alors qu'ils désignent des livrables très différents, et des budgets très différents. Comprendre cette distinction est la meilleure protection contre un devis mal calibré, dans un sens comme dans l'autre."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le logo est un signe graphique unique : un symbole, un logotype (le nom dessiné) ou la combinaison des deux. C'est la partie la plus visible d'une marque, mais ce n'est qu'une pièce du puzzle.",
+                "L'identité visuelle est le système complet qui entoure le logo : palette de couleurs, typographies, déclinaisons (versions horizontales, monochromes, favicon), règles d'usage et fichiers sources. C'est ce qui rend une marque reconnaissable sur une carte de visite, un site vitrine, une vitrine physique ou un compte Instagram.",
+                "Le branding complet va encore plus loin : plateforme de marque, positionnement, ton de voix, parfois le naming, et un territoire visuel étendu (photographie, iconographie, motion design). C'est le travail des marques d'envergure, avec les budgets qui l'accompagnent."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Cette distinction n'est pas de la sémantique : c'est elle qui explique pourquoi un devis passe de CHF 800 à CHF 8'000. Payer le prix d'un logo seul en espérant une identité complète mène toujours à la déception. À l'inverse, commander un branding global pour ouvrir un commerce de quartier est un gaspillage. Le bon budget n'est pas le plus élevé ni le plus bas : c'est celui qui correspond au périmètre dont vous avez réellement besoin aujourd'hui."
+            }
+          ]
+        },
+        {
+          "h2": "Le prix par livrable : le tableau de référence",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Voici, livrable par livrable, ce que chaque budget recouvre réellement et où se situent les fourchettes observées sur le marché suisse. La dernière colonne indique le positionnement d'Agence Fritz, dont les prix sont publiés et fixes."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Livrable",
+                "Ce que ça comprend",
+                "Fourchette observée (CHF)",
+                "Chez Fritz"
+              ],
+              "tableRows": [
+                [
+                  "Logo seul",
+                  "Signe graphique + variations de base, sans système autour",
+                  "500 – 1'500",
+                  "Inclus dans l'identité"
+                ],
+                [
+                  "Identité visuelle complète",
+                  "Logo, palette, typographies, mini-charte, fichiers sources",
+                  "1'200 – 3'500",
+                  "CHF 1'500 (paiement unique)"
+                ],
+                [
+                  "Branding global",
+                  "Plateforme de marque, naming, territoire visuel étendu, guidelines",
+                  "8'000 – 25'000",
+                  "Sur devis"
+                ],
+                [
+                  "Rebranding",
+                  "Refonte d'une identité existante, déclinaison sur tous les supports",
+                  "5'000 – 20'000",
+                  "Sur devis"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "L'identité de marque de Fritz, à CHF 1'500 en paiement unique, se situe dans le bas de la fourchette observée pour une identité complète, et non dans celle du logo seul, alors qu'elle comprend le logo, la palette, les typographies, une mini-charte d'usage et la livraison des fichiers sources. C'est le principe de la maison : le soin d'une agence, la structure d'un indépendant, donc des prix publiés au lieu d'un devis opaque. Vous savez avant de commander ce que vous payez et ce que vous recevez."
+            }
+          ]
+        },
+        {
+          "h2": "Logo généré en ligne vs logo professionnel : ce que vous payez vraiment",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Les générateurs par intelligence artificielle, les places de marché à très bas prix et les banques de modèles promettent un logo en quelques minutes pour une somme dérisoire. La promesse est honnête sur un point : vous obtiendrez bien une image. La question est de savoir si cette image est la vôtre, si elle est unique, et si elle tiendra dans la durée."
+            },
+            {
+              "type": "h3",
+              "text": "Ce que vous obtenez réellement"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Un modèle souvent générique, vendu (ou générable) à d'autres entreprises : rien ne garantit l'exclusivité de votre signe.",
+                "Rarement les fichiers sources vectoriels : impossible d'agrandir, de modifier ou d'imprimer proprement plus tard.",
+                "Aucune stratégie ni recherche : le logo ne dit rien de votre positionnement, il décore sans signifier.",
+                "Un risque juridique réel : ressemblance involontaire avec une marque existante, licence de police mal réglée, droits mal cédés.",
+                "Aucune cohérence de système : un logo isolé, sans palette ni typographies, ne fait pas encore une marque."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Ce qu'un logo professionnel ajoute"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Un signe exclusif, conçu pour vous et cédé avec ses droits d'usage.",
+                "Une intention : le logo traduit un positionnement, un secteur, une personnalité.",
+                "Les fichiers sources et toutes les déclinaisons, exploitables à l'infini et sur tous les supports.",
+                "Une cohérence d'ensemble () qui fait tenir la marque sur le long terme."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Soyons justes : pour un événement éphémère, un test de concept ou un projet destiné à disparaître dans trois mois, un logo généré en ligne peut suffire. Mais pour une entreprise censée durer, c'est une fausse économie. Le logo bon marché doit souvent être refait dès que l'activité décolle, et refaire coûte plus cher que faire bien la première fois. Le vrai prix d'un logo n'est pas ce que vous payez à la commande : c'est ce qu'il vous fait gagner (ou perdre) pendant les années qui suivent."
+            }
+          ]
+        },
+        {
+          "h2": "Quels fichiers doit-on vous livrer avec votre logo ?",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "C'est le test le plus fiable pour distinguer un vrai prestataire d'un vendeur d'images : demandez quels fichiers vous seront livrés. Un logo professionnel n'est jamais un simple PNG. Il se décline en formats vectoriels et matriciels, chacun pour un usage précis. La règle à retenir : le vectoriel se redimensionne sans jamais perdre en qualité, le matriciel a une taille fixe et devient flou une fois agrandi."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Format",
+                "Type",
+                "Usage principal"
+              ],
+              "tableRows": [
+                [
+                  "AI / EPS",
+                  "Vectoriel (source)",
+                  "Fichier maître, modifiable par un designer"
+                ],
+                [
+                  "SVG",
+                  "Vectoriel",
+                  "Web, écrans, favicon, affichage net à toute taille"
+                ],
+                [
+                  "PDF",
+                  "Vectoriel",
+                  "Impression professionnelle, partage universel"
+                ],
+                [
+                  "PNG",
+                  "Matriciel",
+                  "Web et bureautique, fond transparent"
+                ],
+                [
+                  "JPG",
+                  "Matriciel",
+                  "Usage courant, documents et photos"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Au-delà des formats, exigez les variantes indispensables à une utilisation réelle : version couleur, version noir, version blanche (ou négative) pour les fonds sombres, et un favicon pour le web. Sans elles, votre logo sera inutilisable la moitié du temps."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Version principale en couleur, plus une déclinaison horizontale si nécessaire.",
+                "Version monochrome noir et version blanche/négative pour les fonds foncés.",
+                "Favicon et formats optimisés pour le web (SVG, PNG).",
+                "Fichiers sources vectoriels (AI/EPS) : ils vous appartiennent et conditionnent toute évolution future."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Ce dernier point est décisif. Sans les fichiers sources, vous êtes dépendant de votre prestataire pour la moindre modification, et vous ne possédez pas vraiment votre identité. Chez Fritz, la livraison des fichiers sources est systématique et incluse dans le prix : le code et les fichiers sources sont remis au client, sans supplément ni rétention. Vous repartez propriétaire de votre marque, pas locataire."
+            }
+          ]
+        },
+        {
+          "h2": "Ce qui fait varier le prix d'une identité (les vrais facteurs)",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "À périmètre égal, deux devis peuvent différer du simple au double. Ce ne sont pas des marges arbitraires : plusieurs facteurs concrets font monter ou descendre le prix d'un logo et d'une identité visuelle. Les connaître vous permet de lire un devis, de le négocier intelligemment et de comprendre où va votre argent."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le périmètre livré : un logo seul, une identité complète ou un branding global n'engagent pas le même volume de travail.",
+                "Le niveau de recherche : nombre de pistes explorées, de concepts présentés, profondeur de la réflexion stratégique en amont.",
+                "Le nombre d'allers-retours : chaque cycle de révision consomme du temps ; les forfaits sérieux en cadrent le nombre.",
+                "Le nombre de déclinaisons et de supports : plus la marque doit vivre sur de nombreux formats, plus le système à construire est riche.",
+                "Le prestataire : un indépendant, un studio ou une grande agence n'ont pas la même structure de coûts, d'où un taux horaire de CHF 120 à CHF 180.",
+                "L'urgence : un délai serré se paie, car il déplace d'autres projets."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Côté délais, le marché annonce généralement quelques semaines à quelques mois selon le prestataire pour une identité, selon les allers-retours et la disponibilité des parties. Une structure légère et concentrée raccourcit ce cycle : chez Fritz, une identité de marque est le plus souvent livrée en une quinzaine de jours, sans que la réflexion en pâtisse, précisément parce qu'il n'y a pas de couches d'intermédiaires entre vous et la personne qui dessine."
+            }
+          ]
+        },
+        {
+          "h2": "Étude de cas : Il Duca, l'emblème d'une gelateria artisanale à Lausanne",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Pour rendre concrète la différence entre un logo et une identité, prenons un cas réel : Il Duca, une gelateria artigianale établie à Lausanne. Le projet ne consistait pas à produire un joli signe isolé, mais à donner à une glacerie artisanale une présence à la hauteur de son savoir-faire, un univers reconnaissable, du comptoir jusqu'à l'emballage."
+            },
+            {
+              "type": "p",
+              "text": "Le travail s'est articulé autour d'un emblème : la figure du duc, choisie pour incarner l'exigence et le raffinement d'un produit fait main. Autour de cet emblème s'est construit un système complet, une palette d'inspiration Renaissance, des typographies accordées à l'esprit du lieu, et des déclinaisons pensées pour la réalité d'un commerce de bouche. C'est précisément ce passage de l'emblème seul au système cohérent qui distingue une identité visuelle d'un simple logo."
+            },
+            {
+              "type": "p",
+              "text": "L'intérêt d'un tel cas n'est pas dans une statistique de croissance (nous n'en inventons pas) mais dans la démonstration du périmètre. Un logo aurait donné un dessin. Une identité donne une marque qui tient debout sur tous ses supports, avec les mêmes couleurs, la même typographie et le même emblème, du menu à la vitrine. C'est ce que recouvre, très concrètement, le prix d'une identité visuelle complète."
+            }
+          ]
+        },
+        {
+          "h2": "L'approche Fritz : une identité claire à CHF 1'500, sans surprise",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Beaucoup d'incompréhensions sur le prix d'un logo viennent de l'opacité : on demande un devis, on attend, on ne sait pas ce qui est inclus. Fritz prend le parti inverse, les prix sont publiés. L'identité de marque est à CHF 1'500 en paiement unique, et ce forfait comprend le logo, la palette de couleurs, les typographies, une mini-charte d'usage et la livraison des fichiers sources. Pas de coût caché, pas de reprise facturée à part sur ce qui devrait être inclus."
+            },
+            {
+              "type": "p",
+              "text": "Le positionnement tient en une phrase : le soin d'une agence, la structure d'un indépendant. Concrètement, cela veut dire une seule personne responsable du projet du début à la fin, pas de frais de structure répercutés sur votre facture, et donc un prix qui reste dans le bas de la fourchette du marché pour une identité complète. Le devis est gratuit, la réponse intervient sous 24 heures, et le code comme les fichiers sources sont remis au client à la livraison."
+            },
+            {
+              "type": "p",
+              "text": "Si votre besoin dépasse l'identité (un branding global, une refonte complète, un accompagnement web) la logique reste la même : un périmètre clair, un prix annoncé, aucun engagement caché. Pour aller plus loin sur le volet marque, consultez notre page d'agence de branding à Genève ; pour le détail chiffré de toutes nos prestations, la page tarifs ; et pour cadrer votre projet précis, demandez un devis gratuit via la page contact. Vous saurez, avant de vous engager, exactement ce que vous payez et ce que vous recevez."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Combien coûte un logo en Suisse ?",
+          "a": "En Suisse, un logo seul se situe généralement entre CHF 500 et CHF 1'500 selon le prestataire et le niveau de recherche. Une identité visuelle complète (logo, palette, typographies et charte) va plutôt de CHF 1'200 à CHF 3'500. Chez Fritz, l'identité de marque complète est publiée à CHF 1'500 en paiement unique, fichiers sources inclus."
+        },
+        {
+          "q": "Quelle est la différence entre un logo et une identité visuelle ?",
+          "a": "Le logo est un signe graphique unique. L'identité visuelle est le système complet qui l'entoure : palette de couleurs, typographies, déclinaisons, règles d'usage et fichiers sources. Un logo sans identité reste une image isolée ; l'identité en fait un outil cohérent et reconnaissable sur tous les supports."
+        },
+        {
+          "q": "Quels fichiers doit-on me livrer avec mon logo ?",
+          "a": "On doit vous livrer des fichiers vectoriels (AI ou EPS comme source, SVG pour le web, PDF pour l'impression) et des fichiers matriciels (PNG à fond transparent, JPG). Vous devez aussi recevoir les variantes couleur, noir et blanc/négatif ainsi qu'un favicon. Exigez surtout les fichiers sources : ils vous appartiennent et conditionnent toute évolution future de votre marque."
+        },
+        {
+          "q": "Combien coûte une identité de marque complète ?",
+          "a": "Une identité de marque complète coûte en général entre CHF 1'200 et CHF 3'500 en Suisse romande, selon le périmètre et le nombre de déclinaisons. Un branding global (plateforme de marque, naming, territoire étendu) dépasse souvent CHF 8'000. Fritz publie une identité complète à CHF 1'500 en paiement unique, fichiers sources compris."
+        },
+        {
+          "q": "Faut-il refaire son identité visuelle (rebranding) et à quel prix ?",
+          "a": "Un rebranding se justifie quand l'identité ne reflète plus votre positionnement, nuit à la lisibilité ou vieillit mal face à la concurrence. Sur le marché suisse, une refonte d'identité se situe souvent entre CHF 5'000 et CHF 20'000 selon l'ampleur. Une simple modernisation de logo coûte nettement moins ; le devis précis dépend de ce que l'on conserve ou repart de zéro."
+        },
+        {
+          "q": "Combien de temps faut-il pour créer un logo ou une identité ?",
+          "a": "Le marché annonce généralement quelques semaines à quelques mois selon le prestataire pour une identité complète, selon les allers-retours et la disponibilité des parties. Chez Fritz, une identité de marque est le plus souvent livrée en une quinzaine de jours, grâce à une structure légère et sans intermédiaires."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "agence de branding à Genève",
+          "href": "/fr/agence-branding-geneve"
+        },
+        {
+          "anchor": "combien coûte un site web en Suisse",
+          "href": "/fr/guides/combien-coute-site-web-suisse"
+        },
+        {
+          "anchor": "nos tarifs",
+          "href": "/fr/tarifs"
+        },
+        {
+          "anchor": "devis gratuit",
+          "href": "/fr/contact"
+        }
+      ],
+      "wordCount": 2950
+    }
+  },
+  {
+    "slug": "agence-ou-freelance-suisse",
+    "type": "guide",
+    "dir": "guides",
+    "hreflangEn": "/web-agency-vs-freelancer-switzerland",
+    "langEn": "/web-agency-vs-freelancer-switzerland",
+    "priceBlock": "",
+    "breadcrumb": [
+      {
+        "name": "Accueil",
+        "path": "/fr/"
+      },
+      {
+        "name": "Guide — Agence ou freelance ?",
+        "path": "/fr/guides/agence-ou-freelance-suisse"
+      }
+    ],
+    "content": {
+      "metaTitle": "Agence ou freelance ? Comparatif site web en Suisse (CHF)",
+      "metaDesc": "Agence, freelance ou studio indépendant pour votre site web en Suisse romande ? Coûts réels en CHF, risques concrets, profils et comment choisir.",
+      "h1": "Agence ou freelance pour son site web ? Le comparatif honnête (Suisse romande)",
+      "kicker": "Guide, choisir son prestataire web",
+      "lede": "Poser la question « agence ou freelance » revient à choisir entre deux extrêmes en oubliant tout ce qu'il y a au milieu. En Suisse romande, le vrai arbitrage se joue entre trois profils (freelance, agence et studio indépendant) avec des écarts de prix qui vont du simple au décuple. Voici un comparatif chiffré en CHF, sans complaisance, pour décider sans se tromper.",
+      "quotableOpener": "En Suisse romande, un site vitrine coûte en général CHF 1'500 à 4'000 chez un freelance et CHF 3'500 à 10'000 en agence ; le studio indépendant vise le soin d'une agence au prix d'un freelance, en forfait fixe publié dès CHF 1'700.",
+      "sections": [
+        {
+          "h2": "Agence, freelance ou studio : le vrai choix a trois portes",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "On tape « agence ou freelance site web » quand on a un projet concret (un premier site, une refonte, une boutique en ligne) et un budget qui n'est pas illimité. La question est légitime, mais elle est mal posée. Elle oppose deux modèles comme s'il n'existait rien entre les deux, alors que beaucoup de projets de PME et d'indépendants en Suisse romande tombent précisément dans cet entre-deux."
+            },
+            {
+              "type": "p",
+              "text": "Le freelance, c'est une personne, un prix bas, beaucoup d'agilité et un risque de continuité. L'agence, c'est une équipe, un process, des garanties contractuelles et une facture qui absorbe la structure. Entre les deux s'est installé un troisième modèle : le studio indépendant, une structure légère qui livre comme une agence mais facture comme un artisan. C'est souvent la réponse la plus rationnelle, à condition de savoir la reconnaître."
+            },
+            {
+              "type": "p",
+              "text": "Ce guide compare les trois sur ce qui compte vraiment : le coût réel en CHF, la continuité, la qualité d'exécution, l'interlocuteur et la propriété de ce que vous payez. Il n'y a pas de vérité universelle, chaque profil a un terrain où il gagne. L'objectif ici n'est pas de vous vendre une option, mais de vous donner la grille pour trancher vous-même."
+            }
+          ]
+        },
+        {
+          "h2": "Le freelance : agilité, prix bas, une seule paire de mains",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le freelance est le choix par défaut quand le budget prime et que le projet reste circonscrit. En Suisse romande, les taux horaires pratiqués sont en général inférieurs à ceux d'une agence, où l'on observe souvent CHF 120 à 180 de l'heure, l'écart vient de l'absence de structure à financer. Pour une landing page, un site d'une à cinq pages ou un dépannage ponctuel, c'est fréquemment l'option la plus économique et la plus rapide à lancer."
+            },
+            {
+              "type": "h3",
+              "text": "Ce qu'un freelance fait bien"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le prix le plus bas du marché : pas de locaux, pas de commerciaux, pas de chef de projet à rémunérer.",
+                "Un contact direct avec la personne qui exécute réellement le travail, sans intermédiaire.",
+                "De l'agilité : décisions rapides, ajustements immédiats, peu de formalisme.",
+                "Une spécialisation pointue quand on trouve le bon profil (développeur, designer ou rédacteur expert d'un domaine)."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Ses limites structurelles"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Une seule paire de mains : rarement excellent à la fois en direction artistique, en développement, en SEO et en copywriting.",
+                "Une disponibilité variable, vacances, maladie, autres clients prioritaires peuvent décaler votre projet sans préavis.",
+                "Un périmètre limité : au-delà d'un certain volume, un freelance seul sature vite.",
+                "Une continuité fragile : s'il s'arrête, personne ne reprend le dossier."
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "L'agence : structure, garanties… et le coût de la structure",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "L'agence rassure les organisations qui ont besoin de garanties contractuelles, de volume et d'une continuité institutionnelle. C'est le bon choix pour un grand groupe, une administration, une marque multi-marchés ou une campagne à plusieurs dizaines de milliers de francs. On y paie une équipe, un cadre et une capacité de production, et, mécaniquement, tout ce qui entoure cette équipe."
+            },
+            {
+              "type": "h3",
+              "text": "Ce qu'une agence apporte"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Une équipe pluridisciplinaire : stratégie, design, développement, référencement et contenu réunis sous un même toit.",
+                "De la continuité : si une personne part, le projet ne s'arrête pas.",
+                "De la capacité : plusieurs chantiers en parallèle, gros volumes, délais tenus par la redondance des ressources.",
+                "Un cadre contractuel et des process rôdés, utiles pour les appels d'offres et les comités."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Ce qu'on paie en plus"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le coût de la structure () répercuté sur chaque facture.",
+                "Un interlocuteur qui n'est pas l'exécutant : le commercial qui vend n'est presque jamais celui qui code ou qui dessine.",
+                "Le risque de voir des profils juniors affectés à votre compte pendant que les seniors pilotent.",
+                "Une certaine lourdeur : plus d'intermédiaires, plus de réunions, des délais parfois allongés.",
+                "Une dépendance possible si l'agence livre sur son propre CMS sans remettre le code et les fichiers sources."
+              ]
+            }
+          ]
+        },
+        {
+          "h2": "Le studio indépendant : la troisième voie qu'on oublie",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un studio indépendant est une structure d'une ou de quelques personnes qui travaille avec la discipline d'une agence (cadrage, direction artistique, développement, livraison documentée) mais sans la couche commerciale ni les frais fixes. La différence tient en une phrase : la personne qui vend le projet est celle qui l'exécute. C'est exactement la position que défend Agence Fritz à Genève, « le soin d'une agence, la structure d'un indépendant », traduite en prix publiés plutôt qu'en devis opaques."
+            },
+            {
+              "type": "p",
+              "text": "Concrètement, un studio combine les avantages des deux modèles sans leurs principaux défauts. On garde l'interlocuteur unique et le prix bas du freelance, on récupère le process, la cohérence et la fiabilité d'une agence."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Un interlocuteur unique qui est aussi l'exécutant : ce que vous validez est fait par la personne à qui vous parlez.",
+                "Un prix publié et fixe, annoncé à l'avance, pas d'estimation qui dérape en cours de route.",
+                "La livraison du code et des fichiers sources : vous restez propriétaire, sans dépendance au prestataire.",
+                "Des délais courts, pas de chaîne d'intermédiaires à traverser pour chaque décision.",
+                "Un périmètre complet et cohérent : identité de marque, site et suivi tenus par la même main."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "La limite, à énoncer honnêtement : un studio reste une petite structure. Sa capacité est bornée, il n'est pas taillé pour un appel d'offres de grand groupe ni pour piloter dix marchés simultanément. Pour une PME, un indépendant, un commerce ou une jeune marque en Suisse romande, c'est rarement un problème, c'est même souvent le format idéal."
+            }
+          ]
+        },
+        {
+          "h2": "Trois modèles, trois structures de coût",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "L'écart de prix entre un freelance, une agence et un studio ne tient pas à une grille tarifaire secrète : il tient à ce que chaque modèle vous fait financer. Comprendre cette mécanique vaut mieux qu'un tableau de prix, car c'est elle qui explique pourquoi deux devis pour le même site peuvent varier du simple au triple. Pour les fourchettes chiffrées, poste par poste, voir notre guide du prix d'un site web en Suisse ; ci-dessous, ce que votre budget paie réellement dans chaque cas."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Modèle",
+                "Ce que votre budget finance",
+                "Facturation",
+                "Votre interlocuteur",
+                "Code & fichiers sources"
+              ],
+              "tableRows": [
+                [
+                  "Freelance",
+                  "Le temps de travail, sans structure à porter",
+                  "Souvent à l'heure, parfois au forfait",
+                  "La personne qui exécute",
+                  "Selon l'accord, à exiger par écrit"
+                ],
+                [
+                  "Agence",
+                  "L'équipe et la structure : locaux, commercial, gestion de projet",
+                  "Forfait, avec heures hors devis fréquentes",
+                  "Un commercial, puis un chef de projet",
+                  "Parfois retenus (CMS propriétaire)"
+                ],
+                [
+                  "Studio indépendant",
+                  "Le travail, sans couche commerciale ni frais fixes",
+                  "Forfait fixe, publié à l'avance",
+                  "La personne qui exécute",
+                  "Livrés systématiquement"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "C'est ce qui explique la position d'un studio comme Fritz : des prix publiés, identité de marque à CHF 1'500, site vitrine à CHF 1'700, e-commerce à CHF 2'500, en paiement unique et par prestation distincte, qui se logent au niveau bas, voire en dessous, des fourchettes du marché, non par prestation au rabais mais parce qu'il n'y a pas de structure commerciale à financer. Ils se situent dans le bas des fourchettes observées, l'e-commerce étant le seul poste à passer sous le plancher observé. L'intérêt du modèle tient à une condition (que la qualité suive) d'où les questions de la section suivante."
+            }
+          ]
+        },
+        {
+          "h2": "Quelle option pour quel profil",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Le bon prestataire dépend moins de votre goût que de votre situation. Voici la correspondance la plus fréquente entre profil de projet et modèle adapté."
+            },
+            {
+              "type": "table",
+              "tableHead": [
+                "Votre situation",
+                "Option la plus adaptée"
+              ],
+              "tableRows": [
+                [
+                  "Budget serré, projet simple (une à trois pages)",
+                  "Freelance"
+                ],
+                [
+                  "Grand groupe, multi-marchés, appel d'offres, campagne à six chiffres",
+                  "Agence"
+                ],
+                [
+                  "Besoin d'une équipe de dix personnes disponible sur place",
+                  "Agence"
+                ],
+                [
+                  "PME ou indépendant qui veut du soin, un interlocuteur unique et un prix fixe",
+                  "Studio indépendant"
+                ],
+                [
+                  "Refonte complète : identité + site + suivi, budget maîtrisé",
+                  "Studio indépendant"
+                ],
+                [
+                  "Commerce local ou jeune marque en Suisse romande",
+                  "Studio indépendant"
+                ]
+              ]
+            },
+            {
+              "type": "p",
+              "text": "En pratique, beaucoup de demandes qui commencent par « agence ou freelance » atterrissent sur la troisième ligne : ni le prix nu du freelance sans garantie, ni la lourdeur d'agence pour un besoin qui ne la justifie pas. Si votre projet ressemble à une création de site web à Genève pour une PME ou un indépendant, le studio est souvent le point d'équilibre."
+            }
+          ]
+        },
+        {
+          "h2": "Les risques que personne ne détaille",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Chaque modèle a un angle mort. Les connaître à l'avance vaut mieux que les découvrir en cours de projet, quand le site est à moitié fait et le budget déjà engagé."
+            },
+            {
+              "type": "h3",
+              "text": "Côté freelance"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "La disparition ou l'indisponibilité : maladie, surcharge, changement de vie, et le projet s'arrête net, sans personne pour reprendre.",
+                "La sous-traitance invisible : une partie du travail confiée à un tiers que vous ne connaissez pas et ne validez pas.",
+                "L'absence de backup : ni sauvegarde d'équipe, ni relais si le seul intervenant décroche.",
+                "Un périmètre incomplet : un excellent développeur qui néglige le SEO, ou un designer qui livre un site lent."
+              ]
+            },
+            {
+              "type": "h3",
+              "text": "Côté agence"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Le junior non annoncé : vous payez un tarif senior, l'exécution revient à un profil moins expérimenté.",
+                "Les coûts additionnels : dépassements, prestations « hors devis », heures facturées au TJM qui gonflent l'addition.",
+                "La dépendance technique : site livré sur un CMS propriétaire, sans remise du code ni des fichiers sources.",
+                "L'interlocuteur qui change : le commercial séduisant du départ n'est plus joignable une fois le contrat signé."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Le studio indépendant n'échappe pas au risque de continuité propre aux petites structures, c'est son point faible réel. La parade tient à la transparence : un studio sérieux remet systématiquement le code et les fichiers sources, ce qui garantit qu'en cas de coup dur, un autre prestataire peut reprendre la main sans repartir de zéro. C'est précisément la première chose à vérifier."
+            }
+          ]
+        },
+        {
+          "h2": "Les questions à poser avant de signer",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Un devis ne dit pas grand-chose de la qualité. Ces huit questions, posées à un freelance, une agence ou un studio, révèlent l'essentiel, et suffisent souvent à départager deux prestataires au prix comparable."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Qui, exactement, va travailler sur mon projet, et qui sera mon interlocuteur au quotidien ?",
+                "Que se passe-t-il si vous êtes indisponible, malade ou débordé ? Y a-t-il un relais ?",
+                "Est-ce que je reçois le code et les fichiers sources en fin de projet, sans dépendance à vous ?",
+                "Le prix est-il fixe et publié, ou estimatif avec des dépassements possibles ?",
+                "Combien d'intermédiaires entre moi et la personne qui code et dessine réellement ?",
+                "Quel est le délai réel, et qui le garantit contractuellement ?",
+                "Qu'est-ce qui est inclus dans la maintenance, et à quel prix par an ?",
+                "Puis-je voir des projets réels et, si possible, parler à un ancien client ?"
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Les réponses les plus rassurantes se ressemblent : un interlocuteur qui est aussi l'exécutant, un prix annoncé à l'avance, la remise des sources actée noir sur blanc, et des délais courts assumés. Un prestataire qui esquive la question de la propriété du code ou du prix fixe vous dit déjà beaucoup sur la suite."
+            }
+          ]
+        },
+        {
+          "h2": "Comment décider, concrètement",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ramenez la décision à trois questions. Le projet est-il simple, ponctuel et à budget très serré ? Un freelance suffit, à condition d'accepter le risque de continuité. Êtes-vous une grande organisation avec du volume, des appels d'offres et un besoin de garanties institutionnelles ? L'agence est faite pour vous, coût de structure compris. Êtes-vous une PME, un indépendant, un commerce ou une jeune marque qui veut le soin d'une agence sans en payer l'overhead ? Le studio indépendant est le point d'équilibre le plus rationnel."
+            },
+            {
+              "type": "p",
+              "text": "La bonne nouvelle, c'est que ce choix n'a rien d'irréversible tant que vous gardez la propriété de vos actifs. Exigez le code et les fichiers sources, un prix fixe et un interlocuteur unique : quel que soit le modèle retenu, ces trois conditions vous protègent. Le reste (l'esthétique, la vitesse, la précision) se juge sur des projets réels, pas sur une plaquette."
+            },
+            {
+              "type": "p",
+              "text": "Si votre projet ressemble au troisième cas, c'est exactement le terrain d'Agence Fritz : prix publiés, code et sources livrés, réponse sous 24 heures, un seul interlocuteur du premier échange à la mise en ligne. Le plus simple reste d'en parler de votre projet et de comparer, devis en main, c'est gratuit et sans engagement."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Faut-il choisir une agence ou un freelance pour son site web ?",
+          "a": "Ni l'un ni l'autre par défaut : le choix dépend de votre situation. Le freelance convient aux projets simples à petit budget, l'agence aux grandes organisations avec volume et garanties. Pour une PME ou un indépendant en Suisse romande, un studio indépendant (le soin d'une agence, la structure d'un indépendant) est souvent le meilleur compromis, avec un prix fixe et un interlocuteur unique."
+        },
+        {
+          "q": "Est-ce moins cher de passer par un freelance ?",
+          "a": "Souvent oui : un freelance, sans structure à financer, facture en général moins cher de l'heure qu'une agence, où l'on observe couramment CHF 120 à 180 de l'heure. Mais un studio indépendant à prix publié peut descendre sous ces deux repères (par exemple un site vitrine dès CHF 1'700 en forfait fixe) tout en garantissant délais et livraison des sources. Le prix horaire seul ne suffit donc pas à trancher."
+        },
+        {
+          "q": "Quels sont les risques d'un freelance ?",
+          "a": "Les principaux sont la continuité (indisponibilité, maladie ou disparition sans relais), l'absence de backup, une sous-traitance parfois invisible, et un périmètre incomplet, un bon développeur peut négliger le SEO ou la vitesse. Le risque se réduit fortement si le freelance vous remet le code et les fichiers sources : un autre prestataire peut alors reprendre le projet sans tout refaire."
+        },
+        {
+          "q": "Qu'est-ce qu'un studio indépendant ?",
+          "a": "C'est une structure d'une ou quelques personnes qui travaille avec la discipline d'une agence (cadrage, direction artistique, développement, livraison documentée) mais sans couche commerciale ni frais fixes. La personne qui vend est celle qui exécute. Résultat : un interlocuteur unique, un prix publié et fixe, et la remise du code et des sources, au niveau bas des tarifs freelance."
+        },
+        {
+          "q": "Comment choisir entre agence et freelance en Suisse ?",
+          "a": "Posez trois questions : le projet est-il simple et à budget serré (freelance), êtes-vous une grande organisation avec appels d'offres et volume (agence), ou une PME qui veut du soin sans l'overhead (studio indépendant) ? Puis vérifiez systématiquement trois points chez le prestataire : prix fixe, interlocuteur unique et remise du code et des fichiers sources. Ces conditions vous protègent quel que soit le modèle."
+        }
+      ],
+      "internalLinks": [
+        {
+          "anchor": "création de site web à Genève",
+          "href": "/fr/creation-site-web-geneve"
+        },
+        {
+          "anchor": "combien coûte un site web en Suisse",
+          "href": "/fr/guides/combien-coute-site-web-suisse"
+        },
+        {
+          "anchor": "prix d'un site web à Genève",
+          "href": "/fr/guides/prix-site-web-geneve"
+        },
+        {
+          "anchor": "parler de votre projet",
+          "href": "/fr/contact"
+        }
+      ],
+      "wordCount": 2680
+    }
+  }
+]
