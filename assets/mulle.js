@@ -1475,7 +1475,7 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
   ScrollTrigger.create({
     trigger: section,
     start: 'top 12%',
-    end: function(){ return '+=' + Math.round(Math.max(760, travel() * 2.5)); },
+    end: function(){ return '+=' + Math.round(Math.max(900, travel() * 3.0)); },
     pin: true, pinSpacing: true, anticipatePin: 1, invalidateOnRefresh: true,
     onUpdate: function(self){ render(self.progress); },
     onRefresh: function(self){ layout(); render(self.progress); }
