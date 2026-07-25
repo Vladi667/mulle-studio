@@ -1127,14 +1127,14 @@ section{position:relative}
    strip, and the section carried desktop-scale padding. Brand spans the top, the three link
    columns share one row, and the outer padding comes in. */
 @media (max-width:600px){
-  .site-foot{padding:clamp(34px,5vh,52px) var(--margin) clamp(26px,4vh,38px)}
-  .sf-grid{grid-template-columns:repeat(3,1fr);gap:22px 12px}
-  .sf-brand{grid-column:1 / -1;gap:11px}
-  .sf-tag{max-width:none}
-  .sf-col{gap:8px}
-  .sf-col a{font-size:12.5px}
-  .sf-h{margin-bottom:3px}
-  .sf-base{margin-top:clamp(22px,3.4vh,34px);gap:9px 16px}
+  .site-foot{padding:clamp(50px,7.5vh,76px) var(--margin) clamp(38px,5.5vh,54px)}
+  .sf-grid{grid-template-columns:repeat(3,1fr);gap:38px 14px}
+  .sf-brand{grid-column:1 / -1;gap:15px}
+  .sf-tag{max-width:none;line-height:1.75}
+  .sf-col{gap:13px}
+  .sf-col a{font-size:13px;line-height:1.45}
+  .sf-h{margin-bottom:9px}
+  .sf-base{margin-top:clamp(32px,4.8vh,46px);padding-top:24px;gap:13px 22px}
 }
 
 @media (max-width:1023px){
