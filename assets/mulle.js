@@ -933,12 +933,22 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
   var vids = document.querySelectorAll('.pf-vid'); if(!vids.length) return;   // may be several film plates now
   var small = window.matchMedia('(max-width:767px)').matches;
   vids.forEach(function(v){
-    if(v.closest('.wd-stack')) return;   /* home strip loops: the carousel IIFE owns play/pause,
-                                            and they keep their full sources (no -mobile variant exists) */
+    /* every .pf-vid (home strip included) takes the light rendition on phones. If a -mobile
+       file is ever missing, the <source> errors and we restore the full file once — a missing
+       rendition can never leave a blank frame again. */
     if(small){
       var s = v.querySelector('source');
-      if(s && s.src){ s.src = s.src.replace(/\.mp4(\?.*)?$/, '-mobile.mp4'); v.load(); }
+      if(s && s.src && s.src.indexOf('-mobile.mp4') === -1){
+        var full = s.src;
+        s.addEventListener('error', function onErr(){
+          s.removeEventListener('error', onErr);
+          s.src = full; v.load();
+        });
+        s.src = full.replace(/\.mp4(\?.*)?$/, '-mobile.mp4');
+        v.load();
+      }
     }
+    if(v.closest('.wd-stack')) return;   /* home strip loops: the carousel IIFE owns play/pause */
     function play(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? play() : v.pause(); }); }, { threshold:0.25, rootMargin:'200px 0px' }).observe(v);
