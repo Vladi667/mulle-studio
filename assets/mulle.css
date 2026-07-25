@@ -1227,7 +1227,19 @@ body.is-transitioning{pointer-events:none}
 .nextband:hover::after{animation:nb-sweep .9s var(--ease-out)}
 @keyframes nb-sweep{0%{left:-15%;opacity:0}25%{opacity:.9}100%{left:115%;opacity:0}}
 @media (max-width:1023px){ .nextband .nb-ghost{display:none} }
-@media (max-width:767px){ .nextband{padding:clamp(44px,9vh,90px) var(--margin)} .nextband .nb-row{gap:16px} }
+/* phones: both page endings sit on their clamp() floor, so the type never shrinks below a
+   desktop-ish size on a 390px screen. Pull the floors down and tighten the surrounding air. */
+@media (max-width:767px){
+  .nextband{padding:clamp(36px,7vh,66px) var(--margin)}
+  .nextband .nb-row{gap:14px}
+  .nextband .nb-title{font-size:clamp(27px,8.4vw,34px)}
+  .nextband .nb-arr{font-size:21px}
+  .nextband .nb-kick{margin-top:12px;font-size:12.5px}
+  .outro{padding-bottom:58px}
+  .outro .eyebrow{margin-bottom:clamp(18px,3.4vh,30px)}
+  .outro-cta{font-size:clamp(26px,8.2vw,33px)}
+  .outro-btn{margin-top:clamp(22px,3.6vh,34px);padding:15px 30px}
+}
 
 /* PHASE 5 — work lightbox: films fullscreen with sound, images enlarged */
 .wk-canvas[data-lb]{cursor:pointer}
