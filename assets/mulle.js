@@ -1397,6 +1397,110 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(init); } else { init(); }
 })();
 
+/* ── about · Origin — THE READING HEAD. The section pins and the beats track travels through a
+   fixed window past a stationary blue head. Every frame is computed from scroll progress: each
+   beat's distance from the head drives its scale, opacity, blur and lateral drift, so the whole
+   section is one continuous scrub — no entrance animations, nothing that fires once. ── */
+(function(){
+  var org = document.querySelector('.org');
+  if(!org || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  var section = org.closest('section');
+  var stage = org.querySelector('.org-stage');
+  var strip = org.querySelector('.org-beats');
+  var beats = gsap.utils.toArray('.org-beat', org);
+  if(!section || !stage || !strip || !beats.length) return;
+  var fill  = org.querySelector('.org-track > i');
+  var numEl = org.querySelector('[data-org-num]');
+  var idxEl = org.querySelector('[data-org-idx]');
+  var YEARS = ['MMXXI','MMXXII','MMXXIV','MMXXVI'];
+  var total = beats.length;
+
+  /* reduced motion: unwrap the stage into a plain readable list, no pin, no transforms */
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    stage.style.height = 'auto'; stage.style.overflow = 'visible';
+    stage.style.webkitMaskImage = 'none'; stage.style.maskImage = 'none';
+    strip.style.position = 'static';
+    var head = org.querySelector('.org-head'); if(head) head.style.display = 'none';
+    if(fill) fill.style.setProperty('--fill','100%');
+    if(numEl) numEl.textContent = YEARS[YEARS.length-1];
+    return;
+  }
+
+  /* half-window spacers top and bottom, so beat 01 starts ON the head and the last beat ends on
+     it — without these the outer beats never reach the reading line at all */
+  function layout(){
+    var pad = Math.max(0, (stage.clientHeight - beats[0].offsetHeight) / 2);
+    strip.style.paddingTop = pad + 'px';
+    strip.style.paddingBottom = pad + 'px';
+  }
+  layout();
+
+  var current = -1;
+  function setIndex(i){
+    if(i === current) return;
+    var up = i > current;
+    current = i;
+    if(numEl){
+      numEl.textContent = YEARS[i] || YEARS[YEARS.length - 1];
+      gsap.fromTo(numEl, { yPercent: up ? 105 : -105 }, { yPercent:0, duration:.4, ease:'power4.out', overwrite:true });
+    }
+    if(idxEl) idxEl.textContent = ('0' + (i + 1)).slice(-2) + ' / ' + ('0' + total).slice(-2);
+  }
+
+  function travel(){ return Math.max(1, strip.scrollHeight - stage.clientHeight); }
+
+  /* one render pass — everything below is a pure function of scroll progress. Transforms go
+     through a single gsap.set per beat: separate quickSetters for x and scale on the same
+     element fight over the transform cache and silently drop the scale. */
+  function render(p){
+    var t = travel(), focus = stage.clientHeight / 2, span = beats[0].offsetHeight * 1.35;
+    gsap.set(strip, { y: -p * t });
+    var best = 1e9, closest = 0;
+    for(var i = 0; i < beats.length; i++){
+      var b = beats[i];
+      var centre = b.offsetTop - p * t + b.offsetHeight / 2;
+      var d = Math.min(Math.abs(centre - focus) / span, 1);
+      gsap.set(b, {
+        scale: 1 - d * 0.14,
+        x: d * 16,
+        opacity: 1 - d * 0.76,
+        filter: d < 0.02 ? 'none' : 'blur(' + (d * 3.2).toFixed(2) + 'px)'
+      });
+      if(d < best){ best = d; closest = i; }
+    }
+    if(fill) fill.style.setProperty('--fill', (p * 100).toFixed(2) + '%');
+    setIndex(closest);
+  }
+
+  ScrollTrigger.create({
+    trigger: section,
+    start: 'top 12%',
+    end: function(){ return '+=' + Math.round(Math.max(460, travel() * 1.6)); },
+    pin: true, pinSpacing: true, anticipatePin: 1, invalidateOnRefresh: true,
+    onUpdate: function(self){ render(self.progress); },
+    onRefresh: function(self){ layout(); render(self.progress); }
+  });
+  render(0);
+})();
+
+/* ── inner pages: quiet scrub depth — the ghost numerals and the hero aura drift against the
+   page as it moves, so the empty field reads as parallax rather than as a flat backdrop ── */
+(function(){
+  if(typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  gsap.utils.toArray('.sec-ghost').forEach(function(g){
+    gsap.fromTo(g, { yPercent:-9 }, { yPercent:9, ease:'none',
+      scrollTrigger:{ trigger:g.closest('section') || g, start:'top bottom', end:'bottom top', scrub:.8 } });
+  });
+
+  /* the container only — .hero-aura b carries its own CSS keyframes and must not be fought */
+  gsap.utils.toArray('.page-hero .hero-aura').forEach(function(a){
+    gsap.fromTo(a, { yPercent:0 }, { yPercent:14, ease:'none',
+      scrollTrigger:{ trigger:a.closest('section') || a, start:'top top', end:'bottom top', scrub:.9 } });
+  });
+})();
+
 /* ── kinetic headings: word-by-word masked build (opt-in via .kine-head) ── */
 (function(){
   if(typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;

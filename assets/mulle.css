@@ -1027,6 +1027,55 @@ section{position:relative}
 .section:has(.sec-ghost) > :not(.sec-ghost){position:relative;z-index:1}
 @media (max-width:1023px){ .sec-ghost{display:none} }
 
+/* ── about · Origin — THE CHRONICLE: a sticky index rail beside four beats that light as they
+   pass; the rail track fills on scrub (--fill is written by GSAP, vertical on desktop and
+   horizontal on phones so one variable drives both). ── */
+/* centred in the section, but the stage keeps a real width — .org-beats is absolutely
+   positioned, so an intrinsic (fit-content) width would collapse the stage to nothing */
+.org{display:grid;grid-template-columns:clamp(92px,11vw,152px) 1fr;gap:clamp(22px,4vw,60px);
+  margin-top:clamp(34px,5.5vh,64px);align-items:start;
+  max-width:min(100%,760px);margin-inline:auto}
+.org-rail{position:sticky;top:clamp(100px,17vh,190px);display:flex;flex-direction:column;gap:13px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-40)}
+.org-num{display:block;overflow:hidden;height:1.2em;font-family:var(--mono);
+  font-size:clamp(10.5px,1vw,12.5px);font-weight:500;letter-spacing:.22em;color:var(--txt)}
+.org-num > i{display:block;font-style:normal;will-change:transform}
+@property --fill{syntax:'<percentage>';inherits:false;initial-value:0%}
+.org-track{position:relative;width:1px;height:clamp(84px,13vh,140px);background:var(--hairline);overflow:hidden}
+.org-track > i{position:absolute;left:0;top:0;width:100%;height:var(--fill,0%);background:var(--blue)}
+.org-idx{font-variant-numeric:tabular-nums;color:var(--txt-55)}
+
+/* the stage is a fixed window with a stationary blue reading head; the beats track travels
+   through it on scrub, each beat sharpening as it reaches the head — film past a tape head */
+.org-stage{position:relative;height:clamp(276px,41vh,412px);overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 85%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 85%,transparent 100%)}
+.org-head{position:absolute;left:0;top:50%;width:2px;height:clamp(94px,14.5vh,132px);
+  transform:translateY(-50%);background:var(--blue);pointer-events:none;z-index:2}
+.org-beats{list-style:none;margin:0;padding:0;position:absolute;left:0;top:0;width:100%;
+  display:flex;flex-direction:column;will-change:transform}
+.org-beat{position:relative;height:clamp(94px,14.5vh,132px);display:flex;flex-direction:column;
+  justify-content:center;padding-left:clamp(18px,2.2vw,30px);border-left:1px solid var(--hairline);
+  transform-origin:0% 50%;will-change:transform,opacity,filter}
+.org-lbl{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:8px}
+.org-line{font-family:var(--display);font-size:clamp(21px,2.8vw,36px);font-weight:400;letter-spacing:-.028em;
+  line-height:1.12;max-width:21ch;margin:0;color:var(--txt)}
+.org-line em{font-style:normal;font-weight:300;color:var(--blue)}
+
+@media (max-width:767px){
+  .org{grid-template-columns:1fr;gap:clamp(14px,2.4vh,20px)}
+  .org-rail{position:static;flex-direction:row;align-items:center;gap:12px}
+  .org-track{width:100%;height:1px;flex:1}
+  .org-track > i{height:100%;width:var(--fill,0%)}
+  .org-stage{height:clamp(224px,34vh,300px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .org-beat{opacity:1}
+  .org-beat::before{height:100%}
+  .org-beat,.org-beat::before{transition:none}
+}
+
 /* CROSSLINKS — end-of-page CTA */
 .crosslinks{
   position:relative;padding:clamp(70px,13vh,160px) var(--margin);
