@@ -1,5 +1,6 @@
 import { load } from 'cheerio';
 import fs from 'fs';
+import { PRICES, group, CHF } from './prices.mjs';
 const ROOT = 'C:/Users/Admin/Desktop/mulle-studio';
 const ORIGIN = 'https://agencefritz.com';
 
@@ -7,7 +8,7 @@ const ORIGIN = 'https://agencefritz.com';
 const $ = load(fs.readFileSync(ROOT + '/fr/confidentialite.html', 'utf8'), { decodeEntities: false });
 
 const title = "Tarifs — Agence Fritz, Genève | Prix publiés";
-const desc = "Les tarifs publics de l'agence Fritz à Genève : identité de marque CHF 1'500, site web CHF 1'700, e-commerce CHF 2'500.";
+const desc = `Les tarifs publics de l'agence Fritz à Genève : identité de marque ${CHF(PRICES.identity)}, site web ${CHF(PRICES.vitrine)}, e-commerce ${CHF(PRICES.ecommerce)}.`;
 const url = ORIGIN + '/fr/tarifs';
 $('title').text(title);
 $('meta[name="description"]').attr('content', desc);
@@ -52,7 +53,7 @@ const main = `
 <section class="page-hero">
   <div class="eyebrow" data-reveal><span class="hr" aria-hidden="true"></span><span>Tarifs</span><span class="sep" aria-hidden="true"></span><b>Genève</b></div>
   <h1>Des tarifs <em>publics.</em></h1>
-  <p class="page-lede">Pas de « sur devis » opaque. Identité de marque dès CHF 1'500, site web dès CHF 1'700, e-commerce dès CHF 2'500, accompagnement marketing dès CHF 490 par mois. Le code et les fichiers sources vous appartiennent, toujours.</p>
+  <p class="page-lede">Pas de « sur devis » opaque. Identité de marque dès ${CHF(PRICES.identity)}, site web dès ${CHF(PRICES.vitrine)}, e-commerce dès ${CHF(PRICES.ecommerce)}, accompagnement marketing dès ${CHF(PRICES.marketing.starter)} par mois. Le code et les fichiers sources vous appartiennent, toujours.</p>
   <div class="page-meta">
     <div><span>Devis</span><b>Gratuit</b></div>
     <div><span>Réponse</span><b>&lt; 24 h</b></div>
@@ -63,27 +64,27 @@ const main = `
 <section class="pricing" aria-label="Marque & site web">
   <div class="eyebrow" data-reveal><span class="hr" aria-hidden="true"></span><span>Marque &amp; site web</span><span class="sep" aria-hidden="true"></span><b>Paiement unique</b></div>
   <div class="pricing-grid">
-${pkg('Marque', '01', 'Identité de marque', 'Logo, palette, typographies et les supports essentiels pour une présence cohérente partout.', 'CHF', "1'500", 'paiement unique', ['Livré', 'en 14 jours'], ['3 pistes de logo → 1 système affiné', 'Palette et typographies complètes', 'Carte de visite &amp; papeterie', 'Signature e-mail &amp; kit réseaux'])}
-${pkg('Web', '02', 'Site web vitrine', "L'identité, puis le site qui la porte — une surface publique complète, conçue et développée d'un seul tenant.", 'CHF', "1'700", 'paiement unique', ['Livré', 'en 2 à 4 semaines'], ['Site vitrine sur-mesure', 'SEO technique &amp; analytics', 'Formation à la prise en main'])}
-${pkg('Commerce', '03', 'Site e-commerce', 'Identité, site et une surface e-commerce complète. Pour les marques qui vendent, gèrent leur stock et montent en volume.', 'CHF', "2'500", 'paiement unique', ['Livré', 'en 6 à 8 semaines'], ['Catalogue &amp; paiement (Stripe, TWINT)', 'Back-office &amp; gestion des commandes', 'SEO e-commerce', 'Formation complète'])}
+${pkg('Marque', '01', 'Identité de marque', 'Logo, palette, typographies et les supports essentiels pour une présence cohérente partout.', 'CHF', group(PRICES.identity), 'paiement unique', ['Livré', 'en 14 jours'], ['3 pistes de logo → 1 système affiné', 'Palette et typographies complètes', 'Carte de visite &amp; papeterie', 'Signature e-mail &amp; kit réseaux'])}
+${pkg('Web', '02', 'Site web vitrine', "Le site qui porte votre marque — une surface publique complète, conçue et développée d'un seul tenant.", 'CHF', group(PRICES.vitrine), 'paiement unique', ['Livré', 'en 2 à 4 semaines'], ['Site vitrine sur-mesure', 'SEO technique &amp; analytics', 'Formation à la prise en main'])}
+${pkg('Commerce', '03', 'Site e-commerce', 'Une surface e-commerce complète. Pour les marques qui vendent, gèrent leur stock et montent en volume.', 'CHF', group(PRICES.ecommerce), 'paiement unique', ['Livré', 'en 6 à 8 semaines'], ['Catalogue &amp; paiement (Stripe, TWINT)', 'Back-office &amp; gestion des commandes', 'SEO e-commerce', 'Formation complète'])}
   </div>
 </section>
 
 <section class="pricing" aria-label="Marketing">
   <div class="eyebrow" data-reveal><span class="hr" aria-hidden="true"></span><span>Marketing</span><span class="sep" aria-hidden="true"></span><b>Par mois</b></div>
   <div class="pricing-grid">
-${pkg('Signal', '01', 'Starter', 'Le placement du signal, en continu — pour installer une présence régulière et mesurée.', 'CHF', '490', 'par mois · sans minimum', ['Sans', 'engagement'], ['Stratégie &amp; calendrier', 'Création des contenus', 'Diffusion &amp; suivi', 'Reporting mensuel'])}
-${pkg('Moteur', '02', 'Engine', 'La machine créative qui tourne — production régulière et diffusion sur les bons canaux.', 'CHF', '890', 'par mois · min. 3 mois', ['Engagement', '3 mois'], ['Tout ce que comprend Starter', 'Volume de création accru', 'Publicité gérée', 'Optimisation continue'])}
-${pkg('Croissance', '03', 'Growth', 'Création, acquisition et performance réunies — pour accélérer franchement.', 'CHF', "1'390", 'par mois · min. 3 mois', ['Engagement', '3 mois'], ['Tout ce que comprend Engine', 'Acquisition multicanale', 'A/B testing &amp; CRO', 'Reporting hebdomadaire'])}
+${pkg('Signal', '01', 'Starter', 'Le placement du signal, en continu — pour installer une présence régulière et mesurée.', 'CHF', group(PRICES.marketing.starter), 'par mois · sans minimum', ['Sans', 'engagement'], ['Stratégie &amp; calendrier', 'Création des contenus', 'Diffusion &amp; suivi', 'Reporting mensuel'])}
+${pkg('Moteur', '02', 'Engine', 'La machine créative qui tourne — production régulière et diffusion sur les bons canaux.', 'CHF', group(PRICES.marketing.engine), 'par mois · min. 3 mois', ['Engagement', '3 mois'], ['Tout ce que comprend Starter', 'Volume de création accru', 'Publicité gérée', 'Optimisation continue'])}
+${pkg('Croissance', '03', 'Growth', 'Création, acquisition et performance réunies — pour accélérer franchement.', 'CHF', group(PRICES.marketing.growth), 'par mois · min. 3 mois', ['Engagement', '3 mois'], ['Tout ce que comprend Engine', 'Acquisition multicanale', 'A/B testing &amp; CRO', 'Reporting hebdomadaire'])}
   </div>
 </section>
 
 <section class="pricing" aria-label="Growth Ops">
   <div class="eyebrow" data-reveal><span class="hr" aria-hidden="true"></span><span>Growth Ops · IA</span><span class="sep" aria-hidden="true"></span><b>Par mois</b></div>
   <div class="pricing-grid">
-${pkg('Signal', '01', 'Signal', 'Le socle : tracking propre, tableaux de bord et visibilité sur ce qui compte.', 'CHF', '490', 'par mois · annulable', ['Sans', 'engagement'], ['Tracking &amp; tableaux de bord', 'Mise en place analytics', 'Reporting mensuel', 'Recommandations'])}
-${pkg('Compound', '02', 'Compound', "L'étage automatisation : CRM, workflows et relances qui travaillent pour vous.", 'CHF', "1'290", 'par mois · min. 3 mois', ['Engagement', '3 mois'], ['Tout ce que comprend Signal', 'CRM &amp; automatisations', 'Séquences &amp; relances', 'Intégrations sur-mesure'])}
-${pkg('Enterprise', '03', 'Enterprise', "Le système complet, propulsé par l'IA — pensé pour compounding et passage à l'échelle.", 'CHF', "2'900", 'par mois · engagement 6 mois', ['Engagement', '6 mois'], ['Tout ce que comprend Compound', 'Modèles &amp; agents IA', 'Reporting hebdomadaire', 'Accompagnement dédié'])}
+${pkg('Signal', '01', 'Signal', 'Le socle : tracking propre, tableaux de bord et visibilité sur ce qui compte.', 'CHF', group(PRICES.growthOps.signal), 'par mois · annulable', ['Sans', 'engagement'], ['Tracking &amp; tableaux de bord', 'Mise en place analytics', 'Reporting mensuel', 'Recommandations'])}
+${pkg('Compound', '02', 'Compound', "L'étage automatisation : CRM, workflows et relances qui travaillent pour vous.", 'CHF', group(PRICES.growthOps.compound), 'par mois · min. 3 mois', ['Engagement', '3 mois'], ['Tout ce que comprend Signal', 'CRM &amp; automatisations', 'Séquences &amp; relances', 'Intégrations sur-mesure'])}
+${pkg('Enterprise', '03', 'Enterprise', "Le système complet, propulsé par l'IA — pensé pour compounding et passage à l'échelle.", 'CHF', group(PRICES.growthOps.enterprise), 'par mois · engagement 6 mois', ['Engagement', '6 mois'], ['Tout ce que comprend Compound', 'Modèles &amp; agents IA', 'Reporting hebdomadaire', 'Accompagnement dédié'])}
   </div>
 </section>
 
@@ -113,9 +114,9 @@ const ld = {
   '@graph': [
     { '@type': 'OfferCatalog', name: 'Tarifs Agence Fritz', url, provider: { '@id': ORIGIN + '/#org' },
       itemListElement: [
-        offer('Identité de marque', '1500', 'CHF'), offer('Site web vitrine', '1700', 'CHF'), offer('Site e-commerce', '2500', 'CHF'),
-        offer('Marketing Starter', '490', 'CHF', 'MONTH'), offer('Marketing Engine', '890', 'CHF', 'MONTH'), offer('Marketing Growth', '1390', 'CHF', 'MONTH'),
-        offer('Growth Ops Signal', '490', 'CHF', 'MONTH'), offer('Growth Ops Compound', '1290', 'CHF', 'MONTH'), offer('Growth Ops Enterprise', '2900', 'CHF', 'MONTH'),
+        offer('Identité de marque', String(PRICES.identity), 'CHF'), offer('Site web vitrine', String(PRICES.vitrine), 'CHF'), offer('Site e-commerce', String(PRICES.ecommerce), 'CHF'),
+        offer('Marketing Starter', String(PRICES.marketing.starter), 'CHF', 'MONTH'), offer('Marketing Engine', String(PRICES.marketing.engine), 'CHF', 'MONTH'), offer('Marketing Growth', String(PRICES.marketing.growth), 'CHF', 'MONTH'),
+        offer('Growth Ops Signal', String(PRICES.growthOps.signal), 'CHF', 'MONTH'), offer('Growth Ops Compound', String(PRICES.growthOps.compound), 'CHF', 'MONTH'), offer('Growth Ops Enterprise', String(PRICES.growthOps.enterprise), 'CHF', 'MONTH'),
       ] },
     { '@type': 'FAQPage', mainEntity: [
       ['Que comprend le prix chez Fritz ?', 'Le design sur-mesure, le développement, le SEO technique de base et la formation. Aucun frais caché : le devis détaillé liste tout avant de commencer.'],

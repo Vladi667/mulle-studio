@@ -1,9 +1,11 @@
 // Inline price estimator — the recon found no ranking competitor has one.
 // It is HONEST: it sums Fritz's own PUBLISHED, SEPARATE engagement prices. Invents nothing.
-//   Brand identity CHF 1'500 · Brochure site CHF 1'700 · E-commerce CHF 2'500  (separate purchases)
+//   Prices come from prices.mjs (single source of truth) — never hardcode them here.
+//   Three SEPARATE purchases, never a cumulative ladder.
 // Straight apostrophe in amounts, to match the rest of the site.
 import { load } from 'cheerio';
 import fs from 'fs';
+import { PRICES, CHF } from './prices.mjs';
 const ROOT = 'C:/Users/Admin/Desktop/mulle-studio';
 
 const CSS = `<style id="est-css">
@@ -37,19 +39,19 @@ function block(lang) {
     eyebrow: 'Estimator', h2: 'Estimate your project',
     lede: "The engagements are published and separate. Pick what you need, the total adds up, paid once.",
     legend: 'Brand identity', siteLeg: 'Website',
-    identity: ['Brand identity', 'Logo, palette, typography, source files', "CHF 1'500"],
-    none: 'No website', vitrine: ['Brochure site', 'Custom design, CMS, mobile-first', "CHF 1'700"], ecom: ['E-commerce', 'Shop, checkout, order handling', "CHF 2'500"],
+    identity: ['Brand identity', 'Logo, palette, typography, source files', CHF(PRICES.identity)],
+    none: 'No website', vitrine: ['Brochure site', 'Custom design, CMS, mobile-first', CHF(PRICES.vitrine)], ecom: ['E-commerce', 'Shop, checkout, order handling', CHF(PRICES.ecommerce)],
     totalLbl: 'Project total', once: 'paid once', empty: 'Select at least one engagement.',
-    note: 'Ongoing marketing or growth ops is a separate, monthly engagement, from CHF 490 per month.',
+    note: `Ongoing marketing or growth ops is a separate, monthly engagement, from ${CHF(PRICES.marketing.starter)} per month.`,
     cta: 'Get a free quote for this scope', href: '/contact',
   } : {
     eyebrow: 'Estimateur', h2: 'Estimez votre projet',
     lede: "Les prestations sont publiées et distinctes. Choisissez ce dont vous avez besoin, le total s'additionne, en paiement unique.",
     legend: 'Identité', siteLeg: 'Site web',
-    identity: ['Identité de marque', 'Logo, palette, typographies, fichiers sources', "CHF 1'500"],
-    none: 'Pas de site', vitrine: ['Site vitrine', 'Design sur-mesure, CMS, mobile-first', "CHF 1'700"], ecom: ['Site e-commerce', 'Boutique, paiement, commandes', "CHF 2'500"],
+    identity: ['Identité de marque', 'Logo, palette, typographies, fichiers sources', CHF(PRICES.identity)],
+    none: 'Pas de site', vitrine: ['Site vitrine', 'Design sur-mesure, CMS, mobile-first', CHF(PRICES.vitrine)], ecom: ['Site e-commerce', 'Boutique, paiement, commandes', CHF(PRICES.ecommerce)],
     totalLbl: 'Total du projet', once: 'paiement unique', empty: 'Sélectionnez au moins une prestation.',
-    note: "Accompagnement marketing ou growth ops en option, prestation mensuelle distincte, dès CHF 490 par mois.",
+    note: `Accompagnement marketing ou growth ops en option, prestation mensuelle distincte, dès ${CHF(PRICES.marketing.starter)} par mois.`,
     cta: 'Obtenir un devis gratuit pour ce périmètre', href: '/fr/contact',
   };
   return `
@@ -60,12 +62,12 @@ function block(lang) {
         <p class="est-lede">${T.lede}</p>
         <fieldset>
           <legend>${T.legend}</legend>
-          <label class="est-opt"><input type="checkbox" data-price="1500" name="est-identity"><span class="lbl"><b>${T.identity[0]}</b><span>${T.identity[1]}</span></span><span class="amt">${T.identity[2]}</span></label>
+          <label class="est-opt"><input type="checkbox" data-price="${PRICES.identity}" name="est-identity"><span class="lbl"><b>${T.identity[0]}</b><span>${T.identity[1]}</span></span><span class="amt">${T.identity[2]}</span></label>
         </fieldset>
         <fieldset>
           <legend>${T.siteLeg}</legend>
-          <label class="est-opt"><input type="radio" name="est-site" data-price="1700" checked><span class="lbl"><b>${T.vitrine[0]}</b><span>${T.vitrine[1]}</span></span><span class="amt">${T.vitrine[2]}</span></label>
-          <label class="est-opt"><input type="radio" name="est-site" data-price="2500"><span class="lbl"><b>${T.ecom[0]}</b><span>${T.ecom[1]}</span></span><span class="amt">${T.ecom[2]}</span></label>
+          <label class="est-opt"><input type="radio" name="est-site" data-price="${PRICES.vitrine}" checked><span class="lbl"><b>${T.vitrine[0]}</b><span>${T.vitrine[1]}</span></span><span class="amt">${T.vitrine[2]}</span></label>
+          <label class="est-opt"><input type="radio" name="est-site" data-price="${PRICES.ecommerce}"><span class="lbl"><b>${T.ecom[0]}</b><span>${T.ecom[1]}</span></span><span class="amt">${T.ecom[2]}</span></label>
           <label class="est-opt"><input type="radio" name="est-site" data-price="0"><span class="lbl"><b>${T.none}</b></span><span class="amt"></span></label>
         </fieldset>
         <div class="est-total"><span class="t-lbl">${T.totalLbl}</span><span class="t-val" id="est-total" aria-live="polite" role="status"></span></div>
