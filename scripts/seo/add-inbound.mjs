@@ -27,6 +27,13 @@ const EDITS = [
   { file: 'fr/agence-branding-suisse.html', hub: '.lp-hub', anchor: 'Agence web à Lausanne', href: '/fr/agence-web-lausanne' },        // Il Duca (its case study) is a Lausanne project
   { file: 'fr/agence-web-lausanne.html', hub: '.lp-hub', anchor: 'Sites web hôtellerie et restauration', href: '/fr/sites-web-hotellerie-restauration' }, // Il Duca is a food business → hospitality sector
   { file: 'fr/guides/wix-ou-site-sur-mesure.html', hub: '.lp-hub', anchor: 'Agence web à Neuchâtel (sites B2B industriels)', href: '/fr/agence-web-neuchatel' }, // B2B industrial = classic outgrows-a-template case
+  // 2026-08-09: the logo-pricing guide is the site's best-ranking non-brand page (pos ~17 on
+  // "prix logo suisse") but had only 3 FR inbound links, while the Geneva lander has 23. These two
+  // sources are the most topical non-siblings available: both are pricing pages whose readers are
+  // pricing an adjacent deliverable.
+  // anchors lowercased to match the existing hub style on both source pages ("prix d'un site web à Genève →")
+  { file: 'fr/creation-site-web-geneve.html', hub: '.lp-hub', anchor: "prix d'un logo et d'une identité visuelle", href: '/fr/guides/prix-logo-identite-visuelle-suisse' },
+  { file: 'fr/guides/prix-site-web-geneve.html', hub: '.lp-hub', anchor: "prix d'un logo en Suisse", href: '/fr/guides/prix-logo-identite-visuelle-suisse' },
 ];
 
 for (const e of EDITS) {

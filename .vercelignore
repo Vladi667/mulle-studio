@@ -4,3 +4,5 @@ scripts
 *.bak
 _*.bak
 *.md
+package.json
+package-lock.json

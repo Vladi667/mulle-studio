@@ -3,4 +3,7 @@
 node_modules
 *.log
 
-.vercel
+# The GitHub remote for this repo is PUBLIC. Keep outreach/GBP strategy and scratch
+# backups out of it — these must never be pushed.
+OFFSITE-SETUP.md
+*.bak
