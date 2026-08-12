@@ -515,42 +515,78 @@ section{position:relative}
 }
 
 /* ──────────────────────────────────────────────────────────────────
-   DISCIPLINES — oversized index rows + floating preview
+   DISCIPLINES — ghost-ink register
+   Was three full-width rows with a 14px hover nudge, plus data-preview /
+   data-cap attributes for a cursor-following panel that was never built.
+   Now: the three names carry the section as type. Only the active one is
+   inked — the other two sit at the same ghost value as the manifesto's
+   .m-cell (rgba .08) — and a persistent panel to the right holds the detail,
+   so the meta stops competing with the names for the same line. The register
+   bar in the left margin travels to whichever name is live, which is the
+   same wayfinding idea as the manifesto's .m-axis.
    ────────────────────────────────────────────────────────────────── */
 .disciplines{padding:clamp(90px,16vh,180px) var(--margin)}
 .disc-head{display:flex;flex-direction:column;gap:22px;margin-bottom:clamp(40px,7vh,80px);max-width:900px}
 .disc-head h2{font-family:var(--display);font-size:clamp(26px,3.5vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.04}
 .disc-head h2 em{font-style:normal;font-weight:300;color:var(--txt-40)}
 
-.disc-list{list-style:none;border-top:1px solid var(--hairline-2)}
-.disc-row{
-  position:relative;display:grid;
-  grid-template-columns:minmax(48px,80px) 1fr minmax(180px,260px) auto;
-  align-items:baseline;gap:var(--gutter);
-  padding:clamp(26px,4.4vh,46px) 0;
-  border-bottom:1px solid var(--hairline-2);
-  cursor:pointer;
-}
-.disc-row .n{font-size:11px;letter-spacing:.2em;color:var(--blue);font-variant-numeric:tabular-nums}
-.disc-row .t{font-family:var(--display);font-size:clamp(21px,2.6vw,38px);font-weight:600;letter-spacing:-.02em;line-height:1.05;transition:transform var(--dur-hover) var(--ease-out)}
-.disc-row .t .sub{display:block;font-size:10px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--txt-40);margin-top:8px}
-.disc-row .meta{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-55);line-height:1.9}
-.disc-row .go{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);
-  transition:color var(--dur-short) var(--ease-out);
-}
-.disc-row .go .lin{width:22px;height:1.5px;background:currentColor;transition:width var(--dur-short) var(--ease-out)}
-.disc-row:hover .go{color:var(--blue)}
-.disc-row:hover .go .lin{width:34px}
-.disc-row:hover .t{transform:translateX(14px)}
-.disc-row .fill{
-  position:absolute;left:calc(-1 * var(--margin));right:calc(-1 * var(--margin));top:0;bottom:0;
-  background:rgba(255,255,255,.55);opacity:0;transition:opacity var(--dur-std) var(--ease-out);z-index:-1;
-}
-.disc-row:hover .fill{opacity:1}
+.disc-stage{display:grid;grid-template-columns:1fr minmax(250px,330px);
+  gap:clamp(28px,5vw,90px);align-items:start}
 
-/* floating preview window — follows cursor over rows */
+.disc-list{list-style:none;position:relative;border-top:1px solid var(--hairline-2)}
+.disc-row{border-bottom:1px solid var(--hairline-2)}
+.disc-link{display:grid;grid-template-columns:minmax(38px,62px) 1fr;gap:var(--gutter);
+  align-items:baseline;padding:clamp(22px,3.6vh,42px) 0;
+  text-decoration:none;color:inherit}
+.disc-row .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--txt-24);
+  font-variant-numeric:tabular-nums;transition:color var(--dur-hover) var(--ease-out)}
+/* ghost ink — the inactive names are furniture, not competition */
+.disc-row .t{font-family:var(--display);font-size:clamp(28px,5vw,68px);font-weight:600;
+  letter-spacing:-.032em;line-height:1;color:rgba(29,29,31,.10);
+  transition:color var(--dur-hover) var(--ease-out)}
+.disc-row .t .sub{display:block;font-family:var(--mono);font-size:10px;font-weight:400;
+  letter-spacing:.24em;text-transform:uppercase;color:transparent;margin-top:14px;
+  transition:color var(--dur-hover) var(--ease-out)}
+.disc-row.is-active .t{color:var(--txt)}
+.disc-row.is-active .t .sub{color:var(--txt-40)}
+.disc-row.is-active .n{color:var(--blue)}
+
+/* register bar — travels to the live name. transform only; height is set
+   without a transition because the rows differ and the travel is the read. */
+.disc-reg{position:absolute;left:calc(-1 * clamp(14px,2vw,26px));top:0;width:2px;height:0;
+  background:var(--blue);border-radius:2px;
+  transition:transform var(--dur-short) var(--ease-inout);pointer-events:none}
+
+/* the panel: one cell, all three cards stacked in it, so the box sizes to the
+   tallest and nothing reflows when the content swaps */
+.disc-panel{position:sticky;top:clamp(96px,15vh,150px)}
+.dp-stack{display:grid}
+.dp-card{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(10px);filter:blur(2px);
+  transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out),
+             filter 200ms var(--ease-out),visibility 0s linear 200ms}
+.dp-card.is-on{opacity:1;visibility:visible;transform:none;filter:none;
+  transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out),
+             filter 200ms var(--ease-out),visibility 0s}
+.dp-cap{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);line-height:1.8;margin-bottom:20px}
+.dp-meta{list-style:none;border-top:1px solid var(--hairline)}
+.dp-meta li{font-size:12px;letter-spacing:.02em;color:var(--txt-70);line-height:1.6;
+  padding:11px 0;border-bottom:1px solid var(--hairline)}
+.dp-go{display:inline-flex;align-items:center;gap:10px;margin-top:22px;text-decoration:none;
+  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--blue)}
+.dp-go .lin{width:22px;height:1.5px;background:currentColor;
+  transition:width var(--dur-hover) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){ .dp-go:hover .lin{width:36px} }
+
+/* one column below the split: no hover to drive it, so the active card sits
+   under the list and the scroll observer moves it */
+@media (max-width:900px){
+  .disc-stage{grid-template-columns:1fr;gap:clamp(20px,4vh,34px)}
+  .disc-panel{position:static}
+  .disc-row .t{font-size:clamp(26px,8vw,44px)}
+  .disc-reg{left:calc(-1 * clamp(8px,3vw,14px))}
+}
 /* ──────────────────────────────────────────────────────────────────
    WORKS — chrome plates
    ────────────────────────────────────────────────────────────────── */

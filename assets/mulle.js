@@ -262,6 +262,53 @@ if(hasHover && !reduced){
   });
 }
 
+/* ── disciplines: ghost-ink register ──
+   Above the no-GSAP/reduced-motion return for the same reason as the FAQ:
+   which name is inked is state, not decoration, so it has to resolve even
+   when nothing is allowed to move. ── */
+(function(){
+  var stage = document.querySelector('.disc-stage'); if(!stage) return;
+  var rows  = Array.prototype.slice.call(stage.querySelectorAll('.disc-row'));
+  var cards = Array.prototype.slice.call(stage.querySelectorAll('.dp-card'));
+  var reg   = stage.querySelector('.disc-reg');
+  if(!rows.length) return;
+  var cur = -1;
+
+  function place(){
+    if(!reg || cur < 0 || !rows[cur]) return;
+    reg.style.height = rows[cur].offsetHeight + 'px';
+    reg.style.transform = 'translateY(' + rows[cur].offsetTop + 'px)';
+  }
+  function setActive(i){
+    if(i === cur || i < 0 || i >= rows.length) return;
+    cur = i;
+    for(var n = 0; n < rows.length; n++){
+      rows[n].classList.toggle('is-active', n === i);
+      if(cards[n]) cards[n].classList.toggle('is-on', n === i);
+    }
+    place();
+  }
+
+  rows.forEach(function(r, i){
+    if(hasHover){ r.addEventListener('pointerenter', function(){ setActive(i); }); }
+    r.addEventListener('focusin', function(){ setActive(i); });
+  });
+
+  setActive(0);
+  requestAnimationFrame(place);            /* first real measurement after layout */
+  window.addEventListener('resize', place);
+
+  /* touch has no hover to drive it — the name nearest the middle of the viewport wins */
+  if(!hasHover && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      for(var k = 0; k < entries.length; k++){
+        if(entries[k].isIntersecting) setActive(rows.indexOf(entries[k].target));
+      }
+    }, { rootMargin:'-45% 0px -45% 0px', threshold:0 });
+    rows.forEach(function(r){ io.observe(r); });
+  }
+})();
+
 /* ── FAQ accordions ──
    Deliberately above the no-GSAP/reduced-motion return below: collapsing is a
    content-density feature, not a motion feature, so it has to work everywhere.
@@ -1109,11 +1156,8 @@ if(document.querySelector('.disc-head')){
   revealHeading(document.querySelector('.disc-head h2'));
 }
 
-document.querySelectorAll('.disc-row').forEach(function(row){
-  row.addEventListener('click', function(){
-    if(row.dataset.href){ navTransition(row.dataset.href); }
-  });
-});
+/* rows are real <a class="disc-link"> now, so the global link interceptor above
+   routes them through navTransition — no per-row click handler needed. */
 
 /* ── works: plates clip in, inner gradient parallax ── */
 if(document.querySelector('.works-head')){
