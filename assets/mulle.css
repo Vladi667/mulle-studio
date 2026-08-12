@@ -1352,8 +1352,12 @@ body.is-transitioning{pointer-events:none}
 .wk-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
 .lightbox{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,60px);
   background:rgba(12,12,14,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  opacity:0;visibility:hidden;transition:opacity .4s var(--ease-out),visibility .4s}
-.lightbox.open{opacity:1;visibility:visible}
+  /* visibility is discrete: transitioning it flips the value at 50% progress, so
+     on open the dialog stayed unfocusable for 200ms and closeBtn.focus() was
+     silently dropped. Visible immediately on open, hidden only once the fade
+     out has finished. */
+  opacity:0;visibility:hidden;transition:opacity .4s var(--ease-out),visibility 0s linear .4s}
+.lightbox.open{opacity:1;visibility:visible;transition:opacity .4s var(--ease-out),visibility 0s}
 .lb-stage{position:relative;display:flex;align-items:center;justify-content:center;max-width:min(1100px,92vw);width:100%}
 .lb-stage video,.lb-stage img{max-width:100%;max-height:85vh;width:auto;height:auto;display:block;border-radius:12px;
   box-shadow:0 40px 120px rgba(0,0,0,.5);opacity:0;transform:scale(.94);
@@ -1580,3 +1584,40 @@ body.is-transitioning{pointer-events:none}
 
 /* .nextband is deliberately excluded: it is a full-bleed band, and any scale
    on it exposes the page behind its own edges. Its arrow already answers. */
+
+/* ──────────────────────────────────────────────────────────────────
+   REDUCED TRANSPARENCY
+   Nine surfaces lean on translucency + blur. The OS preference asks for
+   frostier/solid, not merely less blurred — dropping the blur alone would
+   leave the text sitting on whatever is scrolling underneath, which is the
+   legibility problem the setting exists to solve.
+   ────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-transparency: reduce){
+  *,*::before,*::after{-webkit-backdrop-filter:none !important;backdrop-filter:none !important}
+  .glass,.menu,.pkg,.contact-form-wrap,.origin-visual figcaption{background:var(--bg)}
+  .langtog{background:var(--bg);border-color:var(--hairline-2)}
+  .wk-visit{background:rgba(29,29,31,.92)}
+  .lightbox{background:rgba(12,12,14,.98)}
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   INCREASED CONTRAST
+   The palette is built from alpha-tinted greys, so lifting the tokens
+   raises every label, caption, hairline and micro-cap at once instead of
+   chasing several hundred individual rules.
+   ────────────────────────────────────────────────────────────────── */
+@media (prefers-contrast: more){
+  :root{
+    --txt-70:rgba(29,29,31,.88);
+    --txt-55:rgba(29,29,31,.78);
+    --txt-40:rgba(29,29,31,.66);
+    --txt-24:rgba(29,29,31,.52);
+    --hairline:rgba(29,29,31,.30);
+    --hairline-2:rgba(29,29,31,.42);
+  }
+  /* ghost ink is decorative, but at this setting the inactive disciplines
+     and the manifesto's draft type should still read as text */
+  .disc-row .t{color:rgba(29,29,31,.34)}
+  .m-cell,.m-lock .tw-l{color:rgba(29,29,31,.26)}
+  :focus-visible{outline-width:2.5px}
+}
