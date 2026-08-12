@@ -5,7 +5,12 @@
 (function(){
 'use strict';
 
-var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+var reducedMQ = window.matchMedia('(prefers-reduced-motion:reduce)');
+var reduced = reducedMQ.matches;
+/* the OS setting can be toggled while the page is open — the choreography that has
+   already run stays put, but everything gated on `reduced` after this respects it */
+try{ reducedMQ.addEventListener('change', function(e){ reduced = e.matches; }); }
+catch(e){ try{ reducedMQ.addListener(function(e){ reduced = e.matches; }); }catch(e2){} }
 var hasHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 var hasGSAP = typeof gsap !== 'undefined';
 function isFR(){ return (document.documentElement.lang || '').slice(0,2) === 'fr'; }   /* 'fr' or 'fr-CH' */
@@ -225,18 +230,35 @@ if(hasHover && !reduced && hasGSAP){
   });
 }
 
-/* ── plate cursor tilt — gives the chrome plates material depth ── */
+/* ── plate cursor tilt — gives the chrome plates material depth ──
+   Direct manipulation, so it tracks the pointer 1:1. Two things keep it honest:
+   the rect is measured once on enter (measuring inside pointermove forces a
+   synchronous layout on every event), and the write is batched into rAF so a
+   burst of coalesced moves produces one style write per frame, not per event. */
 if(hasHover && !reduced){
   document.querySelectorAll('.plate-visual, .case-plate').forEach(function(el){
-    el.addEventListener('pointermove', function(e){
-      var r = el.getBoundingClientRect();
-      var rx = ((e.clientY - r.top) / r.height - 0.5) * -7;
-      var ry = ((e.clientX - r.left) / r.width - 0.5) * 7;
+    var r = null, raf = null, px = 0, py = 0;
+    function measure(){ r = el.getBoundingClientRect(); }
+    function paint(){
+      raf = null;
+      if(!r) return;
+      var rx = ((py - r.top) / r.height - 0.5) * -7;
+      var ry = ((px - r.left) / r.width - 0.5) * 7;
       el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+    }
+    el.addEventListener('pointerenter', measure);
+    el.addEventListener('pointermove', function(e){
+      if(!r) measure();
+      px = e.clientX; py = e.clientY;
+      if(raf == null) raf = requestAnimationFrame(paint);
     });
     el.addEventListener('pointerleave', function(){
+      if(raf != null){ cancelAnimationFrame(raf); raf = null; }
+      r = null;
       el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
     });
+    /* a scrolled page invalidates the cached rect */
+    window.addEventListener('scroll', function(){ if(r) measure(); }, { passive:true });
   });
 }
 

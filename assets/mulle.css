@@ -34,6 +34,10 @@
   --dur-micro:160ms;
   --dur-short:320ms;
   --dur-std:480ms;
+  /* hover is the highest-frequency motion on the site — it stays under 300ms.
+     --dur-media is the one concession: big image/video scale reads slower. */
+  --dur-hover:220ms;
+  --dur-media:300ms;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -211,9 +215,9 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 .menu li a{
   display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);
   padding:clamp(9px,1.7vh,16px) 0;
-  transition:padding-left var(--dur-std) var(--ease-out);
+  transition:transform var(--dur-hover) var(--ease-out);
 }
-.menu li a:hover{padding-left:18px}
+.menu li a:hover{transform:translateX(18px)}
 .menu .n{font-size:10px;letter-spacing:.2em;color:var(--txt-40);font-variant-numeric:tabular-nums}
 .menu .lbl{font-size:clamp(19px,2.7vw,32px);font-weight:300;letter-spacing:-.02em;flex:1}
 .menu .sub{display:block;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-40);margin-top:3px}
@@ -309,7 +313,7 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 .hs-chip:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 /* the arrow is the hero's foot blue moment; swallow its trailing letter-space so the rule
    ends optically at the arrowhead */
-.hs-chip i{font-style:normal;margin-right:-.18em;color:var(--blue);transition:transform .4s var(--ease-out)}
+.hs-chip i{font-style:normal;margin-right:-.18em;color:var(--blue);transition:transform var(--dur-hover) var(--ease-out)}
 .hs-chip:hover i{transform:translateX(3px)}
 
 /* trusted-by — barely-there proof: a whisper label, then a slow unhurried ticker (60s),
@@ -371,7 +375,7 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 }
 .btn::before{
   content:"";position:absolute;inset:0;background:var(--blue);
-  transform:translateY(101%);transition:transform var(--dur-std) var(--ease-inout);
+  transform:translateY(101%);transition:transform var(--dur-hover) var(--ease-out);
 }
 .btn span{position:relative;z-index:1}
 .btn:hover::before{transform:translateY(0)}
@@ -523,7 +527,7 @@ section{position:relative}
   cursor:pointer;
 }
 .disc-row .n{font-size:11px;letter-spacing:.2em;color:var(--blue);font-variant-numeric:tabular-nums}
-.disc-row .t{font-family:var(--display);font-size:clamp(21px,2.6vw,38px);font-weight:600;letter-spacing:-.02em;line-height:1.05;transition:transform var(--dur-std) var(--ease-out)}
+.disc-row .t{font-family:var(--display);font-size:clamp(21px,2.6vw,38px);font-weight:600;letter-spacing:-.02em;line-height:1.05;transition:transform var(--dur-hover) var(--ease-out)}
 .disc-row .t .sub{display:block;font-size:10px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--txt-40);margin-top:8px}
 .disc-row .meta{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-55);line-height:1.9}
 .disc-row .go{
@@ -651,11 +655,11 @@ section{position:relative}
   position:relative;padding-bottom:10px;width:max-content}
 .wd-all sup{font-size:8.5px;letter-spacing:.06em;color:var(--txt-40);font-variant-numeric:tabular-nums;transform:translateY(-3px)}
 .wd-all::before,.wd-all::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--txt);opacity:.85}
-.wd-all::after{transform-origin:right center;transition:transform .4s var(--ease-out)}
-.wd-all::before{transform:scaleX(0);transform-origin:left center;transition:transform .4s var(--ease-out) .15s}
+.wd-all::after{transform-origin:right center;transition:transform var(--dur-hover) var(--ease-out)}
+.wd-all::before{transform:scaleX(0);transform-origin:left center;transition:transform var(--dur-hover) var(--ease-out) 90ms}
 .wd-all:hover::after{transform:scaleX(0)}
 .wd-all:hover::before{transform:scaleX(1)}
-.wd-all i{font-style:normal;transition:transform .45s var(--ease-out)}
+.wd-all i{font-style:normal;transition:transform var(--dur-hover) var(--ease-out)}
 .wd-all:hover i{transform:translateX(4px)}
 
 @media (max-width:900px){
@@ -774,7 +778,7 @@ section{position:relative}
   padding:clamp(24px,2vw,36px);border-radius:22px;
   border:1px solid var(--hairline);background:rgba(255,255,255,.48);
   -webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
-  transition:transform var(--dur-std) var(--ease-out),border-color var(--dur-std) var(--ease-out),background var(--dur-std) var(--ease-out);
+  transition:transform var(--dur-hover) var(--ease-out),border-color var(--dur-hover) var(--ease-out),background var(--dur-hover) var(--ease-out);
 }
 .pkg:hover{transform:translateY(-6px);border-color:var(--hairline-2);background:rgba(255,255,255,.62)}
 .pkg.feat{border-color:var(--blue);background:rgba(255,255,255,.66)}
@@ -842,25 +846,25 @@ section{position:relative}
 .wk-row-specs > div{display:flex;flex-direction:column;gap:5px}
 .wk-row-specs span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-40)}
 .wk-row-specs b{font-size:12px;font-weight:500}
-.wk-frame{position:relative;border-radius:16px;overflow:hidden;background:var(--chrome-1);border:1px solid var(--glass-edge);box-shadow:0 20px 56px rgba(29,29,31,.10);transition:transform .55s var(--ease-out),box-shadow .55s var(--ease-out)}
+.wk-frame{position:relative;border-radius:16px;overflow:hidden;background:var(--chrome-1);border:1px solid var(--glass-edge);box-shadow:0 20px 56px rgba(29,29,31,.10);transition:transform var(--dur-hover) var(--ease-out),box-shadow var(--dur-hover) var(--ease-out)}
 .wk-row-media:hover .wk-frame{transform:translateY(-7px);box-shadow:0 34px 82px rgba(29,29,31,.18)}
 .wk-bar{height:32px;display:flex;align-items:center;gap:7px;padding:0 13px;background:rgba(255,255,255,.72);border-bottom:1px solid var(--hairline)}
 .wk-bar i{width:8px;height:8px;border-radius:50%;background:var(--chrome-2);opacity:.55}
 .wk-url{margin-left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--txt-40)}
 .wk-canvas{position:relative;overflow:hidden}
 .wk-visit-link{display:block;position:relative;color:inherit;text-decoration:none}
-.wk-visit{position:absolute;z-index:3;right:12px;bottom:12px;font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(29,29,31,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease-out),transform .4s var(--ease-out);pointer-events:none}
+.wk-visit{position:absolute;z-index:3;right:12px;bottom:12px;font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(29,29,31,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity var(--dur-hover) var(--ease-out),transform var(--dur-hover) var(--ease-out);pointer-events:none}
 .wk-visit-link:hover .wk-visit{opacity:1;transform:translateY(0)}
 .wk-canvas.r-1610{aspect-ratio:16/10}.wk-canvas.r-169{aspect-ratio:16/9}.wk-canvas.r-45{aspect-ratio:4/5}
-.wk-media{position:absolute;inset:0;transition:transform .7s var(--ease-out)}
-.wk-img,.wk-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .7s var(--ease-out)}
+.wk-media{position:absolute;inset:0;transition:transform var(--dur-media) var(--ease-out)}
+.wk-img,.wk-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform var(--dur-media) var(--ease-out)}
 .wk-row-media:hover .wk-media,.wk-row-media:hover .wk-img,.wk-row-media:hover .wk-vid{transform:scale(1.04)}
 .wk-canvas.is-playing .wk-play{display:none}
 .m-brand{background:radial-gradient(120% 95% at 70% 112%, rgba(217,212,232,.95), transparent 60%),linear-gradient(180deg,#ECEAF3,#C7C5D5)}
 .m-web{background:radial-gradient(120% 95% at 76% 112%, rgba(0,113,227,.4), transparent 60%),linear-gradient(180deg,#E4E9F1,#BAC2CE)}
 .m-growth{background:radial-gradient(110% 95% at 72% 114%, rgba(0,194,184,.4), transparent 60%),linear-gradient(180deg,#E1E6E6,#BCC4C5)}
 .m-video{background:radial-gradient(120% 110% at 50% 45%, rgba(40,40,46,.65), rgba(20,20,24,.92))}
-.wk-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);z-index:2;transition:transform .4s var(--ease-out)}
+.wk-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);z-index:2;transition:transform var(--dur-hover) var(--ease-out)}
 .wk-play::after{content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff}
 .wk-row-media:hover .wk-play{transform:translate(-50%,-50%) scale(1.12)}
 .wk-vtag{position:absolute;left:13px;bottom:12px;z-index:2;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82)}
@@ -909,7 +913,7 @@ section{position:relative}
   border:1px solid var(--glass-edge);background:var(--bg-deep);
   box-shadow:0 26px 64px rgba(29,29,31,.12);
 }
-.origin-visual img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block;filter:contrast(1.05);transition:transform .7s var(--ease-out)}
+.origin-visual img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block;filter:contrast(1.05);transition:transform var(--dur-media) var(--ease-out)}
 .origin-visual:hover img{transform:scale(1.045)}
 .origin-visual::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg, transparent 60%, rgba(29,29,31,.14))}
@@ -932,7 +936,7 @@ section{position:relative}
   align-items:center;gap:var(--gutter);padding:clamp(20px,3.2vh,34px) 0;text-align:left;
 }
 .case-head .c-n{font-size:11px;letter-spacing:.2em;color:var(--txt-40);font-variant-numeric:tabular-nums}
-.case-head .c-name{font-size:clamp(20px,2.7vw,40px);font-weight:300;letter-spacing:-.025em;transition:transform var(--dur-std) var(--ease-out)}
+.case-head .c-name{font-size:clamp(20px,2.7vw,40px);font-weight:300;letter-spacing:-.025em;transition:transform var(--dur-hover) var(--ease-out)}
 .case-head .c-name em{font-style:normal;color:var(--txt-40)}
 .case-head .c-disc{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-55)}
 .case-head .c-status{justify-self:start;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-55);padding:6px 11px;border:1px solid var(--hairline-2);border-radius:999px}
@@ -944,7 +948,9 @@ section{position:relative}
 .case.open .c-tog::before,.case.open .c-tog::after{background:var(--blue)}
 .case-head:hover .c-name{transform:translateX(10px)}
 .case-head:hover .c-tog::before,.case-head:hover .c-tog::after{background:var(--blue)}
-.case-detail{height:0;overflow:hidden;transition:height var(--dur-std) var(--ease-inout)}
+/* GSAP tweens this height frame-by-frame (mulle.js). A CSS transition on the same
+   property makes the two engines fight — the panel lags and overshoots. GSAP owns it. */
+.case-detail{height:0;overflow:hidden}
 .case-inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(24px,3.5vw,56px);padding:8px 0 clamp(30px,5vh,52px)}
 .case-plate{position:relative;aspect-ratio:5/4;border-radius:18px;overflow:hidden;border:1px solid var(--glass-edge)}
 .case-plate .pg{position:absolute;inset:0}
@@ -1226,7 +1232,7 @@ body.is-transitioning{pointer-events:none}
 .nextband .nb-row{display:flex;align-items:center;gap:clamp(16px,3vw,44px);margin-top:clamp(12px,2vh,22px)}
 .nextband .nb-title{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:.96;font-size:clamp(40px,7.6vw,124px)}
 .nextband .nb-arr{flex:none;font-size:clamp(28px,4vw,64px);color:var(--txt-40);
-  transition:transform .5s var(--ease-out),color .3s var(--ease-out)}
+  transition:transform var(--dur-hover) var(--ease-out),color var(--dur-hover) var(--ease-out)}
 .nextband .nb-kick{display:block;margin-top:clamp(14px,2vh,24px);font-size:clamp(13px,1.3vw,16px);color:var(--txt-55);max-width:42ch}
 .nextband:hover .nb-arr{transform:translateX(20px);color:var(--txt)}
 /* M6 — light closing chapter: ghost destination numeral + a specular light sweep on hover */
@@ -1256,12 +1262,15 @@ body.is-transitioning{pointer-events:none}
 .lightbox.open .lb-stage video,.lightbox.open .lb-stage img{opacity:1;transform:scale(1)}
 .lb-close{position:absolute;top:clamp(14px,3vw,30px);right:clamp(14px,3vw,30px);z-index:2;
   width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;
-  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease-out),transform .4s var(--ease-out)}
+  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--dur-hover) var(--ease-out),transform var(--dur-hover) var(--ease-out)}
 .lb-close:hover{background:rgba(255,255,255,.2);transform:rotate(90deg)}
 @media (prefers-reduced-motion:reduce){ .lb-stage video,.lb-stage img{transition:opacity .3s} .lb-close:hover{transform:none} }
 
 /* plates: material depth — grain overlay, slow drift, cursor tilt */
-.plate-visual,.case-plate{transform-style:preserve-3d;transition:transform .35s var(--ease-out)}
+/* cursor tilt is direct manipulation — it must track 1:1. The transition here is only
+   a smoothing floor and a return-to-rest curve; long enough to see is lag, not polish. */
+.plate-visual,.case-plate{transform-style:preserve-3d;transition:transform 120ms linear}
+.plate-visual:not(:hover),.case-plate:not(:hover){transition:transform var(--dur-media) var(--ease-out)}
 .plate-visual .pg,.case-plate .pg{animation:pg-shift 22s var(--ease-inout) infinite}
 @keyframes pg-shift{0%{background-position:0% 0%}50%{background-position:7% 5%}100%{background-position:0% 0%}}
 .plate-visual::after,.case-plate::after{
@@ -1338,12 +1347,49 @@ body.is-transitioning{pointer-events:none}
 }
 
 /* ──────────────────────────────────────────────────────────────────
+   TOUCH — no false hovers  ·  and no hover movement under reduced motion
+   A tap on iOS Safari applies :hover and leaves it applied until you tap
+   somewhere else, so every hover transform below would stick. The JS half of
+   the motion system is already gated on (hover:hover) and (pointer:fine)
+   (mulle.js); this is the CSS half. Reduced-motion shares the list: the point
+   there is that the element does not move at all, not that it moves instantly.
+   ────────────────────────────────────────────────────────────────── */
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+  .menu li a:hover,
+  .disc-row:hover .t,
+  .case-head:hover .c-name,
+  .pkg:hover,
+  .wk-row-media:hover .wk-frame,
+  .wk-row-media:hover .wk-media,
+  .wk-row-media:hover .wk-img,
+  .wk-row-media:hover .wk-vid,
+  .wk-row-media:hover .wk-play,
+  .origin-visual:hover img,
+  .mb-send:hover,
+  .nextband:hover .nb-arr,
+  .hs-chip:hover i,
+  .wd-all:hover i,
+  .menu li a:hover .arr{transform:none}
+  .wk-row-media:hover .wk-frame{box-shadow:0 20px 56px rgba(29,29,31,.10)}
+  .wk-row-media:hover .wk-play{transform:translate(-50%,-50%)}
+  .nextband:hover::after{animation:none}
+}
+
+/* ──────────────────────────────────────────────────────────────────
    REDUCED MOTION
+   Fewer and gentler, not zero. Movement (transform) is what triggers
+   vestibular symptoms — opacity and colour do not, and stripping them
+   removes the feedback that tells you the interface heard you.
    ────────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  /* kill continuous/decorative loops outright */
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important}
+  /* movement snaps; opacity and colour keep their (shortened) transition */
+  *,*::before,*::after{transition-property:opacity,color,background-color,border-color,box-shadow,fill,stroke !important;transition-duration:150ms !important}
   .pre{display:none}
   .fluid-wrap{opacity:1 !important}
+  /* the cursor tilt is pure movement — park it flat */
+  .plate-visual,.case-plate{transform:none !important}
 }
 
 /* ── EN / FR language toggle (top-right, left of the index button) ── */
