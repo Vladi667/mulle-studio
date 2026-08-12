@@ -605,7 +605,9 @@ section{position:relative}
    heading on the site. Three registers below it: display lead, mono
    micro-caps, body values — previously every line here was the same 12px,
    which is what made the column read as a footnote. */
-.dp-lead{font-family:var(--display);font-size:clamp(25px,2.9vw,38px);font-weight:300;
+/* the floor matters: the name clamps to 26-30px on a phone, so a 25px lead
+   would sit level with it. 19px keeps the reply subordinate at every width. */
+.dp-lead{font-family:var(--display);font-size:clamp(19px,2.9vw,38px);font-weight:300;
   letter-spacing:-.028em;line-height:1.1;color:var(--txt);
   margin-bottom:clamp(22px,3.2vh,34px);max-width:14ch;text-wrap:balance}
 .dp-spec{border-top:1px solid var(--hairline)}
