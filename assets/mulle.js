@@ -280,7 +280,6 @@ if(hasHover && !reduced){
     reg.style.transform = 'translateY(' + rows[cur].offsetTop + 'px)';
   }
   var plate = stage.querySelector('.disc-plate');
-  var num   = stage.querySelector('.dp-num');
   var vid   = stage.querySelector('.dp-media');
 
   function setActive(i){
@@ -290,15 +289,8 @@ if(hasHover && !reduced){
       rows[n].classList.toggle('is-active', n === i);
       if(cards[n]) cards[n].classList.toggle('is-on', n === i);
     }
-    /* the plate settles into a new attitude; the numeral rides the change */
+    /* the sphere settles into a new attitude */
     if(plate) plate.setAttribute('data-i', String(i));
-    if(num){
-      num.textContent = '0' + (i + 1);
-      if(!reduced && typeof num.animate === 'function'){
-        num.animate([{ opacity:0, transform:'translateY(7px)' }, { opacity:1, transform:'none' }],
-                    { duration:320, easing:'cubic-bezier(.22,1,.36,1)' });
-      }
-    }
     place();
   }
 

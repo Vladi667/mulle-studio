@@ -574,25 +574,22 @@ section{position:relative}
    tallest and nothing reflows when the content swaps */
 .disc-panel{position:sticky;top:clamp(96px,15vh,150px)}
 
-/* The plate — the right column was 12px body text against 68px names, which is
-   why it read as an afterthought. It is now the site's own chrome plate
-   carrying the mercury loop (assets/method-coalesce.*, which shipped in the
-   repo and was referenced by nothing). One material for all three disciplines,
-   because it is the studio's material, not an illustration of a service —
-   the discipline is read off the numeral and the card below. */
-.disc-plate{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;
-  background:var(--chrome-1);border:1px solid var(--glass-edge);
-  box-shadow:0 20px 56px rgba(29,29,31,.10);margin-bottom:clamp(18px,2.6vh,26px)}
-.dp-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+/* The sphere — no plate, no frame, no shadow. The loop is shot on #F2F0F3 and
+   the page is #F5F5F7, 1.5% apart, so a radial mask that fades out well inside
+   the frame drops the box entirely and leaves the sphere sitting on the page.
+   Measured: the sphere is 22.3% of frame width, centred — the mask goes solid
+   to 62% of the half-width and is gone by 86%, which clears it at every
+   attitude below without ever reaching the frame edge. */
+.disc-plate{position:relative;width:clamp(126px,14vw,182px);aspect-ratio:1/1;
+  margin:0 0 clamp(20px,3vh,30px)}
+.dp-media{width:100%;height:100%;object-fit:contain;display:block;
+  -webkit-mask-image:radial-gradient(circle closest-side at 50% 50%,#000 62%,rgba(0,0,0,0) 86%);
+  mask-image:radial-gradient(circle closest-side at 50% 50%,#000 62%,rgba(0,0,0,0) 86%);
   transition:transform 600ms var(--ease-inout)}
-/* the material settles into a different attitude per discipline — the same
-   object seen from a slightly different angle, not three different objects */
-.disc-plate[data-i="1"] .dp-media{transform:scale(1.07) translate(-3%,-2%)}
-.disc-plate[data-i="2"] .dp-media{transform:scale(1.13) translate(2%,3%)}
-.dp-num{position:absolute;left:16px;bottom:10px;font-family:var(--mono);font-weight:500;
-  font-size:clamp(38px,5vw,60px);line-height:1;letter-spacing:-.03em;
-  font-variant-numeric:tabular-nums;color:rgba(29,29,31,.20);mix-blend-mode:multiply;
-  pointer-events:none}
+/* the material settles into a different attitude per discipline — scale only,
+   because a translate would carry the sphere into the mask's falloff */
+.disc-plate[data-i="1"] .dp-media{transform:scale(1.07)}
+.disc-plate[data-i="2"] .dp-media{transform:scale(1.14)}
 
 .dp-stack{display:grid}
 /* the card carries only the crossfade + blur mask; the y-motion is delegated to
@@ -605,21 +602,28 @@ section{position:relative}
 
 /* 50ms stagger down the card — decorative, and it never gates interaction
    because the link is clickable from the first frame */
-.dp-card .dp-cap,.dp-card .dp-meta li,.dp-card .dp-go{opacity:0;transform:translateY(6px);
+.dp-card .dp-lead,.dp-card .dp-spec > div,.dp-card .dp-go{opacity:0;transform:translateY(6px);
   transition:opacity 220ms var(--ease-out),transform 220ms var(--ease-out)}
-.dp-card.is-on .dp-cap,
-.dp-card.is-on .dp-meta li,
+.dp-card.is-on .dp-lead,
+.dp-card.is-on .dp-spec > div,
 .dp-card.is-on .dp-go{opacity:1;transform:none}
-.dp-card.is-on .dp-cap{transition-delay:30ms}
-.dp-card.is-on .dp-meta li:nth-child(1){transition-delay:80ms}
-.dp-card.is-on .dp-meta li:nth-child(2){transition-delay:130ms}
-.dp-card.is-on .dp-meta li:nth-child(3){transition-delay:180ms}
+.dp-card.is-on .dp-lead{transition-delay:30ms}
+.dp-card.is-on .dp-spec > div:nth-child(1){transition-delay:80ms}
+.dp-card.is-on .dp-spec > div:nth-child(2){transition-delay:130ms}
+.dp-card.is-on .dp-spec > div:nth-child(3){transition-delay:180ms}
 .dp-card.is-on .dp-go{transition-delay:230ms}
-.dp-cap{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--blue);line-height:1.8;margin-bottom:20px}
-.dp-meta{list-style:none;border-top:1px solid var(--hairline)}
-.dp-meta li{font-size:12px;letter-spacing:.02em;color:var(--txt-70);line-height:1.6;
-  padding:11px 0;border-bottom:1px solid var(--hairline)}
+/* three registers instead of one: the setting reads as a light display line,
+   the labels drop to mono micro-caps, the values sit at body size. Previously
+   every line in this column was the same 12px, which is what made it flat. */
+.dp-lead{font-family:var(--display);font-size:clamp(17px,1.7vw,23px);font-weight:300;
+  letter-spacing:-.015em;line-height:1.24;color:var(--txt);
+  margin-bottom:clamp(16px,2.4vh,24px);max-width:22ch}
+.dp-spec{border-top:1px solid var(--hairline)}
+.dp-spec > div{display:grid;grid-template-columns:minmax(58px,74px) 1fr;gap:14px;
+  align-items:baseline;padding:10px 0;border-bottom:1px solid var(--hairline)}
+.dp-spec dt{font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--txt-40)}
+.dp-spec dd{font-size:12.5px;line-height:1.5;color:var(--txt-70);margin:0}
 .dp-go{display:inline-flex;align-items:center;gap:10px;margin-top:22px;text-decoration:none;
   font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.22em;
   text-transform:uppercase;color:var(--blue)}
@@ -637,8 +641,6 @@ section{position:relative}
 @media (max-width:900px){
   .disc-stage{grid-template-columns:1fr;gap:clamp(20px,4vh,34px)}
   .disc-panel{position:static}
-  /* a square plate would eat the fold on a phone */
-  .disc-plate{aspect-ratio:16/10}
   .disc-row .t{font-size:clamp(26px,8vw,44px)}
   .disc-reg{left:calc(-1 * clamp(8px,3vw,14px))}
 }
