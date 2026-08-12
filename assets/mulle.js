@@ -262,6 +262,28 @@ if(hasHover && !reduced){
   });
 }
 
+/* ── FAQ accordions ──
+   Deliberately above the no-GSAP/reduced-motion return below: collapsing is a
+   content-density feature, not a motion feature, so it has to work everywhere.
+   The markup renders expanded; this collapses it. If this script never runs,
+   every answer stays visible — which is the correct failure mode for SEO. ── */
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  if(!items.length) return;
+  Array.prototype.forEach.call(items, function(item, i){
+    var btn = item.querySelector('.faq-q'), panel = item.querySelector('.faq-a');
+    if(!btn || !panel) return;
+    panel.id = panel.id || ('faq-a-' + (i + 1));
+    btn.setAttribute('aria-controls', panel.id);
+    item.classList.add('is-collapsed');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function(){
+      var open = item.classList.toggle('is-collapsed') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
+
 /* ── no GSAP / reduced motion: show everything and stop ── */
 var pre = document.querySelector('.pre');
 if(!hasGSAP || reduced){

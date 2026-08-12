@@ -106,8 +106,13 @@ html{scrollbar-width:thin;scrollbar-color:var(--chrome-2) transparent}
 ::-webkit-scrollbar-thumb{background:var(--chrome-2);border-radius:999px;border:2px solid var(--bg)}
 ::-webkit-scrollbar-thumb:hover{background:var(--txt-40)}
 
-/* press states (transform-safe for magnetic buttons via filter) */
-.btn:active{filter:brightness(.93)}
+/* press states (transform-safe for magnetic buttons via filter)
+   .btn can't use `transform` for press — GSAP's magnetic quickTo writes inline
+   transform on it every frame and would win. The standalone `scale` property
+   composes with transform instead of replacing it, so the press reads as
+   geometry (which is what a press should be) without fighting the magnet. */
+.btn{transition:scale 160ms var(--ease-out)}
+.btn:active{filter:brightness(.93);scale:.97}
 .index-link:active,.xlink:active,.case-head:active,.sf-mark:active,.wordmark:active{transform:scale(.985)}
 
 /* ──────────────────────────────────────────────────────────────────
@@ -983,7 +988,13 @@ section{position:relative}
 .submit-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:6px}
 .submit-row .note{font-size:11px;line-height:1.6;color:var(--txt-40);max-width:360px}
 .submit-row .note b{color:var(--txt-55);font-weight:500}
-.form-status{font-size:13px;line-height:1.6;padding:14px 16px;border-radius:12px;margin-bottom:18px}
+/* the status box is the conversion moment — it used to pop in with no bridge.
+   @starting-style handles the first appearance; the background/colour transition
+   carries the sending -> sent change, so the box tints rather than snapping. */
+.form-status{font-size:13px;line-height:1.6;padding:14px 16px;border-radius:12px;margin-bottom:18px;
+  transition:background-color 240ms var(--ease-out),color 240ms var(--ease-out),
+             opacity 240ms var(--ease-out),transform 240ms var(--ease-out)}
+@starting-style{ .form-status{opacity:0;transform:translateY(-6px)} }
 .form-status.pending{background:rgba(199,204,214,.3);color:var(--txt-70)}
 .form-status.ok{background:rgba(0,113,227,.08);color:var(--blue)}
 .form-status.err{background:rgba(216,90,48,.08);color:#993c1d}
@@ -1345,6 +1356,39 @@ body.is-transitioning{pointer-events:none}
 @media (hover:none){
   .wk-visit{opacity:1;transform:none}
 }
+
+/* ──────────────────────────────────────────────────────────────────
+   FAQ ACCORDIONS (lander pages)
+   The per-page inline <style> already owns the borders, type and padding —
+   this only adds the collapse. Markup ships EXPANDED (aria-expanded="true");
+   mulle.js applies .is-collapsed on init, so a crawler or a JS failure still
+   sees every answer and the FAQPage JSON-LD keeps matching what is rendered.
+   grid-template-rows 0fr->1fr rather than height: it animates to content size
+   without measuring, and unlike height it does not need a JS-set pixel value.
+   ────────────────────────────────────────────────────────────────── */
+.faq-item .faq-qh{margin:0}
+.faq-q{display:flex;align-items:baseline;gap:16px;width:100%;
+  background:none;border:0;padding:0;margin:0;cursor:pointer;
+  font:inherit;color:inherit;text-align:left}
+.faq-q:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
+.faq-qt{flex:1;transition:color var(--dur-hover) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){ .faq-q:hover .faq-qt{color:var(--blue)} }
+
+/* plus when closed, minus when open — the vertical bar is what collapses */
+.faq-ic{position:relative;flex:none;width:11px;height:11px;margin-top:2px;color:var(--blue)}
+.faq-ic::before,.faq-ic::after{content:"";position:absolute;inset:0;margin:auto;background:currentColor}
+.faq-ic::before{width:11px;height:1.5px}
+.faq-ic::after{width:1.5px;height:11px;transition:transform var(--dur-hover) var(--ease-out)}
+.faq-item:not(.is-collapsed) .faq-ic::after{transform:scaleY(0)}
+
+.faq-a{display:grid;grid-template-rows:1fr;transition:grid-template-rows 240ms var(--ease-out)}
+.faq-a > div{overflow:hidden;opacity:1;transition:opacity 160ms var(--ease-out) 80ms}
+.faq-a > div > p{padding-top:8px}
+.faq-item.is-collapsed .faq-a{grid-template-rows:0fr}
+/* visibility flips only after the row has finished closing, so a collapsed
+   answer cannot be tabbed into but the fade still reads */
+.faq-item.is-collapsed .faq-a > div{opacity:0;visibility:hidden;
+  transition:opacity 140ms var(--ease-out),visibility 0s linear 240ms}
 
 /* ──────────────────────────────────────────────────────────────────
    TOUCH — no false hovers  ·  and no hover movement under reduced motion

@@ -230,7 +230,7 @@
           if (!p.name || !p.email || !p.message) { setStatus('err', T.missing); return; }
 
           var label = btn.querySelector('span'); var orig = label.textContent;
-          btn.disabled = true; label.textContent = T.btnSending; setStatus('', T.sending);
+          btn.disabled = true; label.textContent = T.btnSending; setStatus('pending', T.sending);
 
           fetch('https://formsubmit.co/ajax/contact@agencefritz.com', {
             method: 'POST',
