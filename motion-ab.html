@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Motion A/B — before vs after</title>
+<style>
+  :root{
+    --bg:#F5F5F7; --txt:#1D1D1F; --txt-55:rgba(29,29,31,.55); --txt-40:rgba(29,29,31,.4);
+    --hairline:rgba(29,29,31,.1); --blue:#0071E3;
+    --ease-out:cubic-bezier(.22,1,.36,1);
+    --mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --slow:1;
+    /* OLD — what agencefritz.com ships today */
+    --old-frame:calc(.55s * var(--slow));
+    --old-media:calc(.7s * var(--slow));
+    /* NEW — what the preview ships */
+    --new-frame:calc(.22s * var(--slow));
+    --new-media:calc(.3s * var(--slow));
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font:400 15px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+       padding:clamp(20px,5vw,64px);-webkit-font-smoothing:antialiased}
+  h1{font-size:clamp(22px,3vw,34px);font-weight:300;letter-spacing:-.025em;margin-bottom:6px}
+  .sub{color:var(--txt-55);font-size:14px;max-width:62ch;margin-bottom:8px}
+  .note{color:var(--txt-40);font-size:13px;max-width:62ch;margin-bottom:28px}
+
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:34px}
+  button{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    padding:11px 18px;border-radius:999px;border:1px solid var(--hairline);background:#fff;color:var(--txt);
+    cursor:pointer;transition:background 160ms var(--ease-out),color 160ms var(--ease-out),transform 160ms var(--ease-out)}
+  button:hover{background:var(--txt);color:var(--bg)}
+  button:active{transform:scale(.97)}
+  button[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,3vw,40px);align-items:start}
+  .col > .cap{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+  .cap b{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
+  .cap span{font:400 11px/1 var(--mono);color:var(--txt-40);letter-spacing:.06em}
+  .col.old .cap b{color:var(--txt-55)}
+  .col.new .cap b{color:var(--blue)}
+
+  /* the card, lifted verbatim from mulle.css .wk-frame / .wk-media / .wk-img */
+  .frame{position:relative;border-radius:16px;overflow:hidden;background:#EDEDF0;
+    border:1px solid var(--hairline);box-shadow:0 20px 56px rgba(29,29,31,.10);
+    aspect-ratio:4/3}
+  .media{position:absolute;inset:0}
+  .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .visit{position:absolute;z-index:3;right:12px;bottom:12px;font-family:var(--mono);font-size:9px;
+    letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(29,29,31,.5);
+    backdrop-filter:blur(6px);padding:6px 11px;border-radius:999px;opacity:0;transform:translateY(6px);
+    pointer-events:none}
+
+  .old .frame{transition:transform var(--old-frame) var(--ease-out),box-shadow var(--old-frame) var(--ease-out)}
+  .old .media,.old .media img{transition:transform var(--old-media) var(--ease-out)}
+  .old .visit{transition:opacity calc(.4s * var(--slow)) var(--ease-out),transform calc(.4s * var(--slow)) var(--ease-out)}
+
+  .new .frame{transition:transform var(--new-frame) var(--ease-out),box-shadow var(--new-frame) var(--ease-out)}
+  .new .media,.new .media img{transition:transform var(--new-media) var(--ease-out)}
+  .new .visit{transition:opacity var(--new-frame) var(--ease-out),transform var(--new-frame) var(--ease-out)}
+
+  .card:hover .frame,.card.lit .frame{transform:translateY(-7px);box-shadow:0 34px 82px rgba(29,29,31,.18)}
+  .card:hover .media img,.card.lit .media img{transform:scale(1.04)}
+  .card:hover .visit,.card.lit .visit{opacity:1;transform:translateY(0)}
+
+  .readout{margin-top:12px;font:400 11px/1.7 var(--mono);color:var(--txt-40);letter-spacing:.04em}
+  .readout b{color:var(--txt);font-weight:500}
+  footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--hairline);
+    font:400 12px/1.7 var(--mono);color:var(--txt-40);letter-spacing:.03em;max-width:70ch}
+  footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<h1>Hover timing — before vs after</h1>
+<p class="sub">The same work card, twice. Left is what agencefritz.com ships today; right is the preview branch. Everything else is identical — same curve, same distance, same shadow.</p>
+<p class="note">Hover them one at a time and you will probably shrug. Press <b>Trigger both</b> so they start on the same frame — that is the only way the difference is obvious. <b>4× slower</b> makes it unmissable.</p>
+
+<div class="controls">
+  <button id="trigger">Trigger both</button>
+  <button id="loop" aria-pressed="false">Loop every 2s</button>
+  <button id="slow" aria-pressed="false">4× slower</button>
+</div>
+
+<div class="grid">
+  <div class="col old">
+    <div class="cap"><b>Before</b><span>lift 550ms · scale 700ms</span></div>
+    <div class="card" id="cardOld">
+      <div class="frame">
+        <div class="media"><img src="assets/work/concept-newform-poster.jpg" alt=""></div>
+        <div class="visit">Visit</div>
+      </div>
+    </div>
+    <div class="readout">frame <b>0.55s</b> · media <b>0.70s</b></div>
+  </div>
+
+  <div class="col new">
+    <div class="cap"><b>After</b><span>lift 220ms · scale 300ms</span></div>
+    <div class="card" id="cardNew">
+      <div class="frame">
+        <div class="media"><img src="assets/work/concept-newform-poster.jpg" alt=""></div>
+        <div class="visit">Visit</div>
+      </div>
+    </div>
+    <div class="readout">frame <b>0.22s</b> · media <b>0.30s</b></div>
+  </div>
+</div>
+
+<footer>
+  Playbook: hover is high-frequency motion, so it stays under 300ms. 550–700ms reads as
+  the interface thinking about it. Nothing else on the site changed — this is the whole
+  visible delta. <a href="/our-work">Real page →</a>
+</footer>
+
+<script>
+  var a = document.getElementById('cardOld'), b = document.getElementById('cardNew');
+  var loopBtn = document.getElementById('loop'), slowBtn = document.getElementById('slow');
+  var timer = null;
+
+  function fire(){
+    a.classList.remove('lit'); b.classList.remove('lit');
+    // next frame, so a re-trigger restarts cleanly rather than retargeting mid-flight
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ a.classList.add('lit'); b.classList.add('lit'); });
+    });
+    var hold = slowBtn.getAttribute('aria-pressed') === 'true' ? 3200 : 900;
+    setTimeout(function(){ a.classList.remove('lit'); b.classList.remove('lit'); }, hold);
+  }
+
+  document.getElementById('trigger').addEventListener('click', fire);
+
+  loopBtn.addEventListener('click', function(){
+    var on = loopBtn.getAttribute('aria-pressed') === 'true';
+    loopBtn.setAttribute('aria-pressed', String(!on));
+    if(on){ clearInterval(timer); timer = null; }
+    else { fire(); timer = setInterval(fire, slowBtn.getAttribute('aria-pressed') === 'true' ? 4200 : 2000); }
+  });
+
+  slowBtn.addEventListener('click', function(){
+    var on = slowBtn.getAttribute('aria-pressed') === 'true';
+    slowBtn.setAttribute('aria-pressed', String(!on));
+    document.documentElement.style.setProperty('--slow', on ? '1' : '4');
+    if(timer){ clearInterval(timer); timer = setInterval(fire, on ? 2000 : 4200); }
+  });
+</script>
+</body>
+</html>
