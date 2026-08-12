@@ -289,23 +289,76 @@ if(hasHover && !reduced){
     place();
   }
 
+  /* ── self-play ──
+     On touch the names are links, so tapping navigates — there is no way to
+     select one, and disciplines 02 and 03 would never be seen. So the section
+     plays itself while it is on screen and hands over for good the moment the
+     visitor does anything deliberate. The fill animation IS the dwell clock:
+     no interval to drift, and pausing it pauses the advance. */
+  var DWELL = 3400;                        /* long enough to finish reading the card */
+  var fill = reg && reg.querySelector('i');
+  var canPlay = !!fill && typeof fill.animate === 'function' && !reduced;
+  var play = null, manual = false, inView = false;
+
+  function handOver(){
+    if(manual) return;
+    manual = true;
+    if(play){ play.cancel(); play = null; }
+    if(reg) reg.classList.add('is-manual');   /* bar stops being a clock, stays wayfinding */
+  }
+
+  function cycle(){
+    if(!canPlay || manual || !inView) return;
+    if(play) play.cancel();
+    play = fill.animate([{ transform:'scaleY(0)' }, { transform:'scaleY(1)' }],
+                        { duration:DWELL, easing:'linear', fill:'forwards' });
+    play.onfinish = function(){
+      if(manual || !inView) return;
+      setActive((cur + 1) % rows.length);
+      cycle();
+    };
+  }
+
   rows.forEach(function(r, i){
-    if(hasHover){ r.addEventListener('pointerenter', function(){ setActive(i); }); }
-    r.addEventListener('focusin', function(){ setActive(i); });
+    if(hasHover){ r.addEventListener('pointerenter', function(){ handOver(); setActive(i); }); }
+    r.addEventListener('focusin', function(){ handOver(); setActive(i); });
+    r.addEventListener('click', handOver);
   });
+
+  /* arrow keys walk the list — focusin above handles the state */
+  var list = stage.querySelector('.disc-list');
+  if(list){
+    list.addEventListener('keydown', function(e){
+      if(e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+      var links = rows.map(function(r){ return r.querySelector('.disc-link'); });
+      var at = links.indexOf(document.activeElement);
+      if(at < 0) return;
+      e.preventDefault();
+      links[(at + (e.key === 'ArrowDown' ? 1 : rows.length - 1)) % rows.length].focus();
+    });
+  }
 
   setActive(0);
   requestAnimationFrame(place);            /* first real measurement after layout */
   window.addEventListener('resize', place);
 
-  /* touch has no hover to drive it — the name nearest the middle of the viewport wins */
-  if(!hasHover && 'IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      for(var k = 0; k < entries.length; k++){
-        if(entries[k].isIntersecting) setActive(rows.indexOf(entries[k].target));
-      }
-    }, { rootMargin:'-45% 0px -45% 0px', threshold:0 });
-    rows.forEach(function(r){ io.observe(r); });
+  /* no self-play (reduced motion, or no WAAPI): the bar is pure wayfinding */
+  if(!canPlay && reg) reg.classList.add('is-manual');
+
+  if(canPlay && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      inView = entries[0].isIntersecting;
+      if(manual) return;
+      if(!inView){ if(play) play.pause(); return; }
+      if(play && play.playState === 'paused') play.play(); else cycle();
+    }, { threshold:0.35 }).observe(stage);
+
+    /* a backgrounded tab should not burn through the cycle unwatched */
+    document.addEventListener('visibilitychange', function(){
+      if(manual || !play) return;
+      if(document.hidden) play.pause();
+      else if(inView) play.play();
+    });
   }
 })();
 
