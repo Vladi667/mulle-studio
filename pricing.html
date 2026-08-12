@@ -74,6 +74,7 @@
 .est legend{font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-55);margin:0 0 10px;padding:0}
 .est-opt{display:flex;align-items:center;gap:14px;padding:13px 16px;border:1px solid var(--hairline);border-radius:10px;margin-bottom:8px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
 .est-opt:hover{border-color:var(--hairline-2)}
+.est-opt:has(input:focus-visible){border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,.18)}   /* the row highlighted on hover but not on focus -- keyboard users got nothing */
 .est-opt:has(input:checked){border-color:var(--blue);background:rgba(0,113,227,.045)}
 .est-opt input{accent-color:var(--blue);width:18px;height:18px;flex:none;margin:0}
 .est-opt .lbl{flex:1;display:flex;flex-direction:column;gap:2px}

@@ -833,16 +833,26 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     return c.getAttribute('data-video') || c.getAttribute('data-img') || c.querySelector('.wk-img');
   });
   if(!elig.length) return;
+  var fr = isFR();
   var lb = document.createElement('div'); lb.className = 'lightbox'; lb.setAttribute('aria-hidden', 'true');
-  lb.innerHTML = '<button type="button" class="lb-close" aria-label="Close">✕</button><div class="lb-stage"></div>';
+  /* it behaves as a modal, so it has to say so: without role/aria-modal a screen
+     reader announces it as an anonymous div and keeps reading the page behind it */
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.setAttribute('aria-label', fr ? 'Visionneuse' : 'Media viewer');
+  lb.innerHTML = '<button type="button" class="lb-close" aria-label="' + (fr ? 'Fermer' : 'Close') + '">✕</button><div class="lb-stage"></div>';
   document.body.appendChild(lb);
   var stage = lb.querySelector('.lb-stage'), closeBtn = lb.querySelector('.lb-close');
-  var isOpen = false;
+  var isOpen = false, lastFocus = null;
   function close(){
     if(!isOpen) return; isOpen = false;
     lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true');
     if(lenis){ lenis.start(); }
     setTimeout(function(){ stage.innerHTML = ''; }, 420);
+    /* hand focus back to whatever opened it, or the visitor is dumped at the
+       top of the document with no idea where they were */
+    if(lastFocus && lastFocus.focus){ try{ lastFocus.focus(); }catch(e){} }
+    lastFocus = null;
   }
   function open(node){
     var base = node.getAttribute('data-video');
@@ -861,16 +871,41 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
       im.src = imgSrc; im.alt = (imgEl ? imgEl.getAttribute('alt') : node.getAttribute('data-alt')) || '';
       stage.appendChild(im);
     } else { return; }
+    lastFocus = document.activeElement;
     isOpen = true; lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
     if(lenis){ lenis.stop(); }
+    closeBtn.focus();
   }
   elig.forEach(function(c){
     c.setAttribute('data-lb', '');
+    /* these are <div class="wk-canvas"> with a click listener — without this they
+       are unreachable by keyboard, so the lightbox simply could not be opened */
+    if(!c.hasAttribute('tabindex')) c.setAttribute('tabindex', '0');
+    if(!c.hasAttribute('role')) c.setAttribute('role', 'button');
+    if(!c.hasAttribute('aria-label')){
+      var im = c.querySelector('.wk-img');
+      var name = c.getAttribute('data-alt') || (im && im.getAttribute('alt')) || '';
+      c.setAttribute('aria-label', (fr ? 'Voir' : 'View') + (name ? ' — ' + name : ''));
+    }
     c.addEventListener('click', function(e){ e.preventDefault(); open(c); });
+    c.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){ e.preventDefault(); open(c); }
+    });
   });
   closeBtn.addEventListener('click', close);
   lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && isOpen){ close(); } });
+  document.addEventListener('keydown', function(e){
+    if(!isOpen) return;
+    if(e.key === 'Escape'){ close(); return; }
+    if(e.key !== 'Tab') return;
+    /* keep Tab inside the dialog — otherwise focus walks off into the page
+       still sitting behind the overlay */
+    var f = lb.querySelectorAll('button, video[controls], a[href], [tabindex]:not([tabindex="-1"])');
+    if(!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
 })();
 
 /* ── work: liquid-mercury hover on the image plates — WebGL, desktop-only.
