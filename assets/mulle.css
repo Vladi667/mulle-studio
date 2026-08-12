@@ -1677,3 +1677,28 @@ body.is-transitioning{pointer-events:none}
   .hs-chip::before{content:"";position:absolute;left:0;right:0;top:50%;
     transform:translateY(-50%);height:44px}
 }
+
+/* ──────────────────────────────────────────────────────────────────
+   DISCIPLINES — STACKED (phone / any coarse pointer)
+   mulle.js moves each .dp-card under the name it describes and adds
+   .is-stacked. Everything below undoes the hover-era presentation: full ink
+   on all three names, no register clock, no crossfade stack, no stagger
+   delays — the cards are simply present.
+   ────────────────────────────────────────────────────────────────── */
+.disc-stage.is-stacked{grid-template-columns:1fr;gap:0}
+.is-stacked .disc-panel,
+.is-stacked .disc-reg{display:none}
+.is-stacked .disc-link{padding-bottom:clamp(12px,2vh,18px)}
+/* all three read as text, not as furniture */
+.is-stacked .disc-row .t{color:var(--txt)}
+.is-stacked .disc-row .t .sub{opacity:1;clip-path:none;transform:none;color:var(--txt-40)}
+.is-stacked .disc-row .n{color:var(--blue)}
+/* the card is in normal flow now, so drop the stacking-cell and the entrance */
+.is-stacked .dp-card{grid-area:auto;opacity:1;visibility:visible;filter:none;
+  padding:0 0 clamp(20px,3.4vh,32px)}
+.is-stacked .dp-card .dp-lead,
+.is-stacked .dp-card .dp-spec > div,
+.is-stacked .dp-card .dp-go{opacity:1;transform:none;clip-path:none;transition-delay:0s}
+/* the lead answered a 68px name on desktop; here it sits under a 30px one */
+.is-stacked .dp-lead{font-size:clamp(16px,4.4vw,20px);max-width:32ch;
+  margin-bottom:clamp(14px,2vh,18px)}

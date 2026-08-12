@@ -272,6 +272,30 @@ if(hasHover && !reduced){
   var cards = Array.prototype.slice.call(stage.querySelectorAll('.dp-card'));
   var reg   = stage.querySelector('.disc-reg');
   if(!rows.length) return;
+
+  /* ── phone layout ──
+     Ghost ink + a dwell timer is a hover idea, and it does not survive contact
+     with a thumb. On a phone it left two of the three names at 1.19:1 contrast
+     — which reads as text that failed to render, not as deliberate furniture —
+     put their detail behind a timer that could not be paused, and made the
+     panel's CTA a moving tap target. Tapping a name navigates away, so there
+     was no way to browse at all; and with reduced motion on (or no
+     Element.animate) the cycle never ran, leaving 02 and 03 permanently
+     unreachable.
+
+     So below the split, each card moves under the name it describes and
+     everything reads at full ink. Same information as the desktop hover, laid
+     out for a thumb: no timer, no ghosting, no moving targets. */
+  var stacked = window.matchMedia('(max-width:900px)').matches || !hasHover;
+  if(stacked){
+    stage.classList.add('is-stacked');
+    rows.forEach(function(r, i){
+      r.classList.add('is-active');
+      if(cards[i]){ cards[i].classList.add('is-on'); r.appendChild(cards[i]); }
+    });
+    return;                       /* no register clock, no self-play, no hover wiring */
+  }
+
   var cur = -1;
 
   function place(){
