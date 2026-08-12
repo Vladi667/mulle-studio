@@ -229,14 +229,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://agencefritz.com/fr/agence-web-lausanne</loc>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-web-lausanne"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/agence-web-lausanne"/>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://agencefritz.com/fr/agence-web-fribourg</loc>
     <xhtml:link rel="alternate" hreflang="fr-CH" href="https://agencefritz.com/fr/agence-web-fribourg"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agencefritz.com/fr/agence-web-fribourg"/>

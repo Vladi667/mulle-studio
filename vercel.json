@@ -7,6 +7,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/fr/agence-web-lausanne",
+      "destination": "/fr/agence-web-suisse-romande",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [{ "type": "host", "value": "www.agencefritz.com" }],
       "destination": "https://agencefritz.com/",

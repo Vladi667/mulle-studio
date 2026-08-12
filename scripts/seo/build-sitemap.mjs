@@ -21,7 +21,6 @@ const PAIRS = [
   [null, '/fr/guides/wix-ou-site-sur-mesure', '0.8'],
   [null, '/fr/guides/creer-un-site-internet-en-suisse', '0.8'],
   [null, '/fr/guides/refonte-site-web-suisse', '0.8'],
-  [null, '/fr/agence-web-lausanne', '0.7'],
   [null, '/fr/agence-web-fribourg', '0.7'],
   [null, '/fr/agence-web-neuchatel', '0.7'],
   ['/our-work', '/fr/realisations', '0.7'],

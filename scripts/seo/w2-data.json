@@ -164,31 +164,31 @@
           ]
         },
         {
-          "h2": "Réalisations : des sites livrés à Genève et au-delà",
+          "h2": "Projets et concepts : la manière de travailler du studio",
           "blocks": [
             {
               "type": "p",
-              "text": "La meilleure façon de juger un studio, c'est de regarder ce qu'il a livré. Voici quelques projets représentatifs de notre travail de création de site web, d'e-commerce et d'identité, à Genève et ailleurs."
+              "text": "Fritz est un studio récent, et le travail présenté ici est constitué de projets-concepts menés en interne : ils servent à montrer une méthode et un niveau d'exécution, pas à illustrer des mandats livrés. C'est précisé clairement, parce qu'un portfolio gonflé finit toujours par se voir."
             },
             {
               "type": "h3",
-              "text": "SoYou Cosmetics : e-commerce à Genève"
+              "text": "Concept e-commerce : une marque de cosmétiques artisanaux"
             },
             {
               "type": "p",
-              "text": "Pour SoYou Cosmetics, marque genevoise de cosmétiques naturels faits main (savons artisanaux, rituels de bain et soins botaniques), nous avons créé une boutique en ligne Swiss-clean avec paiement directement sur le site. L'enjeu était de donner à des produits fabriqués à la main une vitrine numérique aussi soignée que le produit lui-même, avec un parcours d'achat simple et rassurant. Le résultat est un site e-commerce sobre, lumineux et rapide, où la matière et le geste artisanal restent au centre, et où l'acte d'achat se fait sans friction."
+              "text": "Un concept de boutique en ligne pour une marque de cosmétiques naturels faits main, avec paiement directement sur le site. La question posée : comment donner à des produits fabriqués à la main une vitrine numérique aussi soignée que le produit lui-même, avec un parcours d'achat simple et rassurant. Le résultat est un site e-commerce sobre, lumineux et rapide, où la matière et le geste artisanal restent au centre, et où l'acte d'achat se fait sans friction."
             },
             {
               "type": "h3",
-              "text": "Eden Terranova : un site sur-mesure et cinématique"
+              "text": "Concept de site sur mesure : porter un récit dense"
             },
             {
               "type": "p",
-              "text": "Pour Eden Terranova, société d'investissement agricole active aux Émirats, nous avons conçu un site à l'univers cinématique, du désert vers l'oasis, qui illustre le passage de l'agriculture de précision à une véritable infrastructure de chaîne de valeur. L'interface reste calme et épurée, au service d'un sujet dense et technique. Ce projet montre qu'un site sur-mesure peut porter un récit exigeant sans jamais alourdir la lecture, et qu'un studio genevois sait travailler pour des clients au-delà de la Suisse."
+              "text": "Un concept de site à l'univers cinématique, du désert vers l'oasis, qui illustre le passage de l'agriculture de précision à une véritable infrastructure de chaîne de valeur. L'interface reste calme et épurée, au service d'un sujet dense et technique. Ce projet montre qu'un site sur-mesure peut porter un récit exigeant sans jamais alourdir la lecture, et qu'un studio genevois sait travailler pour des clients au-delà de la Suisse."
             },
             {
               "type": "p",
-              "text": "Nous réalisons aussi des identités de marque complètes, comme pour Il Duca, gelateria artigianale à Lausanne, dont nous avons décliné l'emblème du duc sur la signalétique, le packaging et la devanture, dans une palette Renaissance chaleureuse. Notre travail s'étend au film de marque, comme LeVallon, une pièce de gastronomie où le plat se révèle en clair-obscur. Vous pouvez découvrir l'ensemble de nos réalisations sur la page dédiée."
+              "text": "Le studio conçoit également des identités de marque complètes, emblème décliné sur la signalétique, le packaging et la devanture, ainsi que des films de marque où le produit se révèle en clair-obscur. Vous pouvez découvrir l'ensemble de nos réalisations sur la page dédiée."
             }
           ]
         },
@@ -528,7 +528,7 @@
             },
             {
               "type": "p",
-              "text": "Le même principe de transparence s'applique au reste de nos prestations : une boutique e-commerce à CHF 2'200 avec paiement sur le site, comme celle réalisée pour SoYou Cosmetics, marque genevoise de cosmétiques naturels faits main ; une identité de marque complète à CHF 1'200, à l'image du travail mené pour la gelateria Il Duca à Lausanne. Des prix fixes, connus à l'avance, sans surprise en cours de route."
+              "text": "Le même principe de transparence s'applique au reste de nos prestations : une boutique e-commerce à CHF 2'200 avec paiement sur le site, ; une identité de marque complète à CHF 1'200, du signe jusqu'aux fichiers sources. Des prix fixes, connus à l'avance, sans surprise en cours de route."
             },
             {
               "type": "p",

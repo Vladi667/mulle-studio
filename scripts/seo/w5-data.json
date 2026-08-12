@@ -32,7 +32,7 @@
         },
         {
           "q": "Intervenez-vous dans le canton de Vaud ou en Valais ?",
-          "a": "Oui. Le canton de Vaud et le Valais font partie du périmètre au même titre que Genève, sans supplément lié à la distance. Il Duca, gelateria artisanale à Lausanne, est un projet d'identité mené dans le canton de Vaud. Les prix, les délais et la méthode sont identiques, et un déplacement sur place est organisé quand il apporte quelque chose de concret, typiquement une séance photo dans un commerce ou un atelier de cadrage avec plusieurs décideurs."
+          "a": "Oui. Le canton de Vaud et le Valais font partie du périmètre au même titre que Genève, sans supplément lié à la distance. Le studio n'a pas encore de mandat livré hors de Genève, et ne le laisse pas entendre. Les prix, les délais et la méthode sont identiques, et un déplacement sur place est organisé quand il apporte quelque chose de concret, typiquement une séance photo dans un commerce ou un atelier de cadrage avec plusieurs décideurs."
         },
         {
           "q": "Faut-il prévoir un site en français et en allemand ?",
@@ -397,19 +397,19 @@
           ]
         },
         {
-          "h2": "Travaux web récents en Suisse romande",
+          "h2": "Concepts web du studio",
           "blocks": [
             {
               "type": "h3",
-              "text": "SoYou Cosmetics, e-commerce à Genève"
+              "text": "Concept e-commerce pour une marque de cosmétiques"
             },
             {
               "type": "p",
-              "text": "Boutique en ligne pour une marque de cosmétiques naturels. Le type de projet où l'exigence porte autant sur la clarté de l'information que sur l'esthétique, parce que chaque friction se lit directement dans les commandes. Un e-commerce n'est pas un site vitrine avec un bouton d'achat : c'est un outil de vente, dont chaque écran doit répondre à une question précise de l'acheteur."
+              "text": "Boutique en ligne conçue pour une marque de cosmétiques naturels. Le type de projet où l'exigence porte autant sur la clarté de l'information que sur l'esthétique, parce que chaque friction se lit directement dans les commandes. Un e-commerce n'est pas un site vitrine avec un bouton d'achat : c'est un outil de vente, dont chaque écran doit répondre à une question précise de l'acheteur."
             },
             {
               "type": "h3",
-              "text": "Eden Terranova, site d'une société d'investissement agricole"
+              "text": "Concept de site pour une société d'investissement agricole"
             },
             {
               "type": "p",
@@ -417,7 +417,7 @@
             },
             {
               "type": "p",
-              "text": "D'autres projets complètent le tableau, notamment Il Duca, identité d'une gelateria artisanale à Lausanne, et LeVallon, un film consacré à la gastronomie. L'ensemble est consultable sur la page nos réalisations."
+              "text": "D'autres concepts complètent le tableau, notamment une identité pour une gelateria artisanale et un film consacré à la gastronomie. Ce sont des projets-concepts menés en interne plutôt que des mandats livrés, et ils sont présentés comme tels. L'ensemble est consultable sur la page nos réalisations."
             },
             {
               "type": "h3",
@@ -727,11 +727,11 @@
           ]
         },
         {
-          "h2": "Une identité artisanale : Il Duca, gelateria à Lausanne",
+          "h2": "Une identité artisanale : concept pour une gelateria",
           "blocks": [
             {
               "type": "p",
-              "text": "Il Duca est une gelateria artisanale à Lausanne, dont Fritz a créé l'identité. Le sujet posait la question du registre, celle que rencontre toute marque de métier avec une référence culturelle assumée : rester crédible sans tomber dans le pittoresque. C'est un arbitrage de branding avant d'être un problème de dessin, et il se tranche au cadrage, pas au moment des déclinaisons."
+              "text": "Un concept d'identité mené en interne pour une gelateria artisanale. Le sujet pose la question du registre, celle que rencontre toute marque de métier avec une référence culturelle assumée : rester crédible sans tomber dans le pittoresque. C'est un arbitrage de branding avant d'être un problème de dessin, et il se tranche au cadrage, pas au moment des déclinaisons."
             },
             {
               "type": "p",
@@ -739,7 +739,7 @@
             },
             {
               "type": "p",
-              "text": "Fritz a par ailleurs livré l'e-commerce de SoYou Cosmetics, marque de cosmétiques naturels à Genève. C'est un projet de vente en ligne plus que d'identité, et il est traité à ce titre ailleurs. Eden Terranova, site d'une société d'investissement agricole, et LeVallon, film en gastronomie, complètent le tableau. L'ensemble est présenté sur la page réalisations."
+              "text": "Les autres travaux du studio suivent la même logique : un concept d'e-commerce pour une marque de cosmétiques naturels, un concept de site pour une société d'investissement agricole, un film en gastronomie. Ce sont des projets-concepts menés en interne, et non des mandats livrés. L'ensemble est présenté sur la page réalisations."
             }
           ]
         },

@@ -16,7 +16,6 @@ const EDITS = [
   // hierarchy rather than a flat doorway grid, and matches their 3-level breadcrumb)
   { file: 'fr/agence-web-suisse-romande.html', hub: '.lp-hub', anchor: 'Agence web à Fribourg (site bilingue FR/DE)', href: '/fr/agence-web-fribourg' },
   { file: 'fr/agence-web-suisse-romande.html', hub: '.lp-hub', anchor: 'Agence web à Neuchâtel (sites B2B industriels)', href: '/fr/agence-web-neuchatel' },
-  { file: 'fr/agence-web-suisse-romande.html', hub: '.lp-hub', anchor: 'Agence web à Lausanne', href: '/fr/agence-web-lausanne' },
   { file: 'fr/agence-web-suisse-romande.html', hub: '.lp-hub', anchor: 'Sites web hôtellerie et restauration', href: '/fr/sites-web-hotellerie-restauration' },
   // live pages → the W8 guides (equity for the new content)
   { file: 'fr/creation-site-web-geneve.html', hub: '.lp-hub', anchor: 'Refonte de site web', href: '/fr/guides/refonte-site-web-suisse' },
@@ -24,8 +23,11 @@ const EDITS = [
   { file: 'fr/guides/combien-coute-site-web-suisse.html', hub: '.lp-hub', anchor: 'Wix ou site sur mesure', href: '/fr/guides/wix-ou-site-sur-mesure' },
   // second inbound for the thin supporting pages — each from a TOPICALLY-related non-sibling page
   // (never city→city; that would recreate the doorway grid the audit flagged)
-  { file: 'fr/agence-branding-suisse.html', hub: '.lp-hub', anchor: 'Agence web à Lausanne', href: '/fr/agence-web-lausanne' },        // Il Duca (its case study) is a Lausanne project
-  { file: 'fr/agence-web-lausanne.html', hub: '.lp-hub', anchor: 'Sites web hôtellerie et restauration', href: '/fr/sites-web-hotellerie-restauration' }, // Il Duca is a food business → hospitality sector
+  // 2026-08-09: /fr/agence-web-lausanne was unpublished (its only city-specific asset was a client
+  // mandate that did not exist), so its two edges are gone. The hospitality page kept its second
+  // inbound by taking the branding pillar as its source instead: identity for a food business leads
+  // naturally to the hospitality sector page, and it is not a city→city link.
+  { file: 'fr/agence-branding-suisse.html', hub: '.lp-hub', anchor: 'Sites web hôtellerie et restauration', href: '/fr/sites-web-hotellerie-restauration' },
   { file: 'fr/guides/wix-ou-site-sur-mesure.html', hub: '.lp-hub', anchor: 'Agence web à Neuchâtel (sites B2B industriels)', href: '/fr/agence-web-neuchatel' }, // B2B industrial = classic outgrows-a-template case
   // 2026-08-09: the logo-pricing guide is the site's best-ranking non-brand page (pos ~17 on
   // "prix logo suisse") but had only 3 FR inbound links, while the Geneva lander has 23. These two
