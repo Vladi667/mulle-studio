@@ -1666,6 +1666,10 @@ body.is-transitioning{pointer-events:none}
 @media (pointer:coarse){
   .wordmark,.dp-go,.wd-all,.sf-mark,.sf-col a{
     min-height:44px;display:inline-flex;align-items:center}
+  /* 76 of these across 13 lander pages, and they were 21px tall -- the primary
+     interaction on those pages. baseline alignment is kept so the question and
+     the +/- icon stay on the same line; the extra height is dead tappable space. */
+  .faq-q{min-height:44px}
   .sf-social a{min-width:44px;min-height:44px;display:inline-flex;
     align-items:center;justify-content:center}
   .index-link{padding-top:15px;padding-bottom:15px}
