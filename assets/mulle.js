@@ -5,7 +5,12 @@
 (function(){
 'use strict';
 
-var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+var reducedMQ = window.matchMedia('(prefers-reduced-motion:reduce)');
+var reduced = reducedMQ.matches;
+/* the OS setting can be toggled while the page is open — the choreography that has
+   already run stays put, but everything gated on `reduced` after this respects it */
+try{ reducedMQ.addEventListener('change', function(e){ reduced = e.matches; }); }
+catch(e){ try{ reducedMQ.addListener(function(e){ reduced = e.matches; }); }catch(e2){} }
 var hasHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 var hasGSAP = typeof gsap !== 'undefined';
 function isFR(){ return (document.documentElement.lang || '').slice(0,2) === 'fr'; }   /* 'fr' or 'fr-CH' */
@@ -225,20 +230,159 @@ if(hasHover && !reduced && hasGSAP){
   });
 }
 
-/* ── plate cursor tilt — gives the chrome plates material depth ── */
+/* ── plate cursor tilt — gives the chrome plates material depth ──
+   Direct manipulation, so it tracks the pointer 1:1. Two things keep it honest:
+   the rect is measured once on enter (measuring inside pointermove forces a
+   synchronous layout on every event), and the write is batched into rAF so a
+   burst of coalesced moves produces one style write per frame, not per event. */
 if(hasHover && !reduced){
   document.querySelectorAll('.plate-visual, .case-plate').forEach(function(el){
-    el.addEventListener('pointermove', function(e){
-      var r = el.getBoundingClientRect();
-      var rx = ((e.clientY - r.top) / r.height - 0.5) * -7;
-      var ry = ((e.clientX - r.left) / r.width - 0.5) * 7;
+    var r = null, raf = null, px = 0, py = 0;
+    function measure(){ r = el.getBoundingClientRect(); }
+    function paint(){
+      raf = null;
+      if(!r) return;
+      var rx = ((py - r.top) / r.height - 0.5) * -7;
+      var ry = ((px - r.left) / r.width - 0.5) * 7;
       el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+    }
+    el.addEventListener('pointerenter', measure);
+    el.addEventListener('pointermove', function(e){
+      if(!r) measure();
+      px = e.clientX; py = e.clientY;
+      if(raf == null) raf = requestAnimationFrame(paint);
     });
     el.addEventListener('pointerleave', function(){
+      if(raf != null){ cancelAnimationFrame(raf); raf = null; }
+      r = null;
       el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
     });
+    /* a scrolled page invalidates the cached rect */
+    window.addEventListener('scroll', function(){ if(r) measure(); }, { passive:true });
   });
 }
+
+/* ── disciplines: ghost-ink register ──
+   Above the no-GSAP/reduced-motion return for the same reason as the FAQ:
+   which name is inked is state, not decoration, so it has to resolve even
+   when nothing is allowed to move. ── */
+(function(){
+  var stage = document.querySelector('.disc-stage'); if(!stage) return;
+  var rows  = Array.prototype.slice.call(stage.querySelectorAll('.disc-row'));
+  var cards = Array.prototype.slice.call(stage.querySelectorAll('.dp-card'));
+  var reg   = stage.querySelector('.disc-reg');
+  if(!rows.length) return;
+  var cur = -1;
+
+  function place(){
+    if(!reg || cur < 0 || !rows[cur]) return;
+    reg.style.height = rows[cur].offsetHeight + 'px';
+    reg.style.transform = 'translateY(' + rows[cur].offsetTop + 'px)';
+  }
+  function setActive(i){
+    if(i === cur || i < 0 || i >= rows.length) return;
+    cur = i;
+    for(var n = 0; n < rows.length; n++){
+      rows[n].classList.toggle('is-active', n === i);
+      if(cards[n]) cards[n].classList.toggle('is-on', n === i);
+    }
+    place();
+  }
+
+  /* ── self-play ──
+     On touch the names are links, so tapping navigates — there is no way to
+     select one, and disciplines 02 and 03 would never be seen. So the section
+     plays itself while it is on screen and hands over for good the moment the
+     visitor does anything deliberate. The fill animation IS the dwell clock:
+     no interval to drift, and pausing it pauses the advance. */
+  var DWELL = 3400;                        /* long enough to finish reading the card */
+  var fill = reg && reg.querySelector('i');
+  var canPlay = !!fill && typeof fill.animate === 'function' && !reduced;
+  var play = null, manual = false, inView = false;
+
+  function handOver(){
+    if(manual) return;
+    manual = true;
+    if(play){ play.cancel(); play = null; }
+    if(reg) reg.classList.add('is-manual');   /* bar stops being a clock, stays wayfinding */
+  }
+
+  function cycle(){
+    if(!canPlay || manual || !inView) return;
+    if(play) play.cancel();
+    play = fill.animate([{ transform:'scaleY(0)' }, { transform:'scaleY(1)' }],
+                        { duration:DWELL, easing:'linear', fill:'forwards' });
+    play.onfinish = function(){
+      if(manual || !inView) return;
+      setActive((cur + 1) % rows.length);
+      cycle();
+    };
+  }
+
+  rows.forEach(function(r, i){
+    if(hasHover){ r.addEventListener('pointerenter', function(){ handOver(); setActive(i); }); }
+    r.addEventListener('focusin', function(){ handOver(); setActive(i); });
+    r.addEventListener('click', handOver);
+  });
+
+  /* arrow keys walk the list — focusin above handles the state */
+  var list = stage.querySelector('.disc-list');
+  if(list){
+    list.addEventListener('keydown', function(e){
+      if(e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+      var links = rows.map(function(r){ return r.querySelector('.disc-link'); });
+      var at = links.indexOf(document.activeElement);
+      if(at < 0) return;
+      e.preventDefault();
+      links[(at + (e.key === 'ArrowDown' ? 1 : rows.length - 1)) % rows.length].focus();
+    });
+  }
+
+  setActive(0);
+  requestAnimationFrame(place);            /* first real measurement after layout */
+  window.addEventListener('resize', place);
+
+  /* no self-play (reduced motion, or no WAAPI): the bar is pure wayfinding */
+  if(!canPlay && reg) reg.classList.add('is-manual');
+
+  if(canPlay && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      inView = entries[0].isIntersecting;
+      if(manual) return;
+      if(!inView){ if(play) play.pause(); return; }
+      if(play && play.playState === 'paused') play.play(); else cycle();
+    }, { threshold:0.35 }).observe(stage);
+
+    /* a backgrounded tab should not burn through the cycle unwatched */
+    document.addEventListener('visibilitychange', function(){
+      if(manual || !play) return;
+      if(document.hidden) play.pause();
+      else if(inView) play.play();
+    });
+  }
+})();
+
+/* ── FAQ accordions ──
+   Deliberately above the no-GSAP/reduced-motion return below: collapsing is a
+   content-density feature, not a motion feature, so it has to work everywhere.
+   The markup renders expanded; this collapses it. If this script never runs,
+   every answer stays visible — which is the correct failure mode for SEO. ── */
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  if(!items.length) return;
+  Array.prototype.forEach.call(items, function(item, i){
+    var btn = item.querySelector('.faq-q'), panel = item.querySelector('.faq-a');
+    if(!btn || !panel) return;
+    panel.id = panel.id || ('faq-a-' + (i + 1));
+    btn.setAttribute('aria-controls', panel.id);
+    item.classList.add('is-collapsed');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function(){
+      var open = item.classList.toggle('is-collapsed') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
 
 /* ── no GSAP / reduced motion: show everything and stop ── */
 var pre = document.querySelector('.pre');
@@ -1065,11 +1209,8 @@ if(document.querySelector('.disc-head')){
   revealHeading(document.querySelector('.disc-head h2'));
 }
 
-document.querySelectorAll('.disc-row').forEach(function(row){
-  row.addEventListener('click', function(){
-    if(row.dataset.href){ navTransition(row.dataset.href); }
-  });
-});
+/* rows are real <a class="disc-link"> now, so the global link interceptor above
+   routes them through navTransition — no per-row click handler needed. */
 
 /* ── works: plates clip in, inner gradient parallax ── */
 if(document.querySelector('.works-head')){

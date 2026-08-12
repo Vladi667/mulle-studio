@@ -34,6 +34,10 @@
   --dur-micro:160ms;
   --dur-short:320ms;
   --dur-std:480ms;
+  /* hover is the highest-frequency motion on the site — it stays under 300ms.
+     --dur-media is the one concession: big image/video scale reads slower. */
+  --dur-hover:220ms;
+  --dur-media:300ms;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -102,8 +106,14 @@ html{scrollbar-width:thin;scrollbar-color:var(--chrome-2) transparent}
 ::-webkit-scrollbar-thumb{background:var(--chrome-2);border-radius:999px;border:2px solid var(--bg)}
 ::-webkit-scrollbar-thumb:hover{background:var(--txt-40)}
 
-/* press states (transform-safe for magnetic buttons via filter) */
-.btn:active{filter:brightness(.93)}
+/* press states (transform-safe for magnetic buttons via filter)
+   .btn can't use `transform` for press — GSAP's magnetic quickTo writes inline
+   transform on it every frame and would win. The standalone `scale` property
+   composes with transform instead of replacing it, so the press reads as
+   geometry (which is what a press should be) without fighting the magnet. */
+/* the easing for `scale` lives on the main .btn rule further down — declaring a
+   transition here would be silently reset by that rule's own shorthand */
+.btn:active{filter:brightness(.93);scale:.97}
 .index-link:active,.xlink:active,.case-head:active,.sf-mark:active,.wordmark:active{transform:scale(.985)}
 
 /* ──────────────────────────────────────────────────────────────────
@@ -211,9 +221,9 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 .menu li a{
   display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);
   padding:clamp(9px,1.7vh,16px) 0;
-  transition:padding-left var(--dur-std) var(--ease-out);
+  transition:transform var(--dur-hover) var(--ease-out);
 }
-.menu li a:hover{padding-left:18px}
+.menu li a:hover{transform:translateX(18px)}
 .menu .n{font-size:10px;letter-spacing:.2em;color:var(--txt-40);font-variant-numeric:tabular-nums}
 .menu .lbl{font-size:clamp(19px,2.7vw,32px);font-weight:300;letter-spacing:-.02em;flex:1}
 .menu .sub{display:block;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-40);margin-top:3px}
@@ -309,7 +319,7 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 .hs-chip:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 /* the arrow is the hero's foot blue moment; swallow its trailing letter-space so the rule
    ends optically at the arrowhead */
-.hs-chip i{font-style:normal;margin-right:-.18em;color:var(--blue);transition:transform .4s var(--ease-out)}
+.hs-chip i{font-style:normal;margin-right:-.18em;color:var(--blue);transition:transform var(--dur-hover) var(--ease-out)}
 .hs-chip:hover i{transform:translateX(3px)}
 
 /* trusted-by — barely-there proof: a whisper label, then a slow unhurried ticker (60s),
@@ -367,11 +377,12 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
   font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
   border:1px solid var(--txt);background:var(--txt);color:var(--bg);
   position:relative;overflow:hidden;
-  transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out);
+  transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out),
+             scale 160ms var(--ease-out);
 }
 .btn::before{
   content:"";position:absolute;inset:0;background:var(--blue);
-  transform:translateY(101%);transition:transform var(--dur-std) var(--ease-inout);
+  transform:translateY(101%);transition:transform var(--dur-hover) var(--ease-out);
 }
 .btn span{position:relative;z-index:1}
 .btn:hover::before{transform:translateY(0)}
@@ -506,42 +517,120 @@ section{position:relative}
 }
 
 /* ──────────────────────────────────────────────────────────────────
-   DISCIPLINES — oversized index rows + floating preview
+   DISCIPLINES — ghost-ink register
+   Was three full-width rows with a 14px hover nudge, plus data-preview /
+   data-cap attributes for a cursor-following panel that was never built.
+   Now: the three names carry the section as type. Only the active one is
+   inked — the other two sit at the same ghost value as the manifesto's
+   .m-cell (rgba .08) — and a persistent panel to the right holds the detail,
+   so the meta stops competing with the names for the same line. The register
+   bar in the left margin travels to whichever name is live, which is the
+   same wayfinding idea as the manifesto's .m-axis.
    ────────────────────────────────────────────────────────────────── */
 .disciplines{padding:clamp(90px,16vh,180px) var(--margin)}
 .disc-head{display:flex;flex-direction:column;gap:22px;margin-bottom:clamp(40px,7vh,80px);max-width:900px}
 .disc-head h2{font-family:var(--display);font-size:clamp(26px,3.5vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.04}
 .disc-head h2 em{font-style:normal;font-weight:300;color:var(--txt-40)}
 
-.disc-list{list-style:none;border-top:1px solid var(--hairline-2)}
-.disc-row{
-  position:relative;display:grid;
-  grid-template-columns:minmax(48px,80px) 1fr minmax(180px,260px) auto;
-  align-items:baseline;gap:var(--gutter);
-  padding:clamp(26px,4.4vh,46px) 0;
-  border-bottom:1px solid var(--hairline-2);
-  cursor:pointer;
-}
-.disc-row .n{font-size:11px;letter-spacing:.2em;color:var(--blue);font-variant-numeric:tabular-nums}
-.disc-row .t{font-family:var(--display);font-size:clamp(21px,2.6vw,38px);font-weight:600;letter-spacing:-.02em;line-height:1.05;transition:transform var(--dur-std) var(--ease-out)}
-.disc-row .t .sub{display:block;font-size:10px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--txt-40);margin-top:8px}
-.disc-row .meta{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-55);line-height:1.9}
-.disc-row .go{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);
-  transition:color var(--dur-short) var(--ease-out);
-}
-.disc-row .go .lin{width:22px;height:1.5px;background:currentColor;transition:width var(--dur-short) var(--ease-out)}
-.disc-row:hover .go{color:var(--blue)}
-.disc-row:hover .go .lin{width:34px}
-.disc-row:hover .t{transform:translateX(14px)}
-.disc-row .fill{
-  position:absolute;left:calc(-1 * var(--margin));right:calc(-1 * var(--margin));top:0;bottom:0;
-  background:rgba(255,255,255,.55);opacity:0;transition:opacity var(--dur-std) var(--ease-out);z-index:-1;
-}
-.disc-row:hover .fill{opacity:1}
+.disc-stage{display:grid;grid-template-columns:1fr minmax(270px,380px);
+  gap:clamp(28px,5vw,90px);align-items:start}
 
-/* floating preview window — follows cursor over rows */
+.disc-list{list-style:none;position:relative;border-top:1px solid var(--hairline-2)}
+.disc-row{border-bottom:1px solid var(--hairline-2)}
+.disc-link{display:grid;grid-template-columns:minmax(38px,62px) 1fr;gap:var(--gutter);
+  align-items:baseline;padding:clamp(22px,3.6vh,42px) 0;
+  text-decoration:none;color:inherit}
+.disc-row .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--txt-24);
+  font-variant-numeric:tabular-nums;transition:color var(--dur-hover) var(--ease-out)}
+/* ghost ink — the inactive names are furniture, not competition */
+.disc-row .t{font-family:var(--display);font-size:clamp(28px,5vw,68px);font-weight:600;
+  letter-spacing:-.032em;line-height:1;color:rgba(29,29,31,.10);
+  transition:color var(--dur-hover) var(--ease-out)}
+/* the setting rises out of a clip mask rather than fading a colour — same
+   vocabulary as revealHeading, which every other heading on the site uses */
+.disc-row .t .sub{display:block;font-family:var(--mono);font-size:10px;font-weight:400;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--txt-40);margin-top:14px;
+  opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(4px);
+  transition:opacity 260ms var(--ease-out),clip-path 260ms var(--ease-out),
+             transform 260ms var(--ease-out)}
+.disc-row.is-active .t{color:var(--txt)}
+.disc-row.is-active .t .sub{opacity:1;clip-path:inset(0 0 0 0);transform:none}
+.disc-row.is-active .n{color:var(--blue)}
+
+/* Register bar — travels to the live name, and doubles as the dwell clock
+   while the section is playing itself. Track is the hairline; the <i> is the
+   fill, driven by a Web Animation so the animation IS the timer (no setInterval
+   drift, and pause/resume on scroll-away is one call). Once the visitor takes
+   over, .is-manual inks it solid and it goes back to being pure wayfinding. */
+.disc-reg{position:absolute;left:calc(-1 * clamp(14px,2vw,26px));top:0;width:2px;height:0;
+  background:var(--hairline-2);border-radius:2px;overflow:hidden;
+  transition:transform var(--dur-short) var(--ease-inout);pointer-events:none}
+.disc-reg i{display:block;width:100%;height:100%;background:var(--blue);
+  transform-origin:top center;transform:scaleY(0)}
+.disc-reg.is-manual{background:var(--blue)}
+.disc-reg.is-manual i{transform:scaleY(1)}
+
+/* the panel: one cell, all three cards stacked in it, so the box sizes to the
+   tallest and nothing reflows when the content swaps */
+.disc-panel{position:sticky;top:clamp(96px,15vh,150px)}
+
+.dp-stack{display:grid}
+/* the card carries only the crossfade + blur mask; the y-motion is delegated to
+   the children below, so the two don't smear over each other */
+.dp-card{grid-area:1/1;opacity:0;visibility:hidden;filter:blur(2px);
+  transition:opacity 200ms var(--ease-out),filter 200ms var(--ease-out),
+             visibility 0s linear 200ms}
+.dp-card.is-on{opacity:1;visibility:visible;filter:none;
+  transition:opacity 200ms var(--ease-out),filter 200ms var(--ease-out),visibility 0s}
+
+/* 50ms stagger down the card — decorative, and it never gates interaction
+   because the link is clickable from the first frame */
+.dp-card .dp-lead,.dp-card .dp-spec > div,.dp-card .dp-go{opacity:0;transform:translateY(6px);
+  transition:opacity 220ms var(--ease-out),transform 220ms var(--ease-out)}
+/* the lead is a heading, so it gets the clip-mask rise the rest of the site uses */
+.dp-card .dp-lead{transform:translateY(12px);clip-path:inset(0 0 100% 0);
+  transition:opacity 380ms var(--ease-out),transform 380ms var(--ease-out),
+             clip-path 380ms var(--ease-out)}
+.dp-card.is-on .dp-lead,
+.dp-card.is-on .dp-spec > div,
+.dp-card.is-on .dp-go{opacity:1;transform:none}
+.dp-card.is-on .dp-lead{clip-path:inset(0 0 0 0);transition-delay:30ms}
+.dp-card.is-on .dp-spec > div:nth-child(1){transition-delay:80ms}
+.dp-card.is-on .dp-spec > div:nth-child(2){transition-delay:130ms}
+.dp-card.is-on .dp-spec > div:nth-child(3){transition-delay:180ms}
+.dp-card.is-on .dp-go{transition-delay:230ms}
+/* No image in this column — the type carries it. The lead answers the 68px
+   names at roughly half their size, which reads as a reply rather than a
+   competing headline, and it rises out of a clip mask like every other
+   heading on the site. Three registers below it: display lead, mono
+   micro-caps, body values — previously every line here was the same 12px,
+   which is what made the column read as a footnote. */
+/* the floor matters: the name clamps to 26-30px on a phone, so a 25px lead
+   would sit level with it. 19px keeps the reply subordinate at every width. */
+.dp-lead{font-family:var(--display);font-size:clamp(19px,2.9vw,38px);font-weight:300;
+  letter-spacing:-.028em;line-height:1.1;color:var(--txt);
+  margin-bottom:clamp(22px,3.2vh,34px);max-width:14ch;text-wrap:balance}
+.dp-spec{border-top:1px solid var(--hairline)}
+.dp-spec > div{display:grid;grid-template-columns:minmax(58px,74px) 1fr;gap:14px;
+  align-items:baseline;padding:10px 0;border-bottom:1px solid var(--hairline)}
+.dp-spec dt{font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--txt-40)}
+.dp-spec dd{font-size:12.5px;line-height:1.5;color:var(--txt-70);margin:0}
+.dp-go{display:inline-flex;align-items:center;gap:10px;margin-top:22px;text-decoration:none;
+  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--blue)}
+.dp-go .lin{width:22px;height:1.5px;background:currentColor;
+  transition:width var(--dur-hover) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){ .dp-go:hover .lin{width:36px} }
+
+/* one column below the split: no hover to drive it, so the active card sits
+   under the list and the scroll observer moves it */
+@media (max-width:900px){
+  .disc-stage{grid-template-columns:1fr;gap:clamp(20px,4vh,34px)}
+  .disc-panel{position:static}
+  .disc-row .t{font-size:clamp(26px,8vw,44px)}
+  .disc-reg{left:calc(-1 * clamp(8px,3vw,14px))}
+}
 /* ──────────────────────────────────────────────────────────────────
    WORKS — chrome plates
    ────────────────────────────────────────────────────────────────── */
@@ -651,11 +740,11 @@ section{position:relative}
   position:relative;padding-bottom:10px;width:max-content}
 .wd-all sup{font-size:8.5px;letter-spacing:.06em;color:var(--txt-40);font-variant-numeric:tabular-nums;transform:translateY(-3px)}
 .wd-all::before,.wd-all::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--txt);opacity:.85}
-.wd-all::after{transform-origin:right center;transition:transform .4s var(--ease-out)}
-.wd-all::before{transform:scaleX(0);transform-origin:left center;transition:transform .4s var(--ease-out) .15s}
+.wd-all::after{transform-origin:right center;transition:transform var(--dur-hover) var(--ease-out)}
+.wd-all::before{transform:scaleX(0);transform-origin:left center;transition:transform var(--dur-hover) var(--ease-out) 90ms}
 .wd-all:hover::after{transform:scaleX(0)}
 .wd-all:hover::before{transform:scaleX(1)}
-.wd-all i{font-style:normal;transition:transform .45s var(--ease-out)}
+.wd-all i{font-style:normal;transition:transform var(--dur-hover) var(--ease-out)}
 .wd-all:hover i{transform:translateX(4px)}
 
 @media (max-width:900px){
@@ -774,7 +863,7 @@ section{position:relative}
   padding:clamp(24px,2vw,36px);border-radius:22px;
   border:1px solid var(--hairline);background:rgba(255,255,255,.48);
   -webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
-  transition:transform var(--dur-std) var(--ease-out),border-color var(--dur-std) var(--ease-out),background var(--dur-std) var(--ease-out);
+  transition:transform var(--dur-hover) var(--ease-out),border-color var(--dur-hover) var(--ease-out),background var(--dur-hover) var(--ease-out);
 }
 .pkg:hover{transform:translateY(-6px);border-color:var(--hairline-2);background:rgba(255,255,255,.62)}
 .pkg.feat{border-color:var(--blue);background:rgba(255,255,255,.66)}
@@ -842,25 +931,25 @@ section{position:relative}
 .wk-row-specs > div{display:flex;flex-direction:column;gap:5px}
 .wk-row-specs span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-40)}
 .wk-row-specs b{font-size:12px;font-weight:500}
-.wk-frame{position:relative;border-radius:16px;overflow:hidden;background:var(--chrome-1);border:1px solid var(--glass-edge);box-shadow:0 20px 56px rgba(29,29,31,.10);transition:transform .55s var(--ease-out),box-shadow .55s var(--ease-out)}
+.wk-frame{position:relative;border-radius:16px;overflow:hidden;background:var(--chrome-1);border:1px solid var(--glass-edge);box-shadow:0 20px 56px rgba(29,29,31,.10);transition:transform var(--dur-hover) var(--ease-out),box-shadow var(--dur-hover) var(--ease-out)}
 .wk-row-media:hover .wk-frame{transform:translateY(-7px);box-shadow:0 34px 82px rgba(29,29,31,.18)}
 .wk-bar{height:32px;display:flex;align-items:center;gap:7px;padding:0 13px;background:rgba(255,255,255,.72);border-bottom:1px solid var(--hairline)}
 .wk-bar i{width:8px;height:8px;border-radius:50%;background:var(--chrome-2);opacity:.55}
 .wk-url{margin-left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--txt-40)}
 .wk-canvas{position:relative;overflow:hidden}
 .wk-visit-link{display:block;position:relative;color:inherit;text-decoration:none}
-.wk-visit{position:absolute;z-index:3;right:12px;bottom:12px;font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(29,29,31,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease-out),transform .4s var(--ease-out);pointer-events:none}
+.wk-visit{position:absolute;z-index:3;right:12px;bottom:12px;font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(29,29,31,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity var(--dur-hover) var(--ease-out),transform var(--dur-hover) var(--ease-out);pointer-events:none}
 .wk-visit-link:hover .wk-visit{opacity:1;transform:translateY(0)}
 .wk-canvas.r-1610{aspect-ratio:16/10}.wk-canvas.r-169{aspect-ratio:16/9}.wk-canvas.r-45{aspect-ratio:4/5}
-.wk-media{position:absolute;inset:0;transition:transform .7s var(--ease-out)}
-.wk-img,.wk-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .7s var(--ease-out)}
+.wk-media{position:absolute;inset:0;transition:transform var(--dur-media) var(--ease-out)}
+.wk-img,.wk-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform var(--dur-media) var(--ease-out)}
 .wk-row-media:hover .wk-media,.wk-row-media:hover .wk-img,.wk-row-media:hover .wk-vid{transform:scale(1.04)}
 .wk-canvas.is-playing .wk-play{display:none}
 .m-brand{background:radial-gradient(120% 95% at 70% 112%, rgba(217,212,232,.95), transparent 60%),linear-gradient(180deg,#ECEAF3,#C7C5D5)}
 .m-web{background:radial-gradient(120% 95% at 76% 112%, rgba(0,113,227,.4), transparent 60%),linear-gradient(180deg,#E4E9F1,#BAC2CE)}
 .m-growth{background:radial-gradient(110% 95% at 72% 114%, rgba(0,194,184,.4), transparent 60%),linear-gradient(180deg,#E1E6E6,#BCC4C5)}
 .m-video{background:radial-gradient(120% 110% at 50% 45%, rgba(40,40,46,.65), rgba(20,20,24,.92))}
-.wk-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);z-index:2;transition:transform .4s var(--ease-out)}
+.wk-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);z-index:2;transition:transform var(--dur-hover) var(--ease-out)}
 .wk-play::after{content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff}
 .wk-row-media:hover .wk-play{transform:translate(-50%,-50%) scale(1.12)}
 .wk-vtag{position:absolute;left:13px;bottom:12px;z-index:2;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82)}
@@ -909,7 +998,7 @@ section{position:relative}
   border:1px solid var(--glass-edge);background:var(--bg-deep);
   box-shadow:0 26px 64px rgba(29,29,31,.12);
 }
-.origin-visual img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block;filter:contrast(1.05);transition:transform .7s var(--ease-out)}
+.origin-visual img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block;filter:contrast(1.05);transition:transform var(--dur-media) var(--ease-out)}
 .origin-visual:hover img{transform:scale(1.045)}
 .origin-visual::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg, transparent 60%, rgba(29,29,31,.14))}
@@ -932,7 +1021,7 @@ section{position:relative}
   align-items:center;gap:var(--gutter);padding:clamp(20px,3.2vh,34px) 0;text-align:left;
 }
 .case-head .c-n{font-size:11px;letter-spacing:.2em;color:var(--txt-40);font-variant-numeric:tabular-nums}
-.case-head .c-name{font-size:clamp(20px,2.7vw,40px);font-weight:300;letter-spacing:-.025em;transition:transform var(--dur-std) var(--ease-out)}
+.case-head .c-name{font-size:clamp(20px,2.7vw,40px);font-weight:300;letter-spacing:-.025em;transition:transform var(--dur-hover) var(--ease-out)}
 .case-head .c-name em{font-style:normal;color:var(--txt-40)}
 .case-head .c-disc{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-55)}
 .case-head .c-status{justify-self:start;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-55);padding:6px 11px;border:1px solid var(--hairline-2);border-radius:999px}
@@ -944,7 +1033,9 @@ section{position:relative}
 .case.open .c-tog::before,.case.open .c-tog::after{background:var(--blue)}
 .case-head:hover .c-name{transform:translateX(10px)}
 .case-head:hover .c-tog::before,.case-head:hover .c-tog::after{background:var(--blue)}
-.case-detail{height:0;overflow:hidden;transition:height var(--dur-std) var(--ease-inout)}
+/* GSAP tweens this height frame-by-frame (mulle.js). A CSS transition on the same
+   property makes the two engines fight — the panel lags and overshoots. GSAP owns it. */
+.case-detail{height:0;overflow:hidden}
 .case-inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(24px,3.5vw,56px);padding:8px 0 clamp(30px,5vh,52px)}
 .case-plate{position:relative;aspect-ratio:5/4;border-radius:18px;overflow:hidden;border:1px solid var(--glass-edge)}
 .case-plate .pg{position:absolute;inset:0}
@@ -977,7 +1068,13 @@ section{position:relative}
 .submit-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:6px}
 .submit-row .note{font-size:11px;line-height:1.6;color:var(--txt-40);max-width:360px}
 .submit-row .note b{color:var(--txt-55);font-weight:500}
-.form-status{font-size:13px;line-height:1.6;padding:14px 16px;border-radius:12px;margin-bottom:18px}
+/* the status box is the conversion moment — it used to pop in with no bridge.
+   @starting-style handles the first appearance; the background/colour transition
+   carries the sending -> sent change, so the box tints rather than snapping. */
+.form-status{font-size:13px;line-height:1.6;padding:14px 16px;border-radius:12px;margin-bottom:18px;
+  transition:background-color 240ms var(--ease-out),color 240ms var(--ease-out),
+             opacity 240ms var(--ease-out),transform 240ms var(--ease-out)}
+@starting-style{ .form-status{opacity:0;transform:translateY(-6px)} }
 .form-status.pending{background:rgba(199,204,214,.3);color:var(--txt-70)}
 .form-status.ok{background:rgba(0,113,227,.08);color:var(--blue)}
 .form-status.err{background:rgba(216,90,48,.08);color:#993c1d}
@@ -1226,7 +1323,7 @@ body.is-transitioning{pointer-events:none}
 .nextband .nb-row{display:flex;align-items:center;gap:clamp(16px,3vw,44px);margin-top:clamp(12px,2vh,22px)}
 .nextband .nb-title{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:.96;font-size:clamp(40px,7.6vw,124px)}
 .nextband .nb-arr{flex:none;font-size:clamp(28px,4vw,64px);color:var(--txt-40);
-  transition:transform .5s var(--ease-out),color .3s var(--ease-out)}
+  transition:transform var(--dur-hover) var(--ease-out),color var(--dur-hover) var(--ease-out)}
 .nextband .nb-kick{display:block;margin-top:clamp(14px,2vh,24px);font-size:clamp(13px,1.3vw,16px);color:var(--txt-55);max-width:42ch}
 .nextband:hover .nb-arr{transform:translateX(20px);color:var(--txt)}
 /* M6 — light closing chapter: ghost destination numeral + a specular light sweep on hover */
@@ -1256,12 +1353,15 @@ body.is-transitioning{pointer-events:none}
 .lightbox.open .lb-stage video,.lightbox.open .lb-stage img{opacity:1;transform:scale(1)}
 .lb-close{position:absolute;top:clamp(14px,3vw,30px);right:clamp(14px,3vw,30px);z-index:2;
   width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;
-  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease-out),transform .4s var(--ease-out)}
+  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--dur-hover) var(--ease-out),transform var(--dur-hover) var(--ease-out)}
 .lb-close:hover{background:rgba(255,255,255,.2);transform:rotate(90deg)}
 @media (prefers-reduced-motion:reduce){ .lb-stage video,.lb-stage img{transition:opacity .3s} .lb-close:hover{transform:none} }
 
 /* plates: material depth — grain overlay, slow drift, cursor tilt */
-.plate-visual,.case-plate{transform-style:preserve-3d;transition:transform .35s var(--ease-out)}
+/* cursor tilt is direct manipulation — it must track 1:1. The transition here is only
+   a smoothing floor and a return-to-rest curve; long enough to see is lag, not polish. */
+.plate-visual,.case-plate{transform-style:preserve-3d;transition:transform 120ms linear}
+.plate-visual:not(:hover),.case-plate:not(:hover){transition:transform var(--dur-media) var(--ease-out)}
 .plate-visual .pg,.case-plate .pg{animation:pg-shift 22s var(--ease-inout) infinite}
 @keyframes pg-shift{0%{background-position:0% 0%}50%{background-position:7% 5%}100%{background-position:0% 0%}}
 .plate-visual::after,.case-plate::after{
@@ -1302,8 +1402,7 @@ body.is-transitioning{pointer-events:none}
    ────────────────────────────────────────────────────────────────── */
 @media (max-width:1023px){
   .works-grid{grid-template-columns:1fr 1fr}
-  .disc-row{grid-template-columns:minmax(36px,52px) 1fr auto}
-  .disc-row .meta{display:none}
+  .disc-link{grid-template-columns:minmax(36px,52px) 1fr}
 }
 @media (max-width:767px){
   .wordmark .tag{display:none}
@@ -1324,12 +1423,10 @@ body.is-transitioning{pointer-events:none}
   .ht-track img{height:20px}
   .readout .d{display:none}   /* no dangling divider once the coordinate peeks are hidden */
   .works-grid{grid-template-columns:1fr}
-  .disc-row{grid-template-columns:36px 1fr;row-gap:10px}
-  .disc-row .go{grid-column:2}
+  .disc-link{grid-template-columns:32px 1fr;row-gap:10px}
   .menu .lbl{font-size:24px}
   .imprint{justify-content:center;text-align:center}
   .field input,.field select,.field textarea{font-size:16px}   /* stop iOS focus-zoom */
-  .disc-row .meta{display:block;grid-column:2;font-size:10px;line-height:1.7;letter-spacing:.03em;color:var(--txt-55);margin-top:-2px}
 }
 
 /* touch devices: reveal affordances that are hover-only on desktop */
@@ -1338,12 +1435,82 @@ body.is-transitioning{pointer-events:none}
 }
 
 /* ──────────────────────────────────────────────────────────────────
+   FAQ ACCORDIONS (lander pages)
+   The per-page inline <style> already owns the borders, type and padding —
+   this only adds the collapse. Markup ships EXPANDED (aria-expanded="true");
+   mulle.js applies .is-collapsed on init, so a crawler or a JS failure still
+   sees every answer and the FAQPage JSON-LD keeps matching what is rendered.
+   grid-template-rows 0fr->1fr rather than height: it animates to content size
+   without measuring, and unlike height it does not need a JS-set pixel value.
+   ────────────────────────────────────────────────────────────────── */
+.faq-item .faq-qh{margin:0}
+.faq-q{display:flex;align-items:baseline;gap:16px;width:100%;
+  background:none;border:0;padding:0;margin:0;cursor:pointer;
+  font:inherit;color:inherit;text-align:left}
+.faq-q:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
+.faq-qt{flex:1;transition:color var(--dur-hover) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){ .faq-q:hover .faq-qt{color:var(--blue)} }
+
+/* plus when closed, minus when open — the vertical bar is what collapses */
+.faq-ic{position:relative;flex:none;width:11px;height:11px;margin-top:2px;color:var(--blue)}
+.faq-ic::before,.faq-ic::after{content:"";position:absolute;inset:0;margin:auto;background:currentColor}
+.faq-ic::before{width:11px;height:1.5px}
+.faq-ic::after{width:1.5px;height:11px;transition:transform var(--dur-hover) var(--ease-out)}
+.faq-item:not(.is-collapsed) .faq-ic::after{transform:scaleY(0)}
+
+.faq-a{display:grid;grid-template-rows:1fr;transition:grid-template-rows 240ms var(--ease-out)}
+.faq-a > div{overflow:hidden;opacity:1;transition:opacity 160ms var(--ease-out) 80ms}
+.faq-a > div > p{padding-top:8px}
+.faq-item.is-collapsed .faq-a{grid-template-rows:0fr}
+/* visibility flips only after the row has finished closing, so a collapsed
+   answer cannot be tabbed into but the fade still reads */
+.faq-item.is-collapsed .faq-a > div{opacity:0;visibility:hidden;
+  transition:opacity 140ms var(--ease-out),visibility 0s linear 240ms}
+
+/* ──────────────────────────────────────────────────────────────────
+   TOUCH — no false hovers  ·  and no hover movement under reduced motion
+   A tap on iOS Safari applies :hover and leaves it applied until you tap
+   somewhere else, so every hover transform below would stick. The JS half of
+   the motion system is already gated on (hover:hover) and (pointer:fine)
+   (mulle.js); this is the CSS half. Reduced-motion shares the list: the point
+   there is that the element does not move at all, not that it moves instantly.
+   ────────────────────────────────────────────────────────────────── */
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+  .menu li a:hover,
+  .disc-row:hover .t,
+  .case-head:hover .c-name,
+  .pkg:hover,
+  .wk-row-media:hover .wk-frame,
+  .wk-row-media:hover .wk-media,
+  .wk-row-media:hover .wk-img,
+  .wk-row-media:hover .wk-vid,
+  .wk-row-media:hover .wk-play,
+  .origin-visual:hover img,
+  .mb-send:hover,
+  .nextband:hover .nb-arr,
+  .hs-chip:hover i,
+  .wd-all:hover i,
+  .menu li a:hover .arr{transform:none}
+  .wk-row-media:hover .wk-frame{box-shadow:0 20px 56px rgba(29,29,31,.10)}
+  .wk-row-media:hover .wk-play{transform:translate(-50%,-50%)}
+  .nextband:hover::after{animation:none}
+}
+
+/* ──────────────────────────────────────────────────────────────────
    REDUCED MOTION
+   Fewer and gentler, not zero. Movement (transform) is what triggers
+   vestibular symptoms — opacity and colour do not, and stripping them
+   removes the feedback that tells you the interface heard you.
    ────────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  /* kill continuous/decorative loops outright */
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important}
+  /* movement snaps; opacity and colour keep their (shortened) transition */
+  *,*::before,*::after{transition-property:opacity,color,background-color,border-color,box-shadow,fill,stroke !important;transition-duration:150ms !important}
   .pre{display:none}
   .fluid-wrap{opacity:1 !important}
+  /* the cursor tilt is pure movement — park it flat */
+  .plate-visual,.case-plate{transform:none !important}
 }
 
 /* ── EN / FR language toggle (top-right, left of the index button) ── */
