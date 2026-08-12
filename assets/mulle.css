@@ -532,7 +532,7 @@ section{position:relative}
 .disc-head h2{font-family:var(--display);font-size:clamp(26px,3.5vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.04}
 .disc-head h2 em{font-style:normal;font-weight:300;color:var(--txt-40)}
 
-.disc-stage{display:grid;grid-template-columns:1fr minmax(250px,330px);
+.disc-stage{display:grid;grid-template-columns:1fr minmax(270px,380px);
   gap:clamp(28px,5vw,90px);align-items:start}
 
 .disc-list{list-style:none;position:relative;border-top:1px solid var(--hairline-2)}
@@ -574,23 +574,6 @@ section{position:relative}
    tallest and nothing reflows when the content swaps */
 .disc-panel{position:sticky;top:clamp(96px,15vh,150px)}
 
-/* The sphere — no plate, no frame, no shadow. The loop is shot on #F2F0F3 and
-   the page is #F5F5F7, 1.5% apart, so a radial mask that fades out well inside
-   the frame drops the box entirely and leaves the sphere sitting on the page.
-   Measured: the sphere is 22.3% of frame width, centred — the mask goes solid
-   to 62% of the half-width and is gone by 86%, which clears it at every
-   attitude below without ever reaching the frame edge. */
-.disc-plate{position:relative;width:clamp(126px,14vw,182px);aspect-ratio:1/1;
-  margin:0 0 clamp(20px,3vh,30px)}
-.dp-media{width:100%;height:100%;object-fit:contain;display:block;
-  -webkit-mask-image:radial-gradient(circle closest-side at 50% 50%,#000 62%,rgba(0,0,0,0) 86%);
-  mask-image:radial-gradient(circle closest-side at 50% 50%,#000 62%,rgba(0,0,0,0) 86%);
-  transition:transform 600ms var(--ease-inout)}
-/* the material settles into a different attitude per discipline — scale only,
-   because a translate would carry the sphere into the mask's falloff */
-.disc-plate[data-i="1"] .dp-media{transform:scale(1.07)}
-.disc-plate[data-i="2"] .dp-media{transform:scale(1.14)}
-
 .dp-stack{display:grid}
 /* the card carries only the crossfade + blur mask; the y-motion is delegated to
    the children below, so the two don't smear over each other */
@@ -604,20 +587,27 @@ section{position:relative}
    because the link is clickable from the first frame */
 .dp-card .dp-lead,.dp-card .dp-spec > div,.dp-card .dp-go{opacity:0;transform:translateY(6px);
   transition:opacity 220ms var(--ease-out),transform 220ms var(--ease-out)}
+/* the lead is a heading, so it gets the clip-mask rise the rest of the site uses */
+.dp-card .dp-lead{transform:translateY(12px);clip-path:inset(0 0 100% 0);
+  transition:opacity 380ms var(--ease-out),transform 380ms var(--ease-out),
+             clip-path 380ms var(--ease-out)}
 .dp-card.is-on .dp-lead,
 .dp-card.is-on .dp-spec > div,
 .dp-card.is-on .dp-go{opacity:1;transform:none}
-.dp-card.is-on .dp-lead{transition-delay:30ms}
+.dp-card.is-on .dp-lead{clip-path:inset(0 0 0 0);transition-delay:30ms}
 .dp-card.is-on .dp-spec > div:nth-child(1){transition-delay:80ms}
 .dp-card.is-on .dp-spec > div:nth-child(2){transition-delay:130ms}
 .dp-card.is-on .dp-spec > div:nth-child(3){transition-delay:180ms}
 .dp-card.is-on .dp-go{transition-delay:230ms}
-/* three registers instead of one: the setting reads as a light display line,
-   the labels drop to mono micro-caps, the values sit at body size. Previously
-   every line in this column was the same 12px, which is what made it flat. */
-.dp-lead{font-family:var(--display);font-size:clamp(17px,1.7vw,23px);font-weight:300;
-  letter-spacing:-.015em;line-height:1.24;color:var(--txt);
-  margin-bottom:clamp(16px,2.4vh,24px);max-width:22ch}
+/* No image in this column — the type carries it. The lead answers the 68px
+   names at roughly half their size, which reads as a reply rather than a
+   competing headline, and it rises out of a clip mask like every other
+   heading on the site. Three registers below it: display lead, mono
+   micro-caps, body values — previously every line here was the same 12px,
+   which is what made the column read as a footnote. */
+.dp-lead{font-family:var(--display);font-size:clamp(25px,2.9vw,38px);font-weight:300;
+  letter-spacing:-.028em;line-height:1.1;color:var(--txt);
+  margin-bottom:clamp(22px,3.2vh,34px);max-width:14ch;text-wrap:balance}
 .dp-spec{border-top:1px solid var(--hairline)}
 .dp-spec > div{display:grid;grid-template-columns:minmax(58px,74px) 1fr;gap:14px;
   align-items:baseline;padding:10px 0;border-bottom:1px solid var(--hairline)}
@@ -633,11 +623,6 @@ section{position:relative}
 
 /* one column below the split: no hover to drive it, so the active card sits
    under the list and the scroll observer moves it */
-/* the plate is decorative material — reduced motion gets the still, held flat */
-@media (prefers-reduced-motion:reduce){
-  .dp-media{transform:none !important}
-}
-
 @media (max-width:900px){
   .disc-stage{grid-template-columns:1fr;gap:clamp(20px,4vh,34px)}
   .disc-panel{position:static}

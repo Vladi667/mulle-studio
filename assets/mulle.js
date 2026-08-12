@@ -279,9 +279,6 @@ if(hasHover && !reduced){
     reg.style.height = rows[cur].offsetHeight + 'px';
     reg.style.transform = 'translateY(' + rows[cur].offsetTop + 'px)';
   }
-  var plate = stage.querySelector('.disc-plate');
-  var vid   = stage.querySelector('.dp-media');
-
   function setActive(i){
     if(i === cur || i < 0 || i >= rows.length) return;
     cur = i;
@@ -289,8 +286,6 @@ if(hasHover && !reduced){
       rows[n].classList.toggle('is-active', n === i);
       if(cards[n]) cards[n].classList.toggle('is-on', n === i);
     }
-    /* the sphere settles into a new attitude */
-    if(plate) plate.setAttribute('data-i', String(i));
     place();
   }
 
@@ -350,28 +345,16 @@ if(hasHover && !reduced){
   /* no self-play (reduced motion, or no WAAPI): the bar is pure wayfinding */
   if(!canPlay && reg) reg.classList.add('is-manual');
 
-  /* The loop is 290KB and sits below the fold — preload="none" keeps it off the
-     wire until the section is actually reached, and it never loads at all for
-     someone who scrolls past or has reduced motion on (they get the poster). */
-  function media(on){
-    if(!vid || reduced) return;
-    if(on){ if(!vid.getAttribute('data-lit')){ vid.setAttribute('data-lit','1'); vid.load(); }
-            var p = vid.play(); if(p && p.catch) p.catch(function(){}); }
-    else { vid.pause(); }
-  }
-
-  if('IntersectionObserver' in window){
+  if(canPlay && 'IntersectionObserver' in window){
     new IntersectionObserver(function(entries){
       inView = entries[0].isIntersecting;
-      media(inView);
-      if(!canPlay || manual) return;
+      if(manual) return;
       if(!inView){ if(play) play.pause(); return; }
       if(play && play.playState === 'paused') play.play(); else cycle();
     }, { threshold:0.35 }).observe(stage);
 
     /* a backgrounded tab should not burn through the cycle unwatched */
     document.addEventListener('visibilitychange', function(){
-      media(!document.hidden && inView);
       if(manual || !play) return;
       if(document.hidden) play.pause();
       else if(inView) play.play();
