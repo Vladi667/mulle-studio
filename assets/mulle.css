@@ -111,7 +111,8 @@ html{scrollbar-width:thin;scrollbar-color:var(--chrome-2) transparent}
    transform on it every frame and would win. The standalone `scale` property
    composes with transform instead of replacing it, so the press reads as
    geometry (which is what a press should be) without fighting the magnet. */
-.btn{transition:scale 160ms var(--ease-out)}
+/* the easing for `scale` lives on the main .btn rule further down — declaring a
+   transition here would be silently reset by that rule's own shorthand */
 .btn:active{filter:brightness(.93);scale:.97}
 .index-link:active,.xlink:active,.case-head:active,.sf-mark:active,.wordmark:active{transform:scale(.985)}
 
@@ -376,7 +377,8 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
   font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
   border:1px solid var(--txt);background:var(--txt);color:var(--bg);
   position:relative;overflow:hidden;
-  transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out);
+  transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out),
+             scale 160ms var(--ease-out);
 }
 .btn::before{
   content:"";position:absolute;inset:0;background:var(--blue);
