@@ -56,3 +56,32 @@ Desktop, real pointer:
 Then toggle **Settings → Accessibility → Display → Reduce motion** and reload: things should stop *moving* but still *fade*. Before this pass, everything went instant and flat.
 
 On a phone: tap a work card and then tap empty space — nothing should stay lifted.
+
+---
+
+# Round 2 — `find-animation-opportunities` sweep, all findings built
+
+## Corrections to round 1
+
+- **"Page nav and the EN↔FR toggle are hard cuts"** — wrong. `mulle.js:342` intercepts every same-origin click into `navTransition()`: a 550ms ink-sheet wipe with hover-intent prefetch, a `pageshow` handler for iOS back-swipe, and a clean bypass when GSAP is absent or reduced motion is on. Nothing to add.
+- **"`.faq-item` has no CSS anywhere"** — wrong. It is styled in each lander page's inline `<style>` block, not `mulle.css`, which is why the grep missed it. What was genuinely missing was the collapse and the motion.
+
+## Built
+
+| What | Where |
+| --- | --- |
+| Disciplines redesigned as a ghost-ink register: names carry the section, only the live one is inked, detail moves to a sticky panel, register bar travels the left margin | `index.html`, `fr/index.html`, `mulle.css`, `mulle.js` |
+| 76 FAQ blocks → accessible accordions across 13 pages. Ships expanded, JS collapses on init, so crawlers and no-JS visitors keep every answer and the FAQPage JSON-LD still matches | 13 lander pages, `mulle.css`, `mulle.js` |
+| Contact form status: `@starting-style` entrance + colour transition. Fixed `setStatus('')` passing an empty kind, so `.form-status.pending` never applied | `contact.html`, `fr/contact.html`, `mulle.css` |
+| `.btn` press feedback via the standalone `scale` property, which composes with the transform GSAP's magnetic `quickTo` owns | `mulle.css` |
+
+## Deliberately not built
+
+- **Price count-up on `pricing.html`** — prices are data being read to make a decision. Motion hinders.
+- **`decode()` glyph-scramble on menu-label hover** (`mulle.js`) — flagged as *over*-animation by the frequency gate (360ms of per-character randomisation on primary nav hover), but it is a deliberate brand signature. Owner's call, not the skill's.
+- **Alternative Disciplines layouts** — `/prototype` is reserved for direct user invocation. One direction was built; run `/prototype` to compare others.
+
+## Two bugs this round caught in review
+
+1. `.btn{transition:scale}` declared in the press-states block was silently reset by `.btn{transition:color,border-color}` 260 lines later — the press would have snapped. Moved onto the main rule.
+2. Measuring computed style in a non-compositing tab returns transitioned values frozen at their *start*. Two "failures" during verification were this artifact, not defects. Disable transitions before reading settled values.
