@@ -1621,3 +1621,84 @@ body.is-transitioning{pointer-events:none}
   .m-cell,.m-lock .tw-l{color:rgba(29,29,31,.26)}
   :focus-visible{outline-width:2.5px}
 }
+
+/* ──────────────────────────────────────────────────────────────────
+   SAFE AREA
+   Every page sets viewport-fit=cover, which extends the layout under the
+   notch, the Dynamic Island and the home indicator — but env(safe-area-inset-*)
+   appeared nowhere in this file. So on a notched iPhone the wordmark, the Index
+   button and the language toggle sit at top:18px, i.e. inside the status bar,
+   and .sticky-cta at bottom:16px sits under the home indicator.
+
+   env() resolves to 0 wherever there is no inset, so these are inert on
+   desktop and on non-notched phones. Left/right are included for landscape,
+   where the inset moves to the sides.
+   ────────────────────────────────────────────────────────────────── */
+.wordmark{top:calc(22px + env(safe-area-inset-top));
+  left:calc(var(--margin) + env(safe-area-inset-left))}
+.index-link{top:calc(22px + env(safe-area-inset-top));
+  right:calc(var(--margin) + env(safe-area-inset-right))}
+.langtog{top:calc(22px + env(safe-area-inset-top));
+  right:calc(var(--margin) + 132px + env(safe-area-inset-right))}
+.readout{bottom:calc(20px + env(safe-area-inset-bottom));
+  left:calc(var(--margin) + env(safe-area-inset-left))}
+.chaprail{bottom:calc(20px + env(safe-area-inset-bottom))}
+.sticky-cta{bottom:calc(16px + env(safe-area-inset-bottom))}
+
+@media (max-width:767px){
+  .index-link{top:calc(18px + env(safe-area-inset-top))}
+  .langtog{top:calc(18px + env(safe-area-inset-top));
+    right:calc(var(--margin) + 94px + env(safe-area-inset-right))}
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   TOUCH TARGETS
+   Measured on a 375x812 viewport: 17 interactive elements came in under the
+   44x44 floor. A 13px-tall link is fine under a mouse and miserable under a
+   thumb, and that gap is a large part of why the phone does not feel like the
+   desktop. Gated on (pointer:coarse) so the desktop layout is untouched.
+
+   Most take min-height and centre their content, which grows the hit box
+   without moving the type. .hs-chip is the exception: its ::after IS the
+   underline, so growing the box would detach the rule from the words — an
+   invisible ::before carries its touch area instead.
+   ────────────────────────────────────────────────────────────────── */
+@media (pointer:coarse){
+  .wordmark,.dp-go,.wd-all,.sf-mark,.sf-col a{
+    min-height:44px;display:inline-flex;align-items:center}
+  /* 76 of these across 13 lander pages, and they were 21px tall -- the primary
+     interaction on those pages. baseline alignment is kept so the question and
+     the +/- icon stay on the same line; the extra height is dead tappable space. */
+  .faq-q{min-height:44px}
+  .sf-social a{min-width:44px;min-height:44px;display:inline-flex;
+    align-items:center;justify-content:center}
+  .index-link{padding-top:15px;padding-bottom:15px}
+  .langtog button,.langtog a{padding:16px 12px}
+  .hs-chip::before{content:"";position:absolute;left:0;right:0;top:50%;
+    transform:translateY(-50%);height:44px}
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   DISCIPLINES — STACKED (phone / any coarse pointer)
+   mulle.js moves each .dp-card under the name it describes and adds
+   .is-stacked. Everything below undoes the hover-era presentation: full ink
+   on all three names, no register clock, no crossfade stack, no stagger
+   delays — the cards are simply present.
+   ────────────────────────────────────────────────────────────────── */
+.disc-stage.is-stacked{grid-template-columns:1fr;gap:0}
+.is-stacked .disc-panel,
+.is-stacked .disc-reg{display:none}
+.is-stacked .disc-link{padding-bottom:clamp(12px,2vh,18px)}
+/* all three read as text, not as furniture */
+.is-stacked .disc-row .t{color:var(--txt)}
+.is-stacked .disc-row .t .sub{opacity:1;clip-path:none;transform:none;color:var(--txt-40)}
+.is-stacked .disc-row .n{color:var(--blue)}
+/* the card is in normal flow now, so drop the stacking-cell and the entrance */
+.is-stacked .dp-card{grid-area:auto;opacity:1;visibility:visible;filter:none;
+  padding:0 0 clamp(20px,3.4vh,32px)}
+.is-stacked .dp-card .dp-lead,
+.is-stacked .dp-card .dp-spec > div,
+.is-stacked .dp-card .dp-go{opacity:1;transform:none;clip-path:none;transition-delay:0s}
+/* the lead answered a 68px name on desktop; here it sits under a 30px one */
+.is-stacked .dp-lead{font-size:clamp(16px,4.4vw,20px);max-width:32ch;
+  margin-bottom:clamp(14px,2vh,18px)}
