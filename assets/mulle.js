@@ -1841,16 +1841,29 @@ document.querySelectorAll('.value').forEach(function(v){
 /* live sim coverage in the readout pill */
 if(window.MulleFluid && window.MulleFluid.ok && window.MulleFluid.coverage){
   var ro = document.querySelector('.readout');
-  if(ro){
+  /* coverage() ends in a synchronous gl.readPixels (mulle-fluid.js), which
+     stalls the CPU until the GPU pipeline flushes. mulle.css hides .readout .cov
+     below 767px, so on a phone this was running that stall every 900ms, forever,
+     to update text nobody can see. Only run it where the pill is actually shown,
+     and never while the tab is in the background. */
+  var covMQ = window.matchMedia('(min-width:768px)');
+  if(ro && covMQ.matches){
     var cov = document.createElement('span');
     cov.className = 'cov';
     cov.innerHTML = '<span class="d" aria-hidden="true"></span><span>Surface</span><b class="cov-v">100%</b>';
     ro.appendChild(cov);
     var cvEl = cov.querySelector('.cov-v');
-    setInterval(function(){
+    var covTimer = null;
+    function covTick(){
       var c = window.MulleFluid.coverage();
       if(c != null){ cvEl.textContent = Math.round(c * 100) + '%'; }
-    }, 900);
+    }
+    function covStart(){ if(covTimer == null) covTimer = setInterval(covTick, 900); }
+    function covStop(){ if(covTimer != null){ clearInterval(covTimer); covTimer = null; } }
+    covStart();
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden) covStop(); else covStart();
+    });
   }
 }
 
