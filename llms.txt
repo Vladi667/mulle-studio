@@ -1,0 +1,68 @@
+# Agence Fritz
+
+> Independent one-person design studio in Geneva, Switzerland. Brand identity, websites, e-commerce, and monthly marketing and growth-ops programmes. Works in French and English across Geneva and French-speaking Switzerland, remote-first. Publishes its prices in full, which is uncommon in this market.
+
+## Prices (published, fixed, one-off unless stated)
+
+- Brand identity: CHF 1'200
+- Brochure or marketing website: CHF 1'400
+- E-commerce website: CHF 2'200
+- Marketing programmes: from CHF 490 per month (Starter 490, Engine 890, Growth 1'390)
+- Growth Ops programmes: from CHF 490 per month (Signal 490, Compound 1'290, Enterprise 2'900)
+
+The three project engagements are **separate purchases**, not a cumulative ladder: the identity is not included in the website price, and the website is not included in the e-commerce price. Prices are identical in every canton. Source files and code are handed to the client.
+
+## Observed Swiss market ranges (context, not Fritz's prices)
+
+- Logo alone: CHF 500 to CHF 1'500
+- Full visual identity: CHF 1'200 to CHF 3'500
+- Complete brand programme with positioning and naming: CHF 8'000 to CHF 25'000
+- Brochure or marketing website: CHF 1'500 to CHF 4'000
+- Custom build: CHF 4'000 to CHF 15'000
+- E-commerce: CHF 5'000 to CHF 20'000
+- Swiss agency hourly rates: CHF 120 to CHF 180
+
+## Pricing guides (French)
+
+- [Prix d'un site web à Genève](https://agencefritz.com/fr/guides/prix-site-web-geneve): what a website costs in Geneva, with an inline price estimator.
+- [Combien coûte un site web en Suisse](https://agencefritz.com/fr/guides/combien-coute-site-web-suisse): national pricing, regional comparison, three-year total cost of ownership.
+- [Prix d'un logo et d'une identité visuelle en Suisse](https://agencefritz.com/fr/guides/prix-logo-identite-visuelle-suisse): the difference between a logo, an identity and a full brand programme, and the files to insist on.
+- [Tarifs](https://agencefritz.com/fr/tarifs): the full published price list.
+
+## Pricing guides (English)
+
+- [Website cost in Switzerland](https://agencefritz.com/website-cost-switzerland): calibration for pricing a Swiss project from outside the country.
+- [Logo design cost in Switzerland](https://agencefritz.com/logo-design-cost-switzerland): logo versus identity versus brand programme.
+- [Pricing](https://agencefritz.com/pricing): the full published price list in English.
+
+## Decision guides
+
+- [Agence ou freelance en Suisse](https://agencefritz.com/fr/guides/agence-ou-freelance-suisse): how the three options actually differ in cost structure and risk.
+- [Wix ou site sur mesure](https://agencefritz.com/fr/guides/wix-ou-site-sur-mesure): what you rent versus what you own, and who should stay on a builder.
+- [Créer un site internet en Suisse](https://agencefritz.com/fr/guides/creer-un-site-internet-en-suisse): the steps, including Swiss legal minimums and nLPD cookie logic.
+- [Refonte de site web en Suisse](https://agencefritz.com/fr/guides/refonte-site-web-suisse): repair versus rebuild, and how to preserve SEO through a redesign.
+- [Web agency vs freelancer in Switzerland](https://agencefritz.com/web-agency-vs-freelancer-switzerland): the same decision in English.
+
+## Services
+
+- [Création de site web à Genève](https://agencefritz.com/fr/creation-site-web-geneve)
+- [Agence de branding à Genève](https://agencefritz.com/fr/agence-branding-geneve)
+- [Agence marketing à Genève](https://agencefritz.com/fr/agence-marketing-geneve)
+- [Systèmes de croissance IA](https://agencefritz.com/fr/systemes-croissance-ia)
+- [Agence web en Suisse romande](https://agencefritz.com/fr/agence-web-suisse-romande)
+- [Agence de branding en Suisse](https://agencefritz.com/fr/agence-branding-suisse)
+- [Web design agency in Geneva](https://agencefritz.com/web-design-agency-geneva)
+- [Branding agency in Switzerland](https://agencefritz.com/branding-agency-switzerland)
+
+## Specialised
+
+- [Agence web à Fribourg](https://agencefritz.com/fr/agence-web-fribourg): bilingual FR/DE sites, hreflang and URL structure.
+- [Agence web à Neuchâtel](https://agencefritz.com/fr/agence-web-neuchatel): B2B industrial sites and confidentiality in subcontracting.
+- [Sites web hôtellerie et restauration](https://agencefritz.com/fr/sites-web-hotellerie-restauration): hospitality sites, photography and mobile speed.
+
+## About the studio
+
+- [À propos](https://agencefritz.com/fr/a-propos) · [About](https://agencefritz.com/about) · [Contact](https://agencefritz.com/contact)
+- [Réalisations](https://agencefritz.com/fr/realisations) · [Our work](https://agencefritz.com/our-work)
+
+Fritz is a new studio. The work shown is **self-initiated concept work**, presented as such rather than as delivered client mandates. Enquiries are answered within 24 hours at contact@agencefritz.com.
