@@ -874,7 +874,8 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     lastFocus = document.activeElement;
     isOpen = true; lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
     if(lenis){ lenis.stop(); }
-    closeBtn.focus();
+    /* one frame so the class has been applied and the dialog is focusable */
+    requestAnimationFrame(function(){ try{ closeBtn.focus(); }catch(e){} });
   }
   elig.forEach(function(c){
     c.setAttribute('data-lb', '');
