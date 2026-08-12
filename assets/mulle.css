@@ -111,10 +111,10 @@ html{scrollbar-width:thin;scrollbar-color:var(--chrome-2) transparent}
    transform on it every frame and would win. The standalone `scale` property
    composes with transform instead of replacing it, so the press reads as
    geometry (which is what a press should be) without fighting the magnet. */
-/* the easing for `scale` lives on the main .btn rule further down — declaring a
-   transition here would be silently reset by that rule's own shorthand */
-.btn:active{filter:brightness(.93);scale:.97}
-.index-link:active,.xlink:active,.case-head:active,.sf-mark:active,.wordmark:active{transform:scale(.985)}
+/* press states now live in one block at the END of this file — see "PRESS".
+   They have to be last: `transition` is a shorthand, so a later rule silently
+   drops any transition declared here. */
+.btn:active{filter:brightness(.93)}
 
 /* ──────────────────────────────────────────────────────────────────
    PRELOADER
@@ -1207,7 +1207,8 @@ section{position:relative}
   transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out),background var(--dur-short) var(--ease-out),transform var(--dur-short) var(--ease-out);
 }
 .sf-social a:hover{color:var(--blue);border-color:var(--blue);background:rgba(0,113,227,.06)}
-.sf-social a:active{transform:scale(.94)}
+/* press handled by the PRESS block at the end — a transform:scale here would
+   multiply with the `scale` property rather than replace it */
 .sf-social svg{width:17px;height:17px;display:block}
 .sf-col{display:flex;flex-direction:column;gap:11px}
 .sf-h{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--txt-40);margin-bottom:5px}
@@ -1331,10 +1332,17 @@ body.is-transitioning{pointer-events:none}
   font-weight:300;font-size:clamp(180px,22vw,360px);line-height:.8;letter-spacing:-.05em;
   color:rgba(29,29,31,.04);font-variant-numeric:tabular-nums}
 .nextband > :not(.nb-ghost){position:relative;z-index:1}
-.nextband::after{content:"";position:absolute;top:0;bottom:0;left:-15%;width:120px;z-index:2;pointer-events:none;
-  transform:skewX(-12deg);opacity:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent)}
+/* the gleam used to travel by animating `left`, which is layout + paint +
+   composite on every frame for 900ms. Same motion, driven by transform. */
+.nextband::after{content:"";position:absolute;top:0;bottom:0;left:0;width:120px;z-index:2;pointer-events:none;
+  transform:translateX(-140px) skewX(-12deg);opacity:0;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent)}
 .nextband:hover::after{animation:nb-sweep .9s var(--ease-out)}
-@keyframes nb-sweep{0%{left:-15%;opacity:0}25%{opacity:.9}100%{left:115%;opacity:0}}
+@keyframes nb-sweep{
+  0%{transform:translateX(-140px) skewX(-12deg);opacity:0}
+  25%{opacity:.9}
+  100%{transform:translateX(calc(100vw + 140px)) skewX(-12deg);opacity:0}
+}
 @media (max-width:1023px){ .nextband .nb-ghost{display:none} }
 @media (max-width:767px){ .nextband{padding:clamp(44px,9vh,90px) var(--margin)} .nextband .nb-row{gap:16px} }
 
@@ -1531,3 +1539,44 @@ body.is-transitioning{pointer-events:none}
 .sticky-cta .sc-arr{transition:transform .3s var(--ease-out)}
 .sticky-cta:active .sc-arr{transform:translateX(4px)}
 @media (max-width:767px){ .sticky-cta{display:inline-flex} }
+
+/* ──────────────────────────────────────────────────────────────────
+   PRESS
+   Every pressable answers a press the same way. Two tokens, not one:
+   perceived displacement scales with element size, so a full-width row
+   pressed by .97 reads as broken while a chip pressed by .985 reads as
+   nothing. Compact controls take the deeper press, wide rows the shallow
+   one. (This replaces three ad-hoc values: .94 / .97 / .985.)
+
+   `scale`, not `transform`: GSAP's magnetic quickTo writes inline transform
+   on .btn / .xlink / .index-link / .mb-send and would win. The standalone
+   scale property composes with it instead of fighting it.
+
+   This block is LAST on purpose. `transition` is a shorthand — declaring the
+   press easing anywhere earlier gets silently dropped by whichever later rule
+   sets transition on the same element. That is exactly how the .btn press
+   easing was lost the first time round, so each list below is re-declared in
+   full rather than appended to.
+   ────────────────────────────────────────────────────────────────── */
+:root{ --press:.97; --press-wide:.985; --press-ease:160ms var(--ease-out) }
+
+.btn{transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out),scale var(--press-ease)}
+.index-link{transition:color var(--dur-short) var(--ease-out),scale var(--press-ease)}
+.xlink{transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out),background var(--dur-short) var(--ease-out),scale var(--press-ease)}
+.sf-social a{transition:color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out),background var(--dur-short) var(--ease-out),transform var(--dur-short) var(--ease-out),scale var(--press-ease)}
+.langtog button,.langtog a{transition:color .3s var(--ease-out),background .3s var(--ease-out),scale var(--press-ease)}
+.hs-chip{transition:color .35s var(--ease-out),scale var(--press-ease)}
+.lb-close{transition:background var(--dur-hover) var(--ease-out),transform var(--dur-hover) var(--ease-out),scale var(--press-ease)}
+.dp-card .dp-go{transition:opacity 220ms var(--ease-out),transform 220ms var(--ease-out),scale var(--press-ease)}
+.case-head,.sf-mark,.wordmark,.faq-q,.disc-link,.wk-visit-link{transition:scale var(--press-ease)}
+
+/* compact controls */
+.btn:active,.index-link:active,.xlink:active,.sf-mark:active,.wordmark:active,
+.sf-social a:active,.dp-go:active,.lb-close:active,.langtog a:active,
+.langtog button:active,.hs-chip:active{scale:var(--press)}
+
+/* wide rows — a full-bleed element needs a shallower press to read as a press */
+.case-head:active,.faq-q:active,.disc-link:active,.wk-visit-link:active{scale:var(--press-wide)}
+
+/* .nextband is deliberately excluded: it is a full-bleed band, and any scale
+   on it exposes the page behind its own edges. Its arrow already answers. */
