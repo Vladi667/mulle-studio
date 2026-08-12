@@ -6,3 +6,15 @@ _*.bak
 *.md
 package.json
 package-lock.json
+
+# Raw source material — kept in the repo, but there is no reason to serve it.
+# Verified with `git grep` that nothing in any tracked file references these.
+# Levallon/ alone is 53MB of ungraded footage and reference stills; together
+# with the four orphaned renders below that is ~120MB off every deployment.
+# Delete these lines to put any of it back on the CDN.
+Levallon
+assets/levallon-ad.mp4
+assets/levallon-ad-web.mp4
+assets/watch-concept-src.mp4
+assets/method-coalesce.mp4
+assets/method-coalesce.webm
