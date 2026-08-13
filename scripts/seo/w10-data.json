@@ -62,11 +62,11 @@
     ],
     "content": {
       "metaTitle": "Web Design Prices | Fritz, Geneva Studio Pricing",
-      "metaDesc": "Fritz publishes its web design prices in full: brand identity CHF 1'200, brochure site CHF 1'400, e-commerce CHF 2'200",
+      "metaDesc": "Fritz publishes its web design prices in full: brand identity CHF 500, brochure site CHF 1'300, e-commerce CHF 2'100",
       "h1": "Web design prices",
       "kicker": "Pricing · Geneva",
       "lede": "This page lists the web design prices Fritz actually charges, in Swiss francs, with the deliverables attached to each one. Fritz is a one-person studio based in Geneva, working across French-speaking Switzerland and in English. Three engagements are one-off payments, two are monthly programmes, and every figure below is the figure that appears on the quote.",
-      "quotableOpener": "Brand identity CHF 1'200. Brochure or marketing site CHF 1'400. E-commerce CHF 2'200. Marketing and Growth Ops from CHF 490 per month. Those are the figures, published in full.",
+      "quotableOpener": "Brand identity CHF 500. Brochure or marketing site CHF 1'300. E-commerce CHF 2'100. Marketing and Growth Ops from CHF 390 per month. Those are the figures, published in full.",
       "sections": [
         {
           "h2": "Why the prices are published at all",
@@ -104,21 +104,21 @@
               "tableRows": [
                 [
                   "Brand identity",
-                  "CHF 1'200",
+                  "CHF 500",
                   "Logo system, palette, typography, stationery, guidelines, all source files",
                   "~14 days",
                   "One-off"
                 ],
                 [
                   "Brochure / marketing site",
-                  "CHF 1'400",
+                  "CHF 1'300",
                   "A custom-designed site you can edit yourself, built on an identity you already have",
                   "2 to 4 weeks",
                   "One-off"
                 ],
                 [
                   "E-commerce",
-                  "CHF 2'200",
+                  "CHF 2'100",
                   "A shop with product pages, checkout, payment and order handling",
                   "6 to 8 weeks",
                   "One-off"
@@ -131,7 +131,7 @@
             },
             {
               "type": "h3",
-              "text": "Brand identity, CHF 1'200"
+              "text": "Brand identity, CHF 500"
             },
             {
               "type": "p",
@@ -143,7 +143,7 @@
             },
             {
               "type": "h3",
-              "text": "Brochure or marketing site, CHF 1'400"
+              "text": "Brochure or marketing site, CHF 1'300"
             },
             {
               "type": "p",
@@ -155,7 +155,7 @@
             },
             {
               "type": "h3",
-              "text": "E-commerce, CHF 2'200"
+              "text": "E-commerce, CHF 2'100"
             },
             {
               "type": "p",
@@ -185,32 +185,32 @@
                 [
                   "Marketing",
                   "Entry",
-                  "CHF 490"
+                  "CHF 390"
                 ],
                 [
                   "Marketing",
                   "Standard",
-                  "CHF 890"
+                  "CHF 790"
                 ],
                 [
                   "Marketing",
                   "Extended",
-                  "CHF 1'390"
-                ],
-                [
-                  "Growth Ops",
-                  "Entry",
-                  "CHF 490"
-                ],
-                [
-                  "Growth Ops",
-                  "Standard",
                   "CHF 1'290"
                 ],
                 [
                   "Growth Ops",
+                  "Entry",
+                  "CHF 390"
+                ],
+                [
+                  "Growth Ops",
+                  "Standard",
+                  "CHF 1'190"
+                ],
+                [
+                  "Growth Ops",
                   "Extended",
-                  "CHF 2'900"
+                  "CHF 2'800"
                 ]
               ]
             },
@@ -302,7 +302,7 @@
             },
             {
               "type": "p",
-              "text": "Brand identity at CHF 1'200 sits exactly at the floor of the observed range for a full identity. A brochure site at CHF 1'400 sits below the observed floor for brochure sites, which starts at CHF 1'500. E-commerce at CHF 2'200 is further below its own floor again, since observed shop builds start higher still."
+              "text": "Brand identity at CHF 500 sits exactly at the floor of the observed range for a full identity. A brochure site at CHF 1'300 sits below the observed floor for brochure sites, which starts at CHF 1'500. E-commerce at CHF 2'100 is further below its own floor again, since observed shop builds start higher still."
             },
             {
               "type": "p",
@@ -314,11 +314,11 @@
       "faq": [
         {
           "q": "How much does a website cost with Fritz?",
-          "a": "A brochure or marketing site is CHF 1'400 as a one-off payment, with an indicative timeline of 2 to 4 weeks. An e-commerce build is CHF 2'200, with an indicative timeline of 6 to 8 weeks. Both prices cover design, build, technical SEO foundations, analytics, and deployment onto the client's own hosting account, with the code handed over at the end. They do not cover copywriting, photography, or the domain and hosting fees, which the client pays directly."
+          "a": "A brochure or marketing site is CHF 1'300 as a one-off payment, with an indicative timeline of 2 to 4 weeks. An e-commerce build is CHF 2'100, with an indicative timeline of 6 to 8 weeks. Both prices cover design, build, technical SEO foundations, analytics, and deployment onto the client's own hosting account, with the code handed over at the end. They do not cover copywriting, photography, or the domain and hosting fees, which the client pays directly."
         },
         {
           "q": "Are the prices really fixed?",
-          "a": "Yes, for the scope described on this page. CHF 1'200, CHF 1'400 and CHF 2'200 are the amounts invoiced, not opening figures that grow during the project. If the scope changes, for example if a site needs a shop it was not going to have, the price changes in writing before anything is built. Nothing is revised at the end of a project."
+          "a": "Yes, for the scope described on this page. CHF 500, CHF 1'300 and CHF 2'100 are the amounts invoiced, not opening figures that grow during the project. If the scope changes, for example if a site needs a shop it was not going to have, the price changes in writing before anything is built. Nothing is revised at the end of a project."
         },
         {
           "q": "What is not included in the price?",
@@ -330,7 +330,7 @@
         },
         {
           "q": "What is the difference between the monthly tiers?",
-          "a": "Amplitude, not kind. Marketing runs at CHF 490, CHF 890 and CHF 1'390 per month; Growth Ops at CHF 490, CHF 1'290 and CHF 2'900. A higher tier covers more channels, iterates more frequently, and produces more output each month. The method is identical at every tier, and the same person does the work, so the lower tiers are a smaller volume of the same thing rather than a reduced version of it."
+          "a": "Amplitude, not kind. Marketing runs at CHF 390, CHF 790 and CHF 1'290 per month; Growth Ops at CHF 390, CHF 1'190 and CHF 2'800. A higher tier covers more channels, iterates more frequently, and produces more output each month. The method is identical at every tier, and the same person does the work, so the lower tiers are a smaller volume of the same thing rather than a reduced version of it."
         },
         {
           "q": "Should I hire an agency or a freelancer?",
@@ -391,7 +391,7 @@
       }
     ],
     "content": {
-      "distinctnessArgument": "This page owns LOGO AND IDENTITY PRICING as a buyer's guide, and is fenced off from the pages nearest to it. Against /branding-agency-switzerland (a SERVICE page whose distinct assets are the multilingual Swiss brand, the neutral-versus-anchored naming decision, the Swiss design tradition and working in English): this page touches none of those, defers the multilingual and service-delivery ground to it in two places, and no longer carries the logo-versus-identity FAQ, which that page owns outright. Where the three-level table appears here, the columns are deliverable-level and the third column is a pure market range with the studio's own price removed entirely; the branding page keeps its service framing. Against /website-cost-switzerland: no website ranges, no three-year ownership arithmetic, no how-to-read-a-quote section, no hiring-abroad question; that page is linked as the owner of market calibration for websites. Against /pricing: the closing section is reduced to the identity price and its single range position, with the studio boilerplate (one person, capacity, source files, 24 hours, free quote) compressed to one sentence and a link, so /pricing keeps the full commercial statement and the complete grid. Against /web-agency-vs-freelancer-switzerland: that page decides which STRUCTURE to approach; this one prices a single deliverable family, and the two are reciprocally linked. Against /fr/guides/prix-logo-identite-visuelle-suisse: hreflang counterpart, not a translation. The genuinely unique assets here, present on no other page in either cluster: (1) the six-part file-delivery specification with the typography-licence question written out as a procurement question; (2) the five named price drivers broken into H3s, including decision structure as an explicit cost factor; (3) the brief checklist that determines what a quote can be priced against; (4) the rebrand-versus-refresh diagnosis with two signal lists; (5) automated and template-based logo services handled as a scope question with a fair case for when they are the correct decision, with no figure invented and no seller impugned. Precision rules applied: CHF 1'200 is stated as sitting EXACTLY AT the floor of the CHF 1'200 to CHF 3'500 range. No invented statistics or price points, no characterisation of how other providers bill or why, no results promises, third person in all body copy, FAQ questions in natural search voice, no em dashes, CHF prefixed with Swiss apostrophes on both bounds of every range.",
+      "distinctnessArgument": "This page owns LOGO AND IDENTITY PRICING as a buyer's guide, and is fenced off from the pages nearest to it. Against /branding-agency-switzerland (a SERVICE page whose distinct assets are the multilingual Swiss brand, the neutral-versus-anchored naming decision, the Swiss design tradition and working in English): this page touches none of those, defers the multilingual and service-delivery ground to it in two places, and no longer carries the logo-versus-identity FAQ, which that page owns outright. Where the three-level table appears here, the columns are deliverable-level and the third column is a pure market range with the studio's own price removed entirely; the branding page keeps its service framing. Against /website-cost-switzerland: no website ranges, no three-year ownership arithmetic, no how-to-read-a-quote section, no hiring-abroad question; that page is linked as the owner of market calibration for websites. Against /pricing: the closing section is reduced to the identity price and its single range position, with the studio boilerplate (one person, capacity, source files, 24 hours, free quote) compressed to one sentence and a link, so /pricing keeps the full commercial statement and the complete grid. Against /web-agency-vs-freelancer-switzerland: that page decides which STRUCTURE to approach; this one prices a single deliverable family, and the two are reciprocally linked. Against /fr/guides/prix-logo-identite-visuelle-suisse: hreflang counterpart, not a translation. The genuinely unique assets here, present on no other page in either cluster: (1) the six-part file-delivery specification with the typography-licence question written out as a procurement question; (2) the five named price drivers broken into H3s, including decision structure as an explicit cost factor; (3) the brief checklist that determines what a quote can be priced against; (4) the rebrand-versus-refresh diagnosis with two signal lists; (5) automated and template-based logo services handled as a scope question with a fair case for when they are the correct decision, with no figure invented and no seller impugned. Precision rules applied: CHF 500 is stated as sitting EXACTLY AT the floor of the CHF 1'200 to CHF 3'500 range. No invented statistics or price points, no characterisation of how other providers bill or why, no results promises, third person in all body copy, FAQ questions in natural search voice, no em dashes, CHF prefixed with Swiss apostrophes on both bounds of every range.",
       "wordCount": 2905,
       "metaTitle": "Logo Design Cost in Switzerland | CHF Ranges and What You Get",
       "metaDesc": "What a logo and a brand identity cost in Switzerland: the three price levels in CHF, what drives a quote up, the files to insist on receiving",
@@ -685,15 +685,15 @@
           ]
         },
         {
-          "h2": "Where the CHF 1'200 identity sits, stated precisely",
+          "h2": "Where the CHF 500 identity sits, stated precisely",
           "blocks": [
             {
               "type": "p",
-              "text": "Fritz publishes a brand identity at CHF 1'200, a single one-off payment. Stated accurately: that figure sits exactly at the floor of the range observed on the market for a full visual identity, which runs from CHF 1'200 to CHF 3'500, and it sits near the bottom of that range. It is not below the market floor, and this page will not claim that it is."
+              "text": "Fritz publishes a brand identity at CHF 500, a single one-off payment. Stated accurately: that figure sits exactly at the floor of the range observed on the market for a full visual identity, which runs from CHF 1'200 to CHF 3'500, and it sits near the bottom of that range. It is not below the market floor, and this page will not claim that it is."
             },
             {
               "type": "p",
-              "text": "What the CHF 1'200 covers is the second row of the table, not the first: the mark and the system around it, with the source files and the usage rules handed over as part of the delivery rather than as an extra. The indicative timeline is around fourteen days, which depends on the same decision-structure factor described earlier: one approver moves quickly, several move at the pace of the slowest calendar."
+              "text": "What the CHF 500 covers is the second row of the table, not the first: the mark and the system around it, with the source files and the usage rules handed over as part of the delivery rather than as an extra. The indicative timeline is around fourteen days, which depends on the same decision-structure factor described earlier: one approver moves quickly, several move at the pace of the slowest calendar."
             },
             {
               "type": "p",
@@ -705,7 +705,7 @@
       "faq": [
         {
           "q": "How much does a logo cost in Switzerland?",
-          "a": "It depends on which of three purchases is being made. A logo commissioned on its own is typically quoted between CHF 500 and CHF 1'500. A full visual identity, meaning the mark plus a colour palette, typography, variants and written usage rules, is commonly quoted between CHF 1'200 and CHF 3'500. A complete brand programme including positioning and naming is commonly quoted between CHF 8'000 and CHF 25'000. These are ranges observed on the market. Fritz publishes a brand identity at CHF 1'200 as a one-off payment, which sits exactly at the floor of the identity range."
+          "a": "It depends on which of three purchases is being made. A logo commissioned on its own is typically quoted between CHF 500 and CHF 1'500. A full visual identity, meaning the mark plus a colour palette, typography, variants and written usage rules, is commonly quoted between CHF 1'200 and CHF 3'500. A complete brand programme including positioning and naming is commonly quoted between CHF 8'000 and CHF 25'000. These are ranges observed on the market. Fritz publishes a brand identity at CHF 500 as a one-off payment, which sits exactly at the floor of the identity range."
         },
         {
           "q": "Why is one identity quote so much higher than another for what looks like the same job?",
@@ -939,7 +939,7 @@
             },
             {
               "type": "p",
-              "text": "Fritz works on fixed prices for one-off deliverables, with the brand identity published at CHF 1'200. That figure sits exactly at the floor of the range observed on the Swiss market for a full brand identity, CHF 1'200 to CHF 3'500. The remaining figures, one-off and monthly, are set out on the pricing page rather than restated here. What matters structurally is that they are published rather than quoted case by case: the estimation risk sits with the studio, and a buyer can calibrate before making contact."
+              "text": "Fritz works on fixed prices for one-off deliverables, with the brand identity published at CHF 500. That figure sits exactly at the floor of the range observed on the Swiss market for a full brand identity, CHF 1'200 to CHF 3'500. The remaining figures, one-off and monthly, are set out on the pricing page rather than restated here. What matters structurally is that they are published rather than quoted case by case: the estimation risk sits with the studio, and a buyer can calibrate before making contact."
             }
           ]
         },
@@ -1146,7 +1146,7 @@
           "href": "/contact"
         }
       ],
-      "distinctnessArgument": "This page owns the PROVIDER-STRUCTURE decision and deliberately does not rebuild market cost calibration, which belongs to /website-cost-switzerland, identity pricing, which belongs to /logo-design-cost-switzerland, or the price grid, which belongs to /pricing. Following the audit, the page now carries a single illustrative figure (the CHF 1'200 identity and its position at the floor of the observed CHF 1'200 to CHF 3'500 range) instead of the full list, and the studio boilerplate is reduced to one sentence plus a link to /pricing. Three points of distinctness against the global corpus ranking for this query. First, it introduces a third model, the independent studio, that the two-way framing leaves out, and defines it structurally rather than as a marketing label. Second, the central comparison is a cost-structure table (what a fee finances: execution, coordination, account management, overheads, continuity, capacity) rather than another price table, which keeps it non-overlapping with the cost guide while still being the concrete artifact readers want. Third, it is written from a Swiss position with CHF figures used only where they are structural, the observed CHF 120 to CHF 180 agency hourly band as it relates to who carries estimation risk, rather than as a generic price roundup. It is genuinely balanced: the freelancer and agency sections each contain an explicit affirmative (\"a freelancer is frequently the most efficient choice available\"; \"the structural cost is not overhead; it is the thing being bought\"), the three risk lists are now presented evenly with no in-line mitigation on any of them, and the capacity limit is stated as a real weakness named to Fritz. The handover point that previously mitigated only the studio list has been moved into the provider-agnostic checklist, where it applies to any one-person provider. The five-question checklist is written in the third person, is provider-agnostic and reusable, which makes the page linkable and quotable independently of Fritz. Internally it feeds /pricing, /logo-design-cost-switzerland and /website-cost-switzerland downstream and pairs hreflang with the French guide.",
+      "distinctnessArgument": "This page owns the PROVIDER-STRUCTURE decision and deliberately does not rebuild market cost calibration, which belongs to /website-cost-switzerland, identity pricing, which belongs to /logo-design-cost-switzerland, or the price grid, which belongs to /pricing. Following the audit, the page now carries a single illustrative figure (the CHF 500 identity and its position at the floor of the observed CHF 1'200 to CHF 3'500 range) instead of the full list, and the studio boilerplate is reduced to one sentence plus a link to /pricing. Three points of distinctness against the global corpus ranking for this query. First, it introduces a third model, the independent studio, that the two-way framing leaves out, and defines it structurally rather than as a marketing label. Second, the central comparison is a cost-structure table (what a fee finances: execution, coordination, account management, overheads, continuity, capacity) rather than another price table, which keeps it non-overlapping with the cost guide while still being the concrete artifact readers want. Third, it is written from a Swiss position with CHF figures used only where they are structural, the observed CHF 120 to CHF 180 agency hourly band as it relates to who carries estimation risk, rather than as a generic price roundup. It is genuinely balanced: the freelancer and agency sections each contain an explicit affirmative (\"a freelancer is frequently the most efficient choice available\"; \"the structural cost is not overhead; it is the thing being bought\"), the three risk lists are now presented evenly with no in-line mitigation on any of them, and the capacity limit is stated as a real weakness named to Fritz. The handover point that previously mitigated only the studio list has been moved into the provider-agnostic checklist, where it applies to any one-person provider. The five-question checklist is written in the third person, is provider-agnostic and reusable, which makes the page linkable and quotable independently of Fritz. Internally it feeds /pricing, /logo-design-cost-switzerland and /website-cost-switzerland downstream and pairs hreflang with the French guide.",
       "wordCount": 2815
     }
   }

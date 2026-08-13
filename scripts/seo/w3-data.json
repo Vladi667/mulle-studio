@@ -41,8 +41,8 @@
               "tableRows": [
                 [
                   "Site vitrine",
-                  "CHF 1'200 – 4'000",
-                  "CHF 1'400"
+                  "CHF 500 – 4'000",
+                  "CHF 1'300"
                 ],
                 [
                   "Site vitrine avancé / sur-mesure",
@@ -52,18 +52,18 @@
                 [
                   "Site e-commerce",
                   "CHF 5'000 – 20'000",
-                  "CHF 2'200"
+                  "CHF 2'100"
                 ],
                 [
                   "Identité de marque (logo + charte)",
                   "CHF 1'200 – 3'500",
-                  "CHF 1'200"
+                  "CHF 500"
                 ]
               ]
             },
             {
               "type": "p",
-              "text": "À titre de repère, un studio comme Fritz publie ses prix : CHF 1'200 pour une identité de marque, CHF 1'400 pour un site vitrine, CHF 2'200 pour un e-commerce, en paiement unique, chacune étant une prestation distincte. Ces tarifs se situent au bas (voire en dessous) des fourchettes du marché : c'est un choix assumé, le soin d'une agence avec la structure d'un indépendant, et non un signe de prestation au rabais. À l'inverse, un budget très supérieur ne garantit pas un meilleur résultat : il finance souvent une structure plus lourde plutôt que le site lui-même."
+              "text": "À titre de repère, un studio comme Fritz publie ses prix : CHF 500 pour une identité de marque, CHF 1'300 pour un site vitrine, CHF 2'100 pour un e-commerce, en paiement unique, chacune étant une prestation distincte. Ces tarifs se situent au bas (voire en dessous) des fourchettes du marché : c'est un choix assumé, le soin d'une agence avec la structure d'un indépendant, et non un signe de prestation au rabais. À l'inverse, un budget très supérieur ne garantit pas un meilleur résultat : il finance souvent une structure plus lourde plutôt que le site lui-même."
             }
           ]
         },
@@ -106,7 +106,7 @@
             },
             {
               "type": "p",
-              "text": "Un site vitrine présente une activité : accueil, services, à-propos, contact, parfois un blog. C'est le format le plus demandé par les indépendants, artisans, cabinets et PME de Suisse romande. Fourchette observée : CHF 1'500 à 4'000 pour un site standard, et CHF 3'500 à 8'000 pour une version avancée (design sur-mesure poussé, animations, nombreuses pages). Chez Fritz, un site vitrine est publié à CHF 1'400, code et fichiers sources livrés au client."
+              "text": "Un site vitrine présente une activité : accueil, services, à-propos, contact, parfois un blog. C'est le format le plus demandé par les indépendants, artisans, cabinets et PME de Suisse romande. Fourchette observée : CHF 1'500 à 4'000 pour un site standard, et CHF 3'500 à 8'000 pour une version avancée (design sur-mesure poussé, animations, nombreuses pages). Chez Fritz, un site vitrine est publié à CHF 1'300, code et fichiers sources livrés au client."
             },
             {
               "type": "h3",
@@ -114,7 +114,7 @@
             },
             {
               "type": "p",
-              "text": "Un site marchand ajoute un catalogue, un panier, le paiement en ligne, la gestion des stocks et des commandes. La complexité (donc le prix) grimpe vite : fourchette observée de CHF 5'000 à 20'000 selon le nombre de produits et les intégrations (paiement, livraison, comptabilité). Le prix e-commerce publié par Fritz est de CHF 2'200, nettement sous le plancher du marché, pour un périmètre cadré clairement en amont."
+              "text": "Un site marchand ajoute un catalogue, un panier, le paiement en ligne, la gestion des stocks et des commandes. La complexité (donc le prix) grimpe vite : fourchette observée de CHF 5'000 à 20'000 selon le nombre de produits et les intégrations (paiement, livraison, comptabilité). Le prix e-commerce publié par Fritz est de CHF 2'100, nettement sous le plancher du marché, pour un périmètre cadré clairement en amont."
             },
             {
               "type": "h3",
@@ -203,9 +203,9 @@
               "tableRows": [
                 [
                   "Conception (site vitrine)",
-                  "CHF 1'200 – 4'000",
+                  "CHF 500 – 4'000",
                   "–",
-                  "CHF 1'200 – 4'000"
+                  "CHF 500 – 4'000"
                 ],
                 [
                   "Nom de domaine (.ch)",
@@ -279,7 +279,7 @@
       "faq": [
         {
           "q": "Combien coûte un site web en Suisse ?",
-          "a": "En Suisse, un site vitrine coûte le plus souvent entre CHF 1'500 et 4'000, et un site e-commerce entre CHF 5'000 et 20'000 (fourchettes observées sur le marché). Le prix dépend du type de site, de l'étendue du travail et du prestataire choisi. À titre de repère, Fritz publie un site vitrine à CHF 1'400 et un e-commerce à CHF 2'200, en paiement unique."
+          "a": "En Suisse, un site vitrine coûte le plus souvent entre CHF 1'500 et 4'000, et un site e-commerce entre CHF 5'000 et 20'000 (fourchettes observées sur le marché). Le prix dépend du type de site, de l'étendue du travail et du prestataire choisi. À titre de repère, Fritz publie un site vitrine à CHF 1'300 et un e-commerce à CHF 2'100, en paiement unique."
         },
         {
           "q": "Un site web coûte-t-il plus cher en Suisse qu'en France ?",
@@ -287,7 +287,7 @@
         },
         {
           "q": "Quel est le prix d'un site e-commerce en Suisse ?",
-          "a": "Un site e-commerce en Suisse se situe généralement entre CHF 5'000 et 20'000 selon le nombre de produits, les moyens de paiement et les intégrations (livraison, stock, comptabilité). Un périmètre bien défini permet de contenir ce budget : Fritz publie un e-commerce à CHF 2'200, sous le plancher du marché, pour un cahier des charges cadré en amont."
+          "a": "Un site e-commerce en Suisse se situe généralement entre CHF 5'000 et 20'000 selon le nombre de produits, les moyens de paiement et les intégrations (livraison, stock, comptabilité). Un périmètre bien défini permet de contenir ce budget : Fritz publie un e-commerce à CHF 2'100, sous le plancher du marché, pour un cahier des charges cadré en amont."
         },
         {
           "q": "Combien coûte un site avec WordPress ou un CMS ?",
@@ -416,7 +416,7 @@
                   "Identité visuelle complète",
                   "Logo, palette, typographies, mini-charte, fichiers sources",
                   "1'200 – 3'500",
-                  "CHF 1'200 (paiement unique)"
+                  "CHF 500 (paiement unique)"
                 ],
                 [
                   "Branding global",
@@ -434,7 +434,7 @@
             },
             {
               "type": "p",
-              "text": "L'identité de marque de Fritz, à CHF 1'200 en paiement unique, se situe au plancher de la fourchette observée pour une identité complète, et non dans celle du logo seul, alors qu'elle comprend le logo, la palette, les typographies, une mini-charte d'usage et la livraison des fichiers sources. C'est le principe de la maison : le soin d'une agence, la structure d'un indépendant, donc des prix publiés au lieu d'un devis opaque. Vous savez avant de commander ce que vous payez et ce que vous recevez."
+              "text": "L'identité de marque de Fritz, à CHF 500 en paiement unique, se situe sous la fourchette observée pour une identité complète, et non dans celle du logo seul, alors qu'elle comprend le logo, la palette, les typographies, une mini-charte d'usage et la livraison des fichiers sources. C'est le principe de la maison : le soin d'une agence, la structure d'un indépendant, donc des prix publiés au lieu d'un devis opaque. Vous savez avant de commander ce que vous payez et ce que vous recevez."
             }
           ]
         },
@@ -581,11 +581,11 @@
           ]
         },
         {
-          "h2": "L'approche Fritz : une identité claire à CHF 1'200, sans surprise",
+          "h2": "L'approche Fritz : une identité claire à CHF 500, sans surprise",
           "blocks": [
             {
               "type": "p",
-              "text": "Beaucoup d'incompréhensions sur le prix d'un logo viennent de l'opacité : on demande un devis, on attend, on ne sait pas ce qui est inclus. Fritz prend le parti inverse, les prix sont publiés. L'identité de marque est à CHF 1'200 en paiement unique, et ce forfait comprend le logo, la palette de couleurs, les typographies, une mini-charte d'usage et la livraison des fichiers sources. Pas de coût caché, pas de reprise facturée à part sur ce qui devrait être inclus."
+              "text": "Beaucoup d'incompréhensions sur le prix d'un logo viennent de l'opacité : on demande un devis, on attend, on ne sait pas ce qui est inclus. Fritz prend le parti inverse, les prix sont publiés. L'identité de marque est à CHF 500 en paiement unique, et ce forfait comprend le logo, la palette de couleurs, les typographies, une mini-charte d'usage et la livraison des fichiers sources. Pas de coût caché, pas de reprise facturée à part sur ce qui devrait être inclus."
             },
             {
               "type": "p",
@@ -601,7 +601,7 @@
       "faq": [
         {
           "q": "Combien coûte un logo en Suisse ?",
-          "a": "En Suisse, un logo seul se situe généralement entre CHF 500 et CHF 1'500 selon le prestataire et le niveau de recherche. Une identité visuelle complète (logo, palette, typographies et charte) va plutôt de CHF 1'200 à CHF 3'500. Chez Fritz, l'identité de marque complète est publiée à CHF 1'200 en paiement unique, fichiers sources inclus."
+          "a": "En Suisse, un logo seul se situe généralement entre CHF 500 et CHF 1'500 selon le prestataire et le niveau de recherche. Une identité visuelle complète (logo, palette, typographies et charte) va plutôt de CHF 1'200 à CHF 3'500. Chez Fritz, l'identité de marque complète est publiée à CHF 500 en paiement unique, fichiers sources inclus."
         },
         {
           "q": "Quelle est la différence entre un logo et une identité visuelle ?",
@@ -613,7 +613,7 @@
         },
         {
           "q": "Combien coûte une identité de marque complète ?",
-          "a": "Une identité de marque complète coûte en général entre CHF 1'200 et CHF 3'500 en Suisse romande, selon le périmètre et le nombre de déclinaisons. Un branding global (plateforme de marque, naming, territoire étendu) dépasse souvent CHF 8'000. Fritz publie une identité complète à CHF 1'200 en paiement unique, fichiers sources compris."
+          "a": "Une identité de marque complète coûte en général entre CHF 1'200 et CHF 3'500 en Suisse romande, selon le périmètre et le nombre de déclinaisons. Un branding global (plateforme de marque, naming, territoire étendu) dépasse souvent CHF 8'000. Fritz publie une identité complète à CHF 500 en paiement unique, fichiers sources compris."
         },
         {
           "q": "Faut-il refaire son identité visuelle (rebranding) et à quel prix ?",
@@ -668,7 +668,7 @@
       "h1": "Agence ou freelance pour son site web ? Le comparatif honnête (Suisse romande)",
       "kicker": "Guide, choisir son prestataire web",
       "lede": "Poser la question « agence ou freelance » revient à choisir entre deux extrêmes en oubliant tout ce qu'il y a au milieu. En Suisse romande, le vrai arbitrage se joue entre trois profils (freelance, agence et studio indépendant) avec des écarts de prix qui vont du simple au décuple. Voici un comparatif chiffré en CHF, sans complaisance, pour décider sans se tromper.",
-      "quotableOpener": "En Suisse romande, un site vitrine coûte en général CHF 1'200 à 4'000 chez un freelance et CHF 3'500 à 10'000 en agence ; le studio indépendant vise le soin d'une agence au prix d'un freelance, en forfait fixe publié dès CHF 1'400.",
+      "quotableOpener": "En Suisse romande, un site vitrine coûte en général CHF 1'200 à 4'000 chez un freelance et CHF 3'500 à 10'000 en agence ; le studio indépendant vise le soin d'une agence au prix d'un freelance, en forfait fixe publié dès CHF 1'300.",
       "sections": [
         {
           "h2": "Agence, freelance ou studio : le vrai choix a trois portes",
@@ -827,7 +827,7 @@
             },
             {
               "type": "p",
-              "text": "C'est ce qui explique la position d'un studio comme Fritz : des prix publiés, identité de marque à CHF 1'200, site vitrine à CHF 1'400, e-commerce à CHF 2'200, en paiement unique et par prestation distincte, qui se logent au niveau bas, voire en dessous, des fourchettes du marché, non par prestation au rabais mais parce qu'il n'y a pas de structure commerciale à financer. Ils se situent dans le bas des fourchettes observées, l'e-commerce étant le seul poste à passer sous le plancher observé. L'intérêt du modèle tient à une condition (que la qualité suive) d'où les questions de la section suivante."
+              "text": "C'est ce qui explique la position d'un studio comme Fritz : des prix publiés, identité de marque à CHF 500, site vitrine à CHF 1'300, e-commerce à CHF 2'100, en paiement unique et par prestation distincte, qui se logent au niveau bas, voire en dessous, des fourchettes du marché, non par prestation au rabais mais parce qu'il n'y a pas de structure commerciale à financer. Ils se situent dans le bas des fourchettes observées, l'e-commerce étant le seul poste à passer sous le plancher observé. L'intérêt du modèle tient à une condition (que la qualité suive) d'où les questions de la section suivante."
             }
           ]
         },
@@ -967,7 +967,7 @@
         },
         {
           "q": "Est-ce moins cher de passer par un freelance ?",
-          "a": "Souvent oui : un freelance, sans structure à financer, facture en général moins cher de l'heure qu'une agence, où l'on observe couramment CHF 120 à 180 de l'heure. Mais un studio indépendant à prix publié peut descendre sous ces deux repères (par exemple un site vitrine dès CHF 1'400 en forfait fixe) tout en garantissant délais et livraison des sources. Le prix horaire seul ne suffit donc pas à trancher."
+          "a": "Souvent oui : un freelance, sans structure à financer, facture en général moins cher de l'heure qu'une agence, où l'on observe couramment CHF 120 à 180 de l'heure. Mais un studio indépendant à prix publié peut descendre sous ces deux repères (par exemple un site vitrine dès CHF 1'300 en forfait fixe) tout en garantissant délais et livraison des sources. Le prix horaire seul ne suffit donc pas à trancher."
         },
         {
           "q": "Quels sont les risques d'un freelance ?",
