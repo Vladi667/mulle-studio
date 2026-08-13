@@ -32,6 +32,11 @@ try{
 if(hasGSAP){
   gsap.registerPlugin(ScrollTrigger);
   if(typeof SplitText !== 'undefined'){ gsap.registerPlugin(SplitText); }
+  /* On a phone the browser chrome collapses and expands as you scroll, which changes
+     the viewport height and made ScrollTrigger refresh EVERY trigger mid-scroll —
+     recalculating every start/end and visibly jumping the pinned sections. This tells
+     it to ignore a mobile resize that only changed the height. */
+  ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
 /* ── smooth scroll ── */
@@ -1333,13 +1338,20 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   vids.forEach(function(v){ try{ if(v.preload === 'none'){ v.preload = 'metadata'; } }catch(e){} });
   function play(v){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
   if('IntersectionObserver' in window){
+    /* This used to observe the SECTION and then play all six. In the pinned strip only
+       one or two cards are ever on screen, so a phone was decoding six videos to show
+       one — six simultaneous decodes plus six texture uploads into the mercury shader.
+       Observe each card instead, so a loop runs only while its own frame is visible.
+       The horizontal rootMargin gives it a head start so it is already running by the
+       time it slides in and never shows a stalled first frame. */
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){ vids.forEach(play); }
-        else { vids.forEach(function(v){ v.pause(); }); }
+        var v = e.target.querySelector('video.pf-vid');
+        if(!v) return;
+        if(e.isIntersecting){ play(v); } else { v.pause(); }
       });
-    }, { threshold: 0.12 });
-    io.observe(section);
+    }, { threshold: 0.1, rootMargin: '0px 40% 0px 40%' });
+    cards.forEach(function(c){ if(c.querySelector('video.pf-vid')) io.observe(c); });
   } else { vids.forEach(play); }
 
   /* reduced-motion only: no pin — CSS gives a bar-less touch scroll. Otherwise the pinned
@@ -1927,6 +1939,12 @@ if(document.fonts && document.fonts.ready){ document.fonts.ready.then(boot); } e
    weight). ── */
 function displayWeightMorph(){
   if(reduced || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  /* Geist is a variable font, so tweening font-weight interpolates continuously: every
+     frame re-lays-out and re-rasterises the whole headline, at display sizes, for 1.15s
+     each — the most expensive text operation there is, and it fires on a dozen elements.
+     Phones rest at the CSS weight instead, which is the same fallback this function
+     already takes when Geist has not loaded. */
+  if(window.matchMedia('(max-width:767px)').matches) return;
   if(!(document.fonts && document.fonts.check && document.fonts.check('600 48px Geist'))) return;
   var SELS = '.disc-head h2,.disc-row .t,.works-head h2,.wd-title,.section h2,.page-hero h1,.wk-row-name,.crosslinks h2,.nextband .nb-title,.outro-cta';
   gsap.utils.toArray(SELS).forEach(function(el){
