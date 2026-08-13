@@ -1664,8 +1664,16 @@ body.is-transitioning{pointer-events:none}
    invisible ::before carries its touch area instead.
    ────────────────────────────────────────────────────────────────── */
 @media (pointer:coarse){
-  .wordmark,.dp-go,.wd-all,.sf-mark,.sf-col a{
+  .wordmark,.dp-go,.sf-mark,.sf-col a{
     min-height:44px;display:inline-flex;align-items:center}
+  /* .wd-all is deliberately NOT in that list. Its ::before and ::after ARE the
+     two halves of the underline and are pinned to bottom:0, so min-height drops
+     the rule 20px below the words. padding-top lifts the hit area to 44px while
+     the underline stays against the text, because there is no padding-bottom. */
+  .wd-all{padding-top:20px}
+  /* min-height:44 on top of the column's own 11px gap gave a 57px pitch; 4px
+     keeps the targets at 44 without the footer ballooning */
+  .sf-col{gap:4px}
   /* 76 of these across 13 lander pages, and they were 21px tall -- the primary
      interaction on those pages. baseline alignment is kept so the question and
      the +/- icon stay on the same line; the extra height is dead tappable space. */
@@ -1673,7 +1681,9 @@ body.is-transitioning{pointer-events:none}
   .sf-social a{min-width:44px;min-height:44px;display:inline-flex;
     align-items:center;justify-content:center}
   .index-link{padding-top:15px;padding-bottom:15px}
-  .langtog button,.langtog a{padding:16px 12px}
+  /* 16px made the pill 55px tall — ten more than the Index button beside it.
+     11px lands both at 45px. */
+  .langtog button,.langtog a{padding:11px 12px}
   .hs-chip::before{content:"";position:absolute;left:0;right:0;top:50%;
     transform:translateY(-50%);height:44px}
 }
