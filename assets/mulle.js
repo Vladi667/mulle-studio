@@ -1130,7 +1130,14 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     var keep = [cur, prev];
     for(var i = 0; i < shots.length; i++){
       var h = shots[i];
-      if(keep.indexOf(h) === -1 && h.__mercuryDestroy){ try{ h.__mercuryDestroy(); }catch(e){} }
+      if(keep.indexOf(h) !== -1) continue;
+      if(h.__mercuryDestroy){ try{ h.__mercuryDestroy(); }catch(e){} }
+      else if(h.__mercuryOn){
+        /* mounted but the async image load / video wait has not reached build() yet.
+           Cancel it and clear the flag, or __mercuryMount would short-circuit forever
+           and this tile would never get its shader back. */
+        h.__mercuryCancelled = true; h.__mercuryOn = false;
+      }
     }
     if(cur && cur.__mercuryMount) cur.__mercuryMount();
   }
