@@ -1702,3 +1702,15 @@ body.is-transitioning{pointer-events:none}
 /* the lead answered a 68px name on desktop; here it sits under a 30px one */
 .is-stacked .dp-lead{font-size:clamp(16px,4.4vw,20px);max-width:32ch;
   margin-bottom:clamp(14px,2vh,18px)}
+
+/* ──────────────────────────────────────────────────────────────────
+   PHONE: the sticky CTA and the live readout share the bottom-left corner
+   Measured at 375x812 with .sticky-cta.show applied: the CTA occupies
+   x 94–281 / y 740–796 and the readout x 20–172 / y 764–792 — a 78x28px
+   overlap, which is the readout's ENTIRE height sitting behind the pill.
+   The CTA is the conversion element, so the readout stands down while it is up.
+   ────────────────────────────────────────────────────────────────── */
+@media (max-width:767px){
+  .readout{transition:opacity var(--dur-short) var(--ease-out)}
+  body:has(.sticky-cta.show) .readout{opacity:0;pointer-events:none}
+}
