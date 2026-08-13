@@ -1764,6 +1764,10 @@ if(document.querySelector('.site-foot')){
 /* chapter rail — wayfinding readout, follows the section under the viewport
    centre. Catches pinned sections (GSAP wraps them in .pin-spacer). */
 (function(){
+  /* mulle.css hides .chaprail entirely under 767px, but this block still built
+     the node and created a ScrollTrigger that measured every section on scroll
+     to write into something nobody can see. Don't build it where it is hidden. */
+  if(window.matchMedia('(max-width:767px)').matches) return;
   var secs = gsap.utils.toArray('main > section, main > .pin-spacer > section');
   if(secs.length < 2) return;
   function labelFor(s, i){
