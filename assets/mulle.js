@@ -1170,9 +1170,16 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
 
 /* ── mobile: sticky "Start a project" CTA — appears after the first screen, hides near the footer ── */
 (function(){
-  if(/contact\.html$/.test(location.pathname)) return;   /* the form is already on this page */
+  /* vercel.json sets "cleanUrls": true, so this page is served at /contact and
+     /contact.html 308-redirects to it — the old /contact\.html$/ test could never
+     match on the live site, and the "Start a project" pill was being injected on
+     the contact page itself, floating over the form. Matches /contact, /fr/contact
+     and the .html forms for local file:// use. */
+  if(/\/contact(\.html)?$/.test(location.pathname)) return;
   var a = document.createElement('a');
-  a.className = 'sticky-cta'; a.href = 'contact.html';
+  /* extensionless for the same reason: 'contact.html' cost a 308 on every tap.
+     Relative still resolves per-directory, so /fr/ pages reach /fr/contact. */
+  a.className = 'sticky-cta'; a.href = 'contact';
   var fr = (function(){ try{ var s = localStorage.getItem('fritz_lang'); if(s) return s === 'fr'; }catch(e){} return (navigator.language||'').toLowerCase().indexOf('fr') === 0; })();
   a.innerHTML = '<span>' + (fr ? 'Démarrer un projet' : 'Start a project') + '</span><span class="sc-arr" aria-hidden="true">→</span>';
   document.body.appendChild(a);
