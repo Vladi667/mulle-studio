@@ -975,12 +975,13 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
   }
 
-  plates.forEach(function(host){
+  function mountPlate(host){
     /* video tiles: run the SAME liquid shader with the <video> as a live texture. Work-page
        data-video tiles inject a video.wk-vid; the home strip's .wd-shot already has video.pf-vid */
     if(host.getAttribute('data-video') || (host.classList.contains('wd-shot') && host.querySelector('video.pf-vid'))){
       var tries = 0;
       (function waitVid(){
+        if(host.__mercuryCancelled) return;
         var vid = host.querySelector('video.wk-vid, video.pf-vid');
         if(vid && vid.readyState >= 2 && vid.videoWidth){ try{ build(host, vid, true); }catch(e){} return; }
         if(tries++ < 400){ setTimeout(waitVid, 120); }
@@ -991,9 +992,33 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     var src = host.getAttribute('data-img') || (imgEl && imgEl.getAttribute('src'));
     if(!src) return;
     var image = new Image(); image.decoding = 'async';
-    image.onload = function(){ try{ build(host, image); }catch(e){} };
+    image.onload = function(){ if(!host.__mercuryCancelled){ try{ build(host, image); }catch(e){} } };
     image.src = src;
-  });
+  }
+
+  /* ── context budget ──
+     build() creates a canvas AND a WebGL context per plate. The sleep/wake gating below
+     parks the render loop, but a sleeping tile still holds its context and its texture.
+     The home strip has six .wd-shot tiles, so a phone was holding six contexts plus the
+     hero fluid — seven, against a ceiling of roughly eight on iOS Safari, where the
+     browser silently discards the OLDEST context. That is the hero.
+
+     On a coarse pointer the tiles are mounted lazily by the scroll driver below and torn
+     down again, so at most two are ever alive: the tile under the viewport centre and the
+     one you just left, which keeps a swap-back instant. Desktop is unchanged — it mounts
+     everything up front, as before. */
+  if(mobile){
+    plates.forEach(function(host){
+      host.__mercuryMount = function(){
+        if(host.__mercuryOn) return;
+        host.__mercuryOn = true; host.__mercuryCancelled = false;
+        mountPlate(host);
+      };
+    });
+    window.__mercuryPlates = plates;
+  } else {
+    plates.forEach(mountPlate);
+  }
 
   function build(host, image, isVideo){
     var cv = document.createElement('canvas'); cv.className = 'wk-gl'; cv.setAttribute('aria-hidden', 'true');
@@ -1039,9 +1064,14 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
        Work-page plates keep the original visible-gated continuous render (gated = false). */
     var gated = host.classList.contains('wd-shot');
     if(gated){ cv.style.opacity = '0'; cv.style.transition = 'opacity .25s ease'; }
-    host.addEventListener('pointermove', function(e){ var r = host.getBoundingClientRect(); tmx = (e.clientX - r.left) / r.width; tmy = 1 - (e.clientY - r.top) / r.height; thov = 1; if(gated) wake(); });
-    host.addEventListener('pointerenter', function(){ thov = 1; if(gated) wake(); });
-    host.addEventListener('pointerleave', function(){ thov = 0; });
+    /* named so teardown can unbind them — an unmounted plate that kept its listeners
+       would stack a fresh set on every remount */
+    function onMove(e){ var r = host.getBoundingClientRect(); tmx = (e.clientX - r.left) / r.width; tmy = 1 - (e.clientY - r.top) / r.height; thov = 1; if(gated) wake(); }
+    function onEnter(){ thov = 1; if(gated) wake(); }
+    function onLeave(){ thov = 0; }
+    host.addEventListener('pointermove', onMove);
+    host.addEventListener('pointerenter', onEnter);
+    host.addEventListener('pointerleave', onLeave);
 
     var visible = false, raf = null;
     function wake(){ cv.style.opacity = '1'; if(raf == null){ raf = requestAnimationFrame(tick); } }
@@ -1063,6 +1093,25 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     else if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){ es.forEach(function(e){ visible = e.isIntersecting; if(visible) start(); }); }, { threshold:0 }).observe(host);
     } else { visible = true; start(); }
+
+    /* release everything: the rAF, the window listeners, the pointer listeners, the canvas
+       and — the point of the exercise — the GL context itself. Without loseContext() the
+       browser holds the context and its texture until GC, which is exactly the pressure
+       this is meant to relieve. */
+    host.__mercuryDestroy = function(){
+      host.__mercuryCancelled = true;
+      if(raf != null){ cancelAnimationFrame(raf); raf = null; }
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('load', resize);
+      host.removeEventListener('pointermove', onMove);
+      host.removeEventListener('pointerenter', onEnter);
+      host.removeEventListener('pointerleave', onLeave);
+      try{ gl.deleteTexture(tex); gl.deleteBuffer(buf); gl.deleteProgram(prog); }catch(e){}
+      try{ var ext = gl.getExtension('WEBGL_lose_context'); if(ext) ext.loseContext(); }catch(e){}
+      if(cv.parentNode) cv.parentNode.removeChild(cv);
+      host.__mercuryOn = false;
+      host.__mercuryDestroy = null;
+    };
   }
 })();
 
@@ -1073,7 +1122,18 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
   if(reduced || !window.matchMedia('(max-width:900px)').matches) return;
   var shots = Array.prototype.slice.call(document.querySelectorAll('.wd-shot'));
   if(!shots.length) return;
-  var active = null, raf = null;
+  var active = null, prev = null, raf = null;
+  /* Keep at most two GL contexts alive: the centred tile and the one just left, so a
+     swap back is instant. Everything else is torn down, which is what stops the six
+     home-strip tiles from holding six contexts at once on a phone. */
+  function budget(cur){
+    var keep = [cur, prev];
+    for(var i = 0; i < shots.length; i++){
+      var h = shots[i];
+      if(keep.indexOf(h) === -1 && h.__mercuryDestroy){ try{ h.__mercuryDestroy(); }catch(e){} }
+    }
+    if(cur && cur.__mercuryMount) cur.__mercuryMount();
+  }
   function centred(){
     var cx = window.innerWidth / 2, best = null, bestD = 1e9;
     for(var i = 0; i < shots.length; i++){
@@ -1089,7 +1149,8 @@ gsap.utils.toArray('.wk-row').forEach(function(row){
     var s = centred();
     if(s !== active){
       if(active){ try{ active.dispatchEvent(new PointerEvent('pointerleave')); }catch(e){} }
-      active = s;
+      prev = active; active = s;
+      budget(s);
     }
     if(s){
       var r = s.getBoundingClientRect();
