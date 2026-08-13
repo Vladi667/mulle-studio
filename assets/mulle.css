@@ -1714,3 +1714,27 @@ body.is-transitioning{pointer-events:none}
   .readout{transition:opacity var(--dur-short) var(--ease-out)}
   body:has(.sticky-cta.show) .readout{opacity:0;pointer-events:none}
 }
+
+/* ──────────────────────────────────────────────────────────────────
+   SCROLL LOCK ON TOUCH
+   Six call sites hand scroll-locking to lenis.stop() — the menu (mulle.js:192),
+   the page wipe (:493) and the lightbox (:874). But Lenis is constructed
+   without syncTouch, so it never intercepts touch scrolling and stop() cannot
+   block it; and body.menu-open only rotates an icon, it sets no overflow.
+   Measured on production at 375px: with the menu open the document still
+   scrolled 0 -> 1200. So a phone visitor scrolls the page behind the overlay.
+
+   Scoped to coarse pointers on purpose: on desktop Lenis genuinely does hold
+   the scroll, and adding overflow:hidden there would remove the scrollbar and
+   shift the whole layout sideways by its width.
+   ────────────────────────────────────────────────────────────────── */
+@media (pointer:coarse){
+  html:has(body.menu-open),
+  html:has(.lightbox.open),
+  html:has(body.is-transitioning){overflow:hidden}
+  body.menu-open,
+  body:has(.lightbox.open),
+  body.is-transitioning{overflow:hidden}
+}
+/* keep a scroll gesture inside the overlay instead of chaining to the page */
+.menu,.lightbox{overscroll-behavior:contain}
