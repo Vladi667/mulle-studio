@@ -625,8 +625,12 @@ section{position:relative}
    top-welded slivers), in-banner parallax (--py) that composes to rest exactly at dock,
    and a CSS-var hover push-in (--hz) on its own channel so scrub and hover never fight. */
 .works{--wd-pin:clamp(76px,9vh,96px);--wd-step:52px;--wd-w:1180px}
+/* --wd-w is a measure, not a centring device: the inner column is pinned to the page
+   margin (margin-inline:0), not auto-centred inside it. Centred, it sat 58px right of the
+   --margin column every other section flushes to — which put the section's own header
+   hairline 58px off the margin rules body::before draws down the page. */
 .wd-hdr{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  max-width:var(--wd-w);margin-inline:auto;
+  max-width:var(--wd-w);margin-inline:0;
   padding:16px 0 0;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-55)}
 .wd-hdr::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--hairline);transform:scaleX(var(--hx,1));transform-origin:left center}
 .wd-hdr .l{justify-self:start;display:inline-flex;align-items:center;gap:10px}
@@ -636,11 +640,11 @@ section{position:relative}
 @keyframes wdPulse{0%{box-shadow:0 0 0 0 rgba(0,113,227,.45)}70%{box-shadow:0 0 0 7px rgba(0,113,227,0)}100%{box-shadow:0 0 0 0 rgba(0,113,227,0)}}
 
 /* compact horizontal strip — small cards in a scrollable row (was the cinematic sticky stack) */
-.wd-title{position:static;max-width:var(--wd-w);margin:clamp(10px,2vh,22px) auto clamp(16px,2.6vh,28px);
+.wd-title{position:static;max-width:var(--wd-w);margin:clamp(10px,2vh,22px) 0 clamp(16px,2.6vh,28px);
   font-family:var(--display);font-size:clamp(26px,3.2vw,42px);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--txt)}
 .wd-title em{font-style:normal;font-weight:300;color:var(--blue)}
 
-.wd-stack{position:relative;z-index:1;max-width:var(--wd-w);margin-inline:auto;
+.wd-stack{position:relative;z-index:1;max-width:var(--wd-w);margin-inline:0;
   display:flex;flex-direction:row;align-items:flex-start;gap:clamp(40px,5vw,80px);
   overflow:hidden;padding:14px 0 36px;scrollbar-width:none;will-change:transform}
 .wd-stack::-webkit-scrollbar{display:none}
@@ -668,7 +672,7 @@ section{position:relative}
 
 /* closing bookend — mirrors the header rule */
 .wd-foot{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  max-width:var(--wd-w);margin-inline:auto;border-top:1px solid var(--hairline);
+  max-width:var(--wd-w);margin-inline:0;border-top:1px solid var(--hairline);
   margin-top:clamp(64px,10vh,120px);padding:16px 0 0;
   font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-40)}
 .wd-foot .l{justify-self:start}
