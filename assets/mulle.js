@@ -434,6 +434,20 @@ function revealChrome(tl, at){
     { opacity:0, y:-10, duration:.7, stagger:.06, ease:'power2.out' }, at);
 }
 
+/* the hero's share of the weight morph, sequenced into the intro instead of scroll-driven.
+   Same guards as displayWeightMorph(): phones rest at the CSS weight because tweening a
+   variable font re-lays-out and re-rasterises display type every frame, and there is no
+   morph to run at all until Geist has actually loaded. */
+function heroWeightMorph(tl, el, at){
+  if(window.matchMedia('(max-width:767px)').matches) return;
+  if(!(document.fonts && document.fonts.check && document.fonts.check('700 48px Geist'))) return;
+  var target = parseInt(getComputedStyle(el).fontWeight, 10) || 700;
+  tl.fromTo(el, { fontWeight:300 }, {
+    fontWeight:target, duration:.9, ease:'power2.out',
+    onComplete:function(){ el.style.removeProperty('font-weight'); }
+  }, at);
+}
+
 /* one motion dictionary: every section heading rises out of a clip mask */
 function revealHeading(el){
   if(!el) return;
@@ -450,9 +464,23 @@ function revealHeading(el){
 
 function heroIntro(){
   var tl = gsap.timeline();
+  var heroTitle = document.querySelector('.hero-eyeline');
   /* the chapter mark, then the voice, then the action — top to bottom down the column */
   tl.from('.hero-col .eyebrow', { y:-14, opacity:0, duration:.7, ease:'power3.out' }, 0);
-  tl.from('.hero-eyeline', { y:-12, opacity:0, duration:.9, ease:'power3.out' }, .05);
+  /* the voice rises out of a clip mask, like every other heading on the site — including
+     the inner-page heroes. It used to be the one headline that came DOWN (y:-12), which is
+     most of why this screen did not feel like the same site. */
+  if(typeof SplitText !== 'undefined' && heroTitle){
+    var hSplit = new SplitText(heroTitle, { type:'lines', mask:'lines', linesClass:'split-line' });
+    tl.from(hSplit.lines, { yPercent:118, opacity:0, duration:1, stagger:.09, ease:'power4.out' }, .05);
+    /* and it thickens as it arrives — the same 300→weight morph the scroll-driven headings
+       get. It is sequenced here rather than added to the SELS list below because that list
+       is scroll-triggered for below-the-fold headings; at 112px, running the morph on top
+       of the mask rise re-rasterises the largest type on the page every frame of both. */
+    heroWeightMorph(tl, heroTitle, .75);
+  }else if(heroTitle){
+    tl.from(heroTitle, { y:40, opacity:0, duration:.9, ease:'power4.out' }, .05);
+  }
   tl.from('.hero-lede', { y:18, opacity:0, duration:.8, ease:'power3.out' }, .34);
   tl.from('.hero-acts', { y:18, opacity:0, duration:.8, ease:'power3.out' }, .48);
   /* proof last, and quietly — it supports the claim, it does not announce itself */
@@ -546,18 +574,23 @@ document.addEventListener('click', function(e){
   document.addEventListener('touchstart', warm, { passive:true });
 })();
 
-/* counter preloader on first visit only; quick drain on every navigation after */
+/* counter preloader on the FIRST visit of a session only; quick drain on every navigation
+   after — including a return to the home page. It used to replay the full count on every
+   home-page load (the old `isHome` branch), so clicking the wordmark to go home performed
+   a ~1.5s wait that had already been paid.
+
+   The count is also no longer a fixed performance. It starts immediately, but the moment
+   the webfonts are actually in there is nothing left to wait for, so the timeline runs
+   itself out rather than finish acting. Cached fonts resolve almost at once, which is
+   exactly when the count should get out of the way. */
 var seen = false;
 try{ seen = sessionStorage.getItem('mulle_seen') === '1'; }catch(_){}
-/* always play the counting preloader on the landing/home page; inner pages
-   keep the quick drain after the first visit so navigation stays snappy */
-var isHome = location.pathname === '/' || /index\.html?$/.test(location.pathname);
-if(pre && (!seen || isHome)){
+if(pre && !seen){
   try{ sessionStorage.setItem('mulle_seen', '1'); }catch(_){}
   var smallPre = window.matchMedia('(max-width:767px)').matches;   /* snappier count on phones */
   var preTl = gsap.timeline();
   preTl.to(counter, {
-      v:100, duration: smallPre ? 0.6 : 1.15, ease:'power2.inOut',
+      v:100, duration: smallPre ? 0.6 : 0.95, ease:'power2.inOut',
       onUpdate:function(){
         var v = Math.round(counter.v);
         if(preCount){ preCount.textContent = (v < 10 ? '00' : v < 100 ? '0' : '') + v; }
@@ -567,6 +600,12 @@ if(pre && (!seen || isHome)){
     .to(pre, { yPercent:-100, duration: smallPre ? 0.6 : 0.85, ease:'power4.inOut',
       onComplete:function(){ pre.remove(); } }, '+=.1')
     .call(pageIntro, null, '-=.55');
+  /* real progress governs the pace */
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){
+      gsap.to(preTl, { timeScale:2.6, duration:.25, ease:'power2.in', overwrite:true });
+    });
+  }
 }else{
   if(pre){
     gsap.to(pre, { yPercent:-100, duration:.6, ease:'power3.inOut', delay:.05,

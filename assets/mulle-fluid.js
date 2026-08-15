@@ -431,13 +431,15 @@ function drift(now){
   queueSplat(0.52 + Math.random()*0.42, 0.34 + Math.random()*0.50, 0.042);
 }
 
-/* scripted intro — a wave crosses the pool as the page opens */
+/* scripted intro — a wave crosses the surface as the page opens, high enough to clear the
+   proof row along the bottom (it used to sweep at y 0.10, straight through the client logos
+   at the one moment they are being read for the first time) */
 function intro(){
   var steps = 6;
   for(var i=0;i<steps;i++){
     (function(i){
       setTimeout(function(){
-        queueSplat(0.16 + 0.68*(i/(steps-1)), 0.10, 0.06);
+        queueSplat(0.16 + 0.68*(i/(steps-1)), 0.72, 0.06);
       }, i*110);
     })(i);
   }
