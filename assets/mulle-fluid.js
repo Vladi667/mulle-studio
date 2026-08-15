@@ -1,24 +1,30 @@
 /* ──────────────────────────────────────────────────────────────────
    FRITZ — liquid mercury surface
-   Damped wave height-field over the mercury-massif photograph.
-   The image is crisp at rest; the cursor presses the surface and
-   clean rings radiate, refracting the picture like ripples on
-   mercury, then settle. Rare droplets fall into the pool.
-   (Replaces the earlier Navier-Stokes film — dye advection smears
-   like smoke over a photograph; a wave field ripples like liquid.)
+   Damped wave height-field reflecting a synthetic studio.
+
+   There is no photograph. Mercury has almost no diffuse colour of its
+   own — what you see is entirely its surroundings, bent by the surface
+   — so the material is generated rather than depicted: the wave normal
+   is pointed at an environment built from the site's own tokens and
+   reflection does the rest. The cursor presses the surface, clean rings
+   radiate and refract the studio, then settle. Rare droplets fall in.
+
+   (Replaces the mercury-massif JPEG. A photograph of a mirror can only
+   ever show one fixed set of surroundings; a reflected environment moves
+   with the surface, which is what the material actually does.)
    ────────────────────────────────────────────────────────────────── */
 (function(){
 'use strict';
-
-var REVEAL_IMAGE = '/assets/hero-mercury.jpg';   /* absolute: shared by EN (root) and FR (/fr/) pages */
 
 var wrap = document.querySelector('.fluid-wrap');
 var canvas = document.getElementById('fluid');
 if(!wrap || !canvas) return;
 
+/* Reduced motion does NOT fall back to the CSS panel: the shader still runs, renders a
+   single frame and stops. The material is intact, nothing moves. `ok:false` keeps mulle.js
+   from driving the intro, the idle splashes or the coverage poll. */
 var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 function fallback(){ wrap.classList.add('fallback'); window.MulleFluid = { ok:false, intro:function(){}, setVeil:function(){} }; }
-if(reduced){ fallback(); return; }
 
 /* ── context ── */
 var params = { alpha:false, depth:false, stencil:false, antialias:false, preserveDrawingBuffer:false };
@@ -46,11 +52,26 @@ var WAVE_RES    = isMobile ? 320 : 520;   /* height-field resolution — high en
 var WAVE_ITERS  = 2;                      /* wave steps per frame — ring expansion speed */
 var WAVE_DAMP   = 0.9885;                  /* energy loss per step — rings die in ~1.5s */
 var RADIUS_WAVE = 0.0011;  /* tight footprint — the wow is depth, not size */
-/* vertical framing — the raw photo sits its waterline at ~80% of the frame, too low
-   for a wordmark to rest on. A negative shift samples deeper into the pool, lifting the
-   waterline to ~60% so the massif surfaces mid-frame with the mirror pool spread below. */
-var IMG_SHIFT   = -0.185;
 var DPR         = Math.min(window.devicePixelRatio || 1, 1.5);
+
+/* ── the resting surface ──
+   A perfectly flat mirror reflecting a gradient head-on returns one flat colour, so the
+   field needs permanent structure or the hero is empty again in a new way. The swell is
+   ANISOTROPIC on purpose — stretched hard on X — so it reads as a level liquid sheet with
+   long low standing waves rather than isotropic noise. Two layers drift against each other
+   at different rates, so nothing ever visibly repeats (no ~0.2Hz oscillation to perceive).
+   Values chosen from a four-variant render sweep; see the hero execution plan. */
+var AMB_SX1 = 0.85, AMB_SY1 = 3.1;    /* layer 1 stretch */
+var AMB_SX2 = 0.55, AMB_SY2 = 5.0;    /* layer 2 stretch */
+var AMB_AMT = 0.185;                  /* how hard the swell bends the normal */
+var BODY_AMT = 0.230, BODY_Y = 0.38;  /* wide shallow sheet curve — keeps the quiet zone up-left, under the type */
+var SEAM = 0.24, SEAM_W = 14.0;       /* the studio horizon; without it a mirror reads as plastic */
+/* the swell costs 18 noise evaluations per pixel, so it is computed ONCE per frame into a
+   small buffer (gradient stored in RG) instead of at full canvas resolution */
+var AMB_RES = isMobile ? 128 : 256;
+
+/* GLSL ES 1.0 has no implicit int→float: every injected literal must carry a decimal. */
+function f(x){ return Number(x).toFixed(4); }
 
 /* ── shaders ── */
 var VERT = [
@@ -103,40 +124,109 @@ var FRAG_SPLAT = [
   '}'
 ].join('\n');
 
-/* display: the photograph, refracted by the wave surface */
+/* ── noise, shared by the ambient pass ── */
+var GLSL_NOISE = [
+  'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453123); }',
+  'float vnoise(vec2 p){',
+  '  vec2 i = floor(p), f = fract(p);',
+  '  vec2 u = f*f*(3.0-2.0*f);',
+  '  return mix(mix(hash(i), hash(i+vec2(1.0,0.0)), u.x),',
+  '             mix(hash(i+vec2(0.0,1.0)), hash(i+vec2(1.0,1.0)), u.x), u.y);',
+  '}',
+  'float fbm3(vec2 p){',
+  '  float v = 0.0, a = 0.5;',
+  '  v += a*vnoise(p); p *= 2.03; a *= 0.5;',
+  '  v += a*vnoise(p); p *= 2.01; a *= 0.5;',
+  '  v += a*vnoise(p);',
+  '  return v;',
+  '}'
+].join('\n');
+
+/* ambient pass: the swell's GRADIENT, written to RG at AMB_RES.
+   Paying 18 noise evaluations per pixel at full canvas resolution is the difference between
+   a shader that runs and one that doesn't; here it costs one small quad per frame and the
+   display pass gets it back with a single LINEAR fetch (the softness of the upsample is
+   wanted — this is a swell, not a texture). */
+var FRAG_AMB = [
+  'precision highp float;',
+  'varying vec2 vUv;',
+  'uniform float uTime;',
+  GLSL_NOISE,
+  'float swell(vec2 uv, float t){',
+  '  vec2 q1 = uv * vec2(' + f(AMB_SX1) + ', ' + f(AMB_SY1) + ');',
+  '  vec2 q2 = uv * vec2(' + f(AMB_SX2) + ', ' + f(AMB_SY2) + ');',
+  '  float a = fbm3(q1 + vec2(t*0.021, -t*0.029));',
+  '  float b = fbm3(q2 + vec2(-t*0.015, t*0.023) + 17.7);',
+  '  return a*0.58 + b*0.42;',
+  '}',
+  'void main(){',
+  '  float e = 0.0035;',
+  '  float s0 = swell(vUv, uTime);',
+  '  float sx = swell(vUv + vec2(e,0.0), uTime);',
+  '  float sy = swell(vUv + vec2(0.0,e), uTime);',
+  '  gl_FragColor = vec4((sx-s0)/e, (sy-s0)/e, 0.0, 1.0);',
+  '}'
+].join('\n');
+
+/* display: a synthetic studio, reflected by the wave surface */
 var FRAG_DISPLAY = [
   'precision highp float;',
   'varying vec2 vUv;',
-  'uniform sampler2D uWave, uImage;',
+  'uniform sampler2D uWave, uAmbTex;',
   'uniform vec2 uWaveTexel, uRes;',
-  'uniform float uVeil, uHasImage, uImageAspect, uImgShift;',
+  'uniform float uVeil;',
   '',
-  '/* object-fit:cover so the image never stretches */',
-  'vec2 coverUV(vec2 uv, vec2 res, float imgAspect){',
-  '  float ca = res.x / max(res.y, 1.0);',
-  '  vec2 s = vec2(1.0);',
-  '  if(ca > imgAspect){ s.y = imgAspect / ca; } else { s.x = ca / imgAspect; }',
-  '  return (uv - 0.5) * s + 0.5;',
+  '/* the studio the mercury reflects — one key light, a vertical sweep, a horizon seam.',
+  '   Every value is a locked site token, and nothing bottoms out to black: the hero has to',
+  '   stay inside the page\'s own value range, which is exactly what the photograph did not. */',
+  'vec3 env(vec3 r){',
+  '  float y = clamp(r.y*0.5 + 0.5, 0.0, 1.0);',
+  '  vec3 deep   = vec3(0.557,0.588,0.639);',   /* --chrome-2 #8E96A3 */
+  '  vec3 chrome = vec3(0.780,0.800,0.839);',   /* --chrome-1 #C7CCD6 */
+  '  vec3 mid    = vec3(0.929,0.933,0.949);',   /* --bg-deep  #EDEEF2 */
+  '  vec3 sky    = vec3(0.965,0.965,0.972);',   /* --bg       #F5F5F7 */
+  '  vec3 col = mix(deep, chrome, smoothstep(0.02, 0.36, y));',
+  '  col = mix(col, mid, smoothstep(0.32, 0.58, y));',
+  '  col = mix(col, sky, smoothstep(0.54, 0.86, y));',
+  '  /* lilac ambient in the upper hemisphere — the page already casts this light on <html> */',
+  '  col = mix(col, vec3(0.851,0.831,0.910), smoothstep(0.60,1.0,y)*0.20);',
+  '  /* the horizon seam: a studio cyc wall. Without it a mirror reads as plastic. */',
+  '  float seam = exp(-pow((y-0.5)*' + f(SEAM_W) + ', 2.0));',
+  '  col = mix(col, vec3(1.0), seam*' + f(SEAM) + ');',
+  '  /* key light, high left — the highlight that travels across the surface */',
+  '  vec3 key = normalize(vec3(-0.38,0.66,0.65));',
+  '  float kd = max(dot(r,key), 0.0);',
+  '  col += vec3(1.0)*pow(kd,190.0)*0.80;',
+  '  col += vec3(1.0)*pow(kd,14.0)*0.09;',
+  '  /* dim fill from the right so the shadow side never goes dead */',
+  '  vec3 fill = normalize(vec3(0.72,0.26,0.64));',
+  '  col += vec3(0.92,0.93,0.96)*pow(max(dot(r,fill),0.0),30.0)*0.07;',
+  '  return col;',
   '}',
   '',
   'void main(){',
-  '  float h  = texture2D(uWave, vUv).r;',
+  '  /* three terms bend the normal: the ripple field (zero at rest), the ambient swell,',
+  '     and a wide shallow body curve so the field reads as liquid rather than a plane */',
   '  float hl = texture2D(uWave, vUv - vec2(uWaveTexel.x,0.0)).r;',
   '  float hr = texture2D(uWave, vUv + vec2(uWaveTexel.x,0.0)).r;',
   '  float hb = texture2D(uWave, vUv - vec2(0.0,uWaveTexel.y)).r;',
   '  float ht = texture2D(uWave, vUv + vec2(0.0,uWaveTexel.y)).r;',
-  '  vec2 grad = vec2(hr-hl, ht-hb);',
-  '  vec2 disp = grad * 0.78;',
-  '  vec2 imgUv = clamp(coverUV(vUv, uRes, uImageAspect) + disp + vec2(0.0, uImgShift), 0.001, 0.999);',
-  '  vec3 col = (uHasImage > 0.5) ? texture2D(uImage, imgUv).rgb : vec3(0.945, 0.949, 0.957);',
-  '  /* mercury glint riding the wave crests — the only additive light */',
-  '  vec3 n = normalize(vec3(-grad*10.0, 1.0));',
-  '  vec3 lightDir = normalize(vec3(-0.4, 0.65, 0.75));',
-  '  float spec = pow(max(dot(reflect(-lightDir, n), vec3(0.0,0.0,1.0)), 0.0), 48.0);',
-  '  float act = smoothstep(0.0015, 0.02, abs(h) + length(grad));',
-  '  col += spec * 0.30 * act;',
-  '  col *= 1.0 - clamp(-h*0.8, 0.0, 0.03);',
+  '  vec2 gWave = vec2(hr-hl, ht-hb) * 26.0;',
+  '  vec2 gAmb  = texture2D(uAmbTex, vUv).rg * ' + f(AMB_AMT) + ';',
+  '  vec2 gBody = -(vUv - vec2(0.5,' + f(BODY_Y) + ')) * ' + f(BODY_AMT) + ';',
+  '',
+  '  vec3 N = normalize(vec3(-(gWave + gAmb + gBody), 1.0));',
+  '  vec3 V = vec3(0.0,0.0,1.0);',
+  '  vec3 col = env(reflect(-V, N));',
+  '  /* Fresnel — grazing angles brighten. Mercury is very nearly all mirror. */',
+  '  col = mix(col, vec3(1.0), pow(1.0 - max(dot(N,V),0.0), 5.0)*0.12);',
+  '  /* crest glint, only where the surface is actually moving */',
+  '  float act = smoothstep(0.02, 0.55, length(gWave));',
+  '  vec3 keyd = normalize(vec3(-0.38,0.66,0.65));',
+  '  col += pow(max(dot(reflect(-keyd, N), V), 0.0), 90.0) * 0.34 * act;',
+  '',
   '  col = mix(col, vec3(0.851, 0.867, 0.898), clamp(uVeil, 0.0, 1.0)*0.92);',
+  '  /* dither — the environment is a very shallow gradient, which is exactly what bands at 8-bit */',
   '  float g = fract(sin(dot(vUv*uRes, vec2(12.9898,78.233)))*43758.5453);',
   '  col += (g-0.5)*0.012;',
   '  gl_FragColor = vec4(col, 1.0);',
@@ -209,12 +299,13 @@ function doubleFBO(w, h){
   };
 }
 
-var progWave, progSplat, progDisplay, progCopy;
+var progWave, progSplat, progDisplay, progCopy, progAmb;
 try{
   progWave    = program(FRAG_WAVE);
   progSplat   = program(FRAG_SPLAT);
   progDisplay = program(FRAG_DISPLAY);
   progCopy    = program(FRAG_COPY_R);
+  progAmb     = program(FRAG_AMB);
 }catch(e){ fallback(); return; }
 
 /* tiny RGBA8 target for surface-activity readback */
@@ -268,26 +359,9 @@ function resize(){
 }
 if(!resize()){ return; }
 
-/* the photograph */
-var imageTex = null, hasImage = 0, imageAspect = 16/9;
-if(REVEAL_IMAGE){
-  var img = new Image();
-  img.onload = function(){
-    imageAspect = img.width / Math.max(img.height, 1);
-    imageTex = gl.createTexture();
-    gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_2D, imageTex);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-    hasImage = 1;
-  };
-  img.src = REVEAL_IMAGE;
-}
+/* the ambient swell buffer — resolution-independent, so it survives a canvas resize */
+var ambFbo = createFBO(AMB_RES, AMB_RES);
+if(!ambFbo){ fallback(); return; }
 
 /* ── impulses ── */
 var splatQueue = [];
@@ -312,9 +386,12 @@ function applySplats(){
   splatQueue.length = 0;
 }
 
-/* ── pointer ── */
+/* ── pointer ──
+   Not bound under reduced motion: a ripple is motion, and the single static frame is the
+   whole point of that path. */
 var hero = document.querySelector('.hero') || wrap;
 var px = 0.5, py = 0.5, hasPointer = false;
+if(!reduced){
 hero.addEventListener('pointermove', function(e){
   var r = canvas.getBoundingClientRect();
   if(r.width < 2 || r.height < 2){ return; }
@@ -339,9 +416,10 @@ hero.addEventListener('pointerdown', function(e){
   px = x; py = y; hasPointer = true;
   queueSplat(x, y, 0.09);
 }, { passive:true });
+}
 
-/* ambient life: a rare droplet falls into the mercury pool (the image's own liquid),
-   one quiet ring — the massif itself stays perfectly still until touched */
+/* ambient life: a rare droplet falls into the mercury, one quiet ring —
+   the surface holds its swell and nothing else moves until it is touched */
 var nextDrop = performance.now() + 2600;
 function drift(now){
   if(now < nextDrop){ return; }
@@ -391,37 +469,60 @@ function step(){
   }
 }
 
+/* ambient pass — the swell's gradient, one small quad. On phones it updates every other
+   frame: the swell is the part nobody is touching, so it yields budget to the ripples. */
+function stepAmbient(t){
+  gl.useProgram(progAmb.p);
+  gl.uniform1f(progAmb.u.uTime, t);
+  blit(ambFbo);
+}
+
 function render(){
   gl.useProgram(progDisplay.p);
   gl.uniform1i(progDisplay.u.uWave, wave.read.attach(0));
-  if(imageTex){ gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, imageTex); gl.uniform1i(progDisplay.u.uImage, 1); }
+  gl.uniform1i(progDisplay.u.uAmbTex, ambFbo.attach(1));
   gl.uniform2f(progDisplay.u.uWaveTexel, wave.texel[0], wave.texel[1]);
   gl.uniform2f(progDisplay.u.uRes, canvas.width, canvas.height);
   gl.uniform1f(progDisplay.u.uVeil, veil);
-  gl.uniform1f(progDisplay.u.uHasImage, hasImage);
-  if(progDisplay.u.uImageAspect){ gl.uniform1f(progDisplay.u.uImageAspect, imageAspect); }
-  if(progDisplay.u.uImgShift){ gl.uniform1f(progDisplay.u.uImgShift, IMG_SHIFT); }
   blit(null);
 }
 
+var frameN = 0;
 function frame(now){
   requestAnimationFrame(frame);
   if(!running){ last = now; return; }
   var dt = Math.min((now - last)/1000, 0.033);
   last = now;
   if(dt <= 0){ return; }
+  frameN++;
+  if(!isMobile || (frameN & 1) === 0){ stepAmbient((now - startT)/1000); }
   drift(now);
   applySplats();
   step();
   render();
 }
-requestAnimationFrame(frame);
 
-window.MulleFluid = {
-  ok:true,
-  intro:intro,
-  setVeil:function(v){ veil = Math.max(0, Math.min(1, v)); },
-  splash:function(x, y){ queueSplat(x, y, 0.07); },
-  coverage:coverage
-};
+if(reduced){
+  /* one frame, then nothing. A fixed time offset picks a settled configuration of the
+     swell rather than the noise field's t=0 phase. `ok:false` stops mulle.js from running
+     the intro, the idle splashes and the coverage poll — the canvas keeps its single frame.
+     setVeil still redraws, because the scroll veil is a fade, not vestibular motion. */
+  stepAmbient(12.0);
+  render();
+  window.MulleFluid = {
+    ok:false,
+    intro:function(){},
+    setVeil:function(v){ veil = Math.max(0, Math.min(1, v)); render(); }
+  };
+}else{
+  stepAmbient(0);
+  requestAnimationFrame(frame);
+  window.MulleFluid = {
+    ok:true,
+    intro:intro,
+    setVeil:function(v){ veil = Math.max(0, Math.min(1, v)); },
+    splash:function(x, y){ queueSplat(x, y, 0.07); },
+    coverage:coverage
+  };
+}
 })();
