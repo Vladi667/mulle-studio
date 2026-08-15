@@ -450,22 +450,17 @@ function revealHeading(el){
 
 function heroIntro(){
   var tl = gsap.timeline();
-  /* the voice settles first, high in the clean sky */
+  /* the chapter mark, then the voice, then the action — top to bottom down the column */
+  tl.from('.hero-col .eyebrow', { y:-14, opacity:0, duration:.7, ease:'power3.out' }, 0);
   tl.from('.hero-eyeline', { y:-12, opacity:0, duration:.9, ease:'power3.out' }, .05);
-  /* the massif's wordmark surfaces out of the pool — rises to rest on the waterline —
-     then its reflection resolves underneath it */
-  tl.from('.hero-wm-main', { y:72, opacity:0, duration:1.3, ease:'power4.out' }, .16)
-    .from('.hero-wm-echo', { opacity:0, duration:1.1, ease:'power2.out' }, .62);
-  /* action, then proof, rise in under the pool */
-  tl.from('.hero-foot', { y:18, opacity:0, duration:.85, ease:'power3.out' }, .78);
+  tl.from('.hero-lede', { y:18, opacity:0, duration:.8, ease:'power3.out' }, .34);
+  tl.from('.hero-acts', { y:18, opacity:0, duration:.8, ease:'power3.out' }, .48);
+  /* proof last, and quietly — it supports the claim, it does not announce itself */
+  tl.from('.hero-trust', { y:14, opacity:0, duration:.85, ease:'power3.out' }, .62);
   revealChrome(tl, .85);
   if(window.MulleFluid && window.MulleFluid.ok){
     tl.call(window.MulleFluid.intro, null, .12);
   }
-  /* subtle scroll depth — the wordmark lags the frame slightly, so it appears to hang in the
-     pool as the hero lifts away (the .hero-inner scroll-out below carries the fade) */
-  gsap.to('.hero-wm', { yPercent:9, ease:'none',
-    scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom 40%', scrub:true } });
 }
 
 function innerIntro(){

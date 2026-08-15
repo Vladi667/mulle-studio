@@ -419,12 +419,16 @@ hero.addEventListener('pointerdown', function(e){
 }
 
 /* ambient life: a rare droplet falls into the mercury, one quiet ring —
-   the surface holds its swell and nothing else moves until it is touched */
+   the surface holds its swell and nothing else moves until it is touched.
+   Confined to the right half, clear of both the type column on the left and the proof row
+   along the bottom: a ring breaking across a client logo reads as a defect, and it put the
+   only busy part of the surface exactly where the marks needed to stay legible. It also
+   gives the empty right side of the composition something to do. */
 var nextDrop = performance.now() + 2600;
 function drift(now){
   if(now < nextDrop){ return; }
   nextDrop = now + 4200 + Math.random()*3400;
-  queueSplat(0.22 + Math.random()*0.56, 0.06 + Math.random()*0.10, 0.042);
+  queueSplat(0.52 + Math.random()*0.42, 0.34 + Math.random()*0.50, 0.042);
 }
 
 /* scripted intro — a wave crosses the pool as the page opens */
