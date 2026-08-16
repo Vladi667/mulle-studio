@@ -42,7 +42,11 @@ var gLbl = el('g', { 'font-family':MONO, 'font-size':10, fill:LBL, 'letter-spaci
 var gCross = el('g', { fill:'none', stroke:BLUE, 'stroke-width':1, opacity:0 }, svg);
 var chX = el('line', {}, gCross), chY = el('line', {}, gCross);
 var chDot = el('circle', { r:2.5, fill:BLUE, stroke:'none' }, gCross);
-var chLbl = el('text', { 'font-family':MONO, 'font-size':10, fill:BLUE, 'letter-spacing':'0.12em' }, gLbl);
+/* the readout is not a dimension label: it must stay legible over the FILLED mark, so it
+   lives in its own layer and never takes the fill fade */
+var gRead = el('g', {}, svg);
+var chLbl = el('text', { 'font-family':MONO, 'font-size':10, fill:BLUE, 'letter-spacing':'0.12em',
+  stroke:'#F5F5F7', 'stroke-width':3, 'paint-order':'stroke', 'stroke-linejoin':'round' }, gRead);
 
 /* layout — the drawing sits in the right half on desktop, above the type on phones.
    Screen-fraction boxes; the drawing keeps its aspect and centres in the box. */
@@ -50,7 +54,9 @@ var scale = 1, ox = 0, oy = 0, compact = false;
 function layout(){
   var W = wrap.clientWidth, H = wrap.clientHeight;
   compact = W < 768;
-  var box = compact ? { l:0.14, r:0.86, t:0.15, b:0.29 } : { l:0.55, r:0.92, t:0.30, b:0.66 };
+  /* phone: the sheet is full-bleed and sits behind the type — the plan is the paper the words
+     are printed on. Desktop: the right half, beside the type. */
+  var box = compact ? { l:0.06, r:0.88, t:0.16, b:0.42 } : { l:0.55, r:0.92, t:0.30, b:0.66 };
   var bw = (box.r-box.l)*W, bh = (box.b-box.t)*H;
   scale = Math.min(bw/VW, bh/VH);
   ox = box.l*W + (bw - VW*scale)/2; oy = box.t*H + (bh - VH*scale)/2;
@@ -63,7 +69,7 @@ function layout(){
    dimension and the title block go; the sheet has less room and the type is close. */
 function buildDims(){
   while(gDim.firstChild) gDim.removeChild(gDim.firstChild);
-  Array.prototype.slice.call(gLbl.childNodes).forEach(function(n){ if(n!==chLbl) gLbl.removeChild(n); });
+  while(gLbl.firstChild) gLbl.removeChild(gLbl.firstChild);
   var px = function(v){ return ox + v*scale; }, py = function(v){ return oy + v*scale; };
   var ext = 18/scale, off = (compact?26:34)/scale, tick = 4/scale;
   var yb = VH + off, xr = VW + off;
@@ -81,7 +87,7 @@ function buildDims(){
   el('line', { x1:xr-tick, y1:VH, x2:xr+tick, y2:VH }, gDim);
   el('line', { x1:-off*1.2, y1:VH*0.5, x2:VW+off*0.6, y2:VH*0.5, 'stroke-dasharray':(6/scale)+' '+(6/scale) }, gDim);
   el('path', { d:'M '+(VW*0.16)+' '+(VH*0.05)+' A '+(VW*0.10)+' '+(VW*0.10)+' 0 0 0 '+(VW*0.06)+' '+(VH*0.33), 'stroke-dasharray':(4/scale)+' '+(5/scale) }, gDim);
-  var lbl = function(x, y, t, anchor){ var e = el('text', { x:x, y:y, 'text-anchor':anchor||'middle' }); e.textContent = t; gLbl.insertBefore(e, chLbl); return e; };
+  var lbl = function(x, y, t, anchor){ var e = el('text', { x:x, y:y, 'text-anchor':anchor||'middle' }, gLbl); e.textContent = t; return e; };
   if(!compact) lbl(px(VW/2), py(yb)+16, VW+' × '+VH);
   var cap = lbl(px(xr)-6, py(VH/2), String(VH));
   cap.setAttribute('transform', 'rotate(-90 '+(px(xr)-6)+' '+py(VH/2)+')');
@@ -103,7 +109,7 @@ function prep(){
     var dash = l.getAttribute('stroke-dasharray');
     l.style.strokeDasharray = dash ? dash : (len+' '+len);
     l.style.strokeDashoffset = len; });
-  lblEls = Array.prototype.slice.call(gLbl.querySelectorAll('text')).filter(function(t){ return t!==chLbl; });
+  lblEls = Array.prototype.slice.call(gLbl.querySelectorAll('text'));
   lblEls.forEach(function(t){ t.style.opacity = 0; });
 }
 
@@ -116,18 +122,39 @@ var fill = 0, fillV = 0, fillTarget = 0;                       /* 0 plan … 1 o
 var cx = -1e4, cy = -1e4, sx = -1e4, sy = -1e4, svx = 0, svy = 0, hasPointer = false;
 var veil = 0, running = true, started = false, t0 = null;
 
-/* pointer — on the hero, not the wrap: .hero-inner sits above with pointer-events:none, so
-   moves arrive here; the CTA and links keep their own pointer-events */
+/* pointer AND touch — the finger is a pointer. Bound on the hero, not the wrap: .hero-inner
+   sits above with pointer-events:none, so events arrive here while the CTA and links keep
+   their own. Touch: the crosshair snaps to the finger, follows it with the spring, and holds
+   for a beat after lift; a tap pulses the fill, a hold fills it. */
 var hero = document.querySelector('.hero') || wrap;
-hero.addEventListener('pointermove', function(e){ var r = wrap.getBoundingClientRect(); cx = e.clientX-r.left; cy = e.clientY-r.top; hasPointer = true; }, { passive:true });
-hero.addEventListener('pointerleave', function(){ hasPointer = false; });
+var isCoarse = window.matchMedia('(pointer: coarse)').matches;
+var lastTouchT = 0, holdT = 0, pulseUntil = 0, isCtl = function(e){ return e.target && e.target.closest && e.target.closest('a,button,input,label'); };
+function toLocal(e){ var r = wrap.getBoundingClientRect(); cx = e.clientX-r.left; cy = e.clientY-r.top; }
+hero.addEventListener('pointermove', function(e){ if(isCtl(e)) return; toLocal(e); hasPointer = true; if(e.pointerType!=='mouse'){ lastTouchT = performance.now(); touring = false; } }, { passive:true });
+hero.addEventListener('pointerleave', function(e){ if(e.pointerType==='mouse') hasPointer = false; });
 hero.addEventListener('pointerdown', function(e){
-  /* a press on a control is a click, not a fill */
-  if(e.target.closest && e.target.closest('a,button,input,label')) return;
-  fillTarget = 1;
+  if(isCtl(e)) return;                       /* a press on a control is a click, not a fill */
+  toLocal(e); hasPointer = true; touring = false;
+  if(e.pointerType!=='mouse'){ lastTouchT = performance.now(); if(sx<-1e3){ sx=cx; sy=cy; } }
+  holdT = performance.now(); fillTarget = 1;
 }, { passive:true });
-window.addEventListener('pointerup', function(){ fillTarget = 0; });
-window.addEventListener('pointercancel', function(){ fillTarget = 0; });
+function release(e){
+  if(!fillTarget) return;
+  fillTarget = 0;
+  /* a short tap: give it a fill PULSE so a plain tap is rewarded, not ignored */
+  if(performance.now()-holdT < 220){ pulseUntil = performance.now()+260; }
+  if(e && e.pointerType!=='mouse'){ lastTouchT = performance.now(); }
+}
+window.addEventListener('pointerup', release);
+window.addEventListener('pointercancel', release);
+
+/* the ambient tour — before anyone touches it, the crosshair inspects the sheet on its own:
+   it visits the drawing's own dimension points, dwelling on each, so the instrument reads as
+   alive on first paint. Any pointer input takes over. Never runs under reduced motion. */
+var touring = !reduced, tourI = 0, tourT = 0, tourPts = [];
+function tourPoints(){
+  return [ [0.06,0.05], [0.53,0.15], [1.0,0.5], [0.83,0.82], [0.30,0.5], [0.0,0.98] ];   /* in drawing fractions */
+}
 
 /* pause when off-screen or hidden — the readout and the loop have nothing to do */
 if('IntersectionObserver' in window){
@@ -161,19 +188,43 @@ function frame(now){
   gDim.setAttribute('opacity', 1-f*0.85);
   gLbl.setAttribute('opacity', 1-f*0.85);
 
-  /* the crosshair — an instrument that follows the hand, reporting the mark's own units */
-  if(hasPointer && !compact){
+  /* tap pulse rides on top of the fill spring */
+  var pulse = pulseUntil>now ? (pulseUntil-now)/260 : 0;
+  if(pulse>0){ f = Math.max(f, Math.sin(pulse*Math.PI)*0.55); outline.setAttribute('fill-opacity', f); outline.setAttribute('stroke-opacity', 1-f*0.7); }
+
+  /* the crosshair — an instrument. Desktop: follows the mouse. Touch: follows the finger,
+     holds ~1.6s after lift, then fades. Idle: the ambient tour, until the first touch. */
+  var touchAlive = isCoarse && (now-lastTouchT) < 1600;
+  var show = false;
+  if(touring && lblP>0.98){
+    tourT += dt;
+    if(tourT > 2.4){ tourT = 0; tourI = (tourI+1) % tourPoints().length; }
+    var tp = tourPoints()[tourI];
+    cx = ox + tp[0]*VW*scale; cy = oy + tp[1]*VH*scale;
+    if(sx<-1e3){ sx=cx; sy=cy; }
+    show = true;
+  } else if(hasPointer && (!isCoarse || touchAlive || fillTarget)){
+    show = true;
+  }
+  if(show){
     if(sx<-1e3){ sx = cx; sy = cy; }
-    if(dt>0){ var a = spring(sx,svx,cx,dt,0.26,0.9); sx=a[0]; svx=a[1]; var b = spring(sy,svy,cy,dt,0.26,0.9); sy=b[0]; svy=b[1]; }
+    /* the tour moves slower than a hand: a longer response, so it glides between points */
+    var resp = touring ? 0.9 : 0.26;
+    if(dt>0){ var a = spring(sx,svx,cx,dt,resp,0.9); sx=a[0]; svx=a[1]; var b = spring(sy,svy,cy,dt,resp,0.9); sy=b[0]; svy=b[1]; }
     else { sx = cx; sy = cy; }
     var W = wrap.clientWidth, H = wrap.clientHeight;
     chX.setAttribute('x1',0); chX.setAttribute('x2',W); chX.setAttribute('y1',sy); chX.setAttribute('y2',sy);
     chY.setAttribute('y1',0); chY.setAttribute('y2',H); chY.setAttribute('x1',sx); chY.setAttribute('x2',sx);
     chDot.setAttribute('cx',sx); chDot.setAttribute('cy',sy);
     chLbl.textContent = 'X '+Math.round((sx-ox)/scale)+'  Y '+Math.round((sy-oy)/scale);
-    chLbl.setAttribute('x', sx+10); chLbl.setAttribute('y', sy-8);
-    gCross.setAttribute('opacity', 0.55*lblP*(1-veil));
-  } else { gCross.setAttribute('opacity', 0); }
+    /* keep the readout on-screen: flip it left of the crosshair near the right edge */
+    var flip = sx > W-96;
+    chLbl.setAttribute('x', flip ? sx-10 : sx+10); chLbl.setAttribute('y', sy-8);
+    chLbl.setAttribute('text-anchor', flip ? 'end' : 'start');
+    var fadeOut = (isCoarse && !touring && !fillTarget) ? Math.min(1, (1600-(now-lastTouchT))/500) : 1;
+    var co = (touring?0.42:0.55)*lblP*(1-veil)*Math.max(0,fadeOut);
+    gCross.setAttribute('opacity', co); gRead.setAttribute('opacity', Math.min(1, co*1.7));
+  } else { gCross.setAttribute('opacity', 0); gRead.setAttribute('opacity', 0); }
 
   /* the scroll veil from mulle.js: the drawing fades as the hero leaves */
   svg.style.opacity = 1 - veil;

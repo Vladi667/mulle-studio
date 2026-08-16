@@ -252,6 +252,7 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
   display:flex;flex-direction:column;justify-content:center;padding:0 var(--margin)}
 .hero-inner a{pointer-events:auto}
 .hero-col{width:100%;max-width:1180px}
+.hero-hold{display:none}
 
 /* faint film grain — the render reads shot-on-set, never flat CGI */
 .hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
@@ -1351,11 +1352,25 @@ body.is-transitioning{pointer-events:none}
   .hint{display:none}
   .readout{gap:10px;padding:8px 13px}
   .readout .peek{display:none}
-  /* phone: same column, tightened. The headline still leads at 40px — it is the first
-     thing read, so it never drops below the section headings further down the page. */
+  /* phone: the sheet is full-bleed and sits BEHIND the column (mulle-machined.js draws it
+     in the top 16–42% of the viewport). The column drops to the lower half so the plan has
+     the upper half to itself, and a paper scrim behind the text keeps the type clean where
+     the two overlap. The headline still leads at 40px — it is the first thing read, so it
+     never drops below the section headings further down the page. */
+  .hero-inner{justify-content:flex-end;padding-bottom:clamp(148px,24vh,210px)}
+  .hero-col{position:relative}
+  .hero-col::before{content:"";position:absolute;inset:-18px -14px -14px -14px;z-index:-1;border-radius:6px;
+    background:linear-gradient(180deg,rgba(245,245,247,0) 0%,rgba(245,245,247,.86) 22%,rgba(245,245,247,.92) 100%)}
   .hero-eyeline{font-size:clamp(40px,11.5vw,58px);letter-spacing:-.036em}
   .hero-lede{font-size:15px;max-width:34ch}
   .hero-acts{gap:16px;margin-top:clamp(20px,3vh,30px)}
+  /* the one hint the phone needs: how to make the plan an object */
+  .hero-hold{display:flex;position:absolute;left:var(--margin);top:calc(16vh - 22px);z-index:3;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--txt-40);
+    display:flex;align-items:center;gap:9px;pointer-events:none;opacity:0;animation:holdIn .8s var(--ease-out) 2.2s forwards}
+  .hero-hold i{width:14px;height:1px;background:var(--blue);display:block}
+  @keyframes holdIn{to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.hero-hold{animation:none;opacity:1}}
   .hero-trust{bottom:clamp(58px,9vh,86px);gap:12px}
   /* three marks on a phone — one clean row, no stranded logo on a second line and
      nothing scrolling off the viewport edge */
