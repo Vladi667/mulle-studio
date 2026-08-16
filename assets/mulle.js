@@ -642,15 +642,52 @@ if(pre && !seen){
     setTimeout(function(){ el.classList.remove('is-arrived'); }, 1700);
   }
 
+  function yFor(el){
+    var head = 0, cs = getComputedStyle(el).scrollMarginTop;
+    if(cs) head = parseFloat(cs) || 0;
+    return el.getBoundingClientRect().top + (window.pageYOffset||0) - head;
+  }
+
+  /* Measuring once is not enough. On a real connection the page keeps growing after we
+     have picked a number -- lazy media resolves, and ScrollTrigger inserts pin spacers when
+     it initialises -- so a single scroll lands a whole row short (seen live: the target sat
+     666px below the viewport top while localhost, where everything resolves instantly, was
+     perfect). So we travel, then keep checking: re-measure a few times and correct until the
+     target stops moving. Corrections after the first are instant -- the journey already
+     happened, this is only the page settling underneath us. */
   function goTo(el, smooth){
     try{ ScrollTrigger.refresh(); }catch(_){}
-    var head = 0;
-    var cs = getComputedStyle(el).scrollMarginTop; if(cs) head = parseFloat(cs) || 0;
-    var y = el.getBoundingClientRect().top + (window.pageYOffset||0) - head;
-    if(smooth && !reduce && typeof lenis !== 'undefined' && lenis){ lenis.scrollTo(y, { duration:1.15 }); }
-    else if(smooth && !reduce){ window.scrollTo({ top:y, behavior:'smooth' }); }
-    else { window.scrollTo(0, y); if(typeof lenis !== 'undefined' && lenis && lenis.scrollTo) lenis.scrollTo(y, { immediate:true }); }
+    var travel = function(y, anim){
+      if(anim && !reduce && typeof lenis !== 'undefined' && lenis){ lenis.scrollTo(y, { duration:1.15 }); }
+      else if(anim && !reduce){ window.scrollTo({ top:y, behavior:'smooth' }); }
+      else if(typeof lenis !== 'undefined' && lenis && lenis.scrollTo){ lenis.scrollTo(y, { immediate:true }); }
+      else { window.scrollTo(0, y); }
+    };
+    travel(yFor(el), smooth);
     mark(el);
+
+    /* interruptible: the instant the user takes the page over, we stop correcting.
+       A self-correcting scroll that fights the hand is worse than one that lands short. */
+    var aborted = false;
+    var give = function(){ aborted = true; };
+    ['wheel','touchstart','keydown','pointerdown'].forEach(function(t){
+      window.addEventListener(t, give, { once:true, passive:true });
+    });
+
+    var tries = 0, stable = 0;
+    (function settle(){
+      if(aborted || tries++ > 14 || stable >= 2){
+        ['wheel','touchstart','keydown','pointerdown'].forEach(function(t){ window.removeEventListener(t, give); });
+        return;
+      }
+      setTimeout(function(){
+        try{ ScrollTrigger.refresh(); }catch(_){}
+        var want = yFor(el), now = window.pageYOffset || 0;
+        if(Math.abs(want - now) > 4){ stable = 0; travel(want, false); }
+        else stable++;
+        settle();
+      }, tries < 3 ? 220 : 400);
+    })();
   }
 
   /* landing from another page: hold at the top until the layout is real, then travel */
