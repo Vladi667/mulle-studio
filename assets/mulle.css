@@ -635,8 +635,23 @@ section{position:relative}
 
 .wd-stack{position:relative;z-index:1;max-width:var(--wd-w);margin-inline:0;
   display:flex;flex-direction:row;align-items:flex-start;gap:clamp(40px,5vw,80px);
-  overflow:hidden;padding:14px 0 36px;scrollbar-width:none;will-change:transform}
+  overflow:hidden;padding:14px 0 36px;scrollbar-width:none;
+  /* the strip is a direct-manipulation surface: horizontal swipes are ours, vertical ones
+     belong to the page. Grab cursor says so before you touch it. */
+  touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.wd-stack.is-grabbing{cursor:grabbing}
+.wd-stack.is-grabbing .wd-card{pointer-events:none}   /* no hover states mid-drag */
 .wd-stack::-webkit-scrollbar{display:none}
+/* the wrapped track mulle.js builds: cards + one cloned set, moved as one */
+.wd-track{display:flex;flex-direction:row;align-items:flex-start;gap:inherit;will-change:transform;flex:none}
+/* the endless strip bleeds off BOTH edges of the page — a row that visibly continues in
+   each direction, never a box with a hard end. Cards fade in and out at the viewport edges
+   (soft mask), so the wrap seam is never a sliced frame at the column line. The track is
+   padded left by the margin so the leading card sits on the column at t=0. */
+.wd-stack.is-loop{max-width:none;margin-left:calc(-1 * var(--margin));margin-right:calc(-1 * var(--margin));
+  padding-left:var(--margin);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 clamp(28px,4vw,72px),#000 calc(100% - clamp(28px,4vw,72px)),transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 clamp(28px,4vw,72px),#000 calc(100% - clamp(28px,4vw,72px)),transparent 100%)}
 .wd-card{position:relative;flex:0 0 auto;width:clamp(280px,30vw,420px);margin:0;
   display:block;color:inherit;text-decoration:none;will-change:transform}
 .wd-tail{display:none}
@@ -687,7 +702,7 @@ section{position:relative}
 }
 @media (prefers-reduced-motion:reduce){
   .wd-dot{animation:none}
-  .wd-stack{overflow-x:auto;overflow-y:hidden}
+  .wd-stack{overflow-x:auto;overflow-y:hidden;cursor:auto}
   .wd-media{transition:none}
   .wd-card:hover .wd-media{--hz:1}
   .wd-media .pf-vid{transition:none}

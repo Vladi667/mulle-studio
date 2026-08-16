@@ -1349,7 +1349,9 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
   /* extensionless for the same reason: 'contact.html' cost a 308 on every tap.
      Relative still resolves per-directory, so /fr/ pages reach /fr/contact. */
   a.className = 'sticky-cta'; a.href = 'contact';
-  var fr = (function(){ try{ var s = localStorage.getItem('fritz_lang'); if(s) return s === 'fr'; }catch(e){} return (navigator.language||'').toLowerCase().indexOf('fr') === 0; })();
+  /* the PAGE decides the language, not the browser: the site ships a static /fr/ mirror, so
+     a French-locale visitor reading the English page was getting a French pill on it */
+  var fr = /^\/fr(\/|$)/.test(location.pathname) || (document.documentElement.lang||'').toLowerCase().indexOf('fr') === 0;
   a.innerHTML = '<span>' + (fr ? 'Démarrer un projet' : 'Start a project') + '</span><span class="sc-arr" aria-hidden="true">→</span>';
   document.body.appendChild(a);
   var foot = document.querySelector('.site-foot');
@@ -1471,18 +1473,25 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   }
 });
 
-/* ── home 'Selected work' — GSAP PINNED horizontal takeover with strong liquid velocity skew.
-   The section pins at the top; vertical scroll becomes horizontal travel of the row; scroll
-   velocity skews the frames hard and springs them back to rest. ── */
+/* -- home 'Selected work' -- a strip that MOVES.
+   It used to be a scroll-scrubbed pin: the section held the viewport hostage for ~2000px of
+   scroll while the row inched sideways, and at rest it was a static two-card frame. Now:
+   - it drifts on its own, slowly and continuously, from the moment it enters view; the row
+     is wrapped (the card set is cloned once) so it never reaches an end;
+   - it is direct-manipulation: drag / swipe tracks 1:1, release hands the finger's velocity
+     to a decelerating projection (Apple's exponential decay), then the drift fades back in;
+     the wheel scrolls it horizontally; hovering a card pauses the drift;
+   - the page is never pinned. Scroll velocity still skews the frames -- that vocabulary stays.
+   Reduced motion: no drift, no skew; the strip is a plain horizontal scroller. */
 (function(){
   var section = document.querySelector('.works');
   var stack = document.querySelector('.wd-stack');
   if(!section || !stack) return;
   var cards = gsap.utils.toArray(stack.querySelectorAll('.wd-card'));
   if(!cards.length) return;
-  var shots = cards.map(function(c){ return c.querySelector('.wd-shot'); }).filter(Boolean);
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-  /* furniture entrances — same vocabulary as every other chapter */
+  /* furniture entrances -- same vocabulary as every other chapter */
   var hdr = document.querySelector('.wd-hdr');
   if(hdr){
     gsap.fromTo(hdr, { '--hx':0 }, { '--hx':1, duration:.9, ease:'power2.inOut',
@@ -1492,69 +1501,149 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   }
   revealHeading(document.querySelector('.wd-title'));
 
-  /* frames rise in on first entry (cleared afterwards so the travel system owns transforms) */
+  /* frames rise in on first entry */
+  var shots = cards.map(function(c){ return c.querySelector('.wd-shot'); }).filter(Boolean);
   gsap.from(shots, { yPercent:14, autoAlpha:0, duration:.7, stagger:.07, ease:'power3.out', clearProps:'all',
     scrollTrigger:{ trigger:stack, start:'top 88%', once:true } });
 
-  /* loops autoplay while the section is on screen — driven by an IntersectionObserver, kept
-     independent of the pin so playback never stalls when the section is pinned */
-  var vids = cards.map(function(c){ return c.querySelector('video.pf-vid'); }).filter(Boolean);
-  /* the blanket preload='metadata' upgrade that used to sit here ran at init for all six and
-     was the second thing pulling every rendition on load. Preparation now happens per plate,
-     on approach, in the lazy-load IIFE above — _playSafe prepares before it plays. */
+  /* video: a loop runs only while its own card is on screen (per-card IO, horizontal head start) */
   function play(v){ if(v._playSafe){ v._playSafe(); return; } var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
-  if('IntersectionObserver' in window){
-    /* This used to observe the SECTION and then play all six. In the pinned strip only
-       one or two cards are ever on screen, so a phone was decoding six videos to show
-       one — six simultaneous decodes plus six texture uploads into the mercury shader.
-       Observe each card instead, so a loop runs only while its own frame is visible.
-       The horizontal rootMargin gives it a head start so it is already running by the
-       time it slides in and never shows a stalled first frame. */
+  function watchCards(list){
+    if(!('IntersectionObserver' in window)){ list.forEach(function(c){ var v=c.querySelector('video.pf-vid'); if(v) play(v); }); return; }
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        var v = e.target.querySelector('video.pf-vid');
-        if(!v) return;
+        var v = e.target.querySelector('video.pf-vid'); if(!v) return;
         if(e.isIntersecting){ play(v); } else { v._wantPlay = false; v.pause(); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 40% 0px 40%' });
-    cards.forEach(function(c){ if(c.querySelector('video.pf-vid')) io.observe(c); });
-  } else { vids.forEach(play); }
+    }, { threshold:0.1, rootMargin:'0px 40% 0px 40%' });
+    list.forEach(function(c){ if(c.querySelector('video.pf-vid')) io.observe(c); });
+  }
+  watchCards(cards);
 
-  /* reduced-motion only: no pin — CSS gives a bar-less touch scroll. Otherwise the pinned
-     takeover runs on mobile too, for the same scroll feeling as desktop. */
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  if(reduce){ stack.style.overflowX = 'auto'; return; }
 
-  function maxX(){
-    var last = cards[cards.length - 1];
-    var span = (last.offsetLeft + last.offsetWidth) - cards[0].offsetLeft;
-    return Math.max(0, span - stack.clientWidth + 8);
+  /* -- the wrap: clone the set once so the strip is endless. Clones are aria-hidden and
+     unfocusable -- the six real cards carry the semantics; the clones are the loop seam. */
+  var tail = stack.querySelector('.wd-tail'); if(tail) tail.remove();
+  var track = document.createElement('div'); track.className = 'wd-track';
+  cards.forEach(function(c){ track.appendChild(c); });
+  cards.forEach(function(c){
+    var k = c.cloneNode(true); k.setAttribute('aria-hidden','true'); k.setAttribute('tabindex','-1');
+    k.classList.add('wd-clone');
+    /* clones must not double-load video: drop the <video> so they only ever show the poster */
+    var vs = k.querySelectorAll('video'); for(var i=0;i<vs.length;i++){ vs[i].parentNode.removeChild(vs[i]); }
+    track.appendChild(k);
+  });
+  stack.appendChild(track);
+  stack.classList.add('is-loop');
+
+  var gap = 0, setW = 0;
+  function measure(){
+    var cs = getComputedStyle(track); gap = parseFloat(cs.columnGap || cs.gap) || 0;
+    var first = cards[0], last = cards[cards.length-1];
+    setW = (last.offsetLeft + last.offsetWidth + gap) - first.offsetLeft;
+  }
+  measure();
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+  setTimeout(measure, 1200);   /* after webfont/poster reflow */
+
+  /* -- motion state --
+     x       : the track's offset (px, negative = left). Wrapped into (-setW, 0].
+     drift   : autonomous px/s. Fades to 0 while a hand is on it or a card is hovered.
+     v       : free velocity px/s after a release; decays with Apple's projection constant.
+     Everything is additive per frame -- the row is never "animated to" a place. */
+  var x = 0, v = 0, DRIFT = -22, driftK = 1, dragging = false, hovering = false, visible = false;
+  var setX = gsap.quickSetter(track, 'x', 'px');
+  function wrap(){ if(setW <= 0) return; if(x <= -setW) x += setW; else if(x > 0) x -= setW; }
+
+  /* strong liquid: velocity -> skew on the frames, springs back to rest */
+  var allShots = gsap.utils.toArray(track.querySelectorAll('.wd-shot'));
+  var setSkew = gsap.quickSetter(allShots, 'skewX', 'deg');
+  var clampSkew = gsap.utils.clamp(-14, 14);
+  var proxy = { s:0 };
+  function kick(velPx){
+    var sk = clampSkew(velPx / -260);
+    if(Math.abs(sk) > Math.abs(proxy.s)){
+      proxy.s = sk;
+      gsap.to(proxy, { s:0, duration:.9, ease:'power3', overwrite:true, onUpdate:function(){ setSkew(proxy.s); } });
+    }
   }
 
-  /* strong liquid: scroll velocity -> hard skew on the frames, springs back to rest */
-  var setSkew = gsap.quickSetter(shots, 'skewX', 'deg');
-  var clampSkew = gsap.utils.clamp(-16, 16);
-  var proxy = { s:0 };
+  /* run only while on screen */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }, { threshold:0 }).observe(section);
+  } else visible = true;
 
-  /* the pinned takeover: pin the section, hold the row still for a beat (movement starts a
-     little later), then travel across its overflow */
-  var tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: section,
-      start: 'top top',
-      end: function(){ return '+=' + Math.round(maxX() * 1.15 + 40); },
-      pin: true, pinSpacing: true, anticipatePin: 1, scrub: 1, invalidateOnRefresh: true,
-      onUpdate: function(self){
-        var sk = clampSkew(self.getVelocity() / -220);
-        if(Math.abs(sk) > Math.abs(proxy.s)){
-          proxy.s = sk;
-          gsap.to(proxy, { s:0, duration:.9, ease:'power3', overwrite:true,
-            onUpdate:function(){ setSkew(proxy.s); } });
-        }
-      }
+  var last = performance.now();
+  function frame(now){
+    requestAnimationFrame(frame);
+    var dt = Math.min((now-last)/1000, 0.05); last = now;
+    if(!visible || document.hidden) return;
+    /* drift eases in and out rather than switching */
+    var wantDrift = (dragging || hovering) ? 0 : 1;
+    driftK += (wantDrift - driftK) * Math.min(1, dt*6);
+    if(!dragging){
+      x += DRIFT * driftK * dt;
+      if(Math.abs(v) > 0.5){
+        x += v * dt;
+        /* Apple's deceleration: d = 0.998 per ms */
+        v *= Math.pow(0.998, dt*1000);
+      } else v = 0;
     }
+    wrap();
+    setX(x);
+  }
+  requestAnimationFrame(frame);
+
+  /* -- direct manipulation: 1:1 drag with velocity handoff -- */
+  var px0 = 0, x0 = 0, hist = [], moved = false, capturedId = null;
+  stack.addEventListener('pointerdown', function(e){
+    if(e.button !== 0) return;
+    dragging = true; moved = false; px0 = e.clientX; x0 = x; hist = [[e.clientX, e.timeStamp]]; v = 0;
+    capturedId = e.pointerId; try{ stack.setPointerCapture(e.pointerId); }catch(_){}
+    stack.classList.add('is-grabbing');
+    gsap.killTweensOf(proxy);
   });
-  tl.to(cards, { x:0, duration:0.15 });                                  // hold — movement begins later
-  tl.to(cards, { x:function(){ return -maxX(); }, ease:'none', duration:1.0 });
+  stack.addEventListener('pointermove', function(e){
+    if(!dragging || e.pointerId !== capturedId) return;
+    var dx = e.clientX - px0;
+    if(!moved && Math.abs(dx) > 6){ moved = true; }
+    if(moved){ x = x0 + dx; wrap(); setX(x); }
+    hist.push([e.clientX, e.timeStamp]); if(hist.length > 6) hist.shift();
+    if(hist.length >= 2){ var a=hist[hist.length-2], b=hist[hist.length-1]; var vv=(b[0]-a[0])/Math.max(1,(b[1]-a[1]))*1000; kick(vv); }
+  });
+  function endDrag(){
+    if(!dragging) return;
+    dragging = false; stack.classList.remove('is-grabbing');
+    try{ stack.releasePointerCapture(capturedId); }catch(_){}
+    /* release velocity from the last ~80ms of history -> free momentum */
+    if(hist.length >= 2){
+      var b = hist[hist.length-1], a = hist[0];
+      for(var i=hist.length-2;i>=0;i--){ a = hist[i]; if(b[1]-hist[i][1] > 80) break; }
+      var vel = (b[0]-a[0]) / Math.max(1,(b[1]-a[1])) * 1000;
+      v = gsap.utils.clamp(-2600, 2600, vel);
+    }
+  }
+  stack.addEventListener('pointerup', endDrag);
+  stack.addEventListener('pointercancel', endDrag);
+  /* a drag must not also be a click: swallow the click that follows a real move */
+  stack.addEventListener('click', function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  stack.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+  /* hover on a card pauses the drift so you can look */
+  stack.addEventListener('pointerover', function(e){ if(e.pointerType==='mouse' && e.target.closest('.wd-card')) hovering = true; });
+  stack.addEventListener('pointerout',  function(e){ if(e.pointerType==='mouse' && !stack.contains(e.relatedTarget)) hovering = false; });
+
+  /* horizontal wheel / trackpad scrolls it sideways; a vertical wheel is left to the page */
+  stack.addEventListener('wheel', function(e){
+    if(Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault(); x -= e.deltaX; wrap(); setX(x); kick(-e.deltaX*40);
+  }, { passive:false });
+
+  /* page scroll velocity still skews the frames -- the vocabulary the section had */
+  ScrollTrigger.create({ trigger:section, start:'top bottom', end:'bottom top',
+    onUpdate:function(self){ kick(self.getVelocity() * 0.9); } });
 })();
 
 /* ── outro: bloom swells; headline builds and "noise" resolves out of noise ── */
