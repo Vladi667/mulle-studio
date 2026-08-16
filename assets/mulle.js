@@ -614,42 +614,126 @@ if(pre && !seen){
   pageIntro();
 }
 
+/* -- deep link to a project: /our-work#auren opens THAT project --
+   The home cards now point at their own row rather than the top of the index. A native
+   hash jump is useless here: the browser resolves it before the preloader has left, before
+   the webfonts reflow and before ScrollTrigger knows any position, so it lands hundreds of
+   pixels off and Lenis then fights it. So we take the jump over: pin the page at the top,
+   wait until the layout has actually settled, then travel there ourselves and say which
+   project arrived. */
+(function(){
+  if(!document.querySelector('.wk-row')) return;
+  try{ if('scrollRestoration' in history) history.scrollRestoration = 'manual'; }catch(_){}
+
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  function rowFor(hash){
+    if(!hash || hash.length < 2) return null;
+    var el;
+    try{ el = document.getElementById(decodeURIComponent(hash.slice(1))); }catch(_){ return null; }
+    return (el && el.classList.contains('wk-row')) ? el : null;
+  }
+
+  /* the arrival mark: a short blue rule down the row, gone in ~1.6s. The row also takes
+     focus (tabindex="-1") so a keyboard lands where the eye does. */
+  function mark(el){
+    el.classList.add('is-arrived');
+    try{ el.focus({ preventScroll:true }); }catch(_){}
+    setTimeout(function(){ el.classList.remove('is-arrived'); }, 1700);
+  }
+
+  function goTo(el, smooth){
+    try{ ScrollTrigger.refresh(); }catch(_){}
+    var head = 0;
+    var cs = getComputedStyle(el).scrollMarginTop; if(cs) head = parseFloat(cs) || 0;
+    var y = el.getBoundingClientRect().top + (window.pageYOffset||0) - head;
+    if(smooth && !reduce && typeof lenis !== 'undefined' && lenis){ lenis.scrollTo(y, { duration:1.15 }); }
+    else if(smooth && !reduce){ window.scrollTo({ top:y, behavior:'smooth' }); }
+    else { window.scrollTo(0, y); if(typeof lenis !== 'undefined' && lenis && lenis.scrollTo) lenis.scrollTo(y, { immediate:true }); }
+    mark(el);
+  }
+
+  /* landing from another page: hold at the top until the layout is real, then travel */
+  var target = rowFor(location.hash);
+  if(target){
+    window.scrollTo(0, 0);
+    var settle = function(){
+      /* one more frame after load so lazy posters have taken their space */
+      requestAnimationFrame(function(){ setTimeout(function(){ goTo(target, true); }, 60); });
+    };
+    if(document.readyState === 'complete') settle();
+    else window.addEventListener('load', settle, { once:true });
+  }
+
+  /* same-page hash clicks (and back/forward between projects) */
+  window.addEventListener('hashchange', function(){
+    var el = rowFor(location.hash); if(el) goTo(el, true);
+  });
+})();
+
 /* ── scroll progress ── */
 gsap.to('.progress i', {
   scaleX:1, ease:'none',
   scrollTrigger:{ start:0, end:'max', scrub:.3 }
 });
 
-/* ── client marquee — base drift + scroll-velocity boost, slow on hover ── */
+/* -- trusted-by: a real ticker, not a static row --
+   This is the engine that used to drive the standalone .marquee section. That section was
+   folded into the hero and the row became six frozen logos -- on a phone three of them were
+   hidden outright (nth-child(n+4):display:none), so half the proof never appeared at all.
+   The engine was left behind as dead code; it now drives the hero row, which means every
+   client shows on every screen size.
+
+   Physics kept from the original: a slow base drift, a boost from page-scroll velocity, a
+   lean into the scroll direction, and a slow-down (not a stop) on hover so a name you are
+   reading stays readable. The set is duplicated and the offset wraps on one set's width.
+   Reduced motion: no duplication, no drift -- the six marks sit still. */
 (function(){
-  var section = document.querySelector('.marquee');
-  var track = document.getElementById('mqTrack');
-  if(!section || !track) return;
-  var groups = track.querySelectorAll('.mq-group');
-  if(groups.length < 2) return;
+  var row = document.querySelector('.ht-row');
+  if(!row || row.dataset.ticker) return;
+  var logos = Array.prototype.slice.call(row.children);
+  if(logos.length < 2) return;
+  row.dataset.ticker = '1';
+
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce) return;                       /* CSS leaves the plain row alone */
+
+  /* rebuild as viewport > track > two identical groups */
+  var track = document.createElement('div'); track.className = 'ht-track';
+  var g1 = document.createElement('div'); g1.className = 'ht-group';
+  logos.forEach(function(l){ g1.appendChild(l); });
+  var g2 = g1.cloneNode(true);
+  g2.setAttribute('aria-hidden', 'true');
+  /* the duplicate is decoration: its <img alt> would otherwise read the client list twice */
+  Array.prototype.forEach.call(g2.querySelectorAll('img'), function(i){ i.alt = ''; });
+  track.appendChild(g1); track.appendChild(g2);
+  row.appendChild(track);
+  row.classList.add('is-ticker');
+
   var half = 0;
-  function measure(){ half = groups[0].getBoundingClientRect().width; }
+  function measure(){ half = g1.getBoundingClientRect().width; }
   measure();
   window.addEventListener('load', measure);
-  setTimeout(measure, 1200);                 /* re-measure after webfont reflow */
   window.addEventListener('resize', measure);
-  var x = 0, base = 40, speed = base, skew = 0, hover = false, handed = false, last = performance.now();
-  section.addEventListener('pointerenter', function(){ hover = true; });
-  section.addEventListener('pointerleave', function(){ hover = false; });
+  setTimeout(measure, 1200);               /* after webfont/logo reflow */
+
+  var x = 0, base = 26, speed = base, skew = 0, hover = false, vis = true, last = performance.now();
+  row.addEventListener('pointerenter', function(){ hover = true; });
+  row.addEventListener('pointerleave', function(){ hover = false; });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ vis = es[0].isIntersecting; }, { threshold:0 }).observe(row);
+  }
+
   function loop(now){
     requestAnimationFrame(loop);
-    /* hand off from the CSS fallback only once rAF is confirmed firing —
-       if rAF is throttled (hidden tab), the CSS animation keeps it moving */
-    if(!handed){ handed = true; section.dataset.js = '1'; last = now; return; }
     var dt = Math.min((now - last)/1000, .05); last = now;
-    var signed = lenis ? (lenis.velocity || 0) : 0;
-    var v = Math.abs(signed);
-    var target = (hover ? 8 : base) + v * 9;
+    if(!vis || document.hidden) return;
+    var signed = (typeof lenis !== 'undefined' && lenis) ? (lenis.velocity || 0) : 0;
+    var target = (hover ? 7 : base) + Math.abs(signed) * 7;
     speed += (target - speed) * Math.min(dt * 6, 1);
     x -= speed * dt;
     if(half > 0 && x <= -half){ x += half; }
-    /* lean into the scroll direction — the ticker feels physical */
-    var skewTarget = Math.max(-4, Math.min(4, signed * 0.32));
+    var skewTarget = Math.max(-3, Math.min(3, signed * 0.26));
     skew += (skewTarget - skew) * Math.min(dt * 5, 1);
     track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0) skewX(' + skew.toFixed(2) + 'deg)';
   }
@@ -1597,18 +1681,30 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   requestAnimationFrame(frame);
 
   /* -- direct manipulation: 1:1 drag with velocity handoff -- */
-  var px0 = 0, x0 = 0, hist = [], moved = false, capturedId = null;
+  /* Capture and the grabbing class are deferred until the drag PASSES THE THRESHOLD, and
+     that is not a detail -- doing either on pointerdown made every card unclickable:
+       - setPointerCapture retargets the subsequent click to .wd-stack, so the delegated
+         page-transition handler's e.target.closest('a') found nothing and the link died;
+       - .is-grabbing sets pointer-events:none on the cards, so the click could not land on
+         one either.
+     A press that never moves must stay a plain click on the card. */
+  var px0 = 0, x0 = 0, hist = [], moved = false, ptId = null, captured = false;
   stack.addEventListener('pointerdown', function(e){
     if(e.button !== 0) return;
-    dragging = true; moved = false; px0 = e.clientX; x0 = x; hist = [[e.clientX, e.timeStamp]]; v = 0;
-    capturedId = e.pointerId; try{ stack.setPointerCapture(e.pointerId); }catch(_){}
-    stack.classList.add('is-grabbing');
+    dragging = true; moved = false; captured = false;
+    px0 = e.clientX; x0 = x; hist = [[e.clientX, e.timeStamp]]; v = 0;
+    ptId = e.pointerId;
     gsap.killTweensOf(proxy);
   });
   stack.addEventListener('pointermove', function(e){
-    if(!dragging || e.pointerId !== capturedId) return;
+    if(!dragging || e.pointerId !== ptId) return;
     var dx = e.clientX - px0;
-    if(!moved && Math.abs(dx) > 6){ moved = true; }
+    if(!moved && Math.abs(dx) > 6){
+      moved = true;
+      /* now it is a drag: take the pointer and dress the cursor */
+      try{ stack.setPointerCapture(ptId); captured = true; }catch(_){}
+      stack.classList.add('is-grabbing');
+    }
     if(moved){ x = x0 + dx; wrap(); setX(x); }
     hist.push([e.clientX, e.timeStamp]); if(hist.length > 6) hist.shift();
     if(hist.length >= 2){ var a=hist[hist.length-2], b=hist[hist.length-1]; var vv=(b[0]-a[0])/Math.max(1,(b[1]-a[1]))*1000; kick(vv); }
@@ -1616,7 +1712,7 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   function endDrag(){
     if(!dragging) return;
     dragging = false; stack.classList.remove('is-grabbing');
-    try{ stack.releasePointerCapture(capturedId); }catch(_){}
+    if(captured){ try{ stack.releasePointerCapture(ptId); }catch(_){} captured = false; }
     /* release velocity from the last ~80ms of history -> free momentum */
     if(hist.length >= 2){
       var b = hist[hist.length-1], a = hist[0];

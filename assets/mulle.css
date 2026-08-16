@@ -293,6 +293,14 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 .ht-lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;
   color:var(--txt-40);flex:none}
 .ht-row{display:flex;align-items:center;gap:clamp(22px,3.2vw,46px);flex-wrap:wrap}
+/* ticker mode (mulle.js rebuilds the row into viewport > track > two groups). The row
+   clips, never wraps, and the marks fade out at both ends so the loop has no visible seam. */
+.ht-row.is-ticker{display:block;overflow:hidden;flex-wrap:nowrap;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26px,#000 calc(100% - 46px),transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 26px,#000 calc(100% - 46px),transparent 100%)}
+.ht-track{display:flex;width:max-content;will-change:transform}
+.ht-group{display:flex;align-items:center;gap:clamp(22px,3.2vw,46px);flex:0 0 auto;
+  padding-right:clamp(22px,3.2vw,46px)}
 .ht-row img{height:26px;width:auto;flex:none;display:block;filter:grayscale(1);opacity:.55}
 
 /* body copy — even wrapping (no orphans/rivers) across the running text */
@@ -865,7 +873,15 @@ section{position:relative}
 
 /* WORK — selected work, editorial rows */
 .wk-list{max-width:1200px;margin:clamp(26px,5vh,56px) auto 0;padding:0 var(--margin)}
-.wk-row{display:grid;grid-template-columns:1.22fr 1fr;gap:clamp(28px,4.6vw,76px);align-items:center;margin-bottom:clamp(54px,10vh,124px)}
+/* deep-linked project rows: clear the sticky header when a card opens one, and take the
+   arrival mark (a blue rule that fades) so you can see WHICH project you landed on */
+.wk-row{scroll-margin-top:clamp(84px,12vh,132px);outline:none}
+.wk-row::after{content:"";position:absolute;left:calc(-1 * clamp(10px,1.6vw,22px));top:0;bottom:0;width:2px;
+  background:var(--blue);border-radius:2px;opacity:0;transform:scaleY(.3);transform-origin:center;
+  transition:opacity .5s var(--ease-out),transform .7s var(--ease-out);pointer-events:none}
+.wk-row.is-arrived::after{opacity:1;transform:scaleY(1)}
+@media (prefers-reduced-motion:reduce){.wk-row::after{transition:none}}
+.wk-row{position:relative;display:grid;grid-template-columns:1.22fr 1fr;gap:clamp(28px,4.6vw,76px);align-items:center;margin-bottom:clamp(54px,10vh,124px)}
 .wk-row:nth-child(even) .wk-row-media{order:2}
 @media(min-width:900px){ .wk-row.wk-lead{grid-template-columns:1.6fr .9fr} }
 .wk-row-n{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--txt-40)}
@@ -1391,7 +1407,9 @@ body.is-transitioning{pointer-events:none}
      nothing scrolling off the viewport edge */
   .ht-row{gap:22px}
   .ht-row img{height:20px}
-  .ht-row img:nth-child(n+4){display:none}
+  /* the ticker cycles every mark, so the phone no longer hides half the client list.
+     (Kept for the reduced-motion row, which is still a static non-scrolling flex row.) */
+  .ht-row:not(.is-ticker) img:nth-child(n+4){display:none}
   .readout .d{display:none}   /* no dangling divider once the coordinate peeks are hidden */
   .works-grid{grid-template-columns:1fr}
   .disc-link{grid-template-columns:32px 1fr;row-gap:10px}
