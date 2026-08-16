@@ -10,7 +10,7 @@
 
 if(typeof THREE === 'undefined') return;
 if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-/* phones: skip the background WebGL scenes entirely — barely visible there and a real GPU/battery tax; the fluid hero (mulle-fluid.js) stays */
+/* phones: skip the background WebGL scenes entirely — barely visible there and a real GPU/battery tax; the hero drawing (mulle-machined.js) is SVG and stays */
 if(window.matchMedia('(max-width:767px)').matches) return;
 
 var anchors = {

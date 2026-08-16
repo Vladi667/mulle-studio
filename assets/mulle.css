@@ -236,22 +236,10 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
    ────────────────────────────────────────────────────────────────── */
 .hero{position:relative;height:100svh;min-height:540px;display:flex;align-items:center;justify-content:center;overflow:clip}
 .fluid-wrap{position:absolute;inset:0;z-index:0}
-.fluid-wrap canvas{width:100%;height:100%}
-.fluid-wrap .fluid-fallback{
-  position:absolute;inset:0;opacity:0;
-  /* the studio, approximated in CSS — for the two cases the shader cannot run at all:
-     no WebGL, and no float/half-float render targets (still real on older Android WebViews).
-     Same six tokens the shader reflects, in the same order: white key high-left, lilac
-     ambient upper-right, chrome floor below, over the site's own sweep. Reduced motion does
-     NOT come here — that path runs the shader for one frame and stops. */
-  background:
-    radial-gradient(120% 62% at 18% 8%,  rgba(255,255,255,.96) 0%, transparent 58%),
-    radial-gradient(88% 48% at 84% 26%,  rgba(217,212,232,.52) 0%, transparent 66%),
-    radial-gradient(140% 72% at 62% 104%, rgba(142,150,163,.44) 0%, transparent 62%),
-    linear-gradient(176deg, #F7F7F9 0%, #EDEEF2 44%, #DFE2E9 72%, #CDD2DB 100%);
-}
-.fluid-wrap.fallback canvas{display:none}
-.fluid-wrap.fallback .fluid-fallback{opacity:1}
+/* the stage for mulle-machined.js — an SVG drawing, no canvas, no WebGL, no fallback
+   panel: SVG is the fallback. The old .fluid-fallback gradient block lived here. */
+.fluid-wrap svg.mach{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+.fluid-wrap svg.mach text{user-select:none;-webkit-user-select:none}
 
 /* ── HERO — one column, flush left, on the page's own margin.
    Every other section on the site opens the same way: a blue rule, a mono chapter label,

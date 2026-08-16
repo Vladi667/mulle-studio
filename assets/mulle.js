@@ -2030,11 +2030,9 @@ document.querySelectorAll('.value').forEach(function(v){
 /* live sim coverage in the readout pill */
 if(window.MulleFluid && window.MulleFluid.ok && window.MulleFluid.coverage){
   var ro = document.querySelector('.readout');
-  /* coverage() ends in a synchronous gl.readPixels (mulle-fluid.js), which
-     stalls the CPU until the GPU pipeline flushes. mulle.css hides .readout .cov
-     below 767px, so on a phone this was running that stall every 900ms, forever,
-     to update text nobody can see. Only run it where the pill is actually shown,
-     and never while the tab is in the background. */
+  /* coverage() reports the drawing's fill (mulle-machined.js): 0% plan, 100% object
+     under press-and-hold. Cheap now, but mulle.css hides .readout .cov below 767px,
+     so still only poll where the pill is actually shown, and never in a hidden tab. */
   var covMQ = window.matchMedia('(min-width:768px)');
   if(ro && covMQ.matches){
     var cov = document.createElement('span');
