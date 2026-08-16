@@ -7,3 +7,6 @@ node_modules
 # backups out of it — these must never be pushed.
 OFFSITE-SETUP.md
 *.bak
+
+# stray test-harness output (a bad OUT path once wrote screenshots here)
+undefined/
