@@ -1239,31 +1239,93 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
 })();
 
 
-/* ── home 'Selected' film plate — lazy load, mobile rendition, play only in view ── */
+/* ── home 'Selected' film plates — nothing is fetched until a plate is nearly on screen ──
+
+   The source swap below used to run for every .pf-vid at page load and call v.load() on each,
+   which starts resource selection and pulls the file. Six plates live below the fold on the
+   home page, so a phone downloaded all six renditions — 3.2 MB — before the visitor had
+   scrolled past the hero. Preparation is now deferred to an IntersectionObserver, and the
+   poster (already in the markup) carries the plate until then.
+
+   `_prepare` is idempotent and exposed on the element because the pinned carousel below owns
+   play/pause for the strip and has to be able to prepare a plate before playing it. */
 (function(){
   var vids = document.querySelectorAll('.pf-vid'); if(!vids.length) return;   // may be several film plates now
   var small = window.matchMedia('(max-width:767px)').matches;
+
+  /* metered or genuinely slow connections keep the poster and never fetch video at all */
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  var frugal = !!(conn && (conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '')));
+
   vids.forEach(function(v){
-    /* every .pf-vid (home strip included) takes the light rendition on phones. If a -mobile
-       file is ever missing, the <source> errors and we restore the full file once — a missing
-       rendition can never leave a blank frame again. */
-    if(small){
-      var s = v.querySelector('source');
-      if(s && s.src && s.src.indexOf('-mobile.mp4') === -1){
-        var full = s.src;
-        s.addEventListener('error', function onErr(){
-          s.removeEventListener('error', onErr);
-          s.src = full; v.load();
-        });
-        s.src = full.replace(/\.mp4(\?.*)?$/, '-mobile.mp4');
-        v.load();
+    var prepared = false;
+    v._wantPlay = false;
+    v._prepare = function(){
+      if(prepared || frugal) return;
+      prepared = true;
+      /* every .pf-vid (home strip included) takes the light rendition on phones. If a -mobile
+         file is ever missing, the <source> errors and we restore the full file once — a missing
+         rendition can never leave a blank frame again. */
+      if(small){
+        var s = v.querySelector('source');
+        if(s && s.src && s.src.indexOf('-mobile.mp4') === -1){
+          var full = s.src;
+          /* Only fall back when the browser genuinely has no playable source. A <source> also
+             fires `error` when an in-flight fetch is aborted — which happens routinely here,
+             because the carousel can pause or re-enter a plate mid-load. Restoring on any
+             error meant an aborted mobile fetch pulled the full file on top of it: two plates
+             ended up loading both renditions, including the 8.3 MB sneaker cut. */
+          s.addEventListener('error', function onErr(){
+            if(v.networkState !== 3 /* NETWORK_NO_SOURCE */) return;
+            s.removeEventListener('error', onErr);
+            s.src = full; v.load();
+          });
+          s.src = full.replace(/\.mp4(\?.*)?$/, '-mobile.mp4');
+        }
       }
+      try{ if(v.preload === 'none'){ v.preload = 'metadata'; } }catch(e){}
+      /* load() resets the element, so a play() issued in the same tick is cancelled —
+         re-issue it once there are frames, if the plate is still meant to be running */
+      v.addEventListener('loadeddata', function once(){
+        v.removeEventListener('loadeddata', once);
+        if(v._wantPlay){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+      });
+      v.load();
+    };
+    v._playSafe = function(){
+      v._wantPlay = true;
+      if(!prepared){
+        /* first touch: let the load finish. Calling play() in the same tick aborts the fetch
+           the load just started, which is exactly how the double-fetch happened. The
+           loadeddata handler above starts playback as soon as there are frames. */
+        v._prepare();
+        return;
+      }
+      var p = v.play(); if(p && p.catch){ p.catch(function(){}); }
+    };
+
+    var inStrip = !!v.closest('.wd-stack');
+
+    if(!('IntersectionObserver' in window)){
+      if(!inStrip){ v._playSafe(); } else { v._prepare(); }
+      return;
     }
-    if(v.closest('.wd-stack')) return;   /* home strip loops: the carousel IIFE owns play/pause */
-    function play(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? play() : v.pause(); }); }, { threshold:0.25, rootMargin:'200px 0px' }).observe(v);
-    } else { play(); }
+
+    /* preparation runs ahead of playback so a plate is never a stalled first frame.
+       The strip is clipped by .wd-stack's overflow, so its cards only intersect when they
+       are actually sliding into frame — which is exactly when they are worth fetching. */
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ v._prepare(); } });
+    }, { rootMargin: inStrip ? '300px 60%' : '600px 0px' }).observe(inStrip ? (v.closest('.wd-card') || v) : v);
+
+    if(inStrip) return;   /* home strip loops: the carousel IIFE owns play/pause */
+
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ v._playSafe(); }
+        else { v._wantPlay = false; v.pause(); }
+      });
+    }, { threshold:0.25, rootMargin:'200px 0px' }).observe(v);
   });
 })();
 
@@ -1437,8 +1499,10 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
   /* loops autoplay while the section is on screen — driven by an IntersectionObserver, kept
      independent of the pin so playback never stalls when the section is pinned */
   var vids = cards.map(function(c){ return c.querySelector('video.pf-vid'); }).filter(Boolean);
-  vids.forEach(function(v){ try{ if(v.preload === 'none'){ v.preload = 'metadata'; } }catch(e){} });
-  function play(v){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+  /* the blanket preload='metadata' upgrade that used to sit here ran at init for all six and
+     was the second thing pulling every rendition on load. Preparation now happens per plate,
+     on approach, in the lazy-load IIFE above — _playSafe prepares before it plays. */
+  function play(v){ if(v._playSafe){ v._playSafe(); return; } var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
   if('IntersectionObserver' in window){
     /* This used to observe the SECTION and then play all six. In the pinned strip only
        one or two cards are ever on screen, so a phone was decoding six videos to show
@@ -1450,7 +1514,7 @@ gsap.utils.toArray('.plate').forEach(function(plate, i){
       entries.forEach(function(e){
         var v = e.target.querySelector('video.pf-vid');
         if(!v) return;
-        if(e.isIntersecting){ play(v); } else { v.pause(); }
+        if(e.isIntersecting){ play(v); } else { v._wantPlay = false; v.pause(); }
       });
     }, { threshold: 0.1, rootMargin: '0px 40% 0px 40%' });
     cards.forEach(function(c){ if(c.querySelector('video.pf-vid')) io.observe(c); });
