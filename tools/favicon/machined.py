@@ -23,7 +23,7 @@ import build
 
 INK, PAPER, BLUE = '#1D1D1F', '#F5F5F7', '#0071E3'
 RULE = 'rgba(29,29,31,.28)'
-CROSS_OP = 0.62
+CROSS_OP = 0.92   # a 1-device-px line at the hero's .55 was a tint (~2.4:1); at icon size it needs near-full ink to register
 
 # integer grids: L R = crossbar span, T B = top/baseline, SL SR = stem, CT CB = crossbar, HI = hook inner top
 GRIDS = {
@@ -95,13 +95,19 @@ def display_svg(size, dimension=False, glyph_frac=0.60, dy_units=9.0):
     ox = (size-gw)/2 - build.DISPLAY_BOX[0]*s
     oy = (size-gh)/2 - build.DISPLAY_BOX[1]*s + dy_units*s
     k = size/180.0                                          # everything proportional to the 180
-    outline_w, cross_w, dot_r = 3.0*k, 2.0*k, 2.6*k        # hero's outline is 1.25css px = 2.5-3.75 device px on Retina
-    cx, cy = round(ox + build.SL*s) + .5, round(oy + build.T*s) + .5
+    # Optical sizing for the ANNOTATIONS too: at hero weight the crosshair was a hint and the
+    # dimension line invisible at 60pt (measured 1.7:1). Outline 3.5px @180 (the hero's 1.25css
+    # px on Retina), crosshair an INTEGER width centred on a pixel edge so it never smears to
+    # 1.4px, dimension 2px at half ink.
+    outline_w, dot_r = 3.5*k, 3.2*k
+    cross_w = max(2, round(2*k))
+    snap = 0.0 if cross_w % 2 == 0 else 0.5
+    cx, cy = round(ox + build.SL*s) + snap, round(oy + build.T*s) + snap
     body = f'<rect width="{size}" height="{size}" fill="{PAPER}"/>'
-    body += cross(cx, cy, size, dot_r, sw=cross_w, ns=False)
+    body += cross(cx, cy, size, dot_r, op=0.88, sw=cross_w, ns=False)
     if dimension:                                           # the hero's "874 x 321", without the text
-        y = oy + build.B*s + 14*k; x1 = ox + build.L*s; x2 = ox + build.R*s; tk = 4*k
-        body += (f'<g stroke="{RULE}" stroke-width="{1.5*k:.2f}" fill="none">'
+        y = round(oy + build.B*s + 15*k); x1 = ox + build.L*s; x2 = ox + build.R*s; tk = 5*k
+        body += (f'<g stroke="rgba(29,29,31,.55)" stroke-width="{max(2, round(2*k))}" fill="none">'
                  f'<line x1="{x1:.1f}" y1="{y:.1f}" x2="{x2:.1f}" y2="{y:.1f}"/>'
                  f'<line x1="{x1:.1f}" y1="{y-tk:.1f}" x2="{x1:.1f}" y2="{y+tk:.1f}"/>'
                  f'<line x1="{x2:.1f}" y1="{y-tk:.1f}" x2="{x2:.1f}" y2="{y+tk:.1f}"/></g>')

@@ -8,6 +8,12 @@ PAPER = (0xF5, 0xF5, 0xF7)
 # favicon.ico: FIVE frames, one per size browsers request (16 1x, 20 125%, 24 150%, 32 2x, 48 3x),
 # each its own drawing. Base must be the largest -- Pillow drops sizes bigger than the base.
 fr = {s: Image.open(f'm-{s}.png').convert('RGBA') for s in (16, 20, 24, 32, 48)}
+# hint the corners of the small frames: with a 2px radius the arc leaves the corner pixel ~35%
+# opaque, a grey dot on dark tab strips. Icon designers hand-tune these; so do we.
+for s in (16, 20, 24):
+    px = fr[s].load()
+    for (x, y) in [(0, 0), (s-1, 0), (0, s-1), (s-1, s-1)]:
+        if px[x, y][3] < 100: px[x, y] = (0, 0, 0, 0)
 fr[48].save('favicon.ico', format='ICO', sizes=[(16,16),(20,20),(24,24),(32,32),(48,48)],
             append_images=[fr[16], fr[20], fr[24], fr[32]], bitmap_format='bmp')
 # opaque RGB squares on paper for iOS / Android (the OS applies its own mask)
