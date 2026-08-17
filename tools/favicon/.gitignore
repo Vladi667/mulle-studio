@@ -1,5 +1,6 @@
-# outputs of build.py / make.js / assemble.py -- the shipped copies live at the site root
+# outputs of machined.py / make.js / assemble.py -- the shipped copies live at the site root
 *.svg
 *.png
 *.ico
 *.webmanifest
+__pycache__/

@@ -9,7 +9,7 @@ GSAP ScrollTrigger + Lenis motion.
 ## Structure
 - `index.html` and the six section pages (`marketing`, `brand-web`, `growth-ops`, `about`, `our-work`, `contact`) + `404.html`
 - `assets/` — `mulle.css`, `mulle.js` (Lenis + GSAP), `mulle-machined.js` (SVG hero drawing), `mulle-three.js` (Three.js mercury), logos, fonts via Google Fonts CDN
-- `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `icon-192/512.png`, `site.webmanifest` at the root — the wordmark's `f` at two optical sizes, generated from the hero's `PATH_D` by `tools/favicon/` (see its README to regenerate)
+- `favicon.ico` (5 frames), `apple-touch-icon.png`, `icon-192/512.png`, `site.webmanifest` at the root — the hero in miniature: the wordmark's `f` as a technical drawing on paper, generated from the hero's `PATH_D` by `tools/favicon/` (see its README to regenerate)
 
 ## Run locally
 Any static server, e.g. `npx http-server -p 4178 -c-1 .`

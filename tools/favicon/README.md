@@ -1,31 +1,34 @@
-# Favicon
+# Favicon — Machined
 
-The icon is the wordmark's own lowercase `f`, cut from the same `PATH_D` the hero draws
-(`assets/mulle-machined.js`), at **two optical sizes** rather than one artwork scaled:
+The icon is the hero in miniature: the wordmark's own `f` — cut from the same `PATH_D` the
+hero draws — as a **technical drawing** on a paper sheet, in the hero's material: paper
+`#F5F5F7`, ink `#1D1D1F`, hairline rules, and the blue `#0071E3` crosshair on the drawing's
+datum corner (stem-left at the top of the hook).
 
-- **Display master** (`apple-touch-icon.png` 180, `icon-192/512.png`): the exact wordmark `f`,
-  cut free of the `r` at the hook's terminal, glyph at 0.60 of the tile, shifted 9 units down
-  so its top-heavy mass sits centred. Opaque RGB squares — iOS applies its own mask.
-- **Small masters** (`favicon.svg`, and `favicon.ico` at 16 / 32 / 48): the same `f` redrawn on
-  a 16-, 32- and 48-pixel grid so every straight edge lands on whole pixels. Proportions
-  converge on the mark as the grid allows (hook reach 2.0 → 1.75 → 1.50 strokes vs 1.36).
-  The SVG is the 16 grid: an SVG cannot see the device DPR, and 1× crispness matters most;
-  it is exact 2× at Retina. Dark colour scheme adds a hairline keyline so the ink tile does
-  not vanish on dark tab strips (Chromium honours `prefers-color-scheme` inside SVG favicons;
-  `min-resolution` it does not).
+Every frame is **drawn for its size** — optical sizing, nothing scaled:
 
-Tile is the site's dark-button material `#1D1D1F`, mark `#F5F5F7`, corner 22% (Apple's
-continuous-corner proportion). Monochrome, like the wordmark — the site's blue is a
-functional accent, not identity.
+- **Tab sizes — the object.** `favicon.ico` carries five frames, one per size browsers actually
+  request: 16 (1×), 20 (125%), 24 (150%), 32 (2×), 48 (3×). Each is a solid ink `f` on the
+  paper sheet with its hairline frame and the crosshair, drawn on an integer grid so every
+  straight edge is a whole pixel. (A 1px-outline *plan* was drawn at 32/48 too; low-passed to
+  its physical size it reads grey and ghostly beside any solid favicon. The drawing is shown
+  pressed-in at tab sizes — the hero's own plan → object idea.)
+- **Home-screen sizes — the plan.** `apple-touch-icon.png` (180) and `icon-192/512.png` are
+  the exact wordmark `f` as a hairline outline (3px @180, proportional), the crosshair, and on
+  the touch icon one dimension line under the `f` (the hero's "874 × 321"). Square, opaque
+  RGB on paper — the OS applies its own mask.
+
+Why there is **no SVG favicon**: an SVG is one geometry for all sizes; browsers that see one
+prefer it and would ignore the per-size frames. Browsers pick ICO frames by exact size.
 
 Regenerate (Python 3 + Pillow, Node + Playwright):
 
 ```
 cd tools/favicon
-python build.py      # writes the SVG masters
+python machined.py   # writes the SVG masters (m-16 … m-512)
 node make.js         # Chromium renders them at exact device pixels
-python assemble.py   # ICO (BMP entries), opaque PNGs, manifest -> copied to the site root
+python assemble.py   # 5-frame ICO (BMP entries), opaque PNGs, manifest → copied to the root
 ```
 
 Every page's `<head>` carries, in this order:
-`favicon.ico` (32x32) · `favicon.svg` · `apple-touch-icon.png` · `site.webmanifest` · `theme-color`.
+`favicon.ico` (sizes 16 20 24 32 48) · `apple-touch-icon.png` · `site.webmanifest` · `theme-color`.
