@@ -38,13 +38,13 @@
           {
             "@type": "Offer",
             "name": "Marketing programme (monthly, from)",
-            "price": "490",
+            "price": "390",
             "priceCurrency": "CHF"
           },
           {
             "@type": "Offer",
             "name": "Growth Ops programme (monthly, from)",
-            "price": "490",
+            "price": "390",
             "priceCurrency": "CHF"
           }
         ]

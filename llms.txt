@@ -7,8 +7,8 @@
 - Brand identity: CHF 500
 - Brochure or marketing website: CHF 1'300
 - E-commerce website: CHF 2'100
-- Marketing programmes: from CHF 390 per month (Starter 490, Engine 890, Growth 1'390)
-- Growth Ops programmes: from CHF 390 per month (Signal 490, Compound 1'290, Enterprise 2'900)
+- Marketing programmes: from CHF 390 per month (Starter 390, Engine 790, Growth 1'290)
+- Growth Ops programmes: from CHF 390 per month (Signal 390, Compound 1'190, Enterprise 2'800)
 
 The three project engagements are **separate purchases**, not a cumulative ladder: the identity is not included in the website price, and the website is not included in the e-commerce price. Prices are identical in every canton. Source files and code are handed to the client.
 
