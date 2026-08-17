@@ -10,9 +10,11 @@ carries one frame per size browsers actually request, so nothing is ever scaled:
                 frame, blue crosshair on the datum corner. (A plan -- 1px outline -- was
                 tried at 32/48; at its physical size it reads grey and ghostly. The drawing
                 is shown pressed-in at tab sizes: the hero's own plan -> object idea.)
-  180 · 192 · 512  the exact wordmark f as a plan (2.5px @180, proportional), crosshair, and on
-                the touch icon one dimension line under the f (the hero's "874 x 321").
-                Square, opaque, RGB — the OS applies its own mask.
+  180 · 192 · 512  the exact wordmark f, SOLID, with the crosshair and (180) one dimension
+                line under the f — the hero's "874 x 321". Square, opaque, RGB; the OS masks it.
+                (The plan was drawn here first and looked beautiful at 180 -- but iOS Safari
+                shows the touch icon at 16pt in its tab bar, and downscaled the outline was a
+                ghost. One file serves every iOS surface, so the tab bar decides.)
 
 Why no SVG favicon: an SVG is one geometry for all sizes; it cannot be a crisp object at 16
 AND a crisp plan at 32. Browsers pick ICO frames by exact size, so the ICO is the vehicle.
@@ -88,7 +90,7 @@ def frame_svg(size):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}" width="{size}" height="{size}">'
             f'{sheet(size, r)}{cross(x, y, size, dot)}{glyph}</svg>')
 
-def display_svg(size, dimension=False, glyph_frac=0.60, dy_units=9.0):
+def display_svg(size, dimension=False, glyph_frac=0.60, dy_units=9.0, state='object'):
     """180 / 192 / 512: exact wordmark f as a plan. Square, no frame (OS masks it)."""
     bw, bh = build.DISPLAY_BOX[2]-build.DISPLAY_BOX[0], build.DISPLAY_BOX[3]-build.DISPLAY_BOX[1]
     s = (size*glyph_frac)/bh; gw, gh = bw*s, bh*s
@@ -111,8 +113,16 @@ def display_svg(size, dimension=False, glyph_frac=0.60, dy_units=9.0):
                  f'<line x1="{x1:.1f}" y1="{y:.1f}" x2="{x2:.1f}" y2="{y:.1f}"/>'
                  f'<line x1="{x1:.1f}" y1="{y-tk:.1f}" x2="{x1:.1f}" y2="{y+tk:.1f}"/>'
                  f'<line x1="{x2:.1f}" y1="{y-tk:.1f}" x2="{x2:.1f}" y2="{y+tk:.1f}"/></g>')
-    body += (f'<path transform="translate({ox:.4f},{oy:.4f}) scale({s:.6f})" d="{build.DISPLAY_F}" '
-             f'fill="none" stroke="{INK}" stroke-width="{outline_w:.2f}" vector-effect="non-scaling-stroke" stroke-linejoin="miter" stroke-miterlimit="4"/>')
+    # THE OBJECT, not the plan. iOS Safari uses the touch icon for its tab bar (16pt) and tab
+    # overview as well as the home screen; downscaled to 48 device px the outline f became a
+    # ghost -- 3.6% dark pixels, never reaching black -- while a solid f reads crisp. One file
+    # serves every iOS surface, so the tab bar decides. The crosshair and the dimension line
+    # keep it a drawing; the plan itself lives in the hero.
+    if state == 'plan':
+        body += (f'<path transform="translate({ox:.4f},{oy:.4f}) scale({s:.6f})" d="{build.DISPLAY_F}" '
+                 f'fill="none" stroke="{INK}" stroke-width="{outline_w:.2f}" vector-effect="non-scaling-stroke" stroke-linejoin="miter" stroke-miterlimit="4"/>')
+    else:
+        body += f'<path transform="translate({ox:.4f},{oy:.4f}) scale({s:.6f})" d="{build.DISPLAY_F}" fill="{INK}"/>'
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}" viewBox="0 0 {size} {size}">{body}</svg>'
 
 if __name__ == '__main__':
