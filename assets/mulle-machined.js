@@ -70,15 +70,33 @@ function layout(){
   if(compact){
     var pad = 12;
     var wrapTop = wrap.getBoundingClientRect().top;
-    var above = document.querySelector('.hero-hold');
+    var hintEl = document.querySelector('.hero-hold');
     var below = document.querySelector('.hero .eyebrow');
-    var lo = above ? above.getBoundingClientRect().bottom - wrapTop + pad : box.t*H;
-    var hi = below ? below.getBoundingClientRect().top - wrapTop - pad : box.b*H;
-    if(hi - lo > 40){
-      var s2 = Math.min(bw/VW, (hi-lo)/VH);
-      if(s2 < scale){ scale = s2; }
-      ox = box.l*W + (bw - VW*scale)/2;
-      oy = lo + ((hi-lo) - VH*scale)/2;
+    var wFit = bw/VW;              /* the drawing at full column width */
+    var FLOOR = wFit * 0.72;       /* and never smaller than this -- see below */
+    var band = function(useHint){
+      var lo = (useHint && hintEl) ? hintEl.getBoundingClientRect().bottom - wrapTop + pad : box.t*H;
+      var hi = below ? below.getBoundingClientRect().top - wrapTop - pad : box.b*H;
+      return [lo, hi];
+    };
+    var bnd = band(true);
+    var s2 = Math.min(wFit, (bnd[1]-bnd[0])/VH);
+    /* If the neighbours leave too little room, the drawing must NOT just shrink to fit --
+       measured on a French 320x568 screen it collapsed to 115px wide, a third of its English
+       size, because the translated headline wraps to two lines and lifts the chapter mark.
+       The hint is the most expendable thing in this band, so it gives way before the mark
+       does. (It is absolutely positioned, so hiding it reflows nothing.) */
+    if(hintEl){
+      if(s2 < FLOOR){ hintEl.style.display = 'none'; bnd = band(false); s2 = Math.min(wFit, (bnd[1]-bnd[0])/VH); }
+      else hintEl.style.display = '';
+    }
+    scale = Math.max(FLOOR, Math.min(wFit, s2));
+    ox = box.l*W + (bw - VW*scale)/2;
+    oy = bnd[0] + ((bnd[1]-bnd[0]) - VH*scale)/2;
+    /* whatever happens above, the ink never crosses the chapter mark */
+    if(below){
+      var maxB = below.getBoundingClientRect().top - wrapTop - 4;
+      if(oy + VH*scale > maxB) oy = maxB - VH*scale;
     }
   }
   g.setAttribute('transform', 'translate('+ox+','+oy+') scale('+scale+')');

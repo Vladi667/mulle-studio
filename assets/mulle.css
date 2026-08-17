@@ -1410,6 +1410,15 @@ body.is-transitioning{pointer-events:none}
   .hero-hold i{width:14px;height:1px;background:var(--blue);display:block}
   @keyframes holdIn{to{opacity:1}}
   @media (prefers-reduced-motion:reduce){.hero-hold{animation:none;opacity:1}}
+
+  /* A SHORT phone with a translated headline is the tight case: "Conçu pour durer." wraps to
+     two lines on a 320x568 screen where "Built to last." does not, and because the column is
+     bottom-anchored that lifts the chapter mark 38px -- squeezing the drawing above it to a
+     third of its size. Give the column back the room by sitting it lower; the drawing is the
+     hero's subject and should not pay for a line break. */
+  @media (max-height:640px){
+    .hero-inner{padding-bottom:clamp(104px,19vh,140px)}
+  }
   .hero-trust{bottom:clamp(58px,9vh,86px);gap:12px}
   /* three marks on a phone — one clean row, no stranded logo on a second line and
      nothing scrolling off the viewport edge */
@@ -1522,8 +1531,16 @@ body.is-transitioning{pointer-events:none}
 }
 
 /* ── mobile sticky CTA ── */
-.sticky-cta{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(160%);z-index:80;display:none;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--txt);color:var(--bg);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;box-shadow:0 12px 30px rgba(29,29,31,.3);transition:transform .5s var(--ease-out),opacity .35s var(--ease-out);opacity:0;pointer-events:none}
-.sticky-cta.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+/* Centred with auto margins, NOT left:50%. A fixed shrink-to-fit box positioned at left:50%
+   only has the right half of the viewport to lay out in, so its width was capped at 50vw --
+   160px on a 320px screen -- and the label wrapped to two lines inside the pill. It showed up
+   in French on every phone ("Démarrer un projet") and in English on an iPhone SE, where the
+   two-line pill grew tall enough to collide with the section's own footer link. */
+.sticky-cta{position:fixed;left:0;right:0;margin-inline:auto;width:max-content;max-width:calc(100vw - 32px);
+  bottom:16px;transform:translateY(160%);z-index:80;display:none;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--txt);color:var(--bg);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap;box-shadow:0 12px 30px rgba(29,29,31,.3);transition:transform .5s var(--ease-out),opacity .35s var(--ease-out);opacity:0;pointer-events:none}
+/* the longest label (FR) still has to fit a 320px screen without wrapping */
+@media (max-width:359px){ .sticky-cta{font-size:10px;letter-spacing:.14em;padding:13px 18px} }
+.sticky-cta.show{transform:translateY(0);opacity:1;pointer-events:auto}
 .sticky-cta .sc-arr{transition:transform .3s var(--ease-out)}
 .sticky-cta:active .sc-arr{transform:translateX(4px)}
 @media (max-width:767px){ .sticky-cta{display:inline-flex} }
