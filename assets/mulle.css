@@ -234,7 +234,12 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 /* ──────────────────────────────────────────────────────────────────
    HERO — fluid canvas + wordmark
    ────────────────────────────────────────────────────────────────── */
-.hero{position:relative;height:100svh;min-height:540px;display:flex;align-items:center;justify-content:center;overflow:clip}
+.hero{position:relative;height:100svh;min-height:540px;display:flex;align-items:center;justify-content:center;overflow:clip;
+  /* the finger drives the crosshair: with touch-action:auto Chrome handed any moving finger to
+     scrolling after the first move and cancelled pointer events, so on a phone the crosshair
+     only ever snapped to the touch point. pan-y keeps vertical swipes scrolling the page (the
+     one gesture that matters at the top of a page); horizontal movement is ours; pinch zooms. */
+  touch-action:pan-y pinch-zoom}
 .fluid-wrap{position:absolute;inset:0;z-index:0}
 /* the stage for mulle-machined.js — an SVG drawing, no canvas, no WebGL, no fallback
    panel: SVG is the fallback. The old .fluid-fallback gradient block lived here. */

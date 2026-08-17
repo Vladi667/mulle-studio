@@ -153,9 +153,15 @@ function prep(){
 }
 
 /* springs — Apple's vocabulary: response in seconds, damping ratio */
+/* Sub-stepped: semi-implicit Euler is only stable while damping*dt < 2, and at the hand's
+   0.26s response c = 43.5, so a single 50ms frame (a slow phone, a busy page) made the crosshair
+   DIVERGE -- measured flying off to (5024,-7491). Integrating in <=8ms steps keeps every spring
+   stable at any frame rate; at most 7 iterations at the 50ms cap. */
 function spring(x, v, target, dt, response, damping){
   var w = 2*Math.PI/response, k = w*w, c = 2*damping*w;
-  v += (-k*(x-target) - c*v)*dt; x += v*dt; return [x, v];
+  var n = Math.max(1, Math.ceil(dt/0.008)), h = dt/n;
+  for(var i=0;i<n;i++){ v += (-k*(x-target) - c*v)*h; x += v*h; }
+  return [x, v];
 }
 var fill = 0, fillV = 0, fillTarget = 0;                       /* 0 plan … 1 object */
 var cx = -1e4, cy = -1e4, sx = -1e4, sy = -1e4, svx = 0, svy = 0, hasPointer = false;
@@ -169,11 +175,18 @@ var hero = document.querySelector('.hero') || wrap;
 var isCoarse = window.matchMedia('(pointer: coarse)').matches;
 var lastTouchT = 0, holdT = 0, pulseUntil = 0, isCtl = function(e){ return e.target && e.target.closest && e.target.closest('a,button,input,label'); };
 function toLocal(e){ var r = wrap.getBoundingClientRect(); cx = e.clientX-r.left; cy = e.clientY-r.top; }
-hero.addEventListener('pointermove', function(e){ if(isCtl(e)) return; toLocal(e); hasPointer = true; if(e.pointerType!=='mouse'){ lastTouchT = performance.now(); touring = false; } }, { passive:true });
-hero.addEventListener('pointerleave', function(e){ if(e.pointerType==='mouse') hasPointer = false; });
+/* Autonomous AND interactive. The ambient tour is a behaviour, not an intro: the hand takes the
+   crosshair the instant it arrives (spring re-targets from where the crosshair IS, fast
+   response), and when the hand leaves -- mouse off the sheet, or a finger lifted and its
+   ~1.6s hold spent -- the tour resumes from wherever the hand left it, gliding to the nearest
+   inspection point. Nothing is ever killed; the instrument just changes who is driving it. */
+var mode = reduced ? 'idle' : 'tour', resumeAt = 0;
+function hand(){ mode = 'hand'; }
+hero.addEventListener('pointermove', function(e){ if(isCtl(e)) return; toLocal(e); hasPointer = true; hand(); if(e.pointerType!=='mouse'){ lastTouchT = performance.now(); } }, { passive:true });
+hero.addEventListener('pointerleave', function(e){ if(e.pointerType==='mouse'){ hasPointer = false; resumeAt = performance.now() + 500; } });
 hero.addEventListener('pointerdown', function(e){
   if(isCtl(e)) return;                       /* a press on a control is a click, not a fill */
-  toLocal(e); hasPointer = true; touring = false;
+  toLocal(e); hasPointer = true; hand();
   if(e.pointerType!=='mouse'){ lastTouchT = performance.now(); if(sx<-1e3){ sx=cx; sy=cy; } }
   holdT = performance.now(); fillTarget = 1;
 }, { passive:true });
@@ -190,10 +203,18 @@ window.addEventListener('pointercancel', release);
 /* the ambient tour — before anyone touches it, the crosshair inspects the sheet on its own:
    it visits the drawing's own dimension points, dwelling on each, so the instrument reads as
    alive on first paint. Any pointer input takes over. Never runs under reduced motion. */
-var touring = !reduced, tourI = 0, tourT = 0, tourPts = [];
+var tourI = 0, tourT = 0;
 function tourPoints(){
   return [ [0.06,0.05], [0.53,0.15], [1.0,0.5], [0.83,0.82], [0.30,0.5], [0.0,0.98] ];   /* in drawing fractions */
 }
+/* when the hand lets go, resume at the inspection point nearest to where it left the crosshair */
+function nearestTourPoint(){
+  var pts = tourPoints(), best = 0, bd = 1e12;
+  for(var i=0;i<pts.length;i++){ var px = ox + pts[i][0]*VW*scale, py = oy + pts[i][1]*VH*scale;
+    var d = (px-sx)*(px-sx) + (py-sy)*(py-sy); if(d < bd){ bd = d; best = i; } }
+  return best;
+}
+var crossOp = 0;   /* smoothed opacity -- the tour and the hand have different weights, blended, never a pop */
 
 /* pause when off-screen or hidden — the readout and the loop have nothing to do */
 if('IntersectionObserver' in window){
@@ -234,21 +255,34 @@ function frame(now){
   /* the crosshair — an instrument. Desktop: follows the mouse. Touch: follows the finger,
      holds ~1.6s after lift, then fades. Idle: the ambient tour, until the first touch. */
   var touchAlive = isCoarse && (now-lastTouchT) < 1600;
+  /* who is driving? the hand, while it is on the sheet (mouse over it, or a finger within its
+     hold, or a press in progress); otherwise the tour resumes -- unless reduced motion, where
+     the crosshair only ever answers a hand and rests when it leaves */
+  if(mode === 'hand'){
+    var handAlive = hasPointer && (!isCoarse || touchAlive || fillTarget) || fillTarget;
+    var mouseGone = !hasPointer && !isCoarse && now > resumeAt;
+    var touchGone = isCoarse && !touchAlive && !fillTarget;
+    if(!handAlive && (mouseGone || touchGone)){
+      if(reduced){ mode = 'idle'; }
+      else { mode = 'tour'; tourI = nearestTourPoint(); tourT = 0; }
+    }
+  }
   var show = false;
-  if(touring && lblP>0.98){
+  if(mode === 'tour' && lblP>0.98){
     tourT += dt;
     if(tourT > 2.4){ tourT = 0; tourI = (tourI+1) % tourPoints().length; }
     var tp = tourPoints()[tourI];
     cx = ox + tp[0]*VW*scale; cy = oy + tp[1]*VH*scale;
     if(sx<-1e3){ sx=cx; sy=cy; }
     show = true;
-  } else if(hasPointer && (!isCoarse || touchAlive || fillTarget)){
+  } else if(mode === 'hand'){
     show = true;
   }
   if(show){
     if(sx<-1e3){ sx = cx; sy = cy; }
-    /* the tour moves slower than a hand: a longer response, so it glides between points */
-    var resp = touring ? 0.9 : 0.26;
+    /* the tour glides (long response); the hand is answered at once (short) -- both springs
+       start from the crosshair's live position, so a handover is a curve, not a cut */
+    var resp = mode === 'tour' ? 0.9 : 0.26;
     if(dt>0){ var a = spring(sx,svx,cx,dt,resp,0.9); sx=a[0]; svx=a[1]; var b = spring(sy,svy,cy,dt,resp,0.9); sy=b[0]; svy=b[1]; }
     else { sx = cx; sy = cy; }
     var W = wrap.clientWidth, H = wrap.clientHeight;
@@ -260,10 +294,15 @@ function frame(now){
     var flip = sx > W-96;
     chLbl.setAttribute('x', flip ? sx-10 : sx+10); chLbl.setAttribute('y', sy-8);
     chLbl.setAttribute('text-anchor', flip ? 'end' : 'start');
-    var fadeOut = (isCoarse && !touring && !fillTarget) ? Math.min(1, (1600-(now-lastTouchT))/500) : 1;
-    var co = (touring?0.42:0.55)*lblP*(1-veil)*Math.max(0,fadeOut);
-    gCross.setAttribute('opacity', co); gRead.setAttribute('opacity', Math.min(1, co*1.7));
-  } else { gCross.setAttribute('opacity', 0); gRead.setAttribute('opacity', 0); }
+    /* the blue is the instrument, not a tint: .64 on its own tour, .74 under the hand (it was
+       .42 / .55 -- palest exactly on first paint). Blended, so a handover never pops. */
+    var want = (mode === 'tour' ? 0.64 : 0.74) * lblP * (1-veil);
+    crossOp += (want - crossOp) * (dt>0 ? Math.min(1, dt*8) : 1);
+    gCross.setAttribute('opacity', crossOp); gRead.setAttribute('opacity', Math.min(1, crossOp*1.5));
+  } else {
+    crossOp += (0 - crossOp) * (dt>0 ? Math.min(1, dt*8) : 1);
+    gCross.setAttribute('opacity', crossOp); gRead.setAttribute('opacity', Math.min(1, crossOp*1.5));
+  }
 
   /* the scroll veil from mulle.js: the drawing fades as the hero leaves */
   svg.style.opacity = 1 - veil;
