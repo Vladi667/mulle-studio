@@ -708,6 +708,63 @@ if(pre && !seen){
   });
 })();
 
+/* -- keep the wordmark legible over dark blocks --
+   The wordmark carries no pill (a deliberate call), so it is bare ink on whatever scrolls
+   beneath it -- and it is a black PNG. A full-width dark button passing under the fixed
+   header erased it outright: measured background luminance 0.11 behind the mark on /contact,
+   /fr/tarifs and /fr/agence-web-suisse-romande. Rather than give the pill back, the mark
+   inverts while something dark is genuinely behind it.
+
+   COVERAGE, not contact. The first version flipped on any intersection, so a button whose
+   top-left corner clipped the mark's bottom-right by 8x7px inverted the whole thing while it
+   sat on white -- 11 false inversions across six pages, which is worse than the bug. An
+   observer narrows the candidates to whatever is near the top; the exact overlap is then
+   measured per frame and the mark only flips once a dark block actually covers it. */
+(function(){
+  var wm = document.querySelector('.wordmark');
+  if(!wm) return;
+  var darks = document.querySelectorAll('.btn, .outro-btn, [data-dark]');
+  if(!darks.length || !('IntersectionObserver' in window)) return;
+
+  /* Measure against the LOGO, not the .wordmark box: the box is mostly padding, so a block
+     covering the ink entirely still scored under half of it and six real cases were missed. */
+  var mark = wm.querySelector('.wm-logo') || wm;
+  var COVER = 0.4;
+  var near = new Set(), on = false, queued = false;
+
+  function coverage(){
+    if(!near.size) return 0;
+    var w = mark.getBoundingClientRect();
+    var area = w.width * w.height;
+    if(area <= 0) return 0;
+    var best = 0;
+    near.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      var x = Math.min(w.right, r.right) - Math.max(w.left, r.left);
+      var y = Math.min(w.bottom, r.bottom) - Math.max(w.top, r.top);
+      if(x > 0 && y > 0) best = Math.max(best, (x*y)/area);
+    });
+    return best;
+  }
+
+  function evaluate(){
+    queued = false;
+    var want = coverage() >= COVER;
+    if(want !== on){ on = want; document.body.classList.toggle('on-dark', on); }
+  }
+  function schedule(){ if(!queued){ queued = true; requestAnimationFrame(evaluate); } }
+
+  /* a generous band: this only decides WHICH elements are worth measuring */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) near.add(e.target); else near.delete(e.target); });
+    schedule();
+  }, { rootMargin: '0px 0px -' + Math.max(0, window.innerHeight - 240) + 'px 0px', threshold: 0 });
+  Array.prototype.forEach.call(darks, function(d){ io.observe(d); });
+
+  window.addEventListener('scroll', schedule, { passive:true });
+  window.addEventListener('resize', schedule);
+})();
+
 /* ── scroll progress ── */
 gsap.to('.progress i', {
   scaleX:1, ease:'none',
