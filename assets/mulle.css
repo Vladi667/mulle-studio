@@ -265,8 +265,15 @@ body.menu-open .index-link .plus::after{transform:rotate(135deg)}
 
 /* the voice — at display scale, on the column. Tracking is size-specific: this is the
    largest type on the page after the outro, so it takes the tightest negative tracking. */
+/* The headline must stop before the drawing. Its box spans the whole column, so nothing
+   made it wrap: in French "Conçu pour durer." ran 147px INTO the technical drawing at
+   1440x900, and at 1280 and 1366 too -- the three commonest desktop widths. English
+   ("Built to last.") is short enough that it never showed. The drawing's left edge is at
+   55vw, so the headline is capped just short of it and wraps instead; English is unaffected
+   (its ink ends 122-388px clear at every size). */
 .hero-eyeline{margin:0;font-family:var(--display);font-weight:700;
   font-size:clamp(52px,7.6vw,112px);line-height:.95;letter-spacing:-.042em;
+  max-width:calc(55vw - var(--margin) - 72px);
   color:var(--txt);text-wrap:balance}
 .hero-eyeline em{font-style:normal;color:var(--blue)}
 
@@ -1410,7 +1417,7 @@ body.on-dark .wordmark .tag{border-left-color:rgba(255,255,255,.25)}
   .hero-col{position:relative}
   .hero-col::before{content:"";position:absolute;inset:-18px -14px -14px -14px;z-index:-1;border-radius:6px;
     background:linear-gradient(180deg,rgba(245,245,247,0) 0%,rgba(245,245,247,.86) 22%,rgba(245,245,247,.92) 100%)}
-  .hero-eyeline{font-size:clamp(40px,11.5vw,58px);letter-spacing:-.036em}
+  .hero-eyeline{font-size:clamp(40px,11.5vw,58px);letter-spacing:-.036em;max-width:none}
   .hero-lede{font-size:15px;max-width:34ch}
   .hero-acts{gap:16px;margin-top:clamp(20px,3vh,30px)}
   /* the one hint the phone needs: how to make the plan an object */
