@@ -60,6 +60,27 @@ function layout(){
   var bw = (box.r-box.l)*W, bh = (box.b-box.t)*H;
   scale = Math.min(bw/VW, bh/VH);
   ox = box.l*W + (bw - VW*scale)/2; oy = box.t*H + (bh - VH*scale)/2;
+
+  /* PHONE: the drawing shares the upper half with two pieces of type -- the "hold to fill"
+     hint above it and the chapter eyebrow below -- and on a short screen (320x568) it ran
+     13px into the eyebrow's ink. Fixed viewport fractions cannot solve that: they clear one
+     neighbour and crowd the other, which is exactly what happened on the first attempt. So
+     the band is measured off the real neighbours instead, and the drawing is fitted between
+     them with a 12px gutter. It stays put on tall phones and shrinks only where it must. */
+  if(compact){
+    var pad = 12;
+    var wrapTop = wrap.getBoundingClientRect().top;
+    var above = document.querySelector('.hero-hold');
+    var below = document.querySelector('.hero .eyebrow');
+    var lo = above ? above.getBoundingClientRect().bottom - wrapTop + pad : box.t*H;
+    var hi = below ? below.getBoundingClientRect().top - wrapTop - pad : box.b*H;
+    if(hi - lo > 40){
+      var s2 = Math.min(bw/VW, (hi-lo)/VH);
+      if(s2 < scale){ scale = s2; }
+      ox = box.l*W + (bw - VW*scale)/2;
+      oy = lo + ((hi-lo) - VH*scale)/2;
+    }
+  }
   g.setAttribute('transform', 'translate('+ox+','+oy+') scale('+scale+')');
   buildDims();
 }
@@ -231,6 +252,10 @@ function frame(now){
 }
 
 layout(); prep();
+/* the phone band is measured off the eyebrow and the hint, so it must be re-measured once the
+   webfonts land and move them -- otherwise the fit is computed against fallback metrics */
+if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ layout(); prep(); }); }
+window.addEventListener('load', function(){ layout(); prep(); });
 var rT = null;
 window.addEventListener('resize', function(){ clearTimeout(rT); rT = setTimeout(function(){ layout(); prep(); }, 120); });
 requestAnimationFrame(frame);
