@@ -1,0 +1,22 @@
+{
+  "name": "Fritz — Agency, Geneva",
+  "short_name": "Fritz",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F5F5F7",
+  "theme_color": "#F5F5F7"
+}
