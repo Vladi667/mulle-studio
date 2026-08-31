@@ -448,6 +448,30 @@ function heroWeightMorph(tl, el, at){
   }, at);
 }
 
+/* A line mask clips at the line BOX, and at this leading the box is tighter than the
+   ink: once the type has landed, a descender or a cedilla is left shaved flat. On the
+   French home page the tail of the ç in "Conçu" was cut off outright, and "préférons",
+   "disciplines" and "prochain" all lost the stem of their p. The mask only has a job
+   while the line is travelling, so give the ink back the moment it stops. */
+function unmaskLines(parts){
+  if(!parts) return;
+  var arr = (parts.length === undefined) ? [parts] : parts;
+  for(var i=0;i<arr.length;i++){
+    /* the wrapper is found by GSAP's own INLINE overflow, not by class: SplitText only
+       names the mask when linesClass is passed, and two of the call sites here do not
+       pass one. Nothing else on the page sets overflow inline. Four levels covers the
+       deepest chain there is -- a word inside the <em> accent inside a line inside the
+       mask, which is how "Le calme plutôt que le <em>bruit.</em>" is built, and why a
+       two-level walk unmasked the first line of every value and missed the second. */
+    var n = arr[i] && arr[i].parentNode, d = 0;
+    while(n && n.nodeType === 1 && d++ < 4){
+      var ov = n.style && n.style.overflow;
+      if(ov === 'clip' || ov === 'hidden'){ n.style.overflow = 'visible'; break; }
+      n = n.parentNode;
+    }
+  }
+}
+
 /* one motion dictionary: every section heading rises out of a clip mask */
 function revealHeading(el){
   if(!el) return;
@@ -455,7 +479,8 @@ function revealHeading(el){
     var split = new SplitText(el, { type:'lines', mask:'lines', linesClass:'split-line' });
     gsap.from(split.lines, {
       yPercent:118, opacity:0, duration:1, stagger:.1, ease:'power4.out',
-      scrollTrigger:{ trigger:el, start:'top 86%' }
+      scrollTrigger:{ trigger:el, start:'top 86%' },
+      onComplete:function(){ unmaskLines(split.lines); }
     });
   }else{
     gsap.from(el, { y:40, opacity:0, duration:.9, ease:'power3.out', scrollTrigger:{ trigger:el, start:'top 86%' } });
@@ -472,7 +497,8 @@ function heroIntro(){
      most of why this screen did not feel like the same site. */
   if(typeof SplitText !== 'undefined' && heroTitle){
     var hSplit = new SplitText(heroTitle, { type:'lines', mask:'lines', linesClass:'split-line' });
-    tl.from(hSplit.lines, { yPercent:118, opacity:0, duration:1, stagger:.09, ease:'power4.out' }, .05);
+    tl.from(hSplit.lines, { yPercent:118, opacity:0, duration:1, stagger:.09, ease:'power4.out',
+      onComplete:function(){ unmaskLines(hSplit.lines); } }, .05);
     /* and it thickens as it arrives — the same 300→weight morph the scroll-driven headings
        get. It is sequenced here rather than added to the SELS list below because that list
        is scroll-triggered for below-the-fold headings; at 112px, running the morph on top
@@ -497,7 +523,8 @@ function innerIntro(){
   tl.from('.page-hero .eyebrow', { y:-14, opacity:0, duration:.7, ease:'power3.out' }, 0);
   if(typeof SplitText !== 'undefined' && title){
     var split = new SplitText(title, { type:'lines', mask:'lines', linesClass:'split-line' });
-    tl.from(split.lines, { yPercent:115, opacity:0, duration:1, stagger:.09, ease:'power4.out' }, .1);
+    tl.from(split.lines, { yPercent:115, opacity:0, duration:1, stagger:.09, ease:'power4.out',
+      onComplete:function(){ unmaskLines(split.lines); } }, .1);
   }else if(title){
     tl.from(title, { y:40, opacity:0, duration:.9, ease:'power4.out' }, .1);
   }
@@ -1009,8 +1036,10 @@ if(document.querySelector('.hero')){
   var DIM = 'rgba(29,29,31,.18)', ON = '#0071E3';
   if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
     gsap.set(kn.querySelectorAll(SEL), { yPercent:0 });
-    slides.forEach(function(s){ s.style.position='relative'; s.style.marginBottom='26px'; });
-    var st = kn.querySelector('.kn-stage'); if(st){ st.style.height='auto'; }
+    /* the stage stacks its slides in one grid cell; reduced motion wants them listed
+       down the page instead, so give each its own row and drop the plate's floor */
+    slides.forEach(function(s){ s.style.gridArea='auto'; s.style.marginBottom='26px'; });
+    var st = kn.querySelector('.kn-stage'); if(st){ st.style.minHeight='0'; }
     gsap.set(ticks, { backgroundColor:ON });
     return;
   }
@@ -2056,7 +2085,8 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
       function(v,p,i){
         var t=i*0.16;
         gsap.to(v,{opacity:1,y:0,duration:1,ease:'power3.out',delay:t});
-        if(p.words) gsap.to(p.words,{yPercent:0,duration:.9,ease:'power4.out',stagger:.04,delay:t+0.12});
+        if(p.words) gsap.to(p.words,{yPercent:0,duration:.9,ease:'power4.out',stagger:.04,delay:t+0.12,
+          onComplete:function(){ unmaskLines(p.words); }});
       });
   }
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(init); } else { init(); }
@@ -2174,10 +2204,11 @@ gsap.utils.toArray('.pkg .amt').forEach(function(el){
     gsap.utils.toArray('.kine-head').forEach(function(h){
       var words;
       try{ words = new SplitText(h, { type:'lines,words', mask:'lines' }).words; }catch(e){ return; }
-      if(reduce) return;
+      if(reduce){ unmaskLines(words); return; }
       gsap.set(words, { yPercent:118, filter:'blur(8px)', opacity:0 });
       var done=false;
-      function go(){ if(done) return; done=true; gsap.to(words, { yPercent:0, filter:'blur(0px)', opacity:1, duration:1.15, ease:'power3.out', stagger:.09 }); }
+      function go(){ if(done) return; done=true; gsap.to(words, { yPercent:0, filter:'blur(0px)', opacity:1, duration:1.15, ease:'power3.out', stagger:.09,
+        onComplete:function(){ unmaskLines(words); } }); }
       if(typeof ScrollTrigger !== 'undefined'){ ScrollTrigger.create({ trigger:h, start:'top 84%', once:true, onEnter:go }); }
       if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) go(); }); }, { threshold:0.35 }).observe(h); }
       setTimeout(go, 2500);   /* safety: never leave the heading hidden */
