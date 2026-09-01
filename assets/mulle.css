@@ -1110,6 +1110,16 @@ section{position:relative}
 .works-foot{position:relative;display:flex;justify-content:center;margin-top:clamp(24px,5vh,60px)}
 .works-foot::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--hairline);z-index:0}
 .works-foot .btn{position:relative;z-index:1;background:var(--bg)}
+/* SPECULATIVE — unsolicited concepts for brands the studio has no relationship with.
+   Ordinary rows; what separates them is the labelling, not the layout. Status reads
+   "Unofficial -- not a client" where every other row reads "Concept", and the type line
+   repeats it, so the claim is visible wherever a reader enters.
+   contain, not cover: these are posters at mixed ratios and cropping a type-led poster
+   to a common frame cuts the headline off, which is the whole composition. */
+.wk-spec .wk-canvas{background:var(--bg)}
+.wk-spec .wk-img{object-fit:contain}
+.wk-spec .wk-row-type{color:var(--txt-55)}
+
 /* keynote: crop marks framing the kinetic-type stage as a printed plate */
 .kn-crop{position:absolute;width:12px;height:12px;pointer-events:none;z-index:1}
 .kn-crop::before,.kn-crop::after{content:"";position:absolute;background:var(--txt-24)}
