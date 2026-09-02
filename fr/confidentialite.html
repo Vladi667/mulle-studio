@@ -90,7 +90,7 @@
 
 <section class="section">
   <h2 data-reveal="">En bref.</h2>
-  <div class="body" data-reveal=""><p>C'est un site statique. Nous ne vous pistons pas, aucun cookie d'analyse ou de publicité, et nous ne dressons aucun profil de vous. La seule chose conservée est votre choix de langue.</p></div>
+  <div class="body" data-reveal=""><p>Aucun traceur publicitaire, aucun profil de vous, et aucun cookie. Nous comptons en revanche les visites, afin de savoir quelles pages sont lues et lesquelles ne le sont pas : il s'agit de Vercel Web Analytics et Speed Insights, sans cookie, sans identifiant, et incapables de vous suivre sur un autre site. Ce qui est relevé : la page, le pays, le type d'appareil et la vitesse de chargement.</p></div>
 </section>
 
 <section class="section">
@@ -105,7 +105,7 @@
 
 <section class="section">
   <h2 data-reveal="">Tiers.</h2>
-  <div class="body" data-reveal=""><p>Les polices sont chargées depuis Google Fonts et Fontshare, et le site est hébergé sur Vercel. Les demandes sont enregistrées chez Supabase et acheminées par e-mail via Resend, avec FormSubmit en solution de repli. Ces prestataires peuvent traiter des données techniques comme votre adresse IP selon leurs propres politiques.</p></div>
+  <div class="body" data-reveal=""><p>Les polices sont chargées depuis Google Fonts et Fontshare. Le site est hébergé sur Vercel, qui fournit également la mesure d'audience et de vitesse sans cookie décrite plus haut. Les demandes sont enregistrées chez Supabase et acheminées par e-mail via Resend, avec FormSubmit en solution de repli. Ces prestataires peuvent traiter des données techniques comme votre adresse IP selon leurs propres politiques.</p></div>
 </section>
 
 <section class="section">
@@ -115,7 +115,7 @@
 
 <section class="section">
   <h2 data-reveal="">Mises à jour.</h2>
-  <div class="body" data-reveal=""><p>Dernière mise à jour : juin 2026.</p></div>
+  <div class="body" data-reveal=""><p>Dernière mise à jour : septembre 2026.</p></div>
 </section>
 
 <footer class="site-foot">
@@ -164,4 +164,10 @@
 <script src="/assets/mulle.js" defer=""></script>
 
 
+<!-- analytics: injected by scripts/seo/inject-analytics.mjs -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/assets/analytics.js"></script>
+<!-- /analytics -->
 </body></html>

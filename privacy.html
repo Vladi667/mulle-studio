@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>Privacy — Agence Fritz</title>
-<meta name="description" content="How Agence Fritz handles your data — a static site with no tracking, no advertising cookies, and a contact form that never touches our servers." />
+<meta name="description" content="How Agence Fritz handles your data — no cookies, no advertising trackers, cookieless audience measurement, and a contact form kept only as long as we need it." />
 <link rel="icon" href="/favicon.ico" sizes="16x16 20x20 24x24 32x32 48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -87,7 +87,7 @@
 
 <section class="section">
   <h2 data-reveal>The short version.</h2>
-  <div class="body" data-reveal><p>This is a static site. We don't track you, we run no analytics or advertising cookies, and we build no profile of you. The only thing kept is your language choice.</p></div>
+  <div class="body" data-reveal><p>No advertising trackers, no profile of you, and no cookies at all. We do count visits, so that we know which pages are read and which are ignored: that is Vercel Web Analytics and Speed Insights, which are cookieless, record no identifier and cannot follow you to another site. What they collect is the page, the country, the kind of device, and how quickly the page loaded.</p></div>
 </section>
 
 <section class="section">
@@ -102,7 +102,7 @@
 
 <section class="section">
   <h2 data-reveal>Third parties.</h2>
-  <div class="body" data-reveal><p>Fonts load from Google Fonts and Fontshare, and the site is hosted on Vercel. Enquiries are stored with Supabase and emailed through Resend, with FormSubmit as a fallback. These providers may process technical data such as your IP address under their own policies.</p></div>
+  <div class="body" data-reveal><p>Fonts load from Google Fonts and Fontshare. The site is hosted on Vercel, which also provides the cookieless audience and speed measurement described above. Enquiries are stored with Supabase and emailed through Resend, with FormSubmit as a fallback. These providers may process technical data such as your IP address under their own policies.</p></div>
 </section>
 
 <section class="section">
@@ -112,7 +112,7 @@
 
 <section class="section">
   <h2 data-reveal>Updates.</h2>
-  <div class="body" data-reveal><p>Last updated June 2026.</p></div>
+  <div class="body" data-reveal><p>Last updated September 2026.</p></div>
 </section>
 
 <footer class="site-foot">
@@ -157,5 +157,11 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
 <script src="assets/mulle.js" defer></script>
+<!-- analytics: injected by scripts/seo/inject-analytics.mjs -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/assets/analytics.js"></script>
+<!-- /analytics -->
 </body>
 </html>

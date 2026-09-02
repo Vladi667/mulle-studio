@@ -15,8 +15,21 @@ GSAP ScrollTrigger + Lenis motion.
 Any static server, e.g. `npx http-server -p 4178 -c-1 .`
 
 ## Deploy
-Static deploy on Vercel — no serverless functions, no env vars.
+Static deploy on Vercel plus one Edge function (`api/contact.js`).
 Pushing to `main` deploys to production automatically.
+
+### Page-generation order
+Anything that rebuilds a page from its shell drops what a later step injected, so
+when you run more than one, run them in this order and never hand-edit a
+generated page:
+
+```
+build-landers → build-tarifs → add-inbound → inject-estimator → patch-twin-schema → inject-analytics
+```
+
+`scripts/seo/inject-analytics.mjs` is idempotent and must run **last**: it puts the
+Vercel Web Analytics + Speed Insights snippets and `assets/analytics.js` on every
+page. Run it after any page rebuild, then `scripts/seo/indexnow.mjs`.
 
 Until 2026-08-16 the Vercel project had **no Git repository connected**, so pushes deployed
 nothing and every release was a manual CLI deploy. Production silently served a stale build
