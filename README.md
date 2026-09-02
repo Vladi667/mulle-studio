@@ -36,4 +36,12 @@ Manual deploy, if the Git integration is ever disconnected again:
 npx vercel --prod --yes
 ```
 
-The contact form composes an email to `contact@agencefritz.com` (no backend required).
+The contact form posts to `api/contact.js` (Edge function), which records the
+enquiry in Supabase `fritz_leads`, emails the studio through Resend and sends the
+visitor a receipt. If that call fails, or while Resend is unconfigured, the page
+also posts to FormSubmit, so the studio is notified by at least one channel;
+`mailto:contact@agencefritz.com` is the last resort shown to the visitor. With
+JavaScript disabled the form posts itself and the function answers `303` back to
+`?sent=1`. Required env vars: `SUPABASE_URL`, `SUPABASE_ANON_KEY`. Optional:
+`RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`. The client logic is
+`assets/contact-form.js`, shared by `/contact` and `/fr/contact`.

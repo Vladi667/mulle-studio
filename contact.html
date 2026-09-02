@@ -156,11 +156,15 @@
         </div>
 
         <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
-          <label for="website">Website (leave empty)</label>
-          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          <label for="fax_number">Fax (leave empty)</label>
+          <input id="fax_number" name="fax_number" type="text" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-1p-ignore>
         </div>
 
         <input type="hidden" id="package" name="package" value="">
+        <input type="hidden" name="lang" value="en">
+        <input type="hidden" name="source_page" value="">
+        <input type="hidden" name="gclid" value="">
+        <input type="hidden" name="msclkid" value="">
 
         <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
 
@@ -170,86 +174,7 @@
         </div>
       </form>
 
-      <script>
-      (function(){
-        const form    = document.getElementById('contactForm');
-        const status  = document.getElementById('formStatus');
-        const btn     = document.getElementById('formSubmit');
-        const pkgInp  = document.getElementById('package');
-        const discInp = document.getElementById('discipline');
-        const msgInp  = document.getElementById('message');
-
-        const PKG_MAP = {
-          'creative-starter':     { label: 'Creative Starter',       discipline: 'Marketing',                  preface: "I'd like to start with the Creative Starter." },
-          'creative-engine':      { label: 'Creative Engine',        discipline: 'Marketing',                  preface: "I'd like to start with the Creative Engine." },
-          'growth-engine':        { label: 'Growth Engine',          discipline: 'Marketing',                  preface: "I'd like to start with the Growth Engine." },
-          'brand-identity':       { label: 'Brand Identity',         discipline: 'Brand & Website Design',     preface: "I'd like to start with Brand Identity." },
-          'business-website':     { label: 'Business Website',       discipline: 'Brand & Website Design',     preface: "I'd like to start with a Business Website." },
-          'commerce-suite':       { label: 'Commerce Suite',         discipline: 'Brand & Website Design',     preface: "I'd like to start with the Commerce Suite." },
-          'growth-ops-signal':    { label: 'Growth Ops · Signal',    discipline: 'Growth Ops',                 preface: "I'd like to start with Growth Ops · Signal." },
-          'growth-ops-compound':  { label: 'Growth Ops · Compound',  discipline: 'Growth Ops',                 preface: "I'd like to start with Growth Ops · Compound." },
-          'growth-ops-enterprise':{ label: 'Growth Ops · Enterprise',discipline: 'Growth Ops',                 preface: "I'd like to start with Growth Ops · Enterprise." },
-        };
-
-        const params = new URLSearchParams(location.search);
-        const slug = (params.get('package') || '').toLowerCase();
-        if (slug && PKG_MAP[slug]) {
-          const p = PKG_MAP[slug];
-          pkgInp.value = p.label;
-          if (discInp && !discInp.value) discInp.value = p.discipline;
-          if (msgInp && !msgInp.value)   msgInp.value   = p.preface + '\n\n';
-          setTimeout(() => {
-            form.scrollIntoView({ behavior:'smooth', block:'start' });
-            msgInp.focus({ preventScroll:true });
-            try { msgInp.setSelectionRange(msgInp.value.length, msgInp.value.length); } catch(_){}
-          }, 250);
-        }
-
-        function setStatus(kind, html){
-          status.hidden = false;
-          status.className = 'form-status ' + kind;
-          status.innerHTML = html;
-        }
-
-        var fr = (function(){ try{ var s = localStorage.getItem('fritz_lang'); if(s) return s === 'fr'; }catch(e){} return (navigator.language||'').toLowerCase().indexOf('fr') === 0; })();
-        var T = {
-          sending: fr ? 'Envoi de votre message…' : 'Sending your note…',
-          sent:    fr ? '<b>Message envoyé.</b> Merci — nous vous répondons sous 24 heures.' : "<b>Message sent.</b> Thanks — we'll reply within 24 hours.",
-          missing: fr ? "Merci d'indiquer votre nom, votre e-mail et un petit mot." : 'Please fill in your name, email, and a short note.',
-          error:   fr ? "Une erreur est survenue à l'envoi. Écrivez-nous directement à <a href=\"mailto:contact@agencefritz.com\">contact@agencefritz.com</a>." : 'Something went wrong sending your note. Please email us directly at <a href="mailto:contact@agencefritz.com">contact@agencefritz.com</a>.',
-          btnSending: fr ? 'Envoi…' : 'Sending…'
-        };
-
-        form.addEventListener('submit', function(e){
-          e.preventDefault();
-          var p = Object.fromEntries(new FormData(form).entries());
-          if (p.website) { setStatus('ok', T.sent); return; }                          // honeypot: silently drop bots
-          if (!p.name || !p.email || !p.message) { setStatus('err', T.missing); return; }
-
-          var label = btn.querySelector('span'); var orig = label.textContent;
-          btn.disabled = true; label.textContent = T.btnSending; setStatus('pending', T.sending);
-
-          fetch('https://formsubmit.co/ajax/contact@agencefritz.com', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({
-              name: p.name, email: p.email, company: p.company || '',
-              discipline: p.discipline || '', budget: p.budget || '', timeline: p.timeline || '',
-              package: p.package || '', message: p.message,
-              _subject: p.package ? ('Project — ' + p.package) : 'New enquiry — Agence Fritz',
-              _template: 'table', _captcha: 'false'
-            })
-          })
-          .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return { ok: r.ok, d: d }; }); })
-          .then(function(res){
-            if (res.ok && (res.d.success === 'true' || res.d.success === true)) {
-              form.reset(); setStatus('ok', T.sent); label.textContent = fr ? 'Envoyé' : 'Sent';
-            } else { throw new Error('send failed'); }
-          })
-          .catch(function(){ btn.disabled = false; label.textContent = orig; setStatus('err', T.error); });
-        });
-      })();
-      </script>
+      <script src="/assets/contact-form.js" defer></script>
     </div>
 
     <aside class="contact-aside">
