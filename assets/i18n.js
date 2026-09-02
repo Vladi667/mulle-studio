@@ -397,7 +397,7 @@
   FR[`03 plans<br>Signal → Compound → Enterprise<br>Monthly retainer`] = `03 plans<br>Signal → Cumuler → Enterprise<br>Forfait mensuel`;
   FR[`View`] = `Voir`;
   FR[`Agency — Geneva — Est. MMXXI`] = `Agence — Genève — Depuis MMXXI`;
-  FR[`Trusted by`] = `Ils nous font confiance`;
+  FR[`Founder's freelance work, before Fritz`] = `Travaux freelance du fondateur, avant Fritz`;
   FR[`Selected clients`] = `Clients choisis`;
   FR[`Selected projects — websites, identities, and film.`] = `Projets choisis — sites web, identités et films.`;
 

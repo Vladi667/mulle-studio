@@ -825,7 +825,7 @@ gsap.to('.progress i', {
   logos.forEach(function(l){ g1.appendChild(l); });
   var g2 = g1.cloneNode(true);
   g2.setAttribute('aria-hidden', 'true');
-  /* the duplicate is decoration: its <img alt> would otherwise read the client list twice */
+  /* the duplicate is decoration: its <img alt> would otherwise read the mark list twice */
   Array.prototype.forEach.call(g2.querySelectorAll('img'), function(i){ i.alt = ''; });
   track.appendChild(g1); track.appendChild(g2);
   row.appendChild(track);

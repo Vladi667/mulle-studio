@@ -1,3 +1,8 @@
+/* NOTE: this generator used to emit a "Trusted by" row over brands the studio
+   has never worked for, including Mandarin Oriental, which appears nowhere else.
+   Its output is not published today, but re-running it would have put the claim
+   back on a page. Only the founder's evidenced freelance clients remain, under
+   the same caption the live hero uses. */
 import fs from 'fs';
 const dir = 'C:/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-Desktop-Fritz/0960b374-6328-4cf3-a3ca-1e3681f0b646/scratchpad/mock';
 const A = JSON.parse(fs.readFileSync(dir + '/assets.json', 'utf8'));
@@ -45,7 +50,7 @@ const A_foot = `
     <div class="eye" style="left:3.2%;top:14.5%">Brand · Web · Growth — Genève</div>
     <div class="slogan" style="left:3.2%;top:18.5%;font-size:2.9vw">Built to last<span class="blue">.</span></div>
     <div class="cta" style="right:3.2%;top:20%">Start a project<span class="ar">→</span></div>
-    <div class="trust" style="left:3.2%;top:40%"><span class="lb">Trusted by</span>${lg('brunello-cucinelli')}${lg('mandarin-oriental')}${lg('deloitte')}${lg('bcg')}</div>
+    <div class="trust" style="left:3.2%;top:40%"><span class="lb">Founder's freelance work, before Fritz</span>${lg('deloitte')}</div>
     <div class="fritz" style="left:0;right:0;bottom:-2%;text-align:center"><img src="${WM}" style="width:58%;margin:0 auto"></div>
   </div></div>`;
 
@@ -55,7 +60,7 @@ const B_water = `
     <div class="eye" style="left:0;right:0;top:26%;text-align:center">Built to last<span class="blue">.</span>&nbsp;&nbsp;—&nbsp;&nbsp;Brand · Web · Growth · Genève</div>
     <div class="fritz" style="left:0;right:0;top:34%;text-align:center"><img src="${WM}" style="width:48%;margin:0 auto"></div>
     <div class="cta" style="left:50%;transform:translateX(-50%);bottom:9%">Start a project<span class="ar">→</span></div>
-    <div class="trust" style="left:50%;transform:translateX(-50%);bottom:3.5%"><span class="lb">Trusted by</span>${lg('bcg')}${lg('deloitte')}${lg('mandarin-oriental')}${lg('puig')}</div>
+    <div class="trust" style="left:50%;transform:translateX(-50%);bottom:3.5%"><span class="lb">Founder's freelance work, before Fritz</span>${lg('deloitte')}${lg('puig')}</div>
   </div></div>`;
 
 const C_mast = `
@@ -66,7 +71,7 @@ const C_mast = `
     <div class="eye" style="left:3.2%;top:67%">Brand · Web · Growth — Genève</div>
     <div class="slogan" style="left:3.2%;top:71%;font-size:2.9vw">Built to last<span class="blue">.</span></div>
     <div class="cta" style="right:3.2%;bottom:8%">Start a project<span class="ar">→</span></div>
-    <div class="trust" style="left:3.2%;bottom:4%"><span class="lb">Trusted by</span>${lg('brunello-cucinelli')}${lg('bcg')}${lg('deloitte')}${lg('mandarin-oriental')}</div>
+    <div class="trust" style="left:3.2%;bottom:4%"><span class="lb">Founder's freelance work, before Fritz</span>${lg('deloitte')}</div>
   </div></div>`;
 
 const html = `<title>The Waterline — fritz placement</title><style>${base}</style>

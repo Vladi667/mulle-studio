@@ -1,3 +1,8 @@
+/* NOTE: this generator used to emit a "Trusted by" row over brands the studio
+   has never worked for, including Mandarin Oriental, which appears nowhere else.
+   Its output is not published today, but re-running it would have put the claim
+   back on a page. Only the founder's evidenced freelance clients remain, under
+   the same caption the live hero uses. */
 import fs from 'fs';
 const dir = 'C:/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-Desktop-Fritz/0960b374-6328-4cf3-a3ca-1e3681f0b646/scratchpad/mock';
 const A = JSON.parse(fs.readFileSync(dir + '/assets.json', 'utf8'));
@@ -95,7 +100,7 @@ const peakKiss = `
     <div class="pk-idx">01 — Ouverture</div>
     <div class="pk-slogan">Built to <em>last.</em></div>
     <div class="pk-cta">Start a project <span class="ar mono">→</span></div>
-    <div class="pk-trust"><span class="lb">Trusted by</span>${logo('brunello-cucinelli')}${logo('bcg')}${logo('deloitte')}${logo('mandarin-oriental')}${logo('puig')}<span class="more">+ 26 brands</span></div>
+    <div class="pk-trust"><span class="lb">Founder's freelance work, before Fritz</span>${logo('deloitte')}${logo('puig')}</div>
   </div>
 </div>`;
 
@@ -108,7 +113,7 @@ const waterline = `
     <div class="wl-eye">Brand · Web · Growth — Genève</div>
     <div class="wl-slogan">Built to last<span class="blue">.</span></div>
     <div class="wl-idx">Ouverture — 01</div>
-    <div class="wl-trust"><span class="lb">Trusted by</span><div class="row">${logo('brunello-cucinelli')}${logo('mandarin-oriental')}${logo('deloitte')}${logo('bcg')}${logo('puig')}</div></div>
+    <div class="wl-trust"><span class="lb">Founder's freelance work, before Fritz</span><div class="row">${logo('deloitte')}${logo('puig')}</div></div>
     <div class="wl-cta">Start a project<span class="ar">→</span></div>
     <div class="wl-clock">Genève — 46.2044°N 6.1432°E — 14:32:09</div>
   </div>
@@ -131,7 +136,7 @@ const planche = `
     <div class="pl-slogan">Built<br>to<br><em>last</em><span class="sq"></span></div>
     <div class="pl-pos">Brand, web and growth systems, machined in Geneva. Precise, essential, made to endure.</div>
     <div class="pl-cta"><span class="p">Start a project →</span><span class="s">See the work ↗</span></div>
-    <div class="pl-colo"><span class="lb">Trusted by — IDX 001–010</span>${logo('brunello-cucinelli')}${logo('bcg')}${logo('clarins')}${logo('deloitte')}${logo('mandarin-oriental')}${logo('puig')}${logo('dsm-firmenich')}${logo('credit-agricole')}</div>
+    <div class="pl-colo"><span class="lb">Founder's freelance work, before Fritz</span>${logo('clarins')}${logo('deloitte')}${logo('puig')}</div>
   </div>
 </div>`;
 

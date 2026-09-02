@@ -1,32 +1,41 @@
-# Carousel logos — drop your files here
+# Brand marks in the hero band
 
-The "Trusted by" carousel shows brand **names as text** until a matching logo
-file exists in this folder, then it swaps the name for the logo automatically.
-The logo is rendered as a **monochrome graphite silhouette** to match the site
-(via a CSS `brightness(0)` filter) — so the source files must be **transparent**
-(transparent SVG preferred, or transparent PNG/WebP). Colour/background is
-irrelevant; only the shape (alpha) is used.
+## What these are, and what they are not
 
-Filenames are derived from the brand name (lowercase, accents stripped, spaces →
-hyphens). Drop any of these (the loader tries `.svg`, then `.png`, then `.webp`):
+These marks are **freelance work by the studio's founder, predating Fritz**.
+They are **not** Agence Fritz client mandates. Fritz has no client work.
 
-```
-assets/logos/bcg.svg
-assets/logos/brunello-cucinelli.svg
-assets/logos/clarins.svg
-assets/logos/credit-agricole.svg
-assets/logos/deloitte.svg
-assets/logos/dsm-firmenich.svg
-assets/logos/dyn-group.svg
-assets/logos/mandarin-oriental.svg
-assets/logos/next-bank.svg
-assets/logos/puig.svg
-assets/logos/roof.svg
-assets/logos/saunier-duval.svg
-```
+Until 2 September 2026 the homepage showed six of them under the label
+"Trusted by", and the French homepage under "Ils nous font confiance" — which
+states outright that the agency is the trusted party. Neither was true. Under
+Swiss unfair-competition law that is an inaccurate statement about one's own
+business (LCD art. 3 al. 1 let. b), and it contradicted `llms.txt`, which tells
+AI crawlers the studio's work is self-initiated concept work.
 
-Tips:
-- **Transparent SVG** is best (crisp at any size, tiny file).
-- Each logo should be the **wordmark or mark on a transparent background**, trimmed tight.
-- No file = the brand simply stays as its text name (safe to deploy anytime).
-- To add a brand not listed, just add its `.mq-item` text to the carousel and drop `assets/logos/<slugified-name>.svg`.
+## Which marks may be shown
+
+| Mark | Shown | Why |
+|---|---|---|
+| Deloitte | yes | presented as a client on theomuller.com |
+| Clarins | yes | presented as a client on theomuller.com |
+| Puig | yes | presented as a client on theomuller.com |
+| BCG | **no** | appears only in an unlabelled carousel; unconfirmed |
+| Brunello Cucinelli | **no** | appears only in an unlabelled carousel; unconfirmed |
+| DSM-Firmenich | **no** | appears only in an unlabelled carousel; unconfirmed |
+| Mandarin Oriental | **no** | appeared only in hero generators; no evidence anywhere |
+| every other file here | **no** | unused; kept only as source material |
+
+To restore one of the withheld marks, the founder must confirm it individually:
+a **direct** freelance engagement for that brand, not work delivered through an
+agency that served it, and the year it happened. Then add it back here with the
+confirmation recorded in this table.
+
+## Rules
+
+- The caption must stay legible. It sits at 11.5px in `.ht-lbl`; it was 9.5px at
+  40% opacity, which is decoration, and a hairline disclaimer under a row of
+  logos still reads as a client list.
+- Never write "Trusted by", "Ils nous font confiance", "clients" or "client list"
+  over these marks — in a page, a generator, a comment, an alt attribute or a
+  profile text.
+- `scripts/seo/verify-live.mjs` fails the build if any of that wording returns.
