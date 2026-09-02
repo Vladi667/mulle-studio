@@ -1,7 +1,28 @@
+/* ─────────────────────────────────────────────────────────────────
+   build-sitemap.mjs — sitemap.xml with a REAL lastmod per URL
+   ─────────────────────────────────────────────────────────────────
+   lastmod used to be a hard-coded constant ('2026-07-19'). The sitemap
+   was regenerated several times after that date and every page had
+   since changed — two sitewide price cuts, the fabricated-client
+   removal, the marketing and work-page rewrites — so all 36 URLs were
+   telling search engines that nothing had moved since July.
+
+   The date now comes from git: the last commit that touched the page's
+   own file, ignoring commits that only touched the <head> (analytics,
+   favicon, schema stamps), which are not content changes.
+
+   Freshness is computed, never typed. If a page has not changed, its
+   date does not move.
+   ───────────────────────────────────────────────────────────────── */
 import fs from 'fs';
+import { execFileSync } from 'child_process';
+import { pathToFileURL } from 'url';
+
 const ROOT = 'C:/Users/Admin/Desktop/mulle-studio';
 const O = 'https://agencefritz.com';
-const LM = '2026-07-19';
+
+// Commits whose subject starts with one of these only touch chrome, not content.
+const CHROME_COMMITS = /^(Count the visits|Favicon|Deliver the contact form)/i;
 
 // [enPath, frPath, priority]  (frPath null = EN-only; enPath null = FR-only)
 const PAIRS = [
@@ -29,6 +50,25 @@ const PAIRS = [
   ['/privacy', '/fr/confidentialite', '0.3'],
 ];
 
+/** URL path -> the file that renders it */
+export function fileFor(loc) {
+  if (loc === '/') return 'index.html';
+  if (loc === '/fr/') return 'fr/index.html';
+  return loc.replace(/^\//, '') + '.html';
+}
+
+/** Last content-change date for a file, as YYYY-MM-DD. */
+export function lastContentChange(file) {
+  const log = execFileSync('git', ['log', '--format=%cs\t%s', '--', file], { cwd: ROOT, encoding: 'utf8' });
+  for (const line of log.split('\n')) {
+    if (!line.trim()) continue;
+    const [date, ...rest] = line.split('\t');
+    if (CHROME_COMMITS.test(rest.join('\t'))) continue;
+    return date;
+  }
+  return null;
+}
+
 function alts(en, fr) {
   let s = '';
   if (en) s += `\n    <xhtml:link rel="alternate" hreflang="en" href="${O}${en}"/>`;
@@ -36,15 +76,31 @@ function alts(en, fr) {
   s += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${O}${en || fr}"/>`;
   return s;
 }
+
 function url(loc, pr, en, fr) {
-  return `  <url>\n    <loc>${O}${loc}</loc>${alts(en, fr)}\n    <lastmod>${LM}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${pr}</priority>\n  </url>`;
+  const file = fileFor(loc);
+  if (!fs.existsSync(`${ROOT}/${file}`)) throw new Error(`sitemap lists ${loc} but ${file} does not exist`);
+  const lm = lastContentChange(file);
+  if (!lm) throw new Error(`no git history for ${file} — cannot date ${loc}`);
+  return `  <url>\n    <loc>${O}${loc}</loc>${alts(en, fr)}\n    <lastmod>${lm}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${pr}</priority>\n  </url>`;
 }
 
-const urls = [];
-for (const [en, fr, pr] of PAIRS) {
-  if (en) urls.push(url(en, pr, en, fr));
-  if (fr) urls.push(url(fr, pr, en, fr));
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const urls = [];
+  const dates = [];
+  for (const [en, fr, pr] of PAIRS) {
+    if (en) { urls.push(url(en, pr, en, fr)); dates.push(lastContentChange(fileFor(en))); }
+    if (fr) { urls.push(url(fr, pr, en, fr)); dates.push(lastContentChange(fileFor(fr))); }
+  }
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`;
+  fs.writeFileSync(ROOT + '/sitemap.xml', xml);
+
+  const spread = [...new Set(dates)].sort();
+  console.log(`sitemap: ${urls.length} URLs · ${spread.length} distinct lastmod values (${spread[0]} → ${spread[spread.length - 1]})`);
+  if (spread.length === 1) {
+    console.log('WARNING: every URL carries the same date — that is what the old hard-coded constant did. Check the git history filter.');
+    process.exitCode = 1;
+  }
 }
-const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`;
-fs.writeFileSync(ROOT + '/sitemap.xml', xml);
-console.log(`sitemap: ${urls.length} URLs`);
+
+export { PAIRS };
