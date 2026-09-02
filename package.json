@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "cheerio": "^1.2.0"
+  },
+  "scripts": {
+    "verify-live": "node scripts/seo/verify-live.mjs",
+    "verify-patterns": "node scripts/seo/verify-live.mjs --selftest",
+    "rebuild-meta": "node scripts/seo/stamp-org.mjs && node scripts/seo/inject-analytics.mjs && node scripts/seo/build-sitemap.mjs && node scripts/seo/patch-dates.mjs"
   }
 }

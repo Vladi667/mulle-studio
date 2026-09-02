@@ -31,6 +31,25 @@ build-landers → build-tarifs → add-inbound → inject-estimator → patch-tw
 Vercel Web Analytics + Speed Insights snippets and `assets/analytics.js` on every
 page. Run it after any page rebuild, then `scripts/seo/indexnow.mjs`.
 
+`npm run rebuild-meta` runs the four idempotent metadata scripts in order
+(org schema, analytics, sitemap, schema dates). None of them invents anything:
+prices come from `prices.mjs` and dates from git.
+
+### After every deploy
+
+```
+npm run verify-live
+```
+
+It fetches production and fails on a regression: a retired client claim, a
+superseded price, a missing organisation schema or analytics tag, a broken
+hreflang pair, a sitemap with one hard-coded date, or `/api/contact` not
+answering. `npm run verify-patterns` proves each pattern still fires.
+
+**`seo-build.mjs` regenerates the three FR service twins from English and will
+strip their SEO bands.** It refuses to run on import, but when you run it
+deliberately, re-inject the bands afterwards and re-run `npm run rebuild-meta`.
+
 Until 2026-08-16 the Vercel project had **no Git repository connected**, so pushes deployed
 nothing and every release was a manual CLI deploy. Production silently served a stale build
 for days at a time before anyone noticed. If that ever recurs, the symptom is: commits on
