@@ -32,7 +32,13 @@
 <meta name="twitter:image" content="/assets/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&amp;family=Geist+Mono:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<!-- The font stylesheet blocked first paint for ~950ms and the largest element on
+     the page is the headline, so it was delaying exactly what it styles. It loads
+     as a non-blocking sheet and is promoted on load; display=swap is already in the
+     URL, so text paints in the fallback and swaps rather than waiting. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&amp;family=Geist+Mono:wght@300;400;500;600&amp;display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&amp;family=Geist+Mono:wght@300;400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&amp;family=Geist+Mono:wght@300;400;500;600&amp;display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/assets/mulle.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://agencefritz.com/#org","name":"Agence Fritz","alternateName":"Fritz","url":"https://agencefritz.com/","image":"https://agencefritz.com/assets/og.png","description":"Studio indépendant à Genève : identité de marque, création de site web et systèmes de croissance propulsés par l'IA. Conçu pour durer.","email":"contact@agencefritz.com","inLanguage":"fr-CH","areaServed":["Genève","Suisse romande","Suisse"],"address":{"@type":"PostalAddress","addressLocality":"Genève","addressRegion":"GE","addressCountry":"CH"},"geo":{"@type":"GeoCoordinates","latitude":46.2044,"longitude":6.1432},"sameAs":["https://www.linkedin.com/in/th%C3%A9o-muller-90315517b"],"priceRange":"CHF 390–2800","knowsAbout":["Identité de marque","Création de site web","Marketing","Growth","Intelligence artificielle"]}

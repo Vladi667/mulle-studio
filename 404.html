@@ -13,7 +13,13 @@
 <meta name="google-site-verification" content="VhuwyO25kIG2cixuHA1Q_VEidt9piz4CbxF_HQv36e4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- The font stylesheet blocked first paint for ~950ms and the largest element on
+     the page is the headline, so it was delaying exactly what it styles. It loads
+     as a non-blocking sheet and is promoted on load; display=swap is already in the
+     URL, so text paints in the fallback and swaps rather than waiting. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/mulle.css">
 <style>
   .nf{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--margin);position:relative;overflow:hidden}

@@ -26,7 +26,13 @@
 <meta name="twitter:image" content="/assets/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- The font stylesheet blocked first paint for ~950ms and the largest element on
+     the page is the headline, so it was delaying exactly what it styles. It loads
+     as a non-blocking sheet and is promoted on load; display=swap is already in the
+     URL, so text paints in the fallback and swaps rather than waiting. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/mulle.css">
 <script type="application/ld+json">
 {
@@ -183,7 +189,7 @@
     <div class="hero-trust">
       <span class="ht-lbl">Founder's freelance work, before Fritz</span>
       <div class="ht-row">
-        <img src="assets/logos/deloitte.png" alt="Deloitte"><img src="assets/logos/clarins.png" alt="Clarins"><img src="assets/logos/puig.png" alt="Puig">
+        <picture><source srcset="assets/logos/deloitte.webp" type="image/webp"><img src="assets/logos/deloitte.png" alt="Deloitte"></picture><picture><source srcset="assets/logos/clarins.webp" type="image/webp"><img src="assets/logos/clarins.png" alt="Clarins"></picture><picture><source srcset="assets/logos/puig.webp" type="image/webp"><img src="assets/logos/puig.png" alt="Puig"></picture>
       </div>
     </div>
   </div>
@@ -273,8 +279,8 @@
     <a class="wd-card" href="/our-work#newform" aria-label="Newform — motion concept">
       <span class="wd-shot">
         <span class="wd-media">
-          <img class="wd-poster" src="assets/work/concept-newform-poster.jpg" alt="" loading="lazy">
-          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-newform-poster.jpg">
+          <picture><source srcset="assets/work/concept-newform-poster.webp" type="image/webp"><img class="wd-poster" src="assets/work/concept-newform-poster.jpg" alt="" loading="lazy"></picture>
+          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-newform-poster.webp">
             <source src="assets/work/concept-newform.mp4" type="video/mp4">
           </video>
         </span>
@@ -285,8 +291,8 @@
     <a class="wd-card" href="/our-work#art-landing" aria-label="Art Landing — website concept">
       <span class="wd-shot">
         <span class="wd-media">
-          <img class="wd-poster" src="assets/work/concept-art-landing-poster.jpg" alt="" loading="lazy">
-          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-art-landing-poster.jpg">
+          <picture><source srcset="assets/work/concept-art-landing-poster.webp" type="image/webp"><img class="wd-poster" src="assets/work/concept-art-landing-poster.jpg" alt="" loading="lazy"></picture>
+          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-art-landing-poster.webp">
             <source src="assets/work/concept-art-landing.mp4" type="video/mp4">
           </video>
         </span>
@@ -297,8 +303,8 @@
     <a class="wd-card" href="/our-work#auren" aria-label="Auren — website concept">
       <span class="wd-shot">
         <span class="wd-media">
-          <img class="wd-poster" src="assets/work/concept-auren-poster.jpg" alt="" loading="lazy">
-          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-auren-poster.jpg">
+          <picture><source srcset="assets/work/concept-auren-poster.webp" type="image/webp"><img class="wd-poster" src="assets/work/concept-auren-poster.jpg" alt="" loading="lazy"></picture>
+          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-auren-poster.webp">
             <source src="assets/work/concept-auren.mp4" type="video/mp4">
           </video>
         </span>
@@ -309,8 +315,8 @@
     <a class="wd-card" href="/our-work#immersive-studio" aria-label="Immersive Studio — motion concept">
       <span class="wd-shot">
         <span class="wd-media">
-          <img class="wd-poster" src="assets/work/concept-immersive-studio-poster.jpg" alt="" loading="lazy">
-          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-immersive-studio-poster.jpg">
+          <picture><source srcset="assets/work/concept-immersive-studio-poster.webp" type="image/webp"><img class="wd-poster" src="assets/work/concept-immersive-studio-poster.jpg" alt="" loading="lazy"></picture>
+          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-immersive-studio-poster.webp">
             <source src="assets/work/concept-immersive-studio.mp4" type="video/mp4">
           </video>
         </span>
@@ -321,8 +327,8 @@
     <a class="wd-card" href="/our-work#sneaker" aria-label="Sneaker — ad film">
       <span class="wd-shot">
         <span class="wd-media">
-          <img class="wd-poster" src="assets/sneaker-poster.jpg" alt="" loading="lazy">
-          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/sneaker-poster.jpg">
+          <picture><source srcset="assets/sneaker-poster.webp" type="image/webp"><img class="wd-poster" src="assets/sneaker-poster.jpg" alt="" loading="lazy"></picture>
+          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/sneaker-poster.webp">
             <source src="assets/sneaker-ad.mp4" type="video/mp4">
           </video>
         </span>
@@ -333,8 +339,8 @@
     <a class="wd-card wd-last" href="/our-work#stillmind" aria-label="Stillmind — wellness concept">
       <span class="wd-shot">
         <span class="wd-media">
-          <img class="wd-poster" src="assets/work/concept-stillmind-poster.jpg" alt="" loading="lazy">
-          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-stillmind-poster.jpg">
+          <picture><source srcset="assets/work/concept-stillmind-poster.webp" type="image/webp"><img class="wd-poster" src="assets/work/concept-stillmind-poster.jpg" alt="" loading="lazy"></picture>
+          <video class="pf-vid" muted loop playsinline preload="none" poster="assets/work/concept-stillmind-poster.webp">
             <source src="assets/work/concept-stillmind.mp4" type="video/mp4">
           </video>
         </span>
