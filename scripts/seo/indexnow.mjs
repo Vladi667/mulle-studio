@@ -69,3 +69,15 @@ const res = await fetch('https://api.indexnow.org/indexnow', {
 console.log(`Submitted ${urlList.length} URLs -> HTTP ${res.status} ${res.status === 200 ? '(accepted)' : res.status === 202 ? '(accepted, key pending)' : '(REJECTED)'}`);
 if (res.status >= 400) { console.error(await res.text()); process.exit(1); }
 urlList.forEach(u => console.log('  ' + u));
+
+/* Append a line per run. One submission was made on 2026-08-09 and nothing
+   after it was recorded, so "was IndexNow re-run after that deploy?" had no
+   answer — and the sitemap and every page had changed in between. A log makes
+   it checkable rather than remembered. */
+{
+  const { appendFileSync } = await import('node:fs');
+  const stamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
+  appendFileSync(new URL('./indexnow.log', import.meta.url),
+    `${stamp}  HTTP ${res.status}  ${urlList.length} URL(s)  ${urlList.length === 1 ? urlList[0] : 'full sitemap'}\n`);
+  console.log('logged to scripts/seo/indexnow.log');
+}

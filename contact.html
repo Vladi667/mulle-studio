@@ -37,6 +37,20 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://agencefritz.com/#org","name":"Agence Fritz","alternateName":"Fritz","url":"https://agencefritz.com/","image":"https://agencefritz.com/assets/og.png","description":"Independent studio in Geneva: brand identity, website design and AI growth systems. Built to last.","email":"contact@agencefritz.com","inLanguage":"en","areaServed":["Geneva","French-speaking Switzerland","Switzerland"],"address":{"@type":"PostalAddress","addressLocality":"Geneva","addressRegion":"GE","addressCountry":"CH"},"geo":{"@type":"GeoCoordinates","latitude":46.2044,"longitude":6.1432},"sameAs":["https://www.linkedin.com/in/th%C3%A9o-muller-90315517b"],"priceRange":"CHF 390–2800","knowsAbout":["Brand identity","Web design","Marketing","Growth operations","Artificial intelligence"]}
 </script>
+<style id="aftersend-css">
+/* Deliberately flat. Two earlier attempts used a grid with a counter column and
+   both collapsed: li was a grid container, so each inline part of the sentence
+   became its own cell and the text wrapped a word at a time inside a 26px
+   column. Paragraphs cannot do that. The step number is a styled span in the
+   normal text flow, not a grid track. */
+.aftersend{margin-top:26px;padding-top:20px;border-top:1px solid var(--hairline)}
+.aftersend h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--txt-40);margin:0 0 14px;font-weight:400}
+.aftersend .as-t{margin:0 0 10px;font-size:13.5px;line-height:1.6;color:var(--txt-70);max-width:52ch}
+.aftersend .as-t:last-child{margin-bottom:0}
+.aftersend .as-n{font-family:var(--mono);font-size:10.5px;color:var(--txt-40);margin-right:9px}
+.aftersend .as-k{color:var(--txt);font-weight:500}
+</style>
 </head>
 <body>
 
@@ -179,6 +193,14 @@
           <button type="submit" class="btn" id="formSubmit"><span>Send the note</span><span class="arr" aria-hidden="true"></span></button>
         </div>
       </form>
+<!-- after-send: injected by scripts/seo/inject-aftersend.mjs -->
+        <div class="aftersend">
+          <h4>What happens next</h4>
+          <p class="as-t"><span class="as-n">01</span><span class="as-k">A reply within 24 hours.</span> From the person who will do the work, not an autoresponder.</p>
+          <p class="as-t"><span class="as-n">02</span><span class="as-k">A 20-minute call</span> if you want one, to hear what you are actually trying to build.</p>
+          <p class="as-t"><span class="as-n">03</span><span class="as-k">A written quote at the published price.</span> No discovery fee, no obligation to continue.</p>
+        </div>
+<!-- /after-send -->
 
       <script src="/assets/contact-form.js" defer></script>
     </div>
