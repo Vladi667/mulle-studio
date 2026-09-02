@@ -21,8 +21,26 @@ import { pathToFileURL } from 'url';
 const ROOT = 'C:/Users/Admin/Desktop/mulle-studio';
 const O = 'https://agencefritz.com';
 
-// Commits whose subject starts with one of these only touch chrome, not content.
-const CHROME_COMMITS = /^(Count the visits|Favicon|Deliver the contact form)/i;
+/* What counts as a content change.
+
+   Filtering by commit subject was the first attempt and it is wrong: it needs a
+   naming convention nobody will remember, and it feeds back on itself. Running
+   patch-dates.mjs edits the page, the commit that records the edit then looks
+   like a content change, and the next run moves the date again — freshness
+   inventing itself out of nothing.
+
+   So the body decides. `head`, every `script`, and every `link` are stripped,
+   and the date is the newest commit whose remaining markup differs from its
+   parent's. Analytics snippets, schema stamps and date patches all live in the
+   stripped part, so they cannot move a date; a rewritten paragraph can. */
+const stripChrome = (html) =>
+  html
+    .replace(/<head[\s\S]*?<\/head>/gi, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<link[^>]*>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '') // marker comments around injected blocks
+    .replace(/\s+/g, ' ')
+    .trim();
 
 // [enPath, frPath, priority]  (frPath null = EN-only; enPath null = FR-only)
 const PAIRS = [
@@ -57,16 +75,36 @@ export function fileFor(loc) {
   return loc.replace(/^\//, '') + '.html';
 }
 
-/** Last content-change date for a file, as YYYY-MM-DD. */
+const bodyCache = new Map();
+function bodyAt(sha, file) {
+  const key = `${sha}:${file}`;
+  if (bodyCache.has(key)) return bodyCache.get(key);
+  let body = '';
+  try { body = stripChrome(execFileSync('git', ['show', `${sha}:${file}`], { cwd: ROOT, encoding: 'utf8' })); }
+  catch { body = ''; } // file did not exist at that commit
+  bodyCache.set(key, body);
+  return body;
+}
+
+/** Date of the newest commit that changed this page's visible markup, YYYY-MM-DD. */
+const dateCache = new Map();
 export function lastContentChange(file) {
-  const log = execFileSync('git', ['log', '--format=%cs\t%s', '--', file], { cwd: ROOT, encoding: 'utf8' });
-  for (const line of log.split('\n')) {
-    if (!line.trim()) continue;
-    const [date, ...rest] = line.split('\t');
-    if (CHROME_COMMITS.test(rest.join('\t'))) continue;
-    return date;
+  if (dateCache.has(file)) return dateCache.get(file);
+
+  const log = execFileSync('git', ['log', '--format=%H\t%cs', '--', file], { cwd: ROOT, encoding: 'utf8' })
+    .split('\n').filter(Boolean).map((l) => l.split('\t'));
+  if (!log.length) { dateCache.set(file, null); return null; }
+
+  let answer = log[log.length - 1][1]; // fall back to the first commit that added it
+  for (let i = 0; i < log.length; i++) {
+    const [sha, date] = log[i];
+    const parent = log[i + 1];
+    const now = bodyAt(sha, file);
+    const before = parent ? bodyAt(parent[0], file) : '';
+    if (now !== before) { answer = date; break; }
   }
-  return null;
+  dateCache.set(file, answer);
+  return answer;
 }
 
 function alts(en, fr) {

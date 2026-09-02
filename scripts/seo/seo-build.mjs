@@ -1,6 +1,8 @@
 import { load } from 'cheerio';
 import fs from 'fs';
 import vm from 'vm';
+import { orgNode } from './stamp-org.mjs';
+import { pathToFileURL } from 'node:url';
 
 const ROOT = 'C:/Users/Admin/Desktop/mulle-studio';
 const ORIGIN = 'https://agencefritz.com';
@@ -15,7 +17,6 @@ const ctx = { EXPORTS: null };
 vm.createContext(ctx);
 vm.runInContext(`FR={};FR_ATTR={};FR_TITLE={};\n${normFn}\n${selStmt}\n${frBlock}\nEXPORTS={FR,FR_ATTR,FR_TITLE,SEL,norm};`, ctx);
 const { FR, FR_ATTR, FR_TITLE, SEL, norm } = ctx.EXPORTS;
-console.log(`dict: ${Object.keys(FR).length} FR entries · SEL ${SEL.split(',').length} selectors`);
 
 /* ── 2. page map + FR-primary meta ── */
 const PAGES = [
@@ -42,9 +43,15 @@ const hreflang = (enPath, frPath) =>
 const langtog = (enHref, frHref, active) =>
   `<div class="langtog" aria-label="Language"><a href="${enHref}"${active === 'en' ? ' class="on" aria-current="page"' : ''}>EN</a><a href="${frHref}"${active === 'fr' ? ' class="on" aria-current="page"' : ''}>FR</a></div>`;
 
-/* the shared org schema (stamped on any page lacking JSON-LD) */
+/* The shared org schema, stamped on any page lacking JSON-LD.
+   This used to be a hard-coded literal carrying priceRange "CHF 490–2900" — the
+   July figures — so every page this builder touched republished prices we no
+   longer charge, months after the cut. It is now generated from
+   scripts/seo/stamp-org.mjs, which computes the range from prices.mjs.
+   Run `node scripts/seo/stamp-org.mjs` after this builder to normalise the
+   whole site; never write a price into this file. */
 const ORG_LD = `<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","@id":"${ORIGIN}/#org","name":"Agence Fritz","alternateName":"Fritz","url":"${ORIGIN}/","image":"${ORIGIN}/assets/og.png","description":"Studio indépendant à Genève — marque, web et systèmes de croissance, conçus pour durer.","email":"contact@agencefritz.com","areaServed":["Genève","Suisse romande","Suisse"],"address":{"@type":"PostalAddress","addressLocality":"Genève","addressRegion":"GE","addressCountry":"CH"},"geo":{"@type":"GeoCoordinates","latitude":46.2044,"longitude":6.1432},"priceRange":"CHF 490–2900","knowsAbout":["Identité de marque","Création de site web","Marketing","Growth","Intelligence artificielle"]}
+${JSON.stringify(orgNode('fr'))}
 </script>`;
 
 /* ── 3. EN pass — targeted string edits, files stay byte-stable except the changes ── */
@@ -127,9 +134,28 @@ function buildFr(p) {
   return { hit, miss };
 }
 
-/* ── run ── */
-console.log('\nEN pass:');
-for (const p of PAGES) console.log(`  ${p.en.padEnd(16)} changed=${editEn(p)}`);
-console.log('\nFR pass:');
-for (const p of PAGES) { const r = buildFr(p); console.log(`  fr/${(p.fr + '.html').padEnd(28)} translated=${r.hit} miss=${r.miss}`); }
-console.log('\ndone.');
+/* ── run ──────────────────────────────────────────────────────────
+   IMPORT GUARD. This builder REGENERATES the three FR service twins from
+   their English sources, which wipes the ~2,000-word SEO band and the
+   Service/FAQPage/BreadcrumbList schema that enhance-twins.mjs injected
+   into them. That is correct when you mean to run it and destructive when
+   you do not: importing this module to reuse one constant used to execute
+   the whole rebuild and silently strip three live commercial pages back to
+   ~550 words. Nothing runs now unless the file is invoked directly.
+
+   AFTER a real run, re-run in order:
+     enhance-twins.mjs w4-data.json   (WARNING: w4-data.json still holds
+       PRE-CUT prices — check before regenerating the bands from it)
+     add-inbound → inject-estimator → patch-twin-schema → stamp-org
+       → inject-analytics → build-sitemap → patch-dates
+   ────────────────────────────────────────────────────────────────── */
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  console.log(`dict: ${Object.keys(FR).length} FR entries · SEL ${SEL.split(',').length} selectors`);
+  console.log('\nEN pass:');
+  for (const p of PAGES) console.log(`  ${p.en.padEnd(16)} changed=${editEn(p)}`);
+  console.log('\nFR pass:');
+  for (const p of PAGES) { const r = buildFr(p); console.log(`  fr/${(p.fr + '.html').padEnd(28)} translated=${r.hit} miss=${r.miss}`); }
+  console.log('\ndone.');
+} else {
+  console.warn('seo-build.mjs was imported, not executed: no pages were rebuilt.');
+}
