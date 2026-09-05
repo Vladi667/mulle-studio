@@ -5,6 +5,14 @@ import fs from 'fs';
 const ROOT = 'C:/Users/Admin/Desktop/mulle-studio';
 
 const EDITS = [
+  // The Geneva pricing guide had 4 inbound links against 9 for the national one and
+  // 23 for /fr/tarifs, while the Geneva SERP is where the pricing questions are asked.
+  // Sibling guides and the regional pillar link DOWN to it; never a city page.
+  { file: 'fr/guides/combien-coute-site-web-suisse.html', hub: '.lp-hub', anchor: "Prix d'un site web à Genève", href: '/fr/guides/prix-site-web-geneve' },
+  { file: 'fr/guides/creer-un-site-internet-en-suisse.html', hub: '.lp-hub', anchor: "Prix d'un site web à Genève", href: '/fr/guides/prix-site-web-geneve' },
+  { file: 'fr/guides/refonte-site-web-suisse.html', hub: '.lp-hub', anchor: "Prix d'un site web à Genève", href: '/fr/guides/prix-site-web-geneve' },
+  { file: 'fr/guides/wix-ou-site-sur-mesure.html', hub: '.lp-hub', anchor: "Prix d'un site web à Genève", href: '/fr/guides/prix-site-web-geneve' },
+  { file: 'fr/agence-web-suisse-romande.html', hub: '.lp-hub', anchor: "Prix d'un site web à Genève", href: '/fr/guides/prix-site-web-geneve' },
   // guide → regional pillar it naturally supports
   { file: 'fr/guides/combien-coute-site-web-suisse.html', hub: '.lp-hub', anchor: 'Agence web en Suisse romande', href: '/fr/agence-web-suisse-romande' },
   { file: 'fr/guides/prix-logo-identite-visuelle-suisse.html', hub: '.lp-hub', anchor: 'Agence de branding en Suisse', href: '/fr/agence-branding-suisse' },

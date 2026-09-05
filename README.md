@@ -35,6 +35,13 @@ page. Run it after any page rebuild, then `scripts/seo/indexnow.mjs`.
 (org schema, analytics, sitemap, schema dates). None of them invents anything:
 prices come from `prices.mjs` and dates from git.
 
+`scripts/seo/patch-pricing-lane.mjs` runs **after `patch-dates`** and before
+`inject-analytics`: it writes the visible "Mis à jour le …" byline on the ten
+guides from each page's `dateModified`, and keeps the "Autres questions" FAQ
+items in sync with their FAQPage schema. Because the byline reads the date
+patch-dates wrote, the honest order after a content change is: commit →
+`patch-dates` → `patch-pricing-lane` → commit again.
+
 ### After every deploy
 
 ```
