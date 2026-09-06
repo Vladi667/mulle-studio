@@ -24,8 +24,23 @@ when you run more than one, run them in this order and never hand-edit a
 generated page:
 
 ```
-build-landers → build-tarifs → add-inbound → inject-estimator → patch-twin-schema → inject-analytics
+build-landers → build-tarifs → add-inbound → inject-estimator → stamp-org
+  → patch-price-tables → patch-pricing-lane → patch-answers → patch-croissance-ia
+  → patch-twin-schema → inject-analytics → build-sitemap → patch-dates
 ```
+
+**The chain is a fixed point.** Running all of it against a clean tree changes
+nothing: that is the check to run before trusting any generator here, and it is
+how a drifted generator gets caught. `build-tarifs.mjs` reproduces `/fr/tarifs`
+exactly, so it is safe to run again as long as the rest of the chain follows it.
+
+Two whitespace traps cost a while to find, and both come from cheerio: removing
+an element takes the tag and leaves the newline **and the old indentation** next
+to it. So the collapse pattern has to be `/(?:?
+[ 	]*){3,}/` — matching only
+empty lines walks past a line containing four spaces, and these files are checked
+out with CRLF, so a bare `/
+{3,}/` matches nothing at all.
 
 `scripts/seo/inject-analytics.mjs` is idempotent and must run **last**: it puts the
 Vercel Web Analytics + Speed Insights snippets and `assets/analytics.js` on every
@@ -45,9 +60,9 @@ The band itself is never regenerated from `w4-data.json` (pre-cut prices).
 `/fr/tarifs` as a table with `priceValidUntil`, adds the sourced market table to
 the Geneva price guide (every row links to that provider's own price page,
 `rel="nofollow"`), and makes the three price guides authored by a Person rather
-than the Organization. **Do not run `build-tarifs.mjs` to add anything to
-`/fr/tarifs`:** it has drifted from the live page (a 2026-09-06 run produced a
-633-line diff and dropped the analytics block, the org stamp and the estimator).
+than the Organization. `build-tarifs.mjs` is safe to run again (it reproduces the page exactly, verified
+2026-09-06), but it rewrites `<head>` wholesale, so the rest of the chain must
+follow it.
 
 `scripts/seo/patch-answers.mjs` makes the pages quotable by answer engines: a
 one-sentence figures-first opener on the logo guide, and a dated Direct answers
