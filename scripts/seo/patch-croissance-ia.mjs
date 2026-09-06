@@ -76,7 +76,7 @@ $('.lp-faq-item').last().after(FAQ_ITEM);
    differ from the first, and "idempotent" has to mean byte-identical. */
 const out = $.html()
   .replace(/ (defer|async|crossorigin|hidden|novalidate|data-1p-ignore)=""/g, ' $1')
-  .replace(/(?:\r?\n){3,}/g, '\n\n');
+  .replace(/(?:\r?\n[ \t]*){3,}/g, '\n\n');
 if (out !== html) { writeFileSync(FILE, out); console.log('patched fr/systemes-croissance-ia.html'); }
 else console.log('already current');
 

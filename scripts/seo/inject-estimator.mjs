@@ -118,7 +118,7 @@ for (const { file, lang } of TARGETS) {
      newlines beside them, so each run added whitespace-only lines to all three
      pages and a rebuild never matched the committed file. CRLF-aware: these
      files are checked out with CRLF, so a plain /\n{3,}/ matches nothing. */
-  fs.writeFileSync(path, $.html().replace(/(?:\r?\n){3,}/g, '\n\n'));
+  fs.writeFileSync(path, $.html().replace(/(?:\r?\n[ \t]*){3,}/g, '\n\n'));
   const words = $('#price-estimator').text().replace(/\s+/g, ' ').trim().length;
   console.log(`✓ ${file} (${lang}) — estimator injected before "${anchor.find('h2').first().text() || anchor.attr('aria-label') || 'footer'}"`);
 }

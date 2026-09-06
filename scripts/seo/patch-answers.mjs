@@ -93,7 +93,7 @@ ${END}`;
   else src = src.slice(0, anchor) + block + '\n\n' + src.slice(anchor);
   // Stripping the old block leaves the blank line that surrounded it, so without
   // this the file grows a newline on every run and "idempotent" stops being true.
-  src = src.replace(/(?:\r?\n){3,}/g, '\n\n');
+  src = src.replace(/(?:\r?\n[ \t]*){3,}/g, '\n\n');
 
   if (src !== before) { writeFileSync(path, src); changed++; }
 }

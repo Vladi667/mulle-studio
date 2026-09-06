@@ -136,7 +136,7 @@ $('head').append(`<script type="application/ld+json">${JSON.stringify(ld)}</scri
    matched the committed page, and a generator whose output you cannot diff against
    production is one nobody dares run. CRLF-aware on purpose: these files are
    checked out with CRLF on Windows, so a plain /\n{3,}/ matches nothing at all. */
-const html = $.html().replace(/(?:\r?\n){3,}/g, '\n\n');
+const html = $.html().replace(/(?:\r?\n[ \t]*){3,}/g, '\n\n');
 
 fs.writeFileSync(ROOT + '/fr/tarifs.html', html);
 console.log('wrote fr/tarifs.html (' + Math.round(html.length / 1024) + 'KB)');
