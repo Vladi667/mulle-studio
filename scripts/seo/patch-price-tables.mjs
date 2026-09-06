@@ -15,9 +15,8 @@
       now carries a table where every range is attributed to the agency's
       OWN published price page, fetched and verified on 2026-09-06.
 
-   3. Both price guides and /fr/a-propos credited an Organization as
-      author. A named person is what a reader and an answer engine can
-      weigh. Person node + a visible byline.
+   Authorship (the byline and the Person schema) is NOT here: patch-pricing-lane
+   owns it, because it rewrites the byline from scratch and runs later.
 
    NOT a "best agencies" page: it lists what each agency publishes, in
    their own words, with no ranking and no judgement. The DON'Ts forbid
@@ -145,38 +144,9 @@ patch('fr/guides/prix-site-web-geneve.html', (src) => {
   return src.slice(0, p) + '\n' + MARKET_TABLE + src.slice(p);
 });
 
-/* ── 3. a named author, in the schema and on the page ── */
-const PERSON = {
-  '@type': 'Person',
-  '@id': 'https://agencefritz.com/#theo',
-  name: 'Théo Muller',
-  jobTitle: 'Designer indépendant',
-  description: "Designer graphique indépendant depuis 2019, fondateur d'Agence Fritz à Genève.",
-  url: 'https://theomuller.com',
-  sameAs: ['https://theomuller.com', 'https://www.linkedin.com/in/th%C3%A9o-muller-90315517b'],
-  worksFor: { '@id': 'https://agencefritz.com/#org' },
-};
-
-const AUTHORED = ['fr/guides/prix-site-web-geneve.html', 'fr/guides/prix-logo-identite-visuelle-suisse.html', 'fr/guides/combien-coute-site-web-suisse.html'];
-for (const file of AUTHORED) {
-  const path = `${ROOT}/${file}`;
-  let src = readFileSync(path, 'utf8');
-  const before = src;
-
-  // schema: Organization author -> a reference to the Person node
-  src = src.replace(/"author":\{"@type":"Organization","@id":"https:\/\/agencefritz\.com\/#org"\}/g,
-    '"author":{"@id":"https://agencefritz.com/#theo"}');
-
-  // Remove any Person node this script wrote before, then add exactly one to the
-  // same @graph as the Article. Skipping the strip left a duplicate per run.
-  src = src.replace(/\{"@type":"Person","@id":"https:\/\/agencefritz\.com\/#theo"[\s\S]*?\},(?=\{"@type":"Article")/g, '');
-  src = src.replace(/(\{"@type":"Article")/, `${JSON.stringify(PERSON)},$1`);
-
-  // visible byline: name beside the date
-  src = src.replace(/(<p class="lp-byline">)(Mis à jour le )/, `$1Par Théo Muller · $2`);
-
-  if (src !== before) { writeFileSync(path, src); changed++; }
-}
+/* Authorship (byline + Person schema) lives in patch-pricing-lane.mjs, which
+   rewrites the byline from scratch and runs later in the chain. Doing it here
+   too meant the name was written and then wiped on the next rebuild. */
 
 console.log(`patched: ${changed} file(s)`);
 for (const p of problems) console.log('   PROBLEM', p);
@@ -184,7 +154,6 @@ for (const p of problems) console.log('   PROBLEM', p);
 /* ── verification ── */
 const tarifs = readFileSync(`${ROOT}/fr/tarifs.html`, 'utf8');
 const geneva = readFileSync(`${ROOT}/fr/guides/prix-site-web-geneve.html`, 'utf8');
-const logo = readFileSync(`${ROOT}/fr/guides/prix-logo-identite-visuelle-suisse.html`, 'utf8');
 const offers = (tarifs.match(/"priceValidUntil"/g) || []).length;
 
 const checks = {
@@ -195,9 +164,6 @@ const checks = {
   'every source row links out': SOURCES.filter((s) => !s.self).every((s) => geneva.includes(`href="${s.url}"`)),
   'source links are nofollow': !/href="https:\/\/(reactiveweb|helveit|www\.vldesign|jonlabs)[^"]*"(?![^>]*rel="nofollow)/.test(geneva),
   'market note states the position honestly': geneva.includes('au-dessus des offres') && geneva.includes('ne classe personne'),
-  'Person node on all three guides': [geneva, logo, readFileSync(`${ROOT}/fr/guides/combien-coute-site-web-suisse.html`, 'utf8')].every((s) => s.includes('"@id":"https://agencefritz.com/#theo"')),
-  'no Organization author left on those guides': ![geneva, logo].some((s) => /"author":\{"@type":"Organization"/.test(s)),
-  'visible byline names the author': /Par Théo Muller · Mis à jour le/.test(geneva),
   'no em dash or curly apostrophe inserted': !/[—–’‘]/.test(TARIFS_TABLE + MARKET_TABLE),
   'no retired price in inserted copy': !/CHF ?(1'700|2'500|1'400|2'200|490|2'900)\b/.test(TARIFS_TABLE),
 };

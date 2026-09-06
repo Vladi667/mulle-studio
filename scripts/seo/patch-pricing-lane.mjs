@@ -34,6 +34,21 @@ const CHECK = process.argv.includes('--check');
 
 const BY_START = '<!-- byline: patch-pricing-lane -->';
 const BY_END = '<!-- /byline -->';
+
+/* The guides are written by one person and now say so, in the byline and in the
+   schema. Kept here rather than in patch-price-tables so that authorship has a
+   single owner and cannot be half-applied: every Article page gets both, not
+   three pages with a Person and seven still crediting the Organization. */
+const AUTHOR = {
+  '@type': 'Person',
+  '@id': 'https://agencefritz.com/#theo',
+  name: 'Théo Muller',
+  jobTitle: 'Designer indépendant',
+  description: "Designer graphique indépendant depuis 2019, fondateur d'Agence Fritz à Genève.",
+  url: 'https://theomuller.com',
+  sameAs: ['https://theomuller.com', 'https://www.linkedin.com/in/th%C3%A9o-muller-90315517b'],
+  worksFor: { '@id': 'https://agencefritz.com/#org' },
+};
 const FAQ_MARK = 'data-paa="1"';
 const CSS_ID = 'pricing-lane-css';
 const CSS = `<style id="${CSS_ID}">
@@ -102,16 +117,26 @@ for (const file of files) {
   src = src.replace(new RegExp(`\\s*<div class="faq-item" ${FAQ_MARK}>[\\s\\S]*?<\\/div>`, 'g'), '');
   src = src.replace(new RegExp(`\\n?<style id="${CSS_ID}">[\\s\\S]*?<\\/style>`, 'g'), '');
 
-  /* ── 1. visible byline, from the Article's own dateModified ── */
+  /* ── 1. visible byline, from the Article's own dateModified ──
+     This script OWNS the byline: it rewrites the line from scratch every run.
+     patch-price-tables used to add the author name to it afterwards, and because
+     this runs later in the chain it silently wiped the name off every guide on
+     the next rebuild. One line, one owner: the name is written here. */
   const words = src.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
   const mins = Math.max(3, Math.round(words / 220));
   const text = lang === 'fr'
-    ? `Mis à jour le ${fmt(article.dateModified, 'fr')} · Lecture ${mins} min`
-    : `Updated ${fmt(article.dateModified, 'en')} · ${mins} min read`;
+    ? `Par ${AUTHOR.name} · Mis à jour le ${fmt(article.dateModified, 'fr')} · Lecture ${mins} min`
+    : `By ${AUTHOR.name} · Updated ${fmt(article.dateModified, 'en')} · ${mins} min read`;
   const byline = `${BY_START}<p class="lp-byline">${text}</p>${BY_END}`;
   const ledeEnd = (() => { const i = src.indexOf('class="lp-lede"'); return i < 0 ? -1 : src.indexOf('</p>', i) + 4; })();
   if (ledeEnd > 3) { src = src.slice(0, ledeEnd) + '\n  ' + byline + src.slice(ledeEnd); bylines++; }
   else problems.push(`${file}: no lp-lede to hang the byline on`);
+  /* schema authorship, on every Article page, alongside the byline */
+  src = src.replace(/"author":\{"@type":"Organization","@id":"https:\/\/agencefritz\.com\/#org"\}/g,
+    '"author":{"@id":"https://agencefritz.com/#theo"}');
+  src = src.replace(/\{"@type":"Person","@id":"https:\/\/agencefritz\.com\/#theo"[\s\S]*?\},(?=\{"@type":"Article")/g, '');
+  src = src.replace(/(\{"@type":"Article")/, `${JSON.stringify(AUTHOR)},$1`);
+
   src = src.replace(new RegExp(`\\n?<style id="${CSS_ID}">[\\s\\S]*?<\\/style>`, 'g'), '');
   src = src.replace('</head>', `${CSS}\n</head>`);
 
