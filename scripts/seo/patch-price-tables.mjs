@@ -114,7 +114,7 @@ function patch(file, fn) {
   // Adjacent style blocks join differently depending on what the previous
   // patcher left behind; force the break so the result does not depend on it.
   src = src.replace(/(<\/style>)(<style id=)/g, '$1\n$2');
-  src = src.replace(/\n{3,}/g, '\n\n');
+  src = src.replace(/(?:\r?\n){3,}/g, '\n\n');
   if (src !== before) { writeFileSync(path, src); changed++; }
   return src;
 }

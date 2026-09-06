@@ -130,5 +130,18 @@ const ld = {
 };
 $('head').append(`<script type="application/ld+json">${JSON.stringify(ld)}</script>`);
 
-fs.writeFileSync(ROOT + '/fr/tarifs.html', $.html());
-console.log('wrote fr/tarifs.html (' + Math.round($.html().length / 1024) + 'KB)');
+/* Removing an element with cheerio takes the tag but leaves the newline beside it,
+   so stripping the three hreflang links and the language switcher above left runs
+   of blank lines in <head>. Harmless to render, but it meant a rebuild never
+   matched the committed page, and a generator whose output you cannot diff against
+   production is one nobody dares run. CRLF-aware on purpose: these files are
+   checked out with CRLF on Windows, so a plain /\n{3,}/ matches nothing at all. */
+const html = $.html().replace(/(?:\r?\n){3,}/g, '\n\n');
+
+fs.writeFileSync(ROOT + '/fr/tarifs.html', html);
+console.log('wrote fr/tarifs.html (' + Math.round(html.length / 1024) + 'KB)');
+
+/* This rewrites <head> wholesale and drops everything the injectors own, so a
+   rebuild only restores the page if the rest of the chain runs after it. */
+console.log('now run: add-inbound -> inject-estimator -> stamp-org -> patch-price-tables');
+console.log('         -> patch-pricing-lane -> inject-analytics -> build-sitemap');
