@@ -491,27 +491,27 @@ function heroIntro(){
   var tl = gsap.timeline();
   var heroTitle = document.querySelector('.hero-eyeline');
   /* the chapter mark, then the voice, then the action — top to bottom down the column */
-  tl.from('.hero-col .eyebrow', { y:-14, opacity:0, duration:.7, ease:'power3.out' }, 0);
+  tl.from('.hero-col .eyebrow', { y:-14, opacity:0, duration:.55, ease:'power3.out' }, 0);
   /* the voice rises out of a clip mask, like every other heading on the site — including
      the inner-page heroes. It used to be the one headline that came DOWN (y:-12), which is
      most of why this screen did not feel like the same site. */
   if(typeof SplitText !== 'undefined' && heroTitle){
     var hSplit = new SplitText(heroTitle, { type:'lines', mask:'lines', linesClass:'split-line' });
-    tl.from(hSplit.lines, { yPercent:118, opacity:0, duration:1, stagger:.09, ease:'power4.out',
-      onComplete:function(){ unmaskLines(hSplit.lines); } }, .05);
+    tl.from(hSplit.lines, { yPercent:118, opacity:0, duration:.8, stagger:.07, ease:'power4.out',
+      onComplete:function(){ unmaskLines(hSplit.lines); } }, .04);
     /* and it thickens as it arrives — the same 300→weight morph the scroll-driven headings
        get. It is sequenced here rather than added to the SELS list below because that list
        is scroll-triggered for below-the-fold headings; at 112px, running the morph on top
        of the mask rise re-rasterises the largest type on the page every frame of both. */
-    heroWeightMorph(tl, heroTitle, .75);
+    heroWeightMorph(tl, heroTitle, .58);
   }else if(heroTitle){
-    tl.from(heroTitle, { y:40, opacity:0, duration:.9, ease:'power4.out' }, .05);
+    tl.from(heroTitle, { y:40, opacity:0, duration:.72, ease:'power4.out' }, .04);
   }
-  tl.from('.hero-lede', { y:18, opacity:0, duration:.8, ease:'power3.out' }, .34);
-  tl.from('.hero-acts', { y:18, opacity:0, duration:.8, ease:'power3.out' }, .48);
+  tl.from('.hero-lede', { y:18, opacity:0, duration:.62, ease:'power3.out' }, .26);
+  tl.from('.hero-acts', { y:18, opacity:0, duration:.62, ease:'power3.out' }, .38);
   /* proof last, and quietly — it supports the claim, it does not announce itself */
-  tl.from('.hero-trust', { y:14, opacity:0, duration:.85, ease:'power3.out' }, .62);
-  revealChrome(tl, .85);
+  tl.from('.hero-trust', { y:14, opacity:0, duration:.65, ease:'power3.out' }, .5);
+  revealChrome(tl, .66);
   if(window.MulleFluid && window.MulleFluid.ok){
     tl.call(window.MulleFluid.intro, null, .12);
   }
@@ -520,17 +520,17 @@ function heroIntro(){
 function innerIntro(){
   var tl = gsap.timeline();
   var title = document.querySelector('.page-hero h1');
-  tl.from('.page-hero .eyebrow', { y:-14, opacity:0, duration:.7, ease:'power3.out' }, 0);
+  tl.from('.page-hero .eyebrow', { y:-14, opacity:0, duration:.55, ease:'power3.out' }, 0);
   if(typeof SplitText !== 'undefined' && title){
     var split = new SplitText(title, { type:'lines', mask:'lines', linesClass:'split-line' });
-    tl.from(split.lines, { yPercent:115, opacity:0, duration:1, stagger:.09, ease:'power4.out',
-      onComplete:function(){ unmaskLines(split.lines); } }, .1);
+    tl.from(split.lines, { yPercent:115, opacity:0, duration:.8, stagger:.07, ease:'power4.out',
+      onComplete:function(){ unmaskLines(split.lines); } }, .08);
   }else if(title){
-    tl.from(title, { y:40, opacity:0, duration:.9, ease:'power4.out' }, .1);
+    tl.from(title, { y:40, opacity:0, duration:.72, ease:'power4.out' }, .08);
   }
-  tl.from('.page-lede', { y:22, opacity:0, duration:.8, ease:'power3.out' }, .35)
-    .from('.page-meta > div', { y:18, opacity:0, duration:.7, stagger:.07, ease:'power3.out' }, .5);
-  revealChrome(tl, .25);
+  tl.from('.page-lede', { y:22, opacity:0, duration:.62, ease:'power3.out' }, .27)
+    .from('.page-meta > div', { y:18, opacity:0, duration:.55, stagger:.06, ease:'power3.out' }, .4);
+  revealChrome(tl, .2);
 }
 
 function pageIntro(){
@@ -617,16 +617,16 @@ if(pre && !seen){
   var smallPre = window.matchMedia('(max-width:767px)').matches;   /* snappier count on phones */
   var preTl = gsap.timeline();
   preTl.to(counter, {
-      v:100, duration: smallPre ? 0.6 : 0.95, ease:'power2.inOut',
+      v:100, duration: smallPre ? 0.42 : 0.6, ease:'power2.inOut',
       onUpdate:function(){
         var v = Math.round(counter.v);
         if(preCount){ preCount.textContent = (v < 10 ? '00' : v < 100 ? '0' : '') + v; }
         if(preBar){ preBar.style.transform = 'scaleX(' + (v/100) + ')'; }
       }
     })
-    .to(pre, { yPercent:-100, duration: smallPre ? 0.6 : 0.85, ease:'power4.inOut',
-      onComplete:function(){ pre.remove(); } }, '+=.1')
-    .call(pageIntro, null, '-=.55');
+    .to(pre, { yPercent:-100, duration: smallPre ? 0.45 : 0.6, ease:'power4.inOut',
+      onComplete:function(){ pre.remove(); } }, '+=.06')
+    .call(pageIntro, null, '-=.42');
   /* real progress governs the pace */
   if(document.fonts && document.fonts.ready){
     document.fonts.ready.then(function(){
@@ -635,7 +635,7 @@ if(pre && !seen){
   }
 }else{
   if(pre){
-    gsap.to(pre, { yPercent:-100, duration:.6, ease:'power3.inOut', delay:.05,
+    gsap.to(pre, { yPercent:-100, duration:.45, ease:'power3.inOut', delay:.03,
       onComplete:function(){ pre.remove(); } });
   }
   pageIntro();
