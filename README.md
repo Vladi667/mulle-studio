@@ -41,6 +41,14 @@ followed by `node scripts/seo/patch-twin-schema.mjs w4-data.json` from
 `scripts/seo/`, which rebuilds that page's FAQPage schema from what is visible.
 The band itself is never regenerated from `w4-data.json` (pre-cut prices).
 
+`scripts/seo/patch-price-tables.mjs` puts the published price list on
+`/fr/tarifs` as a table with `priceValidUntil`, adds the sourced market table to
+the Geneva price guide (every row links to that provider's own price page,
+`rel="nofollow"`), and makes the three price guides authored by a Person rather
+than the Organization. **Do not run `build-tarifs.mjs` to add anything to
+`/fr/tarifs`:** it has drifted from the live page (a 2026-09-06 run produced a
+633-line diff and dropped the analytics block, the org stamp and the estimator).
+
 `scripts/seo/patch-answers.mjs` makes the pages quotable by answer engines: a
 one-sentence figures-first opener on the logo guide, and a dated Direct answers
 block in `llms.txt`. Every figure comes from `prices.mjs` or the canonical
