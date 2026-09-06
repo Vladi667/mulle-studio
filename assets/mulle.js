@@ -1553,12 +1553,18 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
      and the .html forms for local file:// use. */
   if(/\/contact(\.html)?$/.test(location.pathname)) return;
   var a = document.createElement('a');
-  /* extensionless for the same reason: 'contact.html' cost a 308 on every tap.
-     Relative still resolves per-directory, so /fr/ pages reach /fr/contact. */
-  a.className = 'sticky-cta'; a.href = 'contact';
+  a.className = 'sticky-cta';
   /* the PAGE decides the language, not the browser: the site ships a static /fr/ mirror, so
      a French-locale visitor reading the English page was getting a French pill on it */
   var fr = /^\/fr(\/|$)/.test(location.pathname) || (document.documentElement.lang||'').toLowerCase().indexOf('fr') === 0;
+  /* Absolute, and built from that same language test. This used to be the relative
+     'contact', on the reasoning that relative resolves per-directory so /fr/ pages
+     reach /fr/contact. They do -- but per-DIRECTORY is exactly the problem: the seven
+     pages under /fr/guides/ resolved it to /fr/guides/contact, which is a 404. Those
+     guides are the pages the whole search effort is aimed at, so on a phone the single
+     CTA on the highest-intent pages on the site led nowhere. Extensionless is still
+     right: 'contact.html' costs a 308 on every tap. */
+  a.href = fr ? '/fr/contact' : '/contact';
   a.innerHTML = '<span>' + (fr ? 'Démarrer un projet' : 'Start a project') + '</span><span class="sc-arr" aria-hidden="true">→</span>';
   document.body.appendChild(a);
   var foot = document.querySelector('.site-foot');
