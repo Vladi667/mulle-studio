@@ -1742,6 +1742,20 @@ body.on-dark .wordmark .tag{border-left-color:rgba(255,255,255,.25)}
   /* 16px made the pill 55px tall — ten more than the Index button beside it.
      11px lands both at 45px. */
   .langtog button,.langtog a{padding:11px 12px}
+  /* That 45px is the PILL. Measured on a real coarse pointer, each half of it —
+     the EN and the FR — was only 39x35: the container's own 4px padding and 1px
+     border are dead space that looks like part of the button and does not take a
+     tap. On a bilingual site whose French mirror is the half that ranks, missing
+     the language switch is a real cost. So the tappable box is extended to the
+     full height of the pill and 1px into the 2px gap — the same trick as
+     .hero-link::before below — which leaves the ink exactly where it was. */
+  .langtog button,.langtog a{position:relative}
+  .langtog button::before,.langtog a::before{content:"";position:absolute;
+    left:-1px;right:-1px;top:50%;transform:translateY(-50%);height:44px}
+  /* The primary call to action was set at 10px: uppercase mono at .24em tracking,
+     legible on a desk and mean on a phone. 11px is what .outro-btn already uses,
+     so this borrows a size the design had rather than inventing one. */
+  .btn{font-size:11px}
   .hero-link::before{content:"";position:absolute;left:0;right:0;top:50%;
     transform:translateY(-50%);height:44px}
 }
