@@ -41,6 +41,12 @@ followed by `node scripts/seo/patch-twin-schema.mjs w4-data.json` from
 `scripts/seo/`, which rebuilds that page's FAQPage schema from what is visible.
 The band itself is never regenerated from `w4-data.json` (pre-cut prices).
 
+`scripts/seo/patch-answers.mjs` makes the pages quotable by answer engines: a
+one-sentence figures-first opener on the logo guide, and a dated Direct answers
+block in `llms.txt`. Every figure comes from `prices.mjs` or the canonical
+observed-market ranges already in `llms.txt`; a check refuses to write a retired
+price. Run it in the same pass as `patch-pricing-lane`.
+
 `scripts/seo/patch-pricing-lane.mjs` runs **after `patch-dates`** and before
 `inject-analytics`: it writes the visible "Mis à jour le …" byline on the ten
 guides from each page's `dateModified`, and keeps the "Autres questions" FAQ
