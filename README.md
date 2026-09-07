@@ -26,7 +26,7 @@ generated page:
 ```
 build-landers → build-tarifs → add-inbound → inject-estimator → stamp-org
   → patch-price-tables → patch-pricing-lane → patch-answers → patch-croissance-ia
-  → patch-twin-schema → inject-analytics → build-sitemap → patch-dates
+  → patch-logo-hourly → patch-twin-schema → inject-analytics → build-sitemap → patch-dates
 ```
 
 **The chain is a fixed point.** Running all of it against a clean tree changes
