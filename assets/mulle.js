@@ -267,30 +267,24 @@ if(hasHover && !reduced){
   });
 }
 
-/* ── disciplines: ghost-ink register ──
-   Above the no-GSAP/reduced-motion return for the same reason as the FAQ:
-   which name is inked is state, not decoration, so it has to resolve even
-   when nothing is allowed to move. ── */
+/* ── disciplines: three plates ──
+   Above the no-GSAP/reduced-motion return because which name is live is state, not
+   decoration: it has to resolve even when nothing is allowed to move.
+
+   The previous version tweened font-weight on the three 68px names as the section
+   scrolled in -- measured at 529ms of Layout in a 2s window, half of everything the
+   main thread did -- and answered each hover with a 450ms staggered cascade, a 320ms
+   register bar and a blur filter, then changed the selection on its own every 3.4s.
+   Now: hover flips a class, the plate crossfades in 180ms, the live film plays and the
+   other two pause. Nothing else moves. ── */
 (function(){
   var stage = document.querySelector('.disc-stage'); if(!stage) return;
   var rows  = Array.prototype.slice.call(stage.querySelectorAll('.disc-row'));
   var cards = Array.prototype.slice.call(stage.querySelectorAll('.dp-card'));
-  var reg   = stage.querySelector('.disc-reg');
   if(!rows.length) return;
 
-  /* ── phone layout ──
-     Ghost ink + a dwell timer is a hover idea, and it does not survive contact
-     with a thumb. On a phone it left two of the three names at 1.19:1 contrast
-     — which reads as text that failed to render, not as deliberate furniture —
-     put their detail behind a timer that could not be paused, and made the
-     panel's CTA a moving tap target. Tapping a name navigates away, so there
-     was no way to browse at all; and with reduced motion on (or no
-     Element.animate) the cycle never ran, leaving 02 and 03 permanently
-     unreachable.
-
-     So below the split, each card moves under the name it describes and
-     everything reads at full ink. Same information as the desktop hover, laid
-     out for a thumb: no timer, no ghosting, no moving targets. */
+  /* phone / any coarse pointer: nothing to hover, so each plate sits under its name
+     and the same in-view observer that runs the home strip plays it */
   var stacked = window.matchMedia('(max-width:900px)').matches || !hasHover;
   if(stacked){
     stage.classList.add('is-stacked');
@@ -298,63 +292,31 @@ if(hasHover && !reduced){
       r.classList.add('is-active');
       if(cards[i]){ cards[i].classList.add('is-on'); r.appendChild(cards[i]); }
     });
-    return;                       /* no register clock, no self-play, no hover wiring */
+    return;
   }
 
-  var cur = -1;
+  var cur = -1, inView = false;
+  function vid(i){ return cards[i] ? cards[i].querySelector('video.pf-vid') : null; }
+  function run(v){ if(v && v._playSafe && inView) v._playSafe(); }
+  function halt(v){ if(v){ v._wantPlay = false; v.pause(); } }
 
-  function place(){
-    if(!reg || cur < 0 || !rows[cur]) return;
-    reg.style.height = rows[cur].offsetHeight + 'px';
-    reg.style.transform = 'translateY(' + rows[cur].offsetTop + 'px)';
-  }
   function setActive(i){
     if(i === cur || i < 0 || i >= rows.length) return;
-    cur = i;
+    var prev = cur; cur = i;
     for(var n = 0; n < rows.length; n++){
       rows[n].classList.toggle('is-active', n === i);
       if(cards[n]) cards[n].classList.toggle('is-on', n === i);
     }
-    place();
-  }
-
-  /* ── self-play ──
-     On touch the names are links, so tapping navigates — there is no way to
-     select one, and disciplines 02 and 03 would never be seen. So the section
-     plays itself while it is on screen and hands over for good the moment the
-     visitor does anything deliberate. The fill animation IS the dwell clock:
-     no interval to drift, and pausing it pauses the advance. */
-  var DWELL = 3400;                        /* long enough to finish reading the card */
-  var fill = reg && reg.querySelector('i');
-  var canPlay = !!fill && typeof fill.animate === 'function' && !reduced;
-  var play = null, manual = false, inView = false;
-
-  function handOver(){
-    if(manual) return;
-    manual = true;
-    if(play){ play.cancel(); play = null; }
-    if(reg) reg.classList.add('is-manual');   /* bar stops being a clock, stays wayfinding */
-  }
-
-  function cycle(){
-    if(!canPlay || manual || !inView) return;
-    if(play) play.cancel();
-    play = fill.animate([{ transform:'scaleY(0)' }, { transform:'scaleY(1)' }],
-                        { duration:DWELL, easing:'linear', fill:'forwards' });
-    play.onfinish = function(){
-      if(manual || !inView) return;
-      setActive((cur + 1) % rows.length);
-      cycle();
-    };
+    if(prev >= 0) halt(vid(prev));
+    run(vid(i));
   }
 
   rows.forEach(function(r, i){
-    if(hasHover){ r.addEventListener('pointerenter', function(){ handOver(); setActive(i); }); }
-    r.addEventListener('focusin', function(){ handOver(); setActive(i); });
-    r.addEventListener('click', handOver);
+    r.addEventListener('pointerenter', function(){ setActive(i); });
+    r.addEventListener('focusin', function(){ setActive(i); });
   });
 
-  /* arrow keys walk the list — focusin above handles the state */
+  /* arrow keys walk the list -- focusin above handles the state */
   var list = stage.querySelector('.disc-list');
   if(list){
     list.addEventListener('keydown', function(e){
@@ -368,27 +330,19 @@ if(hasHover && !reduced){
   }
 
   setActive(0);
-  requestAnimationFrame(place);            /* first real measurement after layout */
-  window.addEventListener('resize', place);
 
-  /* no self-play (reduced motion, or no WAAPI): the bar is pure wayfinding */
-  if(!canPlay && reg) reg.classList.add('is-manual');
-
-  if(canPlay && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(entries){
-      inView = entries[0].isIntersecting;
-      if(manual) return;
-      if(!inView){ if(play) play.pause(); return; }
-      if(play && play.playState === 'paused') play.play(); else cycle();
-    }, { threshold:0.35 }).observe(stage);
-
-    /* a backgrounded tab should not burn through the cycle unwatched */
-    document.addEventListener('visibilitychange', function(){
-      if(manual || !play) return;
-      if(document.hidden) play.pause();
-      else if(inView) play.play();
-    });
-  }
+  /* the live plate only runs while the section is on screen; leaving pauses it,
+     coming back resumes it. (Play is a no-op until boot() has attached _playSafe,
+     which is after webfonts -- the observer fires again on the way in.) */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      inView = es[0].isIntersecting;
+      if(inView) run(vid(cur)); else halt(vid(cur));
+    }, { threshold:0.2 }).observe(stage);
+  } else { inView = true; }
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden) halt(vid(cur)); else run(vid(cur));
+  });
 })();
 
 /* ── FAQ accordions ──
@@ -1512,20 +1466,26 @@ document.querySelectorAll('.wk-canvas[data-img]').forEach(function(c){
     };
 
     var inStrip = !!v.closest('.wd-stack');
+    /* the disciplines plates are three loops stacked in one cell: an observer would
+       see all three intersecting and run all three. The section's own script plays
+       the live one and pauses the rest. Stacked on a phone they are ordinary plates. */
+    var inDisc = !!v.closest('.disc-stage') && !v.closest('.disc-stage.is-stacked');
 
     if(!('IntersectionObserver' in window)){
-      if(!inStrip){ v._playSafe(); } else { v._prepare(); }
+      if(!inStrip && !inDisc){ v._playSafe(); } else { v._prepare(); }
       return;
     }
 
     /* preparation runs ahead of playback so a plate is never a stalled first frame.
        The strip is clipped by .wd-stack's overflow, so its cards only intersect when they
        are actually sliding into frame — which is exactly when they are worth fetching. */
-    new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ v._prepare(); } });
-    }, { rootMargin: inStrip ? '300px 60%' : '600px 0px' }).observe(inStrip ? (v.closest('.wd-card') || v) : v);
+    if(!inDisc){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ v._prepare(); } });
+      }, { rootMargin: inStrip ? '300px 60%' : '600px 0px' }).observe(inStrip ? (v.closest('.wd-card') || v) : v);
+    }
 
-    if(inStrip) return;   /* home strip loops: the carousel IIFE owns play/pause */
+    if(inStrip || inDisc) return;   /* the strip's carousel and the disciplines script own play/pause */
 
     new IntersectionObserver(function(es){
       es.forEach(function(e){
@@ -2426,7 +2386,7 @@ function displayWeightMorph(){
      already takes when Geist has not loaded. */
   if(window.matchMedia('(max-width:767px)').matches) return;
   if(!(document.fonts && document.fonts.check && document.fonts.check('600 48px Geist'))) return;
-  var SELS = '.disc-head h2,.disc-row .t,.works-head h2,.wd-title,.section h2,.page-hero h1,.wk-row-name,.crosslinks h2,.nextband .nb-title,.outro-cta';
+  var SELS = '.works-head h2,.wd-title,.section h2,.page-hero h1,.wk-row-name,.crosslinks h2,.nextband .nb-title,.outro-cta';
   gsap.utils.toArray(SELS).forEach(function(el){
     var target = parseInt(getComputedStyle(el).fontWeight, 10) || 700;
     gsap.fromTo(el, { fontWeight: 300 }, {

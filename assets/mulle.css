@@ -487,104 +487,72 @@ section{position:relative}
 .disc-head h2{font-family:var(--display);font-size:clamp(26px,3.5vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.04}
 .disc-head h2 em{font-style:normal;font-weight:300;color:var(--txt-40)}
 
-.disc-stage{display:grid;grid-template-columns:1fr minmax(270px,380px);
+.disc-stage{display:grid;grid-template-columns:1fr minmax(380px,520px);
   gap:clamp(28px,5vw,90px);align-items:start}
 
 .disc-list{list-style:none;position:relative;border-top:1px solid var(--hairline-2)}
-.disc-row{border-bottom:1px solid var(--hairline-2)}
+.disc-row{position:relative;border-bottom:1px solid var(--hairline-2)}
+/* the active row is marked by a rule that slides under it -- transform only, 220ms,
+   from the pointer's side. It replaces a register bar that took 320ms to travel and
+   doubled as a clock that changed the selection under the reader every 3.4s. */
+.disc-row::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:var(--blue);transform:scaleX(0);transform-origin:left center;
+  transition:transform 220ms var(--ease-out)}
+.disc-row.is-active::after{transform:scaleX(1)}
 .disc-link{display:grid;grid-template-columns:minmax(38px,62px) 1fr;gap:var(--gutter);
   align-items:baseline;padding:clamp(22px,3.6vh,42px) 0;
   text-decoration:none;color:inherit}
-.disc-row .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--txt-24);
-  font-variant-numeric:tabular-nums;transition:color var(--dur-hover) var(--ease-out)}
-/* ghost ink — the inactive names are furniture, not competition */
-.disc-row .t{font-family:var(--display);font-size:clamp(28px,5vw,68px);font-weight:600;
-  letter-spacing:-.032em;line-height:1;color:rgba(29,29,31,.10);
-  transition:color var(--dur-hover) var(--ease-out)}
-/* the setting rises out of a clip mask rather than fading a colour — same
-   vocabulary as revealHeading, which every other heading on the site uses */
+.disc-row .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--txt-40);
+  font-variant-numeric:tabular-nums;transition:color 160ms var(--ease-out)}
+/* every name reads at rest. The inactive ones used to sit at 10% ink, which reads as
+   text that failed to render rather than as furniture; 55% is quieter than the live
+   one and still a word. */
+.disc-row .t{display:block;font-family:var(--display);font-size:clamp(28px,5vw,68px);font-weight:600;
+  letter-spacing:-.032em;line-height:1;color:var(--txt-55);
+  transition:color 160ms var(--ease-out)}
 .disc-row .t .sub{display:block;font-family:var(--mono);font-size:10px;font-weight:400;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--txt-40);margin-top:14px;
-  opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(4px);
-  transition:opacity 260ms var(--ease-out),clip-path 260ms var(--ease-out),
-             transform 260ms var(--ease-out)}
+  letter-spacing:.24em;text-transform:uppercase;color:var(--txt-40);margin-top:14px}
 .disc-row.is-active .t{color:var(--txt)}
-.disc-row.is-active .t .sub{opacity:1;clip-path:inset(0 0 0 0);transform:none}
 .disc-row.is-active .n{color:var(--blue)}
+@media (hover:hover) and (pointer:fine){ .disc-row:not(.is-active):hover .t{color:var(--txt-70)} }
 
-/* Register bar — travels to the live name, and doubles as the dwell clock
-   while the section is playing itself. Track is the hairline; the <i> is the
-   fill, driven by a Web Animation so the animation IS the timer (no setInterval
-   drift, and pause/resume on scroll-away is one call). Once the visitor takes
-   over, .is-manual inks it solid and it goes back to being pure wayfinding. */
-.disc-reg{position:absolute;left:calc(-1 * clamp(14px,2vw,26px));top:0;width:2px;height:0;
-  background:var(--hairline-2);border-radius:2px;overflow:hidden;
-  transition:transform var(--dur-short) var(--ease-inout);pointer-events:none}
-.disc-reg i{display:block;width:100%;height:100%;background:var(--blue);
-  transform-origin:top center;transform:scaleY(0)}
-.disc-reg.is-manual{background:var(--blue)}
-.disc-reg.is-manual i{transform:scaleY(1)}
-
-/* the panel: one cell, all three cards stacked in it, so the box sizes to the
-   tallest and nothing reflows when the content swaps */
+/* the panel: one cell, all three cards stacked in it, so the column sizes to the
+   tallest and nothing reflows when the plate swaps */
 .disc-panel{position:sticky;top:clamp(96px,15vh,150px)}
-
 .dp-stack{display:grid}
-/* the card carries only the crossfade + blur mask; the y-motion is delegated to
-   the children below, so the two don't smear over each other */
-.dp-card{grid-area:1/1;opacity:0;visibility:hidden;filter:blur(2px);
-  transition:opacity 200ms var(--ease-out),filter 200ms var(--ease-out),
-             visibility 0s linear 200ms}
-.dp-card.is-on{opacity:1;visibility:visible;filter:none;
-  transition:opacity 200ms var(--ease-out),filter 200ms var(--ease-out),visibility 0s}
+/* the switch is a crossfade and nothing else: 180ms, opacity only, no blur, no stagger,
+   so a hover has finished answering before the eye has moved. The visibility delay
+   keeps the outgoing plate clickable for exactly as long as it is visible. */
+.dp-card{grid-area:1/1;opacity:0;visibility:hidden;
+  transition:opacity 180ms var(--ease-out),visibility 0s linear 180ms}
+.dp-card.is-on{opacity:1;visibility:visible;transition:opacity 180ms var(--ease-out),visibility 0s}
 
-/* 50ms stagger down the card — decorative, and it never gates interaction
-   because the link is clickable from the first frame */
-.dp-card .dp-lead,.dp-card .dp-spec > div,.dp-card .dp-go{opacity:0;transform:translateY(6px);
-  transition:opacity 220ms var(--ease-out),transform 220ms var(--ease-out)}
-/* the lead is a heading, so it gets the clip-mask rise the rest of the site uses */
-.dp-card .dp-lead{transform:translateY(12px);clip-path:inset(0 0 100% 0);
-  transition:opacity 380ms var(--ease-out),transform 380ms var(--ease-out),
-             clip-path 380ms var(--ease-out)}
-.dp-card.is-on .dp-lead,
-.dp-card.is-on .dp-spec > div,
-.dp-card.is-on .dp-go{opacity:1;transform:none}
-.dp-card.is-on .dp-lead{clip-path:inset(0 0 0 0);transition-delay:30ms}
-.dp-card.is-on .dp-spec > div:nth-child(1){transition-delay:80ms}
-.dp-card.is-on .dp-spec > div:nth-child(2){transition-delay:130ms}
-.dp-card.is-on .dp-spec > div:nth-child(3){transition-delay:180ms}
-.dp-card.is-on .dp-go{transition-delay:230ms}
-/* No image in this column — the type carries it. The lead answers the 68px
-   names at roughly half their size, which reads as a reply rather than a
-   competing headline, and it rises out of a clip mask like every other
-   heading on the site. Three registers below it: display lead, mono
-   micro-caps, body values — previously every line here was the same 12px,
-   which is what made the column read as a footnote. */
-/* the floor matters: the name clamps to 26-30px on a phone, so a 25px lead
-   would sit level with it. 19px keeps the reply subordinate at every width. */
-.dp-lead{font-family:var(--display);font-size:clamp(19px,2.9vw,38px);font-weight:300;
-  letter-spacing:-.028em;line-height:1.1;color:var(--txt);
-  margin-bottom:clamp(22px,3.2vh,34px);max-width:14ch;text-wrap:balance}
-.dp-spec{border-top:1px solid var(--hairline)}
-.dp-spec > div{display:grid;grid-template-columns:minmax(58px,74px) 1fr;gap:14px;
-  align-items:baseline;padding:10px 0;border-bottom:1px solid var(--hairline)}
-.dp-spec dt{font-family:var(--mono);font-size:9px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--txt-40)}
-.dp-spec dd{font-size:12.5px;line-height:1.5;color:var(--txt-70);margin:0}
-.dp-go{display:inline-flex;align-items:center;gap:10px;margin-top:22px;text-decoration:none;
+/* the plate -- the home strip's construction (poster, then the loop crossfades in over
+   it once frames are actually rendering), in the works page's frame */
+.dp-plate{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--bg-deep);
+  border-radius:14px;border:1px solid var(--hairline);
+  box-shadow:0 1px 2px rgba(29,29,31,.06),0 22px 48px -20px rgba(29,29,31,.34)}
+.dp-tag{position:absolute;left:14px;bottom:13px;z-index:2;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:#fff;
+  background:rgba(20,20,24,.46);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+/* the lead answers the 68px names at a third of their size: a reply, not a rival */
+.dp-lead{font-family:var(--display);font-size:clamp(18px,1.9vw,26px);font-weight:300;
+  letter-spacing:-.022em;line-height:1.22;color:var(--txt);margin:20px 0 0;max-width:24ch;text-wrap:balance}
+.dp-go{display:inline-flex;align-items:center;gap:10px;margin-top:16px;text-decoration:none;
   font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.22em;
   text-transform:uppercase;color:var(--blue)}
 .dp-go .lin{width:22px;height:1.5px;background:currentColor;
   transition:width var(--dur-hover) var(--ease-out)}
 @media (hover:hover) and (pointer:fine){ .dp-go:hover .lin{width:36px} }
 
-/* one column below the split: no hover to drive it, so the active card sits
-   under the list and the scroll observer moves it */
 @media (max-width:900px){
   .disc-stage{grid-template-columns:1fr;gap:clamp(20px,4vh,34px)}
   .disc-panel{position:static}
   .disc-row .t{font-size:clamp(26px,8vw,44px)}
-  .disc-reg{left:calc(-1 * clamp(8px,3vw,14px))}
+}
+@media (prefers-reduced-motion:reduce){
+  .disc-row::after,.disc-row .t,.disc-row .n,.dp-card{transition:none}
 }
 /* ──────────────────────────────────────────────────────────────────
    WORKS — chrome plates
@@ -1763,17 +1731,19 @@ body.on-dark .wordmark .tag{border-left-color:rgba(255,255,255,.25)}
 /* ──────────────────────────────────────────────────────────────────
    DISCIPLINES — STACKED (phone / any coarse pointer)
    mulle.js moves each .dp-card under the name it describes and adds
-   .is-stacked. Everything below undoes the hover-era presentation: full ink
-   on all three names, no register clock, no crossfade stack, no stagger
-   delays — the cards are simply present.
+   .is-stacked. No hover, so nothing to switch: every name at full ink,
+   its plate beneath it at 16:9, its lead and link under that. The plates
+   play through the same in-view observer as the home strip.
    ────────────────────────────────────────────────────────────────── */
 .disc-stage.is-stacked{grid-template-columns:1fr;gap:0}
-.is-stacked .disc-panel,
-.is-stacked .disc-reg{display:none}
-.is-stacked .disc-link{padding-bottom:clamp(12px,2vh,18px)}
-/* all three read as text, not as furniture */
-.is-stacked .disc-row .t{color:var(--txt)}
-.is-stacked .disc-row .t .sub{opacity:1;clip-path:none;transform:none;color:var(--txt-40)}
+.is-stacked .disc-panel{display:none}
+.is-stacked .disc-row::after{display:none}
+.is-stacked .disc-link{padding-bottom:clamp(10px,1.6vh,16px)}
+.is-stacked .disc-row .t,.is-stacked .disc-row .n{color:var(--txt)}
+.is-stacked .disc-row .dp-card{opacity:1;visibility:visible;transition:none;
+  padding:0 0 clamp(22px,3.4vh,32px)}
+.is-stacked .dp-plate{aspect-ratio:16/9;border-radius:12px}
+.is-stacked .dp-lead{margin-top:16px;font-size:clamp(17px,4.6vw,21px)}
 .is-stacked .disc-row .n{color:var(--blue)}
 /* the card is in normal flow now, so drop the stacking-cell and the entrance */
 .is-stacked .dp-card{grid-area:auto;opacity:1;visibility:visible;filter:none;
